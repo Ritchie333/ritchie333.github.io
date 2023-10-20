@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at E87A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59470.html">E84E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59514">Map</a></td>
+<td class="next">
+Next: <a href="59543.html">E897</a>
+</td>
+</tr>
+</table>
+<div class="description">E87A: Copy a graphic onto screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="56302.html">DBEE</a>, <a href="56967.html">DE87</a>, <a href="59470.html">E84E</a> and <a href="61473.html">F021</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of the graphic</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Co-ordinates to place the graphic</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Width</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Height</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59514"></span>E87A</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="2">Put the height in <span class="register">A</span> and store it in the shadow register.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59515"></span>E87B</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59516"></span>E87C</td>
+<td class="instruction">LD C,$08</td>
+<td class="comment-1" rowspan="1">8 rows to draw per UDG cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59518"></span>E87E</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Remember the co-ordinates.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59519"></span>E87F</td>
+<td class="instruction">CALL <a href="59633.html">$E8F1</a></td>
+<td class="comment-1" rowspan="1">Convert this to a screen address in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59522"></span>E882</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Remember the screen address and dimensions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59523"></span>E883</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59524"></span>E884</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Copy the graphic byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59525"></span>E885</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59526"></span>E886</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Move forward a cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59527"></span>E887</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move forward a column in the data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59528"></span>E888</td>
+<td class="instruction">DJNZ $E884</td>
+<td class="comment-1" rowspan="1">Loop back if there are more columns to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59530"></span>E88A</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore the screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59531"></span>E88B</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59532"></span>E88C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the dimensions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59533"></span>E88D</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Move to the next UDG cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59534"></span>E88E</td>
+<td class="instruction">JR NZ,$E882</td>
+<td class="comment-1" rowspan="1">Loop back if there is more to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59536"></span>E890</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore the co-ordinates.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59537"></span>E891</td>
+<td class="instruction">DEC E</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59538"></span>E892</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="2">Restore height left to draw and move down a row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59539"></span>E893</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59540"></span>E894</td>
+<td class="instruction">JR NZ,$E87B</td>
+<td class="comment-1" rowspan="2">Loop back unti all rows are done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59542"></span>E896</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59470.html">E84E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59514">Map</a></td>
+<td class="next">
+Next: <a href="59543.html">E897</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

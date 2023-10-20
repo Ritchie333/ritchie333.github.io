@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Game status buffer entry at C596</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50510.html">C54E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50582">Map</a></td>
+<td class="next">
+Next: <a href="50722.html">C622</a>
+</td>
+</tr>
+</table>
+<div class="description">C596: Nasty data</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Each entry contains : <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Offset</th>
+<th colspan="1" rowspan="1">Value</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">Status flag. 0 = two directions, 1 - ???, 2 = one direction, 3 = invisible</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01 - 02</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (up)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">03 - 04</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (down)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">05 - 06</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (left)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07 - 08</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (right)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">09</td>
+<td class="" colspan="1" rowspan="1">Attribute</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0A</td>
+<td class="" colspan="1" rowspan="1">Index of this nasty in the table</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0B</td>
+<td class="" colspan="1" rowspan="1">Current direction (0 - up, 1 - down, 2 - left, 3 - right)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0C</td>
+<td class="" colspan="1" rowspan="1">Current X co-ordinate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0D</td>
+<td class="" colspan="1" rowspan="1">Current Y co-ordinate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0E</td>
+<td class="" colspan="1" rowspan="1">Width or height of path covered</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0F</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">10</td>
+<td class="" colspan="1" rowspan="1">Current distance before changing direction</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">11</td>
+<td class="" colspan="1" rowspan="1">Speed ( 0 - static, 1 - slow, 2 - fast )</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">12</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">13</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50582"></span>C596</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50602"></span>C5AA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50622"></span>C5BE</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50642"></span>C5D2</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50662"></span>C5E6</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50682"></span>C5FA</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50702"></span>C60E</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50510.html">C54E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50582">Map</a></td>
+<td class="next">
+Next: <a href="50722.html">C622</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

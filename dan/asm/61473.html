@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at F021</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61472.html">F020</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61473">Map</a></td>
+<td class="next">
+Next: <a href="61522.html">F052</a>
+</td>
+</tr>
+</table>
+<div class="description">F021: Animate Dan dying having been shot on the "game over" screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52691.html">CDD3</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61473"></span>F021</td>
+<td class="instruction">LD HL,$F020</td>
+<td class="comment-1" rowspan="1">Get the current animation flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61476"></span>F024</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61477"></span>F025</td>
+<td class="instruction">JR NZ,$F02B</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61479"></span>F027</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="1">Start at index 8.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61481"></span>F029</td>
+<td class="instruction">JR $F03B</td>
+<td class="comment-1" rowspan="1">Jump foward.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61483"></span>F02B</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="1">Is the index 80 or above?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61485"></span>F02D</td>
+<td class="instruction">JR NZ,$F033</td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61487"></span>F02F</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Otherwise reset the index to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61488"></span>F030</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61489"></span>F031</td>
+<td class="instruction">JR $F03B</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61491"></span>
+<div class="comments">
+<div class="paragraph">
+Go to the next index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61491"></span>F033</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Increment the index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61492"></span>F034</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Is it above 9?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61493"></span>F035</td>
+<td class="instruction">CP $09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61495"></span>F037</td>
+<td class="instruction">JR C,$F03B</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61497"></span>F039</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="1">Otherwise initialise it to 8.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61499"></span>
+<div class="comments">
+<div class="paragraph">
+Now draw the graphic
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61499"></span>F03B</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double the index to get a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61500"></span>F03C</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="2">Put the address in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61501"></span>F03D</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61503"></span>F03F</td>
+<td class="instruction">LD HL,$F052</td>
+<td class="comment-1" rowspan="2">Add the base offset to the dying graphic table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61506"></span>F042</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61507"></span>F043</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Put the actual address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61508"></span>F044</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61509"></span>F045</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61510"></span>F046</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61511"></span>F047</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="2">Put the width in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61512"></span>F048</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61513"></span>F049</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="2">Put the depth in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61514"></span>F04A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61515"></span>F04B</td>
+<td class="instruction">LD DE,$1B0B</td>
+<td class="comment-1" rowspan="1">Position is always 0B , 1B.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61518"></span>F04E</td>
+<td class="instruction">CALL <a href="59514.html">$E87A</a></td>
+<td class="comment-1" rowspan="2">Put the graphic on screen and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61521"></span>F051</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61472.html">F020</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61473">Map</a></td>
+<td class="next">
+Next: <a href="61522.html">F052</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

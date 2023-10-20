@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F6FD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63142.html">F6A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63229">Map</a></td>
+<td class="next">
+Next: <a href="63258.html">F71A</a>
+</td>
+</tr>
+</table>
+<div class="description">F6FD: Erase a wall from the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the entry point at <a href="63258.html">F71A</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Y co-ordinate</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">Number of rows</td>
+</tr>
+<tr>
+<td class="register">IY</td>
+<td class="register-desc">Pointer to the store of static characters</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63229"></span>F6FD</td>
+<td class="instruction">LD A,$BF</td>
+<td class="comment-1" rowspan="2">Subtract the Y co-ordinate from the screen height.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63231"></span>F6FF</td>
+<td class="instruction">SUB H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63232"></span>F700</td>
+<td class="instruction">LD B,L</td>
+<td class="comment-1" rowspan="3">Put this in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63233"></span>F701</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63234"></span>F702</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63236"></span>F704</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="2">Multiply this by 4 to get an attribute of an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63237"></span>F705</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63238"></span>F706</td>
+<td class="instruction">LD DE,$5800</td>
+<td class="comment-1" rowspan="2">Add the base address of attributes to get the right address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63241"></span>F709</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63242"></span>F70A</td>
+<td class="instruction">LD E,B</td>
+<td class="comment-1" rowspan="3">Add the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63243"></span>F70B</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63245"></span>F70D</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63246"></span>F70E</td>
+<td class="instruction">LD DE,$0020</td>
+<td class="comment-1" rowspan="1">Increase by 32 characters for each row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63249"></span>F711</td>
+<td class="instruction">LD B,C</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63250"></span>F712</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Get the attribute for character 0 (empty space).</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63253"></span>F715</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set it on screen here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63254"></span>F716</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63255"></span>F717</td>
+<td class="instruction">DJNZ $F715</td>
+<td class="comment-1" rowspan="2">Repeat for the number of rows until done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63257"></span>F719</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63142.html">F6A6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63229">Map</a></td>
+<td class="next">
+Next: <a href="63258.html">F71A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

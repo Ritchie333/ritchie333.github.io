@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8D7F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36221.html">8D7D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36223">Map</a></td>
+<td class="next">
+Next: <a href="36301.html">8DCD</a>
+</td>
+</tr>
+</table>
+<div class="description">8D7F: Play death tune</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37998.html">946E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36223"></span>8D7F</td>
+<td class="instruction">LD HL,$FFE0</td>
+<td class="comment-1" rowspan="1"><a href="65504.html">FFE0</a> is the "dead Monty" graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36226"></span>8D82</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36229"></span>8D85</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36232"></span>8D88</td>
+<td class="instruction">LD ($ECDE),HL</td>
+<td class="comment-1" rowspan="1">Store this as the place to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36235"></span>8D8B</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Print the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36238"></span>8D8E</td>
+<td class="instruction">LD HL,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36241"></span>8D91</td>
+<td class="instruction">LD ($9177),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36244"></span>8D94</td>
+<td class="instruction">CALL <a href="53844.html">$D254</a></td>
+<td class="comment-1" rowspan="1">Copy the screen to the graphic buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36247"></span>8D97</td>
+<td class="instruction">LD IX,$8D52</td>
+<td class="comment-1" rowspan="2">Set Monty as being in mid-air.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36251"></span>8D9B</td>
+<td class="instruction">SET 1,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36255"></span>8D9F</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="1">Enable interrupts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36256"></span>8DA0</td>
+<td class="instruction">LD IX,$5C7D</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with the start of the death tune.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36260"></span>8DA4</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Remember this, as the ROM routine overwrites it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36262"></span>8DA6</td>
+<td class="instruction">LD E,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36265"></span>8DA9</td>
+<td class="instruction">LD D,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36268"></span>8DAC</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="2">Put the frequency in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36271"></span>8DAF</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36274"></span>8DB2</td>
+<td class="instruction">CALL $03B6</td>
+<td class="comment-1" rowspan="1">BEEP without enabling interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36277"></span>8DB5</td>
+<td class="instruction">LD B,$FF</td>
+<td class="comment-1" rowspan="2">Pause between notes.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36279"></span>8DB7</td>
+<td class="instruction">DJNZ $8DB7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36281"></span>8DB9</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore IX.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36283"></span>8DBB</td>
+<td class="instruction">LD A,($9179)</td>
+<td class="comment-1" rowspan="1">Get the current frame number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36286"></span>8DBE</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it #$FF, meaning the angel has gone?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36288"></span>8DC0</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36289"></span>8DC1</td>
+<td class="instruction">LD DE,$0004</td>
+<td class="comment-1" rowspan="2">Move forward to the next bit of tune data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36292"></span>8DC4</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36294"></span>8DC6</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Is the length 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36295"></span>8DC7</td>
+<td class="instruction">OR (IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36298"></span>8DCA</td>
+<td class="instruction">JR NZ,$8DA4</td>
+<td class="comment-1" rowspan="1">If not, move back to play more of the tune.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36300"></span>8DCC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36221.html">8D7D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36223">Map</a></td>
+<td class="next">
+Next: <a href="36301.html">8DCD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

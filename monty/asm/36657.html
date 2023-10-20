@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8F31</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36573.html">8EDD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36657">Map</a></td>
+<td class="next">
+Next: <a href="36767.html">8F9F</a>
+</td>
+</tr>
+</table>
+<div class="description">8F31: Update the moving platforms</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63431.html">F7C7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36657"></span>8F31</td>
+<td class="instruction">LD IY,$C622</td>
+<td class="comment-1" rowspan="1">Set <span class="register">IY</span> to the moving platforms data (<a href="50722.html">C622</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36661"></span>8F35</td>
+<td class="instruction">BIT 7,(IY+$06)</td>
+<td class="comment-1" rowspan="1">Are the platforms moving outward?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36665"></span>8F39</td>
+<td class="instruction">JR NZ,$8F6D</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36667"></span>
+<div class="comments">
+<div class="paragraph">
+The platforms are moving inward.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36667"></span>8F3B</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="2">Are the X and Y co-ordinates both zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36670"></span>8F3E</td>
+<td class="instruction">OR (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36673"></span>8F41</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">If so, there are no moving platforms here, so return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36674"></span>8F42</td>
+<td class="instruction">LD HL,$B600</td>
+<td class="comment-1" rowspan="1">This is the code for NOP; OR (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36677"></span>8F45</td>
+<td class="instruction">LD ($90A4),HL</td>
+<td class="comment-1" rowspan="1">Set this to the drawing routine at <a href="37027.html">90A3</a> to draw inwards.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36680"></span>8F48</td>
+<td class="instruction">LD A,(IY+$03)</td>
+<td class="comment-1" rowspan="2">Has the platform reached the middle?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36683"></span>8F4B</td>
+<td class="instruction">CP (IY+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36686"></span>8F4E</td>
+<td class="instruction">JR NZ,$8F60</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36688"></span>8F50</td>
+<td class="instruction">LD A,$80</td>
+<td class="comment-1" rowspan="3">Swap the direction from inward to outward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36690"></span>8F52</td>
+<td class="instruction">XOR (IY+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36693"></span>8F55</td>
+<td class="instruction">LD (IY+$06),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36696"></span>8F58</td>
+<td class="instruction">INC (IY+$00)</td>
+<td class="comment-1" rowspan="2">Move the left platform in and the right platform out.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36699"></span>8F5B</td>
+<td class="instruction">DEC (IY+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36702"></span>8F5E</td>
+<td class="instruction">JR $8F6D</td>
+<td class="comment-1" rowspan="1">Jump to move outward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36704"></span>
+<div class="comments">
+<div class="paragraph">
+The platforms are moving inward and have not reached the edge.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36704"></span>8F60</td>
+<td class="instruction">INC (IY+$00)</td>
+<td class="comment-1" rowspan="1">Move the left platform to the right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36707"></span>8F63</td>
+<td class="instruction">CALL <a href="36946.html">$9052</a></td>
+<td class="comment-1" rowspan="1">Draw the left platform.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36710"></span>8F66</td>
+<td class="instruction">DEC (IY+$04)</td>
+<td class="comment-1" rowspan="1">Move the right platform to the left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36713"></span>8F69</td>
+<td class="instruction">CALL <a href="36946.html#36952">$9058</a></td>
+<td class="comment-1" rowspan="1">Draw the right platform.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36716"></span>8F6C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Add done.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36717"></span>
+<div class="comments">
+<div class="paragraph">
+The platforms are moving outward.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36717"></span>8F6D</td>
+<td class="instruction">LD A,(IY+$04)</td>
+<td class="comment-1" rowspan="2">Are the X and Y co-ordinates both zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36720"></span>8F70</td>
+<td class="instruction">OR (IY+$05)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36723"></span>8F73</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">If so, there are no moving platforms here, so return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36724"></span>8F74</td>
+<td class="instruction">LD HL,$A62F</td>
+<td class="comment-1" rowspan="1">This is the code for LD A,C; CPL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36727"></span>8F77</td>
+<td class="instruction">LD ($90A4),HL</td>
+<td class="comment-1" rowspan="1">Set this to the drawing routine at <a href="37027.html">90A3</a> to draw outwards.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36730"></span>8F7A</td>
+<td class="instruction">LD A,(IY+$02)</td>
+<td class="comment-1" rowspan="2">Has the platform reached the left edge?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36733"></span>8F7D</td>
+<td class="instruction">CP (IY+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36736"></span>8F80</td>
+<td class="instruction">JR NZ,$8F92</td>
+<td class="comment-1" rowspan="1">No, so move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36738"></span>8F82</td>
+<td class="instruction">LD A,$80</td>
+<td class="comment-1" rowspan="3">Swap the direction from outward to inward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36740"></span>8F84</td>
+<td class="instruction">XOR (IY+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36743"></span>8F87</td>
+<td class="instruction">LD (IY+$06),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36746"></span>8F8A</td>
+<td class="instruction">DEC (IY+$00)</td>
+<td class="comment-1" rowspan="2">Move the left platform out and the right platform in.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36749"></span>8F8D</td>
+<td class="instruction">INC (IY+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36752"></span>8F90</td>
+<td class="instruction">JR $8F3B</td>
+<td class="comment-1" rowspan="1">Jump to move inward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36754"></span>
+<div class="comments">
+<div class="paragraph">
+The platforms are moving outward and have not reached the edge.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36754"></span>8F92</td>
+<td class="instruction">DEC (IY+$00)</td>
+<td class="comment-1" rowspan="1">Shift the left platform out.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36757"></span>8F95</td>
+<td class="instruction">CALL <a href="36946.html">$9052</a></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36760"></span>8F98</td>
+<td class="instruction">INC (IY+$04)</td>
+<td class="comment-1" rowspan="1">Shift the right platform in.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36763"></span>8F9B</td>
+<td class="instruction">CALL <a href="36946.html#36952">$9058</a></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36766"></span>8F9E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36573.html">8EDD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36657">Map</a></td>
+<td class="next">
+Next: <a href="36767.html">8F9F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

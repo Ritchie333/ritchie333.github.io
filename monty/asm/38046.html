@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 949E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37998.html">946E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38046">Map</a></td>
+<td class="next">
+Next: <a href="38070.html">94B6</a>
+</td>
+</tr>
+</table>
+<div class="description">949E: Print the number of lives on the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37998.html">946E</a>, <a href="38225.html">9551</a> and <a href="52545.html">CD41</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38046"></span>949E</td>
+<td class="instruction">LD A,($964A)</td>
+<td class="comment-1" rowspan="1">Get the number of lives.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38049"></span>94A1</td>
+<td class="instruction">ADD A,$1B</td>
+<td class="comment-1" rowspan="1">Convert this to an offset into the character set at <a href="33083.html">813B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38051"></span>94A3</td>
+<td class="instruction">SET 7,A</td>
+<td class="comment-1" rowspan="1">Set bit 7 to make the string printing routine terminate after this character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38053"></span>94A5</td>
+<td class="instruction">LD ($94C2),A</td>
+<td class="comment-1" rowspan="1">Store this printable value at the end of the string text.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38056"></span>94A8</td>
+<td class="instruction">LD IX,$94B6</td>
+<td class="comment-1" rowspan="1">Point IX to the string position and data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38060"></span>94AC</td>
+<td class="instruction">LD IY,$94BB</td>
+<td class="comment-1" rowspan="1">Point IY to the string text</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38064"></span>94B0</td>
+<td class="instruction">LD B,$01</td>
+<td class="comment-1" rowspan="1">Set to print one row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38066"></span>94B2</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Make sure the stack returns from the string printing routine correctly.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38067"></span>94B3</td>
+<td class="instruction">JP <a href="32914.html#32925">$809D</a></td>
+<td class="comment-1" rowspan="1">Print the string.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37998.html">946E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38046">Map</a></td>
+<td class="next">
+Next: <a href="38070.html">94B6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

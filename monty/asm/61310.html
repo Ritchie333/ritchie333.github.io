@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at EF7E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61308.html">EF7C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61310">Map</a></td>
+<td class="next">
+Next: <a href="61373.html">EFBD</a>
+</td>
+</tr>
+</table>
+<div class="description">EF7E: Set up graphics for the start room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52545.html">CD41</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Pointer to start room data (<a href="61771.html">F14B</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61310"></span>EF7E</td>
+<td class="instruction">LD ($F041),HL</td>
+<td class="comment-1" rowspan="1">Store the pointer to start room data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61313"></span>EF81</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Get the address from this and put it in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61314"></span>EF82</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61315"></span>EF83</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61316"></span>EF84</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61317"></span>EF85</td>
+<td class="instruction">LD ($F043),HL</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61320"></span>EF88</td>
+<td class="instruction">LD HL,($F041)</td>
+<td class="comment-1" rowspan="1">Get the data pointer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61323"></span>EF8B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Go to the next address, which has the UDGs.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61324"></span>EF8C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61325"></span>EF8D</td>
+<td class="instruction">LD ($F041),HL</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61328"></span>EF90</td>
+<td class="instruction">LD D,$02</td>
+<td class="comment-1" rowspan="2">Start at row 2 column 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61330"></span>EF92</td>
+<td class="instruction">LD E,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61332"></span>EF94</td>
+<td class="instruction">LD ($F045),DE</td>
+<td class="comment-1" rowspan="1">Set this as the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61336"></span>EF98</td>
+<td class="instruction">LD B,$14</td>
+<td class="comment-1" rowspan="1">14 rows</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61338"></span>EF9A</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61339"></span>EF9B</td>
+<td class="instruction">LD B,$1C</td>
+<td class="comment-1" rowspan="1">1C columns</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61341"></span>EF9D</td>
+<td class="instruction">LD DE,($F045)</td>
+<td class="comment-1" rowspan="1">Get the next position.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61345"></span>EFA1</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61346"></span>EFA2</td>
+<td class="instruction">LD HL,($F041)</td>
+<td class="comment-1" rowspan="1">Get the next data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61349"></span>EFA5</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61350"></span>EFA6</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next address and store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61351"></span>EFA7</td>
+<td class="instruction">LD ($F041),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61354"></span>EFAA</td>
+<td class="instruction">CALL <a href="61373.html">$EFBD</a></td>
+<td class="comment-1" rowspan="1">Print the graphic</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61357"></span>EFAD</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Loop until all the columns for this row are done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61358"></span>EFAE</td>
+<td class="instruction">DJNZ $EFA1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61360"></span>EFB0</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61361"></span>EFB1</td>
+<td class="instruction">LD DE,($F045)</td>
+<td class="comment-1" rowspan="3">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61365"></span>EFB5</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61366"></span>EFB6</td>
+<td class="instruction">LD ($F045),DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61370"></span>EFBA</td>
+<td class="instruction">DJNZ $EF9A</td>
+<td class="comment-1" rowspan="2">Loop until all the rows are done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61372"></span>EFBC</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61308.html">EF7C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61310">Map</a></td>
+<td class="next">
+Next: <a href="61373.html">EFBD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

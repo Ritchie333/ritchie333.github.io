@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 9568</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38225.html">9551</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38248">Map</a></td>
+<td class="next">
+Next: <a href="38318.html">95AE</a>
+</td>
+</tr>
+</table>
+<div class="description">9568: Pick up an item</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37502.html">927E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38248"></span>9568</td>
+<td class="instruction">LD DE,$0031</td>
+<td class="comment-1" rowspan="3">BEEP without disabling interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38251"></span>956B</td>
+<td class="instruction">LD HL,$0376</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38254"></span>956E</td>
+<td class="instruction">CALL $03B6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38257"></span>9571</td>
+<td class="instruction">LD HL,($C524)</td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in <span class="register">L</span> and the Y co-ordinate in <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38260"></span>9574</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-1" rowspan="1">Remember the X co-ordinate in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38261"></span>9575</td>
+<td class="instruction">LD L,H</td>
+<td class="comment-1" rowspan="3">Convert the Y co-ordinate to a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38262"></span>9576</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38264"></span>9578</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38265"></span>9579</td>
+<td class="instruction">LD DE,$EA60</td>
+<td class="comment-1" rowspan="2">Add this to get a pointer in the screen offset buffer (<a href="60000.html">EA60</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38268"></span>957C</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38269"></span>957D</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38270"></span>957E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Get the screen address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38271"></span>957F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38272"></span>9580</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38273"></span>9581</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38274"></span>9582</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Restore the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38275"></span>9583</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="3">Divide by 8 to get an offset from a screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38276"></span>9584</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38277"></span>9585</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38278"></span>9586</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Remember this offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38279"></span>9587</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="3">Combine the screen address with the offset to get the right position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38281"></span>9589</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38282"></span>958A</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38283"></span>958B</td>
+<td class="instruction">LD DE,$9260</td>
+<td class="comment-1" rowspan="2">Convert up to put the graphic in the buffer at <a href="53856.html">D260</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38286"></span>958E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38287"></span>
+<div class="comments">
+<div class="paragraph">
+The appropriate location of the item was found, now blank it out.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38287"></span>958F</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1">8 lines.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38289"></span>9591</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="4">Blank the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38291"></span>9593</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38292"></span>9594</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38294"></span>9596</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38295"></span>9597</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Next line on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38296"></span>9598</td>
+<td class="instruction">DJNZ $9591</td>
+<td class="comment-1" rowspan="1">Loop until all lines are done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38298"></span>959A</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore the screen offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38299"></span>959B</td>
+<td class="instruction">LD DE,$FFF0</td>
+<td class="comment-1" rowspan="2">Move back a line.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38302"></span>959E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38303"></span>959F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Get the screen address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38304"></span>95A0</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38305"></span>95A1</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38306"></span>95A2</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38307"></span>95A3</td>
+<td class="instruction">LD E,C</td>
+<td class="comment-1" rowspan="3">Restore the offset and add it to get the right position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38308"></span>95A4</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38310"></span>95A6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38311"></span>95A7</td>
+<td class="instruction">LD DE,$9260</td>
+<td class="comment-1" rowspan="2">Convert this to an offset in the screen buffer at <a href="53856.html">D260</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38314"></span>95AA</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38315"></span>95AB</td>
+<td class="instruction">JP <a href="38541.html">$968D</a></td>
+<td class="comment-1" rowspan="1">Jump forward to clear the second line of the item.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38225.html">9551</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38248">Map</a></td>
+<td class="next">
+Next: <a href="38318.html">95AE</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

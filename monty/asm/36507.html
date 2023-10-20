@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8E9B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36506.html">8E9A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36507">Map</a></td>
+<td class="next">
+Next: <a href="36573.html">8EDD</a>
+</td>
+</tr>
+</table>
+<div class="description">8E9B: Set the attributes for a crusher</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="36301.html">8DCD</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36507"></span>8E9B</td>
+<td class="instruction">LD IY,$C527</td>
+<td class="comment-1" rowspan="2">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36511"></span>8E9F</td>
+<td class="instruction">LD A,(IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36514"></span>8EA2</td>
+<td class="instruction">SUB $08</td>
+<td class="comment-1" rowspan="11">Convert this into a screen address and put it in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36516"></span>8EA4</td>
+<td class="instruction">AND $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36518"></span>8EA6</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36519"></span>8EA7</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36520"></span>8EA8</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36521"></span>8EA9</td>
+<td class="instruction">LD B,$18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36523"></span>8EAB</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36524"></span>8EAC</td>
+<td class="instruction">NEG</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36526"></span>8EAE</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36527"></span>8EAF</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36528"></span>8EB0</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36530"></span>8EB2</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="5">Multiply by 16 to get an appropriate offset in the attribute buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36531"></span>8EB3</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36532"></span>8EB4</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36533"></span>8EB5</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36534"></span>8EB6</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36535"></span>8EB7</td>
+<td class="instruction">LD DE,$5800</td>
+<td class="comment-1" rowspan="2">Add the base offset of the attribute buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36538"></span>8EBA</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36539"></span>8EBB</td>
+<td class="instruction">LD E,(IY+$00)</td>
+<td class="comment-1" rowspan="2">Put the X co-ordinate in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36542"></span>8EBE</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36544"></span>8EC0</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add this to get the correct attribute address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36545"></span>8EC1</td>
+<td class="instruction">BIT 0,(IY+$04)</td>
+<td class="comment-1" rowspan="1">Is the crusher ascending?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36549"></span>8EC5</td>
+<td class="instruction">JR Z,$8ED0</td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36551"></span>8EC7</td>
+<td class="instruction">SET 6,(HL)</td>
+<td class="comment-1" rowspan="5">Turn on the brightness bit for the three colums in this row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36553"></span>8EC9</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36554"></span>8ECA</td>
+<td class="instruction">RES 6,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36556"></span>8ECC</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36557"></span>8ECD</td>
+<td class="instruction">RES 6,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36559"></span>8ECF</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36560"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher is ascending, turn off the brightness.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36560"></span>8ED0</td>
+<td class="instruction">LD DE,$0020</td>
+<td class="comment-1" rowspan="2">Move up a row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36563"></span>8ED3</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36564"></span>8ED4</td>
+<td class="instruction">SET 6,(HL)</td>
+<td class="comment-1" rowspan="5">Turn off the brightness bits.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36566"></span>8ED6</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36567"></span>8ED7</td>
+<td class="instruction">SET 6,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36569"></span>8ED9</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36570"></span>8EDA</td>
+<td class="instruction">SET 6,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36572"></span>8EDC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36506.html">8E9A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36507">Map</a></td>
+<td class="next">
+Next: <a href="36573.html">8EDD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

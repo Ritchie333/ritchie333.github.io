@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at EF6B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61230.html">EF2E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61291">Map</a></td>
+<td class="next">
+Next: <a href="61303.html">EF77</a>
+</td>
+</tr>
+</table>
+<div class="description">EF6B: Initialize smoke animation in the start room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="61230.html">EF2E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61291"></span>EF6B</td>
+<td class="instruction">LD HL,$ED4E</td>
+<td class="comment-1" rowspan="2">Point to the first frame of the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61294"></span>EF6E</td>
+<td class="instruction">LD ($EF77),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61297"></span>EF71</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="2">Set the frame counter to the first one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61299"></span>EF73</td>
+<td class="instruction">LD ($EF79),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61302"></span>EF76</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61230.html">EF2E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61291">Map</a></td>
+<td class="next">
+Next: <a href="61303.html">EF77</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

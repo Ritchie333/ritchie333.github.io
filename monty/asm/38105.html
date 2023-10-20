@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 94D9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38083.html">94C3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38105">Map</a></td>
+<td class="next">
+Next: <a href="38191.html">952F</a>
+</td>
+</tr>
+</table>
+<div class="description">94D9: Move into a new room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38105"></span>94D9</td>
+<td class="instruction">LD IX,$8D52</td>
+<td class="comment-1" rowspan="2">Reset bit 3 in the room flags (<a href="36178.html">8D52</a>), so touching any nasty is fatal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38109"></span>94DD</td>
+<td class="instruction">RES 3,(IX+$00)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38113"></span>
+<div class="comments">
+<div class="paragraph">
+Test for moving left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38113"></span>94E1</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="2">Is the X co-ordinate (<a href="23675.html">5C7B</a>) far left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38116"></span>94E4</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38117"></span>94E5</td>
+<td class="instruction">JR NZ,$94F6</td>
+<td class="comment-1" rowspan="1">Jump forward if not. Moving left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38119"></span>94E7</td>
+<td class="instruction">LD HL,$C522</td>
+<td class="comment-1" rowspan="2">Get the next room to the left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38122"></span>94EA</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38123"></span>94EB</td>
+<td class="instruction">LD ($9649),A</td>
+<td class="comment-1" rowspan="1">Make this the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38126"></span>94EE</td>
+<td class="instruction">LD A,$EE</td>
+<td class="comment-1" rowspan="2">Set the position to the far right.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38128"></span>94F0</td>
+<td class="instruction">LD ($5C7B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38131"></span>94F3</td>
+<td class="instruction">JP $9526</td>
+<td class="comment-1" rowspan="1">Jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38134"></span>
+<div class="comments">
+<div class="paragraph">
+Test for moving right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38134"></span>94F6</td>
+<td class="instruction">CP $F0</td>
+<td class="comment-1" rowspan="1">Is the X co-ordinate far right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38136"></span>94F8</td>
+<td class="instruction">JR NZ,$9505</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38138"></span>
+<div class="comments">
+<div class="paragraph">
+Moving right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38138"></span>94FA</td>
+<td class="instruction">LD HL,$C523</td>
+<td class="comment-1" rowspan="2">Get the next room to the right.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38141"></span>94FD</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38142"></span>94FE</td>
+<td class="instruction">LD ($9649),A</td>
+<td class="comment-1" rowspan="1">Make this the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38145"></span>9501</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Make the position the far left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38147"></span>9503</td>
+<td class="instruction">JR $94F0</td>
+<td class="comment-1" rowspan="1">Jump back to set this.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38149"></span>
+<div class="comments">
+<div class="paragraph">
+Test for moving up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38149"></span>9505</td>
+<td class="instruction">LD A,($5C7C)</td>
+<td class="comment-1" rowspan="2">Is the Y co-ordinate (<a href="23676.html">5C7C</a>) at the top?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38152"></span>9508</td>
+<td class="instruction">CP $AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38154"></span>950A</td>
+<td class="instruction">JR C,$951B</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38156"></span>
+<div class="comments">
+<div class="paragraph">
+Moving up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38156"></span>950C</td>
+<td class="instruction">LD HL,$C520</td>
+<td class="comment-1" rowspan="2">Get the next room up.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38159"></span>950F</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38160"></span>9510</td>
+<td class="instruction">LD ($9649),A</td>
+<td class="comment-1" rowspan="1">Make this the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38163"></span>9513</td>
+<td class="instruction">LD A,$23</td>
+<td class="comment-1" rowspan="2">Set the position to the bottom.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38165"></span>9515</td>
+<td class="instruction">LD ($5C7C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38168"></span>9518</td>
+<td class="instruction">JP $9526</td>
+<td class="comment-1" rowspan="1">Jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38171"></span>
+<div class="comments">
+<div class="paragraph">
+If the next room is not left, right or up, it must be down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38171"></span>951B</td>
+<td class="instruction">LD HL,$C521</td>
+<td class="comment-1" rowspan="2">Get the next room down.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38174"></span>951E</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38175"></span>951F</td>
+<td class="instruction">LD ($9649),A</td>
+<td class="comment-1" rowspan="1">Make this the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38178"></span>9522</td>
+<td class="instruction">LD A,$AD</td>
+<td class="comment-1" rowspan="1">Make the position the top.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38180"></span>9524</td>
+<td class="instruction">JR $9515</td>
+<td class="comment-1" rowspan="1">Jump back to set this.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38182"></span>9526</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="2">Make the new position (<a href="23675.html">5C7B</a>, <a href="23676.html">5C7C</a>) the one to reset back to if a life is lost (<a href="38475.html">964B</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38185"></span>9529</td>
+<td class="instruction">LD ($964B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38188"></span>952C</td>
+<td class="instruction">JP <a href="37900.html">$940C</a></td>
+<td class="comment-1" rowspan="1">Enter the new room.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38083.html">94C3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38105">Map</a></td>
+<td class="next">
+Next: <a href="38191.html">952F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

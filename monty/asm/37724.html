@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 935C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37671.html">9327</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37724">Map</a></td>
+<td class="next">
+Next: <a href="37900.html">940C</a>
+</td>
+</tr>
+</table>
+<div class="description">935C: Check to see if Monty has moved near any coal, and if so, pick it up</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37724"></span>935C</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37727"></span>935F</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37730"></span>9362</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37732"></span>9364</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="4">Get the current X position plus 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37735"></span>9367</td>
+<td class="instruction">LD A,$07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37737"></span>9369</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37738"></span>936A</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37739"></span>936B</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37742"></span>936E</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37744"></span>9370</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="4">Get the current X position plus 0F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37747"></span>9373</td>
+<td class="instruction">LD A,$0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37749"></span>9375</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37750"></span>9376</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37751"></span>9377</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37754"></span>937A</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37756"></span>937C</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="4">Get the current Y position minus 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37759"></span>937F</td>
+<td class="instruction">LD A,$F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37761"></span>9381</td>
+<td class="instruction">ADD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37762"></span>9382</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37763"></span>9383</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37766"></span>9386</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37768"></span>9388</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="4">Get the current X position plus 0F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37771"></span>938B</td>
+<td class="instruction">LD A,$0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37773"></span>938D</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37774"></span>938E</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37775"></span>938F</td>
+<td class="instruction">LD A,$F8</td>
+<td class="comment-1" rowspan="3">Get the current Y position minus 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37777"></span>9391</td>
+<td class="instruction">ADD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37778"></span>9392</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37779"></span>9393</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37782"></span>9396</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37784"></span>9398</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="4">Get the current Y position minus 15.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37787"></span>939B</td>
+<td class="instruction">LD A,$F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37789"></span>939D</td>
+<td class="instruction">ADD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37790"></span>939E</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37791"></span>939F</td>
+<td class="instruction">LD ($9647),HL</td>
+<td class="comment-1" rowspan="1">Store this temporarily.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37794"></span>93A2</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37797"></span>93A5</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37799"></span>93A7</td>
+<td class="instruction">LD HL,($9647)</td>
+<td class="comment-1" rowspan="1">Restore the previously cached position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37802"></span>93AA</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="3">Add 8 to the X position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37804"></span>93AC</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37805"></span>93AD</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37806"></span>93AE</td>
+<td class="instruction">LD ($9647),HL</td>
+<td class="comment-1" rowspan="1">Cache this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37809"></span>93B1</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37812"></span>93B4</td>
+<td class="instruction">JR NZ,$93C1</td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37814"></span>93B6</td>
+<td class="instruction">LD HL,($9647)</td>
+<td class="comment-1" rowspan="1">Restore the previously cached position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37817"></span>93B9</td>
+<td class="instruction">LD A,$07</td>
+<td class="comment-1" rowspan="3">Add 7 to the X position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37819"></span>93BB</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37820"></span>93BC</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37821"></span>93BD</td>
+<td class="instruction">CALL <a href="37464.html">$9258</a></td>
+<td class="comment-1" rowspan="1">Is there any coal here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37824"></span>93C0</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">No, so there's nothing near.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37825"></span>
+<div class="comments">
+<div class="paragraph">
+At this point, Monty has walked near enough some coal to be able to pick it up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37825"></span>93C1</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1">Set that there's no coal here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37827"></span>93C3</td>
+<td class="instruction">LD DE,$88AC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37830"></span>93C6</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37831"></span>93C7</td>
+<td class="instruction">LD A,($C54E)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37834"></span>93CA</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37835"></span>93CB</td>
+<td class="instruction">LD ($9647),BC</td>
+<td class="comment-1" rowspan="1">Put the found screen position for the coal in <a href="38471.html">9647</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37839"></span>93CF</td>
+<td class="instruction">LD DE,$0031</td>
+<td class="comment-1" rowspan="3">Make a beep using the ROM routine, but skip the first instruction so that interrupts remain enabled.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37842"></span>93D2</td>
+<td class="instruction">LD HL,$0376</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37845"></span>93D5</td>
+<td class="instruction">CALL $03B6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37848"></span>93D8</td>
+<td class="instruction">LD IX,$C53F</td>
+<td class="comment-1" rowspan="1"><a href="50495.html">C53F</a> holds coal positions in the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37852"></span>93DC</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="1">5 positions to check.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37854"></span>93DE</td>
+<td class="instruction">LD A,($9647)</td>
+<td class="comment-1" rowspan="1">Get the found X position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37857"></span>93E1</td>
+<td class="instruction">CP (IX+$01)</td>
+<td class="comment-1" rowspan="1">Is it this one?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37860"></span>93E4</td>
+<td class="instruction">JR Z,$93ED</td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37862"></span>93E6</td>
+<td class="instruction">LD DE,$0003</td>
+<td class="comment-1" rowspan="3">Look at the next coal position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37865"></span>93E9</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37867"></span>93EB</td>
+<td class="instruction">DJNZ $93DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37869"></span>93ED</td>
+<td class="instruction">LD A,($9648)</td>
+<td class="comment-1" rowspan="1">Get the found Y position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37872"></span>93F0</td>
+<td class="instruction">CP (IX+$02)</td>
+<td class="comment-1" rowspan="1">Is it this one?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37875"></span>93F3</td>
+<td class="instruction">JR NZ,$93E6</td>
+<td class="comment-1" rowspan="1">Loop back if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37877"></span>
+<div class="comments">
+<div class="paragraph">
+Found the necessary entry for coal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37877"></span>93F5</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37879"></span>93F7</td>
+<td class="instruction">LD E,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the coal index in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37882"></span>93FA</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37884"></span>93FC</td>
+<td class="instruction">LD HL,$964D</td>
+<td class="comment-1" rowspan="1"><a href="38477.html">964D</a> holds scores for coal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37887"></span>93FF</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Get the right offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37888"></span>9400</td>
+<td class="instruction">RES 7,(HL)</td>
+<td class="comment-1" rowspan="1">Bit 7 is not used here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37890"></span>9402</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Add to the score.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37891"></span>9403</td>
+<td class="instruction">CALL <a href="37277.html">$919D</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37894"></span>9406</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37896"></span>9408</td>
+<td class="instruction">CALL <a href="38570.html">$96AA</a></td>
+<td class="comment-1" rowspan="1">Refresh the coal flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37899"></span>940B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37671.html">9327</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37724">Map</a></td>
+<td class="next">
+Next: <a href="37900.html">940C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

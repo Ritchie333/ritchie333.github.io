@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Unused RAM at FBB4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-u">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64414.html">FB9E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64436">Map</a></td>
+<td class="next">
+Next: <a href="64493.html">FBED</a>
+</td>
+</tr>
+</table>
+<div class="description">FBB4: Unused</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64436"></span>FBB4</td>
+<td class="instruction">LD L,(IX+$08)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64439"></span>FBB7</td>
+<td class="instruction">LD H,(IX+$09)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64442"></span>FBBA</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64443"></span>FBBB</td>
+<td class="instruction">CPL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64444"></span>FBBC</td>
+<td class="instruction">AND H</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64445"></span>FBBD</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64447"></span>FBBF</td>
+<td class="instruction">CP $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64449"></span>FBC1</td>
+<td class="instruction">JR Z,<a href="64493.html">$FBED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64451"></span>FBC3</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="64454"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="34918.html">8866</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64454"></span>FBC6</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64455"></span>FBC7</td>
+<td class="instruction">JR NZ,$FBD0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64457"></span>FBC9</td>
+<td class="instruction">CALL <a href="64536.html">$FC18</a></td>
+<td class="comment-1" rowspan="1">Get the attribute address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64460"></span>FBCC</td>
+<td class="instruction">CALL <a href="64508.html">$FBFC</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64463"></span>FBCF</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64464"></span>FBD0</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64466"></span>FBD2</td>
+<td class="instruction">JR NZ,$FBDB</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64468"></span>FBD4</td>
+<td class="instruction">CALL <a href="64536.html">$FC18</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64471"></span>FBD7</td>
+<td class="instruction">CALL <a href="64508.html">$FBFC</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64474"></span>FBDA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64475"></span>FBDB</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64477"></span>FBDD</td>
+<td class="instruction">JR NZ,$FBE6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64479"></span>FBDF</td>
+<td class="instruction">CALL <a href="64536.html">$FC18</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64482"></span>FBE2</td>
+<td class="instruction">CALL $FC09</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64485"></span>FBE5</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64486"></span>FBE6</td>
+<td class="instruction">CALL <a href="64536.html">$FC18</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64489"></span>FBE9</td>
+<td class="instruction">CALL $FC09</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64492"></span>FBEC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64414.html">FB9E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64436">Map</a></td>
+<td class="next">
+Next: <a href="64493.html">FBED</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

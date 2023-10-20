@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at EEF1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61117.html">EEBD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61169">Map</a></td>
+<td class="next">
+Next: <a href="61214.html">EF1E</a>
+</td>
+</tr>
+</table>
+<div class="description">EEF1: Print a string at a location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="51803.html">CA5B</a>, <a href="54136.html">D378</a>, <a href="56163.html">DB63</a>, <a href="56566.html">DCF6</a>, <a href="56717.html">DD8D</a>, <a href="56800.html">DDE0</a>, <a href="58927.html">E62F</a> and <a href="62142.html">F2BE</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Pointer to a buffer containing x,y,string</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61169"></span>EEF1</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61170"></span>EEF2</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment the pointer to the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61171"></span>EEF3</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="1">Get the y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61172"></span>EEF4</td>
+<td class="instruction">CALL <a href="59633.html">$E8F1</a></td>
+<td class="comment-1" rowspan="1">Convert this into a screen address in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61175"></span>EEF7</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Move down a row.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61176"></span>EEF8</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment the pointer to the buffer.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61177"></span>
+<div class="comments">
+<div class="paragraph">
+The screen address is now in <span class="register">DE</span>, so draw the string. This entry point is used by the routines at <a href="51498.html">C92A</a> and <a href="54136.html">D378</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61177"></span>EEF9</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61178"></span>EEFA</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it FF?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61180"></span>EEFC</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">If so, that's the end of the string, so return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61181"></span>EEFD</td>
+<td class="instruction">CP $FE</td>
+<td class="comment-1" rowspan="1">Is it FE?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61183"></span>EEFF</td>
+<td class="instruction">JR Z,$EF1B</td>
+<td class="comment-1" rowspan="1">If so, it's the end of the line, so handle that.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61185"></span>EF01</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Store <span class="register">HL</span> and <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61186"></span>EF02</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61187"></span>EF03</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="3">Multiply the character ID by 4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61188"></span>EF04</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61189"></span>EF05</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61190"></span>EF06</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61191"></span>EF07</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61193"></span>EF09</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1">Double it to get an appropriate offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61194"></span>EF0A</td>
+<td class="instruction">LD BC,$677F</td>
+<td class="comment-1" rowspan="2">Add the base offset for the character set. (<a href="26495.html">677F</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61197"></span>EF0D</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61198"></span>EF0E</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="1">Draw 6 rows.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61200"></span>EF10</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next graphic data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61201"></span>EF11</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Write it to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61202"></span>EF12</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61203"></span>EF13</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61204"></span>EF14</td>
+<td class="instruction">DJNZ $EF10</td>
+<td class="comment-1" rowspan="1">Loop while there are more rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61206"></span>EF16</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61207"></span>EF17</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61208"></span>EF18</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Move forward a column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61209"></span>EF19</td>
+<td class="instruction">JR $EEF8</td>
+<td class="comment-1" rowspan="1">Loop back to print more.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61211"></span>
+<div class="comments">
+<div class="paragraph">
+A newline character was found, so handle it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61211"></span>EF1B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move forward in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61212"></span>EF1C</td>
+<td class="instruction">JR $EEF1</td>
+<td class="comment-1" rowspan="1">Jump back to get the next co-ordinates and line.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61117.html">EEBD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61169">Map</a></td>
+<td class="next">
+Next: <a href="61214.html">EF1E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

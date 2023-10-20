@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 940C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37724.html">935C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37900">Map</a></td>
+<td class="next">
+Next: <a href="37998.html">946E</a>
+</td>
+</tr>
+</table>
+<div class="description">940C: Enter a room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37998.html">946E</a>, <a href="38105.html">94D9</a>, <a href="38617.html">96D9</a>, <a href="52545.html">CD41</a> and <a href="63446.html">F7D6</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37900"></span>940C</td>
+<td class="instruction">LD SP,$5FFE</td>
+<td class="comment-1" rowspan="1">Reset the stack to 5FFE.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37903"></span>940F</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1">Get the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37906"></span>9412</td>
+<td class="instruction">CP $15</td>
+<td class="comment-1" rowspan="1">Is it the final room?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37908"></span>9414</td>
+<td class="instruction">JP Z,<a href="63576.html">$F858</a></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37911"></span>9417</td>
+<td class="instruction">CP $2C</td>
+<td class="comment-1" rowspan="1">Is it the first room?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37913"></span>9419</td>
+<td class="instruction">JP Z,<a href="52545.html">$CD41</a></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37916"></span>941C</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="4">Set up interrupts at <a href="50944.html">C700</a> which points to <a href="23387.html">5B5B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37917"></span>941D</td>
+<td class="instruction">IM 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37919"></span>941F</td>
+<td class="instruction">LD A,$C7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37921"></span>9421</td>
+<td class="instruction">LD I,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37923"></span>9423</td>
+<td class="instruction">LD HL,$8F9F</td>
+<td class="comment-1" rowspan="2">Use <a href="36767.html">8F9F</a> as the routine to be called.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37926"></span>9426</td>
+<td class="instruction">LD ($5B5C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37929"></span>9429</td>
+<td class="instruction">LD A,$C3</td>
+<td class="comment-1" rowspan="2">Put a "JP" command as the first byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37931"></span>942B</td>
+<td class="instruction">LD ($5B5B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37934"></span>942E</td>
+<td class="instruction">CALL <a href="38083.html">$94C3</a></td>
+<td class="comment-1" rowspan="1">Copy the current room's data to the working set.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37937"></span>9431</td>
+<td class="instruction">CALL <a href="38225.html">$9551</a></td>
+<td class="comment-1" rowspan="1">Display the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37940"></span>9434</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="2">Are we on room 10?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37943"></span>9437</td>
+<td class="instruction">CP $10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37945"></span>9439</td>
+<td class="instruction">JP Z,<a href="38617.html">$96D9</a></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37948"></span>
+<div class="comments">
+<div class="paragraph">
+Run the main loop in this room. This entry point is used by the routine at <a href="38617.html">96D9</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37948"></span>943C</td>
+<td class="instruction">HALT</td>
+<td class="comment-1" rowspan="1">Let interrupts run.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37949"></span>943D</td>
+<td class="instruction">CALL <a href="34641.html">$8751</a></td>
+<td class="comment-1" rowspan="1">Move the nasties.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37952"></span>9440</td>
+<td class="instruction">CALL <a href="37724.html">$935C</a></td>
+<td class="comment-1" rowspan="1">Check for picking up coal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37955"></span>9443</td>
+<td class="instruction">CALL <a href="38323.html">$95B3</a></td>
+<td class="comment-1" rowspan="1">Animate the coal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37958"></span>9446</td>
+<td class="instruction">CALL <a href="37528.html">$9298</a></td>
+<td class="comment-1" rowspan="1">See if Monty collided with a white nasty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37961"></span>9449</td>
+<td class="instruction">CALL <a href="33446.html">$82A6</a></td>
+<td class="comment-1" rowspan="1">Check for player input.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37964"></span>944C</td>
+<td class="instruction">CALL <a href="35284.html">$89D4</a></td>
+<td class="comment-1" rowspan="1">Update Monty's position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37967"></span>944F</td>
+<td class="instruction">CALL <a href="37502.html">$927E</a></td>
+<td class="comment-1" rowspan="1">Check for picking up a collectable item.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37970"></span>9452</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="10">Move to a new room (<a href="38105.html">94D9</a>) if Monty is off the edge of the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37973"></span>9455</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37974"></span>9456</td>
+<td class="instruction">JP Z,<a href="38105.html">$94D9</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37977"></span>9459</td>
+<td class="instruction">CP $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37979"></span>945B</td>
+<td class="instruction">JP Z,<a href="38105.html">$94D9</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37982"></span>945E</td>
+<td class="instruction">LD A,($5C7C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37985"></span>9461</td>
+<td class="instruction">CP $21</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37987"></span>9463</td>
+<td class="instruction">JP C,<a href="38105.html">$94D9</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37990"></span>9466</td>
+<td class="instruction">CP $AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37992"></span>9468</td>
+<td class="instruction">JP NC,<a href="38105.html">$94D9</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37995"></span>946B</td>
+<td class="instruction">JP $943C</td>
+<td class="comment-1" rowspan="1">Otherwise loop back.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37724.html">935C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37900">Map</a></td>
+<td class="next">
+Next: <a href="37998.html">946E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 952F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38105.html">94D9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38191">Map</a></td>
+<td class="next">
+Next: <a href="38225.html">9551</a>
+</td>
+</tr>
+</table>
+<div class="description">952F: Put (non coal) collectable objects on screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="38225.html">9551</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38191"></span>952F</td>
+<td class="instruction">LD A,($C526)</td>
+<td class="comment-1" rowspan="1">Get the object ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38194"></span>9532</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Return if it's zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38195"></span>9533</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38196"></span>9534</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Convert from 1 to 0-based.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38197"></span>9535</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="7">Multiply by 32 to give an appropriate offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38198"></span>9536</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38200"></span>9538</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38201"></span>9539</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38202"></span>953A</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38203"></span>953B</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38204"></span>953C</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38205"></span>953D</td>
+<td class="instruction">LD DE,$7A00</td>
+<td class="comment-1" rowspan="1"><a href="31232.html">7A00</a> = start of collectable objects.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38208"></span>9540</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the appropriate offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38209"></span>9541</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store this as the next graphic to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38212"></span>9544</td>
+<td class="instruction">LD HL,($C524)</td>
+<td class="comment-1" rowspan="2">Get the position to draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38215"></span>9547</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38218"></span>954A</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Print the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38221"></span>954D</td>
+<td class="instruction">CALL <a href="53844.html">$D254</a></td>
+<td class="comment-1" rowspan="2">Copy the screen to the storage buffer and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38224"></span>9550</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38105.html">94D9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38191">Map</a></td>
+<td class="next">
+Next: <a href="38225.html">9551</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

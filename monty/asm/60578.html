@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at ECA2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60527.html">EC6F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60578">Map</a></td>
+<td class="next">
+Next: <a href="60636.html">ECDC</a>
+</td>
+</tr>
+</table>
+<div class="description">ECA2: Shift a sprite to the left and copy it into a working buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60384.html">EBE0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60578"></span>ECA2</td>
+<td class="instruction">LD ($ECDC),A</td>
+<td class="comment-1" rowspan="1">Store the current frame number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60581"></span>ECA5</td>
+<td class="instruction">LD HL,$ECE4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the temporary store.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60584"></span>ECA8</td>
+<td class="instruction">LD DE,($ECE0)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> to the next graphic to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60588"></span>ECAC</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="1">(16) pairs of cells to copy.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60590"></span>ECAE</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1">Clear the first cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60592"></span>ECB0</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60593"></span>ECB1</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="4">Copy it from the graphic entry to the temporary store.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60594"></span>ECB2</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60595"></span>ECB3</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60596"></span>ECB4</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60597"></span>ECB5</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60598"></span>ECB6</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60599"></span>ECB7</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="4">Copy the byte from the graphic entry to the temporary store.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60600"></span>ECB8</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60601"></span>ECB9</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60602"></span>ECBA</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60603"></span>ECBB</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60604"></span>ECBC</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60605"></span>ECBD</td>
+<td class="instruction">DJNZ $ECAE</td>
+<td class="comment-1" rowspan="1">Loop while there is more to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60607"></span>ECBF</td>
+<td class="instruction">LD A,($ECDC)</td>
+<td class="comment-1" rowspan="1">Get the frame number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60610"></span>ECC2</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Store this in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60611"></span>ECC3</td>
+<td class="instruction">CP $00</td>
+<td class="comment-1" rowspan="2">Return if the frame is 0 - no update needed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60613"></span>ECC5</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60614"></span>ECC6</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="3">Invert the number of cells to update.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60616"></span>ECC8</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60617"></span>ECC9</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60618"></span>ECCA</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60619"></span>ECCB</td>
+<td class="instruction">LD HL,$ED13</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the back of the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60622"></span>ECCE</td>
+<td class="instruction">LD B,$30</td>
+<td class="comment-1" rowspan="1">30 cells to update.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60624"></span>ECD0</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60625"></span>ECD1</td>
+<td class="instruction">RLA</td>
+<td class="comment-1" rowspan="1">Shift it to the left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60626"></span>ECD2</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Store <span class="register">AF</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60627"></span>ECD3</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set the data back.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60628"></span>ECD4</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Move to the previous cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60629"></span>ECD5</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60630"></span>ECD6</td>
+<td class="instruction">DJNZ $ECD0</td>
+<td class="comment-1" rowspan="1">Loop back if there are more cells.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60632"></span>ECD8</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Loop back until we get the right frame number to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60633"></span>ECD9</td>
+<td class="instruction">DJNZ $ECCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60635"></span>ECDB</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60527.html">EC6F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60578">Map</a></td>
+<td class="next">
+Next: <a href="60636.html">ECDC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

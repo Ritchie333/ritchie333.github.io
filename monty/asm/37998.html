@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 946E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37900.html">940C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37998">Map</a></td>
+<td class="next">
+Next: <a href="38046.html">949E</a>
+</td>
+</tr>
+</table>
+<div class="description">946E: Monty has died. Play the "death" tune and lose a life</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="35728.html">8B90</a>, <a href="37192.html">9148</a> and <a href="37528.html">9298</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37998"></span>946E</td>
+<td class="instruction">CALL <a href="36223.html">$8D7F</a></td>
+<td class="comment-1" rowspan="1">Play the tune.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38001"></span>9471</td>
+<td class="instruction">LD HL,$964A</td>
+<td class="comment-1" rowspan="2">Subtract 1 from the number of lives.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38004"></span>9474</td>
+<td class="instruction">DEC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38005"></span>9475</td>
+<td class="instruction">CALL <a href="38046.html">$949E</a></td>
+<td class="comment-1" rowspan="1">Redraw the display for this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38008"></span>9478</td>
+<td class="instruction">LD A,($964A)</td>
+<td class="comment-1" rowspan="2">Have we run out of lives?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38011"></span>947B</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38012"></span>947C</td>
+<td class="instruction">JP Z,<a href="63511.html">$F817</a></td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38015"></span>947F</td>
+<td class="instruction">LD HL,($964B)</td>
+<td class="comment-1" rowspan="2">Set the current position to the start position in this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38018"></span>9482</td>
+<td class="instruction">LD ($5C7B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38021"></span>9485</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 0 to reset some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38022"></span>9486</td>
+<td class="instruction">LD ($8D58),A</td>
+<td class="comment-1" rowspan="1">Reset distance fallen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38025"></span>9489</td>
+<td class="instruction">LD ($8D52),A</td>
+<td class="comment-1" rowspan="1">Reset room flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38028"></span>948C</td>
+<td class="instruction">LD ($8D53),A</td>
+<td class="comment-1" rowspan="1">Reset game flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38031"></span>948F</td>
+<td class="instruction">LD HL,$869C</td>
+<td class="comment-1" rowspan="2">Reset the pointer to the movement table back to <a href="34460.html">869C</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38034"></span>9492</td>
+<td class="instruction">LD ($8492),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38037"></span>9495</td>
+<td class="instruction">LD ($848F),A</td>
+<td class="comment-1" rowspan="1">Reset jump position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38040"></span>9498</td>
+<td class="instruction">LD ($8498),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38043"></span>949B</td>
+<td class="instruction">JP <a href="37900.html">$940C</a></td>
+<td class="comment-1" rowspan="1">Re-enter the room.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37900.html">940C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37998">Map</a></td>
+<td class="next">
+Next: <a href="38046.html">949E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

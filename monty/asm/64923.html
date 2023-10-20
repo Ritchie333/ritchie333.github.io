@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at FD9B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64891.html">FD7B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64923">Map</a></td>
+<td class="next">
+Next: <a href="64953.html">FDB9</a>
+</td>
+</tr>
+</table>
+<div class="description">FD9B: Generate a random time for the crusher</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="34641.html">8751</a> and <a href="36301.html">8DCD</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">On return, holds new crusher time</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64923"></span>FD9B</td>
+<td class="instruction">LD DE,($5C76)</td>
+<td class="comment-1" rowspan="1">Put the previous value in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64927"></span>FD9F</td>
+<td class="instruction">LD H,E</td>
+<td class="comment-1" rowspan="14">Do some arithmetic to get a new value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64928"></span>FDA0</td>
+<td class="instruction">LD L,$FD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64930"></span>FDA2</td>
+<td class="instruction">LD A,D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64931"></span>FDA3</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64932"></span>FDA4</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64934"></span>FDA6</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64936"></span>FDA8</td>
+<td class="instruction">SBC A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64937"></span>FDA9</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64939"></span>FDAB</td>
+<td class="instruction">SBC A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64940"></span>FDAC</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64941"></span>FDAD</td>
+<td class="instruction">LD D,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64942"></span>FDAE</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64944"></span>FDB0</td>
+<td class="instruction">JR NC,$FDB3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64946"></span>FDB2</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64947"></span>FDB3</td>
+<td class="instruction">LD ($5C76),HL</td>
+<td class="comment-1" rowspan="1">Set the new value in <a href="23670.html">5C76</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64950"></span>FDB6</td>
+<td class="instruction">LD B,H</td>
+<td class="comment-1" rowspan="2">Copy this to <span class="register">BC</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64951"></span>FDB7</td>
+<td class="instruction">LD C,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64952"></span>FDB8</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64891.html">FD7B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64923">Map</a></td>
+<td class="next">
+Next: <a href="64953.html">FDB9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

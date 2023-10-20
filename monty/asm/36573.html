@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8EDD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36507.html">8E9B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36573">Map</a></td>
+<td class="next">
+Next: <a href="36657.html">8F31</a>
+</td>
+</tr>
+</table>
+<div class="description">8EDD: Animate Monty's angel as he has died</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="36767.html">8F9F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36573"></span>8EDD</td>
+<td class="instruction">LD A,($9179)</td>
+<td class="comment-1" rowspan="4">Increase the frame number between 0 and 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36576"></span>8EE0</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36577"></span>8EE1</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36579"></span>8EE3</td>
+<td class="instruction">LD ($9179),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36582"></span>8EE6</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is the frame zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36583"></span>8EE7</td>
+<td class="instruction">JP NZ,<a href="36767.html#36936">$9048</a></td>
+<td class="comment-1" rowspan="1">Exit if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36586"></span>8EEA</td>
+<td class="instruction">LD HL,$5C7C</td>
+<td class="comment-1" rowspan="1">Get the current Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36589"></span>8EED</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="2">Move up two rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36590"></span>8EEE</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36591"></span>8EEF</td>
+<td class="instruction">LD A,$BE</td>
+<td class="comment-1" rowspan="2">Has the angel reached the top of the screen?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36593"></span>8EF1</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36594"></span>8EF2</td>
+<td class="instruction">JR NC,$8F12</td>
+<td class="comment-1" rowspan="1">Move forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36596"></span>
+<div class="comments">
+<div class="paragraph">
+The angel has now reached the top of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36596"></span>8EF4</td>
+<td class="instruction">LD HL,$7780</td>
+<td class="comment-1" rowspan="1"><a href="30592.html">7780</a> is the empty graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36599"></span>8EF7</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store the graphic to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36602"></span>8EFA</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="2">Get the player's position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36605"></span>8EFD</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36608"></span>8F00</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw (erase) the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36611"></span>8F03</td>
+<td class="instruction">LD HL,$8D53</td>
+<td class="comment-1" rowspan="1">Get the game flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36614"></span>8F06</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Reset flag 1 (Monty in mid-air).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36616"></span>8F08</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set flag 0 (nasties can move)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36618"></span>8F0A</td>
+<td class="instruction">LD A,$FF</td>
+<td class="comment-1" rowspan="2">Set the frame to FF denoting "not used"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36620"></span>8F0C</td>
+<td class="instruction">LD ($9179),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36623"></span>8F0F</td>
+<td class="instruction">JP <a href="36767.html#36936">$9048</a></td>
+<td class="comment-1" rowspan="1">Exit to restore all registers.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36626"></span>
+<div class="comments">
+<div class="paragraph">
+The angel needs redrawing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36626"></span>8F12</td>
+<td class="instruction">LD HL,($9177)</td>
+<td class="comment-1" rowspan="5">Move the current position up a row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36629"></span>8F15</td>
+<td class="instruction">LD DE,$0020</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36632"></span>8F18</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36633"></span>8F19</td>
+<td class="instruction">RES 7,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36635"></span>8F1B</td>
+<td class="instruction">LD ($9177),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36638"></span>8F1E</td>
+<td class="instruction">LD DE,$FF60</td>
+<td class="comment-1" rowspan="2">Move back to get an appropriate screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36641"></span>8F21</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36642"></span>8F22</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set this as the graphic to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36645"></span>8F25</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="2">Set the current position as the position to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36648"></span>8F28</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36651"></span>8F2B</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36654"></span>8F2E</td>
+<td class="instruction">JP <a href="36767.html#36936">$9048</a></td>
+<td class="comment-1" rowspan="1">Exit to restore all registers.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36507.html">8E9B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36573">Map</a></td>
+<td class="next">
+Next: <a href="36657.html">8F31</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

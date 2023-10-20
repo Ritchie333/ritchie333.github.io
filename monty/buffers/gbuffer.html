@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Game status buffer</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="GameStatusBuffer">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th class="map-length">Length</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-g"><span id="23670"></span><a href="../asm/23670.html">5C76</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23670.html">Pseudo-random store for crushers</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/64923.html">FD9B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="23675"></span><a href="../asm/23675.html">5C7B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23675.html">Current x co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="23676"></span><a href="../asm/23676.html">5C7C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23676.html">Current y co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33443"></span><a href="../asm/33443.html">82A3</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33443.html">Game input : 0 - keyboard, 1 - Kempston, 2 - Sinclair</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33444"></span><a href="../asm/33444.html">82A4</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33444.html">Frame counter for input options</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Cycles between 00 and 0F. Used by the routine at <a href="../asm/33445.html">82A5</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33445"></span><a href="../asm/33445.html">82A5</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33445.html">Set to 0 to print an option, or 1 to hide it</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/33445.html">82A5</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33582"></span><a href="../asm/33582.html">832E</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33582.html">Last input data</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">value</th>
+<th colspan="1" rowspan="1">description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">up</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">down</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">left</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">right</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">no movement</td>
+</tr>
+</table> Bit 7 is set when jumping.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33934"></span><a href="../asm/33934.html">848E</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33934.html">Current frame to draw Monty</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33935"></span><a href="../asm/33935.html">848F</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33935.html">Position off the ground (when jumping)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33944"></span><a href="../asm/33944.html">8498</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33944.html">Time Monty has been jumping</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33947"></span><a href="../asm/33947.html">849B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33947.html">Last input data when jumping or falling</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="35170"></span><a href="../asm/35170.html">8962</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/35170.html">X co-ordinate for current nasty being drawn</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/34641.html">8751</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="35171"></span><a href="../asm/35171.html">8963</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/35171.html">Y co-ordinate for current nasty being drawn</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/34641.html">8751</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36178"></span><a href="../asm/36178.html">8D52</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36178.html">Room flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+<table class="center">
+<tr>
+<th colspan="1" rowspan="1">bit</th>
+<th colspan="1" rowspan="1">value</th>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Monty is jumping</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Monty can climb</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Monty has picked up the non-coal item</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">If reset, Monty can move right</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">If reset, Monty can move left</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">If reset, Monty can move down</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">If reset, Monty can move up</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36179"></span><a href="../asm/36179.html">8D53</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36179.html">Game flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+<table class="center">
+<tr>
+<th colspan="1" rowspan="1">bit</th>
+<th colspan="1" rowspan="1">value</th>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">If reset, background objects can move</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">If set, Monty is in mid-air</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36180"></span><a href="../asm/36180.html">8D54</a></td>
+<td class="map-length">4</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36180.html">Movement flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+These four bytes describe what movement can be made up, down, left and right, with the following values: <table class="center">
+<tr>
+<th colspan="1" rowspan="1">value</th>
+<th colspan="1" rowspan="1">description</th>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Movement is blocked</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Fire (fatal)</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Ladder (can be climbed)</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+<tr>
+<td class="default" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Empty space (can be walked through)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36184"></span><a href="../asm/36184.html">8D58</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36184.html">Distance fallen by</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36185"></span><a href="../asm/36185.html">8D59</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36185.html">Current attribute address of Monty</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36187"></span><a href="../asm/36187.html">8D5B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36187.html">Y screen offset for attribute</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36188"></span><a href="../asm/36188.html">8D5C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36188.html">X screen offset for attribute</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36189"></span><a href="../asm/36189.html">8D5D</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36189.html">X co-ordinate on screen</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36190"></span><a href="../asm/36190.html">8D5E</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36190.html">Y co-ordinate on screen</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36221"></span><a href="../asm/36221.html">8D7D</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36221.html">Temp store for screen position</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="37239"></span><a href="../asm/37239.html">9177</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/37239.html">Offset for Monty's angel as it is animated</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="37241"></span><a href="../asm/37241.html">9179</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/37241.html">Frame number for the angel (0-3)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="37399"></span><a href="../asm/37399.html">9217</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/37399.html">Current score (in reverse digits)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="37411"></span><a href="../asm/37411.html">9223</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/37411.html">Current score (in text).</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/37352.html">91E8</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="38473"></span><a href="../asm/38473.html">9649</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/38473.html">Current room</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="38474"></span><a href="../asm/38474.html">964A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/38474.html">Number of lives</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="38475"></span><a href="../asm/38475.html">964B</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/38475.html">Start position for this room (when a life is lost)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="38807"></span><a href="../asm/38807.html">9797</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/38807.html">X co-ordinate of the minecart in room 10</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="38808"></span><a href="../asm/38808.html">9798</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/38808.html">Y co-ordinate of the minecart in room 10</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50218"></span><a href="../asm/50218.html">C42A</a></td>
+<td class="map-length">240</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50218.html">Static characters on screen</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Each character is 3 bits ie: 3 bytes for 8 characters
+</div>
+<div class="paragraph">
+0C bytes per line, F0 bytes per page.
+</div>
+<div class="paragraph">
+The following is set in the buffer when the game is loaded: <img alt="unused_room" src="../images/udgs/unused_room.png" />
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50458"></span><a href="../asm/50458.html">C51A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50458.html">"Water" attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Monty can walk through any cell with this attribute. Used by the routines in <a href="../asm/36111.html">8D0F</a> and <a href="../asm/36142.html">8D2E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50459"></span><a href="../asm/50459.html">C51B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50459.html">"Fire" attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+If Monty touches this attribute, he will die. Used by the routines in <a href="../asm/36111.html">8D0F</a> and <a href="../asm/36142.html">8D2E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50460"></span><a href="../asm/50460.html">C51C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50460.html">"Ladder" attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+If Monty touches this attribute, he can climb around it. Used by the routines in <a href="../asm/36111.html">8D0F</a> and <a href="../asm/36142.html">8D2E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50461"></span><a href="../asm/50461.html">C51D</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50461.html">"Wall" attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Monty can't walk through any cell with this attribute. Used by the routines in <a href="../asm/36111.html">8D0F</a> and <a href="../asm/36142.html">8D2E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50462"></span><a href="../asm/50462.html">C51E</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50462.html">Offset for Monty's graphic</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50464"></span><a href="../asm/50464.html">C520</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50464.html">Next room UP</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50465"></span><a href="../asm/50465.html">C521</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50465.html">Next room DOWN</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50466"></span><a href="../asm/50466.html">C522</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50466.html">Next room LEFT</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50467"></span><a href="../asm/50467.html">C523</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50467.html">Next room RIGHT</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50468"></span><a href="../asm/50468.html">C524</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50468.html">x co-ordinate of (non coal) collectable item</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50469"></span><a href="../asm/50469.html">C525</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50469.html">y co-ordinate of (non coal) collectable item</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50470"></span><a href="../asm/50470.html">C526</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50470.html">Graphic index of (non coal) collectable item</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50471"></span><a href="../asm/50471.html">C527</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50471.html">x co-ordinate of crusher</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50472"></span><a href="../asm/50472.html">C528</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50472.html">y co-ordinate of crusher</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50473"></span><a href="../asm/50473.html">C529</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50473.html">Crusher bottom column</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50474"></span><a href="../asm/50474.html">C52A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50474.html">Ticks left until a crusher should fire</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50475"></span><a href="../asm/50475.html">C52B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50475.html">Set to 0 if a crusher is ascending, or 1 if it is descending</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50476"></span><a href="../asm/50476.html">C52C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50476.html">Crusher top column</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50487"></span><a href="../asm/50487.html">C537</a></td>
+<td class="map-length">8</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50487.html">Coal UDG</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50495"></span><a href="../asm/50495.html">C53F</a></td>
+<td class="map-length">15</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50495.html">Positions of coal in the room</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Format is: <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Offset</th>
+<th colspan="1" rowspan="1">Value</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">Index into the score buffer at <a href="../asm/38477.html">964D</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="" colspan="1" rowspan="1">X co-ordinate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">Y co-ordinate</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50510"></span><a href="../asm/50510.html">C54E</a></td>
+<td class="map-length">72</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50510.html">Static character graphics</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+First byte is the attribute, other bytes are the data
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50582"></span><a href="../asm/50582.html">C596</a></td>
+<td class="map-length">140</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50582.html">Nasty data</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Each entry contains : <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Offset</th>
+<th colspan="1" rowspan="1">Value</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">Status flag. 0 = two directions, 1 - ???, 2 = one direction, 3 = invisible</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01 - 02</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (up)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">03 - 04</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (down)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">05 - 06</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (left)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07 - 08</td>
+<td class="" colspan="1" rowspan="1">Address of graphic (right)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">09</td>
+<td class="" colspan="1" rowspan="1">Attribute</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0A</td>
+<td class="" colspan="1" rowspan="1">Index of this nasty in the table</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0B</td>
+<td class="" colspan="1" rowspan="1">Current direction (0 - up, 1 - down, 2 - left, 3 - right)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0C</td>
+<td class="" colspan="1" rowspan="1">Current X co-ordinate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0D</td>
+<td class="" colspan="1" rowspan="1">Current Y co-ordinate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0E</td>
+<td class="" colspan="1" rowspan="1">Width or height of path covered</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0F</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">10</td>
+<td class="" colspan="1" rowspan="1">Current distance before changing direction</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">11</td>
+<td class="" colspan="1" rowspan="1">Speed ( 0 - static, 1 - slow, 2 - fast )</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">12</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">13</td>
+<td class="" colspan="1" rowspan="1">Not used</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50722"></span><a href="../asm/50722.html">C622</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50722.html">Moving platform 1 left x co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50723"></span><a href="../asm/50723.html">C623</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50723.html">Moving platform 1 left y co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50724"></span><a href="../asm/50724.html">C624</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50724.html">Moving platform left edge</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50725"></span><a href="../asm/50725.html">C625</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50725.html">Moving platform right edge</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50726"></span><a href="../asm/50726.html">C626</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50726.html">Moving platform 2 right x co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50727"></span><a href="../asm/50727.html">C627</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50727.html">Moving platform 2 right y co-ordinate</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="50728"></span><a href="../asm/50728.html">C628</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50728.html">Set bit 7 if the platform is closing, otherwise reset if it is opening</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52114"></span><a href="../asm/52114.html">CB92</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52114.html">Timer used when scrolling the end message</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Cycles between 00 and 03.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52540"></span><a href="../asm/52540.html">CD3C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52540.html">Set to 1 if the squirrel is dropping a nut</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52541"></span><a href="../asm/52541.html">CD3D</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52541.html">Set to 0 if the nut is still falling, or 4F if it is exploding</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52542"></span><a href="../asm/52542.html">CD3E</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52542.html">Current screen position of the nut dropped by the squirrel</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52543"></span><a href="../asm/52543.html">CD3F</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52543.html">Timer for animating nut</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52544"></span><a href="../asm/52544.html">CD40</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52544.html">Animation frame for nut</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="52761"></span><a href="../asm/52761.html">CE19</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52761.html">Frame counter (when zero, background animation happens)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="53076"></span><a href="../asm/53076.html">CF54</a></td>
+<td class="map-length">768</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/53076.html">Screen attribute buffer</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60636"></span><a href="../asm/60636.html">ECDC</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60636.html">Frame number of the next sprite to update</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/60527.html">EC6F</a> and <a href="../asm/60578.html">ECA2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60638"></span><a href="../asm/60638.html">ECDE</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60638.html">X co-ordinate of next sprite to update</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/60527.html">EC6F</a> and <a href="../asm/60578.html">ECA2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60639"></span><a href="../asm/60639.html">ECDF</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60639.html">Y co-ordinate of next sprite to update</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/60527.html">EC6F</a> and <a href="../asm/60578.html">ECA2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60640"></span><a href="../asm/60640.html">ECE0</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60640.html">Address of next sprite to update</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/60527.html">EC6F</a> and <a href="../asm/60578.html">ECA2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60642"></span><a href="../asm/60642.html">ECE2</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60642.html">Pointer to position on screen to update</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/60527.html">EC6F</a> and <a href="../asm/60578.html">ECA2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60644"></span><a href="../asm/60644.html">ECE4</a></td>
+<td class="map-length">48</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60644.html">Working buffer for moving sprites</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61305"></span><a href="../asm/61305.html">EF79</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61305.html">Frame number for smoke animation graphic</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61509"></span><a href="../asm/61509.html">F045</a></td>
+<td class="map-length">4</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61509.html">Current position drawing the start room</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61511"></span><a href="../asm/61511.html">F047</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61511.html">Address of UDG currently being printed in the start room</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61513"></span><a href="../asm/61513.html">F049</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61513.html">Screen position to draw the next UDG in the start room</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+This is an offset relative to <a href="../asm/60000.html">EA60</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63441"></span><a href="../asm/63441.html">F7D1</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63441.html">Flags to indicate which blocking walls can open</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+If the appropriate bit is set, the wall will open. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Room</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">If set, there is no wall to remove</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Room 14</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Room 0F</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Room 0B</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Room 06</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1"></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63442"></span><a href="../asm/63442.html">F7D2</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63442.html">Y co-ordinate for the disappearing wall</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63443"></span><a href="../asm/63443.html">F7D3</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63443.html">X co-ordinate for the disappearing wall</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63444"></span><a href="../asm/63444.html">F7D4</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63444.html">Timer state for the disappearing wall</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Start at 0 and increments as the wall disappears.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63445"></span><a href="../asm/63445.html">F7D5</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63445.html">Number of pieces of coal that have been collected</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at CD8A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52612.html">CD84</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52618">Map</a></td>
+<td class="next">
+Next: <a href="52634.html">CD9A</a>
+</td>
+</tr>
+</table>
+<div class="description">CD8A: Something bad has happened - set the "lose a life" flag</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="51498.html">C92A</a>, <a href="53111.html">CF77</a>, <a href="53710.html">D1CE</a>, <a href="55445.html">D895</a> and <a href="59266.html">E782</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52618"></span>CD8A</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="2">Set 8 frames to run in the "touched" object sequence. (<a href="51328.html">C880</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52620"></span>CD8C</td>
+<td class="instruction">LD ($C880),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52623"></span>CD8F</td>
+<td class="instruction">LD HL,$C874</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the game flags (<a href="51316.html">C874</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52626"></span>CD92</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 5 (lose a life).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52628"></span>CD94</td>
+<td class="instruction">LD HL,$DA8A</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the current tune data. (<a href="55946.html">DA8A</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52631"></span>CD97</td>
+<td class="instruction">SET 1,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 1 (play "lose a life" effect)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52633"></span>CD99</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52612.html">CD84</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52618">Map</a></td>
+<td class="next">
+Next: <a href="52634.html">CD9A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 94C3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38075.html">94BB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38083">Map</a></td>
+<td class="next">
+Next: <a href="38105.html">94D9</a>
+</td>
+</tr>
+</table>
+<div class="description">94C3: Copy the data for the current room into the working buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38083"></span>94C3</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1">Get the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38086"></span>94C6</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38087"></span>94C7</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="3">Put the current room multipled by 0200 in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38088"></span>94C8</td>
+<td class="instruction">LD E,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38090"></span>94CA</td>
+<td class="instruction">RLC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38092"></span>94CC</td>
+<td class="instruction">LD HL,$9A2A</td>
+<td class="comment-1" rowspan="1">Get the base address of the rooms (<a href="39466.html">9A2A</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38095"></span>94CF</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38096"></span>94D0</td>
+<td class="instruction">LD DE,$C42A</td>
+<td class="comment-1" rowspan="1">Destination is the working buffer at <a href="50218.html">C42A</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38099"></span>94D3</td>
+<td class="instruction">LD BC,$0200</td>
+<td class="comment-1" rowspan="1">Length is always 0200 bytes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38102"></span>94D6</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Do the copy and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38104"></span>94D8</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38075.html">94BB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38083">Map</a></td>
+<td class="next">
+Next: <a href="38105.html">94D9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F64D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62893.html">F5AD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63053">Map</a></td>
+<td class="next">
+Next: <a href="63142.html">F6A6</a>
+</td>
+</tr>
+</table>
+<div class="description">F64D: See if Monty has picked up enough coal to open a blocking wall</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63431.html">F7C7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63053"></span>
+<div class="comments">
+<div class="paragraph">
+First, work out how much coal has been collected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63053"></span>F64D</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Start the count of coal items at 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63054"></span>F64E</td>
+<td class="instruction">LD HL,$964C</td>
+<td class="comment-1" rowspan="1">Look at the buffer at <a href="38477.html">964D</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63057"></span>F651</td>
+<td class="instruction">LD B,$40</td>
+<td class="comment-1" rowspan="1">40 items to look at.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63059"></span>F653</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Has the next bit of coal been collected?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63060"></span>F654</td>
+<td class="instruction">BIT 7,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63062"></span>F656</td>
+<td class="instruction">JR NZ,$F659</td>
+<td class="comment-1" rowspan="1">No, so move on.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63064"></span>F658</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Otherwise, increment the count of collected coal.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63065"></span>F659</td>
+<td class="instruction">DJNZ $F653</td>
+<td class="comment-1" rowspan="1">Loop back round to look at the next coal data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63067"></span>F65B</td>
+<td class="instruction">LD ($F7D5),A</td>
+<td class="comment-1" rowspan="1">Set this as the number of collected coal pieces.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63070"></span>
+<div class="comments">
+<div class="paragraph">
+Now, get the wall flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63070"></span>F65E</td>
+<td class="instruction">LD IX,$F7D1</td>
+<td class="comment-1" rowspan="1">Set <span class="register">IX</span> to the wall flags at <a href="63441.html">F7D1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63074"></span>F662</td>
+<td class="instruction">CP $10</td>
+<td class="comment-1" rowspan="1">Have 16 pieces of coal being collected?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63076"></span>F664</td>
+<td class="instruction">JR Z,$F682</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63078"></span>F666</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="1">Have 32?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63080"></span>F668</td>
+<td class="instruction">JR Z,$F68E</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63082"></span>F66A</td>
+<td class="instruction">CP $30</td>
+<td class="comment-1" rowspan="1">Have 48?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63084"></span>F66C</td>
+<td class="instruction">JR Z,$F69A</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63086"></span>F66E</td>
+<td class="instruction">CP $40</td>
+<td class="comment-1" rowspan="1">Have 64?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63088"></span>F670</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63089"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collecting 64 pieces of coal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63089"></span>F671</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63092"></span>F674</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63094"></span>F676</td>
+<td class="instruction">JR NZ,$F67D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63096"></span>
+<div class="comments">
+<div class="paragraph">
+There are no walls in this room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63096"></span>F678</td>
+<td class="instruction">SET 0,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Reset the flag and exit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63100"></span>F67C</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63101"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collecting 64 pieces of coal (2).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63101"></span>F67D</td>
+<td class="instruction">SET 2,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63105"></span>F681</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63106"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collecting 16 pieces of coal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63106"></span>F682</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="2">Is Monty in room 6?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63109"></span>F685</td>
+<td class="instruction">CP $06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63111"></span>F687</td>
+<td class="instruction">JR Z,$F678</td>
+<td class="comment-1" rowspan="1">Exit if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63113"></span>F689</td>
+<td class="instruction">SET 5,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 5 (room 6)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63117"></span>F68D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63118"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collecting 32 pieces of coal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63118"></span>F68E</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63121"></span>F691</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63123"></span>F693</td>
+<td class="instruction">JR Z,$F678</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63125"></span>F695</td>
+<td class="instruction">SET 4,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63129"></span>F699</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63130"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collectiong 48 pieces of coal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63130"></span>F69A</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63133"></span>F69D</td>
+<td class="instruction">CP $0F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63135"></span>F69F</td>
+<td class="instruction">JR Z,$F678</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63137"></span>F6A1</td>
+<td class="instruction">SET 3,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63141"></span>F6A5</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62893.html">F5AD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63053">Map</a></td>
+<td class="next">
+Next: <a href="63142.html">F6A6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

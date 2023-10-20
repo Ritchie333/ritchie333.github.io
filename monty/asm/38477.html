@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Data at 964D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38475.html">964B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38477">Map</a></td>
+<td class="next">
+Next: <a href="38541.html">968D</a>
+</td>
+</tr>
+</table>
+<div class="description">964D: Array of points given for each 'nth' coal item</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+If bit 7 is reset, Monty has picked this coal up. When the game starts, bit 7 on all bytes is set, so coal will not appear. After grabbing the bucket, the bit is reset, so coal can be collected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38477"></span>
+<div class="comments">
+<div class="paragraph">
+Although seemingly random, clearing bit 7 reveals the assembler text A LD (NUTDROP), A LD (NUTEXP),A LD HL,30592 LD (60640 which is the code at <a href="52115.html#52490">CD0A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38477"></span>964D</td>
+<td class="instruction">DEFB $41,$0D,$5A,$0A,$09,$4C,$44,$09</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38485"></span>9655</td>
+<td class="instruction">DEFB $28,$4E,$55,$54,$44,$52,$4F,$50</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38493"></span>965D</td>
+<td class="instruction">DEFB $29,$2C,$41,$0D,$64,$0A,$09,$4C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38501"></span>9665</td>
+<td class="instruction">DEFB $44,$09,$28,$4E,$55,$54,$45,$58</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38509"></span>966D</td>
+<td class="instruction">DEFB $50,$29,$2C,$41,$0D,$6E,$0A,$09</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38517"></span>9675</td>
+<td class="instruction">DEFB $4C,$44,$09,$48,$4C,$2C,$33,$30</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38525"></span>967D</td>
+<td class="instruction">DEFB $35,$39,$32,$0D,$78,$0A,$09,$4C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38533"></span>9685</td>
+<td class="instruction">DEFB $44,$09,$28,$36,$30,$36,$34,$30</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38475.html">964B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38477">Map</a></td>
+<td class="next">
+Next: <a href="38541.html">968D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at FDEA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64981.html">FDD5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65002">Map</a></td>
+<td class="next">
+Next: <a href="65089.html">FE41</a>
+</td>
+</tr>
+</table>
+<div class="description">FDEA: Print a line of characters in a room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="64981.html">FDD5</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">pointer to the character data</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="65002"></span>
+<div class="comments">
+<div class="paragraph">
+The characters are a series of 3-bit numbers (0-7) packed contiguously into bytes. To extract the relevant character, the appropriate bits need to be taken from every 3 byte sequence, which contains 8 characters. <table class="">
+<tr>
+<th colspan="1" rowspan="1">Bytes</th>
+<th colspan="1" rowspan="1">Bits</th>
+<th colspan="1" rowspan="1">Character number</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">5 - 7</td>
+<td class="" colspan="1" rowspan="1">0</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">2 - 4</td>
+<td class="" colspan="1" rowspan="1">1</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0 - 1</td>
+<td class="" colspan="1" rowspan="1">0 - 1, 7</td>
+<td class="" colspan="1" rowspan="1">2</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">4 - 6</td>
+<td class="" colspan="1" rowspan="1">3</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">1 - 3</td>
+<td class="" colspan="1" rowspan="1">4</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1 - 2</td>
+<td class="" colspan="1" rowspan="1">0, 6 - 7</td>
+<td class="" colspan="1" rowspan="1">5</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">3 - 5</td>
+<td class="" colspan="1" rowspan="1">6</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">0 - 2</td>
+<td class="" colspan="1" rowspan="1">7</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65002"></span>FDEA</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-1" rowspan="1">Four sets of 3-byte sequences for each line.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65004"></span>FDEC</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Get the first byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65007"></span>FDEF</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="3">Put the top three bits in the bottom.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65008"></span>FDF0</td>
+<td class="instruction">RLCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65009"></span>FDF1</td>
+<td class="instruction">RLCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65010"></span>FDF2</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65013"></span>FDF5</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Get the first byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65016"></span>FDF8</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="2">Put bits 2-4 in the bottom.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65017"></span>FDF9</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65018"></span>FDFA</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65021"></span>FDFD</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the first byte in <span class="register">A</span> and the second in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65024"></span>FE00</td>
+<td class="instruction">LD C,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65027"></span>FE03</td>
+<td class="instruction">RL C</td>
+<td class="comment-1" rowspan="2">Get the top bit of the second byte and the bottom two bits of the first.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65029"></span>FE05</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65030"></span>FE06</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65033"></span>FE09</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Get the second byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65036"></span>FE0C</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="4">Put bits 4-6 in the bottom.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65037"></span>FE0D</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65038"></span>FE0E</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65039"></span>FE0F</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65040"></span>FE10</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65043"></span>FE13</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Get the second byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65046"></span>FE16</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1">Put bits 1-3 in the bottom.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65047"></span>FE17</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65050"></span>FE1A</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Put the first byte in <span class="register">A</span> and the second in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65053"></span>FE1D</td>
+<td class="instruction">LD C,(IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65056"></span>FE20</td>
+<td class="instruction">RL C</td>
+<td class="comment-1" rowspan="4">Get the top two bit of the third byte and the bottom bit of the second.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65058"></span>FE22</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65059"></span>FE23</td>
+<td class="instruction">RL C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65061"></span>FE25</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65062"></span>FE26</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65065"></span>FE29</td>
+<td class="instruction">LD A,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Get the third byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65068"></span>FE2C</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="3">Put bits 3-5 in the bottom.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65069"></span>FE2D</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65070"></span>FE2E</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65071"></span>FE2F</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65074"></span>FE32</td>
+<td class="instruction">LD A,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Get the byte byte; the bottom 3 bits will have the last character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65077"></span>FE35</td>
+<td class="instruction">CALL <a href="65089.html">$FE41</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65080"></span>FE38</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="3">Move to the next block.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65082"></span>FE3A</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65084"></span>FE3C</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65086"></span>FE3E</td>
+<td class="instruction">DJNZ $FDEC</td>
+<td class="comment-1" rowspan="2">Repeat until all characters in the line are printed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65088"></span>FE40</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64981.html">FDD5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65002">Map</a></td>
+<td class="next">
+Next: <a href="65089.html">FE41</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

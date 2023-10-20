@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F858</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63511.html">F817</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63576">Map</a></td>
+<td class="next">
+Next: <a href="63596.html">F86C</a>
+</td>
+</tr>
+</table>
+<div class="description">F858: Print the "game won" message and start a new game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63576"></span>F858</td>
+<td class="instruction">CALL <a href="51921.html">$CAD1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63579"></span>F85B</td>
+<td class="instruction">LD B,$FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63581"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="63511.html">F817</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63581"></span>F85D</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="3">Wait for a key to be pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63583"></span>F85F</td>
+<td class="instruction">AND $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63585"></span>F861</td>
+<td class="instruction">XOR $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63587"></span>F863</td>
+<td class="instruction">JR NZ,$F869</td>
+<td class="comment-1" rowspan="1">If a key was pressed, jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63589"></span>F865</td>
+<td class="instruction">HALT</td>
+<td class="comment-1" rowspan="3">Pause and repeat if there are more attempts required.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63590"></span>F866</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63591"></span>F867</td>
+<td class="instruction">DJNZ $F85D</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63593"></span>F869</td>
+<td class="instruction">JP <a href="63446.html">$F7D6</a></td>
+<td class="comment-1" rowspan="1">Restart the game.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63511.html">F817</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63576">Map</a></td>
+<td class="next">
+Next: <a href="63596.html">F86C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CDEF</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52676.html">CDC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52719">Map</a></td>
+<td class="next">
+Next: <a href="52761.html">CE19</a>
+</td>
+</tr>
+</table>
+<div class="description">CDEF: Interrupt routine for first room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52719"></span>CDEF</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="6">Cache all working registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52720"></span>CDF0</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52721"></span>CDF1</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52722"></span>CDF2</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52723"></span>CDF3</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52725"></span>CDF5</td>
+<td class="instruction">PUSH IY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52727"></span>CDF7</td>
+<td class="instruction">LD HL,($EADE)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate screen address of the water under the bridge (<a href="60000.html#60126">EADE</a> = 5000).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52730"></span>CDFA</td>
+<td class="instruction">LD DE,$0012</td>
+<td class="comment-1" rowspan="2">Add the X co-ordinate to set the start of the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52733"></span>CDFD</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52734"></span>CDFE</td>
+<td class="instruction">LD C,$07</td>
+<td class="comment-1" rowspan="1">Width of the water is 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52736"></span>CE00</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52739"></span>CE03</td>
+<td class="instruction">LD A,($CE19)</td>
+<td class="comment-1" rowspan="4">Cycle the timer in this room from 0 - 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52742"></span>CE06</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52743"></span>CE07</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52745"></span>CE09</td>
+<td class="instruction">LD ($CE19),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52748"></span>CE0C</td>
+<td class="instruction">CALL Z,<a href="61230.html">$EF2E</a></td>
+<td class="comment-1" rowspan="1">When the timer is 0, animate the smoke from the chimney.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52751"></span>CE0F</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="6">Restore registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52753"></span>CE11</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52755"></span>CE13</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52756"></span>CE14</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52757"></span>CE15</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52758"></span>CE16</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52759"></span>CE17</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="2">Re-enable interrupts and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52760"></span>CE18</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52676.html">CDC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52719">Map</a></td>
+<td class="next">
+Next: <a href="52761.html">CE19</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

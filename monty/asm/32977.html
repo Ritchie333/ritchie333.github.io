@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 80D1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32914.html">8092</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32977">Map</a></td>
+<td class="next">
+Next: <a href="33023.html">80FF</a>
+</td>
+</tr>
+</table>
+<div class="description">80D1: Print a character on screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32914.html">8092</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ID of the character to print.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Location on screen.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32977"></span>80D1</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember the screen location.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32978"></span>80D2</td>
+<td class="instruction">LD DE,$813B</td>
+<td class="comment-1" rowspan="1"><a href="33083.html">813B</a> = character set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32981"></span>80D5</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="7">Multiply the ID by 8 to get the right offset and store this in DE.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32982"></span>80D6</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32984"></span>80D8</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32985"></span>80D9</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32986"></span>80DA</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32987"></span>80DB</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32988"></span>80DC</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32989"></span>80DD</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore screen location.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32990"></span>80DE</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember screen location (again).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32991"></span>80DF</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="1">Five lines.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32993"></span>80E1</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the current line.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32994"></span>80E2</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Copy it to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32995"></span>80E3</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Next line in data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32996"></span>80E4</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Next line on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32997"></span>80E5</td>
+<td class="instruction">DJNZ $80E1</td>
+<td class="comment-1" rowspan="1">Repeat for the right number of lines.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32999"></span>80E7</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore screen location.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33000"></span>80E8</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember screen location again.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33001"></span>80E9</td>
+<td class="instruction">LD BC,$FD20</td>
+<td class="comment-1" rowspan="2">Subtract 02E0 to move up a third.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33004"></span>80EC</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33005"></span>80ED</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Three remaining lines.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33007"></span>80EF</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the current line.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33008"></span>80F0</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Copy it to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33009"></span>80F1</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Next line in data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33010"></span>80F2</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Next line on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33011"></span>80F3</td>
+<td class="instruction">DJNZ $80EF</td>
+<td class="comment-1" rowspan="1">Repeat for the right number of lines.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33013"></span>80F5</td>
+<td class="instruction">LD C,$47</td>
+<td class="comment-1" rowspan="1">Lower attribute is always 47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33015"></span>80F7</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Get the upper attribute.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33018"></span>80FA</td>
+<td class="instruction">CALL <a href="33023.html">$80FF</a></td>
+<td class="comment-1" rowspan="1">Display the attributes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33021"></span>80FD</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Clean up the stack and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33022"></span>80FE</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32914.html">8092</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32977">Map</a></td>
+<td class="next">
+Next: <a href="33023.html">80FF</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

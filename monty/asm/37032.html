@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 90A8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37027.html">90A3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37032">Map</a></td>
+<td class="next">
+Next: <a href="37053.html">90BD</a>
+</td>
+</tr>
+</table>
+<div class="description">90A8: Animate water</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="36767.html">8F9F</a> and <a href="52719.html">CDEF</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Starting screen address of the water</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Width of the water in UDGs</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37032"></span>90A8</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Copy is from 0 to width - 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37033"></span>90A9</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">3 rows to draw.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37035"></span>90AB</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37036"></span>90AC</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to 0 so that <span class="register">BC</span> can be used as a length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37038"></span>90AE</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember the screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37039"></span>90AF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37040"></span>90B0</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="2">Shift all bytes left and store the new value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37041"></span>90B1</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37042"></span>90B2</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-1" rowspan="4">Copy everything 1 byte forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37043"></span>90B3</td>
+<td class="instruction">LD E,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37044"></span>90B4</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37045"></span>90B5</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37047"></span>90B7</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore the screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37048"></span>90B8</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Move to next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37049"></span>90B9</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore count of rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37050"></span>90BA</td>
+<td class="instruction">DJNZ $90AB</td>
+<td class="comment-1" rowspan="1">Loop if there is more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37052"></span>90BC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37027.html">90A3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37032">Map</a></td>
+<td class="next">
+Next: <a href="37053.html">90BD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

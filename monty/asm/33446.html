@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 82A6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33445.html">82A5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33446">Map</a></td>
+<td class="next">
+Next: <a href="33582.html">832E</a>
+</td>
+</tr>
+</table>
+<div class="description">82A6: Check for player input</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37900.html">940C</a> and <a href="52545.html">CD41</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33446"></span>82A6</td>
+<td class="instruction">LD HL,$832E</td>
+<td class="comment-1" rowspan="1"><a href="33582.html">832E</a> is the last player input.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33449"></span>82A9</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Default to "up" / "not jumping".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33451"></span>82AB</td>
+<td class="instruction">LD A,($82A3)</td>
+<td class="comment-1" rowspan="1">Get the control type.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33454"></span>82AE</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Is it keyboard?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33456"></span>82B0</td>
+<td class="instruction">JR NZ,$82EB</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33458"></span>
+<div class="comments">
+<div class="paragraph">
+Check for keyboard input
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33458"></span>82B2</td>
+<td class="instruction">LD BC,$FBFE</td>
+<td class="comment-1" rowspan="2">Check for Q-T on the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33461"></span>82B5</td>
+<td class="instruction">IN A,(C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33463"></span>82B7</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was 'Q' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33465"></span>82B9</td>
+<td class="instruction">JR NZ,$82BE</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33467"></span>82BB</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-1" rowspan="2">Set input to "up" and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33468"></span>82BC</td>
+<td class="instruction">JR $82DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33470"></span>82BE</td>
+<td class="instruction">LD BC,$FDFE</td>
+<td class="comment-1" rowspan="1">Check for A-G on the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33473"></span>82C1</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change flag to "down".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33474"></span>82C2</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33476"></span>82C4</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was 'A' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33478"></span>82C6</td>
+<td class="instruction">JR NZ,$82CB</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33480"></span>82C8</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-1" rowspan="2">Set input to "down" and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33481"></span>82C9</td>
+<td class="instruction">JR $82DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33483"></span>82CB</td>
+<td class="instruction">LD BC,$DFFE</td>
+<td class="comment-1" rowspan="1">Check for P-Y on the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33486"></span>82CE</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change flag to "left".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33487"></span>82CF</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33489"></span>82D1</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Was 'O' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33491"></span>82D3</td>
+<td class="instruction">JR NZ,$82D8</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33493"></span>82D5</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-1" rowspan="2">Set input to "left" and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33494"></span>82D6</td>
+<td class="instruction">JR $82DE</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33496"></span>82D8</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was 'P' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33498"></span>82DA</td>
+<td class="instruction">JR NZ,$82DE</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33500"></span>82DC</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="2">Set input to "right".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33501"></span>82DD</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33502"></span>82DE</td>
+<td class="instruction">LD BC,$7FFE</td>
+<td class="comment-1" rowspan="1">Read SPACE-B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33505"></span>82E1</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33507"></span>82E3</td>
+<td class="instruction">AND $1F</td>
+<td class="comment-1" rowspan="2">Were any keys pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33509"></span>82E5</td>
+<td class="instruction">XOR $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33511"></span>82E7</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33512"></span>82E8</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="2">Set the "jump" bit and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33514"></span>82EA</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33515"></span>
+<div class="comments">
+<div class="paragraph">
+Check for joystick input
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33515"></span>82EB</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1">Is the input Kempston?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33517"></span>82ED</td>
+<td class="instruction">JR NZ,$830D</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33519"></span>82EF</td>
+<td class="instruction">IN A,($1F)</td>
+<td class="comment-1" rowspan="1">Read the Kempston interface</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33521"></span>82F1</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="1">Was the joystick moved up?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33523"></span>82F3</td>
+<td class="instruction">JR Z,$82F8</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33525"></span>82F5</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-1" rowspan="2">Set input to "up" and move forward to check the fire button.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33526"></span>82F6</td>
+<td class="instruction">JR $8307</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33528"></span>82F8</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change flag to "down"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33529"></span>82F9</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1">Was the joystick moved down?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33531"></span>82FB</td>
+<td class="instruction">JR NZ,$82F5</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33533"></span>82FD</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change flag to "left"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33534"></span>82FE</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Was the joystick moved left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33536"></span>8300</td>
+<td class="instruction">JR NZ,$82F5</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33538"></span>8302</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change flag to "right"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33539"></span>8303</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was the joystick moved right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33541"></span>8305</td>
+<td class="instruction">JR NZ,$82F5</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33543"></span>8307</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="1">Was the fire button pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33545"></span>8309</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33546"></span>830A</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="2">Set the "jump" bit and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33548"></span>830C</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33549"></span>
+<div class="comments">
+<div class="paragraph">
+Check for Sinclair joystick input
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33549"></span>830D</td>
+<td class="instruction">LD BC,$F7FE</td>
+<td class="comment-1" rowspan="2">Read 1-5 on the keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33552"></span>8310</td>
+<td class="instruction">IN A,(C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33554"></span>8312</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="1">Was '4' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33556"></span>8314</td>
+<td class="instruction">JR NZ,$8319</td>
+<td class="comment-1" rowspan="1">Skip if not.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33558"></span>8316</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-1" rowspan="2">Set input to "up" and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33559"></span>8317</td>
+<td class="instruction">JR $8328</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33561"></span>8319</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change state to "down".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33562"></span>831A</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1">Was '3' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33564"></span>831C</td>
+<td class="instruction">JR Z,$8316</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33566"></span>831E</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change state to "left".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33567"></span>831F</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was '1' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33569"></span>8321</td>
+<td class="instruction">JR Z,$8316</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33571"></span>8323</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Change state to "right".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33572"></span>8324</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Was '2' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33574"></span>8326</td>
+<td class="instruction">JR Z,$8316</td>
+<td class="comment-1" rowspan="1">Set this input if so.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33576"></span>8328</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="1">Was '5' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33578"></span>832A</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33579"></span>832B</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="2">Set the "jump" bit and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33581"></span>832D</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33445.html">82A5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33446">Map</a></td>
+<td class="next">
+Next: <a href="33582.html">832E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8D0F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35901.html">8C3D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36111">Map</a></td>
+<td class="next">
+Next: <a href="36142.html">8D2E</a>
+</td>
+</tr>
+</table>
+<div class="description">8D0F: Update the movement tables (across)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="35901.html">8C3D</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Attribute in the current position</td>
+</tr>
+<tr>
+<td class="register">IY</td>
+<td class="register-desc">Pointer to movement table  (<a href="36180.html">8D54</a>)</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Number of columns</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36111"></span>8D0F</td>
+<td class="instruction">LD DE,$C51A</td>
+<td class="comment-1" rowspan="1">Get the list of attributes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36114"></span>8D12</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="36115"></span>8D13</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-1" rowspan="1">Count four types.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36117"></span>8D15</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Is the current attribute this one?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36118"></span>8D16</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36119"></span>8D17</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36120"></span>8D18</td>
+<td class="instruction">JR Z,<a href="36142.html#36176">$8D50</a></td>
+<td class="comment-1" rowspan="1">If so, found the attribute we want.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36122"></span>8D1A</td>
+<td class="instruction">INC (IY+$00)</td>
+<td class="comment-1" rowspan="1">Increment the type of attribute looked for.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36125"></span>8D1D</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next attribute.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36126"></span>8D1E</td>
+<td class="instruction">DJNZ $8D17</td>
+<td class="comment-1" rowspan="1">Repeat for the next four types.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36128"></span>8D20</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> to the start of the table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36129"></span>8D21</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36130"></span>8D22</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1">Set to no attribute found.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36134"></span>8D26</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move forward a column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36135"></span>8D27</td>
+<td class="instruction">DJNZ $8D0F</td>
+<td class="comment-1" rowspan="1">Repeat until all columns have been checked.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36137"></span>8D29</td>
+<td class="instruction">LD (IY+$00),$04</td>
+<td class="comment-1" rowspan="2">Mark this as empty space and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36141"></span>8D2D</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35901.html">8C3D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36111">Map</a></td>
+<td class="next">
+Next: <a href="36142.html">8D2E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

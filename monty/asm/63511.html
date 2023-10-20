@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F817</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63446.html">F7D6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63511">Map</a></td>
+<td class="next">
+Next: <a href="63576.html">F858</a>
+</td>
+</tr>
+</table>
+<div class="description">F817: Print the "game over" message and start a new game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37998.html">946E</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63511"></span>F817</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63512"></span>F818</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the start of the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63515"></span>F81B</td>
+<td class="instruction">LD IY,$5C3A</td>
+<td class="comment-1" rowspan="1">Restore IY.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63519"></span>F81F</td>
+<td class="instruction">IM 1</td>
+<td class="comment-1" rowspan="1">Turn IM1 back on.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63521"></span>F821</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="1">Re-enable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63522"></span>F822</td>
+<td class="instruction">LD DE,$4001</td>
+<td class="comment-1" rowspan="4">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63525"></span>F825</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63528"></span>F828</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63530"></span>F82A</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63532"></span>F82C</td>
+<td class="instruction">CALL <a href="37352.html">$91E8</a></td>
+<td class="comment-1" rowspan="1">Print the score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63535"></span>F82F</td>
+<td class="instruction">LD IX,$F04B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the "game over" message.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63539"></span>F833</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63540"></span>F834</td>
+<td class="instruction">LD ($CB17),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63543"></span>F837</td>
+<td class="instruction">LD ($CB92),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63546"></span>F83A</td>
+<td class="instruction">LD ($CB91),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63549"></span>F83D</td>
+<td class="instruction">LD HL,$5840</td>
+<td class="comment-1" rowspan="5">Display bright yellow on black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63552"></span>F840</td>
+<td class="instruction">LD DE,$5841</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63555"></span>F843</td>
+<td class="instruction">LD BC,$027F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63558"></span>F846</td>
+<td class="instruction">LD (HL),$46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63560"></span>F848</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63562"></span>F84A</td>
+<td class="instruction">CALL <a href="51971.html">$CB03</a></td>
+<td class="comment-1" rowspan="1">Display the message.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63565"></span>F84D</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">No effect.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63566"></span>F84E</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="2">Start drawing at column 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63568"></span>F850</td>
+<td class="instruction">LD ($CB17),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63571"></span>F853</td>
+<td class="instruction">LD B,$FF</td>
+<td class="comment-1" rowspan="1">Time to pause at the end.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63573"></span>F855</td>
+<td class="instruction">JP <a href="63576.html#63581">$F85D</a></td>
+<td class="comment-1" rowspan="1">Jump forward to close the message.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63446.html">F7D6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63511">Map</a></td>
+<td class="next">
+Next: <a href="63576.html">F858</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

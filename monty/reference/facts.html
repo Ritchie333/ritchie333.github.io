@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Trivia</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Facts">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Trivia</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#tunes">Tunes</a></li>
+<li><a href="#characters">Characters</a></li>
+<li><a href="#unused_objects">Unused objects</a></li>
+</ul>
+<div><span id="tunes"></span></div>
+<div class="box box-1">
+<div class="box-title">Tunes</div>
+<div class="paragraph">
+The tune playing at the start of the game is the Colonel Bogey March,
+composed by F. J. Ricketts and first published in 1914.
+</div>
+<div class="paragraph">
+The tune playing when Monty dies is a few bars of the tune Eventide,
+commonly known as the hymn Abide with Me, composed by Henry Francis Lyte in 1914.
+</div>
+</div>
+<div><span id="characters"></span></div>
+<div class="box box-2">
+<div class="box-title">Characters</div>
+<div class="paragraph">
+The character Arthur, and the loading screen graphic, are obvious references
+to Arthur Scargill, who was President of the National Union of Mineworkers
+when the game was published, during the 1984-85 miner's strike which he was leading.
+</div>
+</div>
+<div><span id="unused_objects"></span></div>
+<div class="box box-1">
+<div class="box-title">Unused objects</div>
+<div class="paragraph">
+There is a dog defined in Room 00 (<a href="../asm/39466.html">9A2A</a>) that is not used. To see it :
+</div>
+<div class="paragraph">
+POKE 9BE6 , 0
+</div>
+<div class="paragraph">
+However, it is put in the top left of the screen. To make it a bit more prominent :
+</div>
+<div class="paragraph">
+POKE 9BF2 , 40
+POKE 9BF3 , 60
+</div>
+<div class="paragraph">
+There is a graphic of Monty rolling at <a href="../asm/38811.html">979B</a> that is not used.
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 9298</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37502.html">927E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37528">Map</a></td>
+<td class="next">
+Next: <a href="37671.html">9327</a>
+</td>
+</tr>
+</table>
+<div class="description">9298: Check if Monty has collided with a nasty that can be removed with an item</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37900.html">940C</a>, <a href="52545.html">CD41</a> and <a href="52763.html">CE1B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37528"></span>9298</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position in <span class="register">HL</span> (<a href="23675.html">5C7B</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37531"></span>929B</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37534"></span>929E</td>
+<td class="instruction">JR NZ,$92DF</td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37536"></span>92A0</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37539"></span>92A3</td>
+<td class="instruction">LD DE,$010A</td>
+<td class="comment-1" rowspan="2">Move forward one column and ten rows (?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37542"></span>92A6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37543"></span>92A7</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37546"></span>92AA</td>
+<td class="instruction">JR NZ,$92DF</td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37548"></span>92AC</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37551"></span>92AF</td>
+<td class="instruction">LD D,$F1</td>
+<td class="comment-1" rowspan="3">Move back ten rows (?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37553"></span>92B1</td>
+<td class="instruction">LD E,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37555"></span>92B3</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37556"></span>92B4</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37559"></span>92B7</td>
+<td class="instruction">JR NZ,$92DF</td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37561"></span>92B9</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37564"></span>92BC</td>
+<td class="instruction">LD D,$F8</td>
+<td class="comment-1" rowspan="3">Move back a row and a column (?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37566"></span>92BE</td>
+<td class="instruction">LD E,$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37568"></span>92C0</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37569"></span>92C1</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37572"></span>92C4</td>
+<td class="instruction">JR NZ,$92DF</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37574"></span>92C6</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37577"></span>92C9</td>
+<td class="instruction">LD D,$F8</td>
+<td class="comment-1" rowspan="3">Move back a column and ten rows (?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37579"></span>92CB</td>
+<td class="instruction">LD E,$10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37581"></span>92CD</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37582"></span>92CE</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37585"></span>92D1</td>
+<td class="instruction">JR NZ,$92DF</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37587"></span>92D3</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37590"></span>92D6</td>
+<td class="instruction">LD D,$F1</td>
+<td class="comment-1" rowspan="3">Move forward a column and back two rows (?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37592"></span>92D8</td>
+<td class="instruction">LD E,$0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37594"></span>92DA</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37595"></span>92DB</td>
+<td class="instruction">CALL <a href="37416.html">$9228</a></td>
+<td class="comment-1" rowspan="1">Was there a collision?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37598"></span>92DE</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if no collision was found.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37599"></span>
+<div class="comments">
+<div class="paragraph">
+Monty has touched a nasty, react appropriately
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37599"></span>92DF</td>
+<td class="instruction">LD IX,$8D52</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the room flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37603"></span>92E3</td>
+<td class="instruction">BIT 3,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Has Monty picked up the collectable (non-coal) item?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37607"></span>92E7</td>
+<td class="instruction">JP Z,<a href="37998.html">$946E</a></td>
+<td class="comment-1" rowspan="1">No, so kill Monty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37610"></span>92EA</td>
+<td class="instruction">RES 3,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Otherwise reset the collectable item flag, as it's had its one chance to be used.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37614"></span>92EE</td>
+<td class="instruction">LD DE,$0031</td>
+<td class="comment-1" rowspan="3">Beep without disabling interrupts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37617"></span>92F1</td>
+<td class="instruction">LD HL,$0376</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37620"></span>92F4</td>
+<td class="instruction">CALL $03B6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37623"></span>92F7</td>
+<td class="instruction">CALL <a href="37671.html">$9327</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="37626"></span>92FA</td>
+<td class="instruction">LD HL,$7780</td>
+<td class="comment-1" rowspan="1"><a href="30592.html">7780</a> is the empty graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37629"></span>92FD</td>
+<td class="instruction">LD (IX+$01),L</td>
+<td class="comment-1" rowspan="8">Clear the data so it is no longer visible or active.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37632"></span>9300</td>
+<td class="instruction">LD (IX+$03),L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37635"></span>9303</td>
+<td class="instruction">LD (IX+$05),L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37638"></span>9306</td>
+<td class="instruction">LD (IX+$07),L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37641"></span>9309</td>
+<td class="instruction">LD (IX+$02),H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37644"></span>930C</td>
+<td class="instruction">LD (IX+$04),H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37647"></span>930F</td>
+<td class="instruction">LD (IX+$06),H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37650"></span>9312</td>
+<td class="instruction">LD (IX+$08),H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37653"></span>9315</td>
+<td class="instruction">LD A,($C54E)</td>
+<td class="comment-1" rowspan="2">Set the attribute to the first attribute used in the room's static data. (<a href="50510.html">C54E</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37656"></span>9318</td>
+<td class="instruction">LD (IX+$09),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37659"></span>931B</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37661"></span>931D</td>
+<td class="instruction">CALL <a href="34641.html">$8751</a></td>
+<td class="comment-1" rowspan="1">Update the nasties on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37664"></span>9320</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37666"></span>9322</td>
+<td class="instruction">LD (IX+$00),$03</td>
+<td class="comment-1" rowspan="1">Flag the nasty as being invisible.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37670"></span>9326</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37502.html">927E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37528">Map</a></td>
+<td class="next">
+Next: <a href="37671.html">9327</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8F9F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36657.html">8F31</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36767">Map</a></td>
+<td class="next">
+Next: <a href="36946.html">9052</a>
+</td>
+</tr>
+</table>
+<div class="description">8F9F: IM2 routine for main game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23387.html">5B5B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36767"></span>
+<div class="comments">
+<div class="paragraph">
+Animate all opening / closing platforms, crushers, water, and Monty dying (if appropriate)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36767"></span>8F9F</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="6">Save all registers, as this was called by an interrupt.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36768"></span>8FA0</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36769"></span>8FA1</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36770"></span>8FA2</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36771"></span>8FA3</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36773"></span>8FA5</td>
+<td class="instruction">PUSH IY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36775"></span>8FA7</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="2">Is this room 11?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36778"></span>8FAA</td>
+<td class="instruction">CP $11</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36780"></span>8FAC</td>
+<td class="instruction">CALL Z,<a href="37053.html">$90BD</a></td>
+<td class="comment-1" rowspan="1">If so, animate the shower.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36783"></span>8FAF</td>
+<td class="instruction">LD IX,$8D53</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> to game flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36787"></span>8FB3</td>
+<td class="instruction">BIT 0,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Can animation happen?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36791"></span>8FB7</td>
+<td class="instruction">JP NZ,$9048</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36794"></span>8FBA</td>
+<td class="instruction">BIT 1,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Is Monty still alive?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36798"></span>8FBE</td>
+<td class="instruction">JP NZ,<a href="36573.html">$8EDD</a></td>
+<td class="comment-1" rowspan="1">No, so animate the angel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36801"></span>8FC1</td>
+<td class="instruction">CALL <a href="63431.html">$F7C7</a></td>
+<td class="comment-1" rowspan="1">Perform background actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36804"></span>8FC4</td>
+<td class="instruction">CALL <a href="36301.html">$8DCD</a></td>
+<td class="comment-1" rowspan="1">Animate all moving objects.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36807"></span>
+<div class="comments">
+<div class="paragraph">
+Some rooms have water in them which needs animating.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36807"></span>8FC7</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="2">Is this room 08?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36810"></span>8FCA</td>
+<td class="instruction">CP $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36812"></span>8FCC</td>
+<td class="instruction">JR NZ,$8FDC</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36814"></span>
+<div class="comments">
+<div class="paragraph">
+Animate the water in room 08.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36814"></span>8FCE</td>
+<td class="instruction">LD HL,($EAAA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the water's y co-ordinate in room 08.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36817"></span>8FD1</td>
+<td class="instruction">LD DE,$000B</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36820"></span>8FD4</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36821"></span>8FD5</td>
+<td class="instruction">LD C,$05</td>
+<td class="comment-1" rowspan="1">Width is 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36823"></span>8FD7</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="2">Animate the water and skip the rest of this routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36826"></span>8FDA</td>
+<td class="instruction">JR $9048</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36828"></span>
+<div class="comments">
+<div class="paragraph">
+Animate the water in room 09.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36828"></span>8FDC</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="1">Is this room 09?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36830"></span>8FDE</td>
+<td class="instruction">JR NZ,$8FEE</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36832"></span>8FE0</td>
+<td class="instruction">LD HL,($EACA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the water's y co-ordinate in room 09.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36835"></span>8FE3</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36838"></span>8FE6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36839"></span>8FE7</td>
+<td class="instruction">LD C,$12</td>
+<td class="comment-1" rowspan="1">Width is 12.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36841"></span>8FE9</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="2">Animate the water and skip the rest of this routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36844"></span>8FEC</td>
+<td class="instruction">JR $9048</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36846"></span>
+<div class="comments">
+<div class="paragraph">
+Animate the water in room 0A.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36846"></span>8FEE</td>
+<td class="instruction">CP $0A</td>
+<td class="comment-1" rowspan="1">Is this room 0A?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36848"></span>8FF0</td>
+<td class="instruction">JR NZ,$8FFC</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36850"></span>8FF2</td>
+<td class="instruction">LD HL,($EACA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the water's y co-ordinate in room 0A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36853"></span>8FF5</td>
+<td class="instruction">LD C,$14</td>
+<td class="comment-1" rowspan="1">Width is 14.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36855"></span>8FF7</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="2">Animate the water and skip the rest of this routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36858"></span>8FFA</td>
+<td class="instruction">JR $9048</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36860"></span>
+<div class="comments">
+<div class="paragraph">
+Animate the water in room 0B.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36860"></span>8FFC</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="1">Is this room 0B?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36862"></span>8FFE</td>
+<td class="instruction">JR NZ,$9048</td>
+<td class="comment-1" rowspan="1">No, so jump foward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36864"></span>9000</td>
+<td class="instruction">LD HL,($EAAA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the first water's y co-ordinate in room 0B.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36867"></span>9003</td>
+<td class="instruction">LD DE,$0006</td>
+<td class="comment-1" rowspan="1">Set the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36870"></span>9006</td>
+<td class="instruction">LD C,$03</td>
+<td class="comment-1" rowspan="1">Width is 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36872"></span>9008</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36873"></span>9009</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36876"></span>900C</td>
+<td class="instruction">LD HL,($EA9A)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the second water's y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36879"></span>900F</td>
+<td class="instruction">LD DE,$000C</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36882"></span>9012</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36883"></span>9013</td>
+<td class="instruction">LD C,$06</td>
+<td class="comment-1" rowspan="1">Width is 6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36885"></span>9015</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36888"></span>9018</td>
+<td class="instruction">LD HL,($EAAA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the third water's y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36891"></span>901B</td>
+<td class="instruction">LD DE,$0015</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36894"></span>901E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36895"></span>901F</td>
+<td class="instruction">LD C,$03</td>
+<td class="comment-1" rowspan="1">Width is 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36897"></span>9021</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36900"></span>9024</td>
+<td class="instruction">LD HL,($EAAA)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the fourth water's y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36903"></span>9027</td>
+<td class="instruction">LD DE,$001B</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36906"></span>902A</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36907"></span>902B</td>
+<td class="instruction">LD C,$02</td>
+<td class="comment-1" rowspan="1">Width is 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36909"></span>902D</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36912"></span>9030</td>
+<td class="instruction">LD HL,($EB2A)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the fifth water's y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36915"></span>9033</td>
+<td class="instruction">LD DE,$0015</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36918"></span>9036</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36919"></span>9037</td>
+<td class="instruction">LD C,$02</td>
+<td class="comment-1" rowspan="1">Width is 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36921"></span>9039</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36924"></span>903C</td>
+<td class="instruction">LD HL,($EB1A)</td>
+<td class="comment-1" rowspan="1">Get the screen offset for the sixth water's y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36927"></span>903F</td>
+<td class="instruction">LD DE,$0018</td>
+<td class="comment-1" rowspan="2">Add the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36930"></span>9042</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36931"></span>9043</td>
+<td class="instruction">LD C,$03</td>
+<td class="comment-1" rowspan="1">Width is 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36933"></span>9045</td>
+<td class="instruction">CALL <a href="37032.html">$90A8</a></td>
+<td class="comment-1" rowspan="1">Animate the water.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36936"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="36573.html">8EDD</a>, and is a common exit point.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36936"></span>9048</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="6">Restore all registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36938"></span>904A</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36940"></span>904C</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36941"></span>904D</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36942"></span>904E</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36943"></span>904F</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36944"></span>9050</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="2">Re-enable interrupts and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36945"></span>9051</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36657.html">8F31</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36767">Map</a></td>
+<td class="next">
+Next: <a href="36946.html">9052</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

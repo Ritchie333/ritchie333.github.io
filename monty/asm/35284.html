@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 89D4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35172.html">8964</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35284">Map</a></td>
+<td class="next">
+Next: <a href="35427.html">8A63</a>
+</td>
+</tr>
+</table>
+<div class="description">89D4: Update Monty's position</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37900.html">940C</a> and <a href="52545.html">CD41</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35284"></span>89D4</td>
+<td class="instruction">LD IX,$8D52</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the room flags (<a href="36178.html">8D52</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35288"></span>89D8</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the room position (<a href="23675.html">5C7B</a> and <a href="23676.html">5C7C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35291"></span>89DB</td>
+<td class="instruction">LD ($8D7D),HL</td>
+<td class="comment-1" rowspan="1">Put this in the temporary store (<a href="36221.html">8D7D</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35294"></span>89DE</td>
+<td class="instruction">BIT 0,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35298"></span>89E2</td>
+<td class="instruction">JP NZ,<a href="35615.html">$8B1F</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35301"></span>89E5</td>
+<td class="instruction">LD A,($848F)</td>
+<td class="comment-1" rowspan="1">Get Monty's jump position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35304"></span>89E8</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35305"></span>89E9</td>
+<td class="instruction">JP NZ,<a href="35427.html">$8A63</a></td>
+<td class="comment-1" rowspan="1">Move forward to handle jump movement if Monty is already in mid-air.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35308"></span>89EC</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="1">Get the movement flags?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35311"></span>89EF</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="1">Is Monty jumping?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35313"></span>89F1</td>
+<td class="instruction">JR Z,$8A03</td>
+<td class="comment-1" rowspan="1">Move forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35315"></span>89F3</td>
+<td class="instruction">RES 7,A</td>
+<td class="comment-1" rowspan="1">Reset the jump flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35317"></span>89F5</td>
+<td class="instruction">LD ($849B),A</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35320"></span>89F8</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Set the initial position on the ground.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35321"></span>89F9</td>
+<td class="instruction">LD ($848F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35324"></span>89FC</td>
+<td class="instruction">SET 1,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Set bit 1 to show Monty is jumping and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35328"></span>8A00</td>
+<td class="instruction">JP <a href="35427.html">$8A63</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="35331"></span>8A03</td>
+<td class="instruction">BIT 2,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Is Monty on a ladder?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35335"></span>8A07</td>
+<td class="instruction">JP NZ,<a href="37242.html">$917A</a></td>
+<td class="comment-1" rowspan="1">Move forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35338"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="37242.html">917A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35338"></span>8A0A</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="1">Get the last input data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35341"></span>8A0D</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1">Remove the jump flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35343"></span>8A0F</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="1">Was there valid input?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35345"></span>8A11</td>
+<td class="instruction">JP Z,<a href="35615.html#35636">$8B34</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35348"></span>8A14</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="3">Does the input match the last input when jumping or falling?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35349"></span>8A15</td>
+<td class="instruction">LD A,($849B)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35352"></span>8A18</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35353"></span>8A19</td>
+<td class="instruction">JR NZ,$8A5B</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35355"></span>
+<div class="comments">
+<div class="paragraph">
+Act on moving left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35355"></span>8A1B</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1">Was 'left' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35357"></span>8A1D</td>
+<td class="instruction">JR NZ,$8A48</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35359"></span>8A1F</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="3">Decrease the X co-ordinate by 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35362"></span>8A22</td>
+<td class="instruction">SUB $02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35364"></span>8A24</td>
+<td class="instruction">LD ($5C7B),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35367"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="37242.html">917A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35367"></span>8A27</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="4">Cycle Monty's frame between 0-7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35370"></span>8A2A</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35371"></span>8A2B</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35373"></span>8A2D</td>
+<td class="instruction">LD ($848E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35376"></span>8A30</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Halve this to get the right frame offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35378"></span>8A32</td>
+<td class="instruction">LD DE,$849C</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the start of Monty's graphic (<a href="33948.html">849C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35381"></span>8A35</td>
+<td class="instruction">BIT 2,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Is Monty on a ladder?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35385"></span>8A39</td>
+<td class="instruction">JR Z,$8A3F</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35387"></span>8A3B</td>
+<td class="instruction">LD DE,($C51E)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the offset for Monty's graphic in this room.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35391"></span>8A3F</td>
+<td class="instruction">CALL <a href="33685.html">$8395</a></td>
+<td class="comment-1" rowspan="1">Select the right graphic for Monty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35394"></span>8A42</td>
+<td class="instruction">LD ($848C),HL</td>
+<td class="comment-1" rowspan="1">Store this. (<a href="33932.html">848C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35397"></span>8A45</td>
+<td class="instruction">JP <a href="35615.html#35636">$8B34</a></td>
+<td class="comment-1" rowspan="1">Jump forward and check on room flags.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35400"></span>
+<div class="comments">
+<div class="paragraph">
+Act on moving right?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35400"></span>8A48</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="1">Was 'right' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35402"></span>8A4A</td>
+<td class="instruction">JP NZ,<a href="35615.html#35636">$8B34</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not to check for the room flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35405"></span>8A4D</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="3">Increase the X co-ordinate by 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35408"></span>8A50</td>
+<td class="instruction">ADD A,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35410"></span>8A52</td>
+<td class="instruction">LD ($5C7B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35413"></span>8A55</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="1">Get Monty's frame counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35416"></span>8A58</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Decrease by 1 and call the earlier routine to update the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35417"></span>8A59</td>
+<td class="instruction">JR $8A2B</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35419"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="37242.html">917A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35419"></span>8A5B</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="2">Copy the last input to a copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35422"></span>8A5E</td>
+<td class="instruction">LD ($849B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35425"></span>8A61</td>
+<td class="instruction">JR $8A27</td>
+<td class="comment-1" rowspan="1">Jump back to draw Monty.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35172.html">8964</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35284">Map</a></td>
+<td class="next">
+Next: <a href="35427.html">8A63</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

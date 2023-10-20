@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at EBE0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60000.html">EA60</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60384">Map</a></td>
+<td class="next">
+Next: <a href="60517.html">EC65</a>
+</td>
+</tr>
+</table>
+<div class="description">EBE0: Print an animinated object on screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="34641.html">8751</a>, <a href="35615.html#35636">8B34</a>, <a href="36223.html">8D7F</a>, <a href="36573.html">8EDD</a>, <a href="38191.html">952F</a>, <a href="38541.html">968D</a>, <a href="38617.html">96D9</a>, <a href="52115.html">CB93</a> and <a href="52676.html">CDC4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60384"></span>EBE0</td>
+<td class="instruction">LD A,($ECDE)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate at <a href="60638.html">ECDE</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60387"></span>
+<div class="comments">
+<div class="paragraph">
+Get the position and work out what frame number should be used, shifting the bits to the desired location.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60387"></span>EBE3</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1">Take the first three bits to get the frame number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60389"></span>EBE5</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="1">Is it greater than 4?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60391"></span>EBE7</td>
+<td class="instruction">JR C,$EBEE</td>
+<td class="comment-1" rowspan="1">Skip the next bit if it is.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60393"></span>EBE9</td>
+<td class="instruction">CALL <a href="60578.html">$ECA2</a></td>
+<td class="comment-1" rowspan="2">Shift the sprite to the left and move forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60396"></span>EBEC</td>
+<td class="instruction">JR $EBF5</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60398"></span>EBEE</td>
+<td class="instruction">CP $00</td>
+<td class="comment-1" rowspan="1">Is the frame 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60400"></span>EBF0</td>
+<td class="instruction">JR Z,$EBE9</td>
+<td class="comment-1" rowspan="1">Skip the next bit if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60402"></span>EBF2</td>
+<td class="instruction">CALL <a href="60527.html">$EC6F</a></td>
+<td class="comment-1" rowspan="1">Shift the sprite to the right.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60405"></span>
+<div class="comments">
+<div class="paragraph">
+Now work out where on screen should be updated.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60405"></span>EBF5</td>
+<td class="instruction">LD A,($ECDE)</td>
+<td class="comment-1" rowspan="1">Get the co-ordinates</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60408"></span>EBF8</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="7">Put the top five bits in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60409"></span>EBF9</td>
+<td class="instruction">AND $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60411"></span>EBFB</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60413"></span>EBFD</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60415"></span>EBFF</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60417"></span>EC01</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60418"></span>EC02</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60420"></span>EC04</td>
+<td class="instruction">LD ($ED14),HL</td>
+<td class="comment-1" rowspan="1">Store this as the next offset to use.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60423"></span>EC07</td>
+<td class="instruction">LD A,($ECDF)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate at <a href="60639.html">ECDF</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60426"></span>EC0A</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="2">Store this in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60428"></span>EC0C</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60429"></span>EC0D</td>
+<td class="instruction">LD HL,$EA60</td>
+<td class="comment-1" rowspan="3">Add the base offset for the screen address table in <a href="60000.html">EA60</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60432"></span>EC10</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60433"></span>EC11</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60434"></span>EC12</td>
+<td class="instruction">LD ($ECE2),HL</td>
+<td class="comment-1" rowspan="1">Store this as the pointer to the screen that should be updated.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60437"></span>
+<div class="comments">
+<div class="paragraph">
+Copy the bytes from the working buffer onto screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60437"></span>EC15</td>
+<td class="instruction">LD DE,$ECE4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the working buffer at <a href="60644.html">ECE4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60440"></span>EC18</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="2">16 cells to copy.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60442"></span>EC1A</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60443"></span>EC1B</td>
+<td class="instruction">LD HL,($ECE2)</td>
+<td class="comment-1" rowspan="1">Get the pointer to the screen address to update.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60446"></span>EC1E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Get the actual screen address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60447"></span>EC1F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60448"></span>EC20</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60449"></span>EC21</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60450"></span>EC22</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">DE</span> which points at the working buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60451"></span>EC23</td>
+<td class="instruction">LD DE,($ED14)</td>
+<td class="comment-1" rowspan="1">Get the offset to use.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60455"></span>EC27</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add this to get the actual screen address to use in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60456"></span>EC28</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60457"></span>EC29</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">3 cells to copy.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60459"></span>EC2B</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="4">Copy the cells from the buffer to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60460"></span>EC2C</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60461"></span>EC2D</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60462"></span>EC2E</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60463"></span>EC2F</td>
+<td class="instruction">CALL $EC59</td>
+<td class="comment-1" rowspan="1">Merge the bytes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60466"></span>EC32</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60467"></span>EC33</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60468"></span>EC34</td>
+<td class="instruction">DJNZ $EC2B</td>
+<td class="comment-1" rowspan="1">Loop back if there is more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60470"></span>EC36</td>
+<td class="instruction">LD HL,($ECE2)</td>
+<td class="comment-1" rowspan="4">Move to the previous screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60473"></span>EC39</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60474"></span>EC3A</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60475"></span>EC3B</td>
+<td class="instruction">LD ($ECE2),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60478"></span>EC3E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Loop back if there are more cells to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60479"></span>EC3F</td>
+<td class="instruction">DJNZ $EC1A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60481"></span>EC41</td>
+<td class="instruction">LD A,($ECDF)</td>
+<td class="comment-1" rowspan="11">Point <span class="register">HL</span> at the next pointer to the screen address table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60484"></span>EC44</td>
+<td class="instruction">AND $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60486"></span>EC46</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60488"></span>EC48</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60490"></span>EC4A</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60492"></span>EC4C</td>
+<td class="instruction">SUB $17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60494"></span>EC4E</td>
+<td class="instruction">NEG</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60496"></span>EC50</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60497"></span>EC51</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60499"></span>EC53</td>
+<td class="instruction">LD B,$05</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60501"></span>EC55</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60502"></span>EC56</td>
+<td class="instruction">DJNZ $EC55</td>
+<td class="comment-1" rowspan="2">Loop back until all the cells have been copied.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60504"></span>EC58</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60000.html">EA60</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60384">Map</a></td>
+<td class="next">
+Next: <a href="60517.html">EC65</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

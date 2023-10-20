@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routines</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="RoutinesMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-c"><span id="23387"></span><a href="../asm/23387.html">5B5B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/23387.html">IM2 vector jump</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32768"></span><a href="../asm/32768.html">8000</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32768.html">Display input options and wait to start</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32873"></span><a href="../asm/32873.html">8069</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32873.html">Toggle the display on every interrupt so the selected option is flashing</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32906"></span><a href="../asm/32906.html">808A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32906.html">Blank a character on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32914"></span><a href="../asm/32914.html">8092</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32914.html">Print an option on the intro screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="32977"></span><a href="../asm/32977.html">80D1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32977.html">Print a character on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33023"></span><a href="../asm/33023.html">80FF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33023.html">Put a text character's attributes on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33446"></span><a href="../asm/33446.html">82A6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33446.html">Check for player input</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33685"></span><a href="../asm/33685.html">8395</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33685.html">Select the graphic for Monty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33874"></span><a href="../asm/33874.html">8452</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33874.html">Redraw Monty after jumping or falling</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34641"></span><a href="../asm/34641.html">8751</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34641.html">Move all the nasties on the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34918"></span><a href="../asm/34918.html">8866</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34918.html">Draw the nasty's attributes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="34941"></span><a href="../asm/34941.html">887D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34941.html">Draw a type 1 - 3 nasty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35172"></span><a href="../asm/35172.html">8964</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35172.html">Update a type 2 (single direction) nasty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35284"></span><a href="../asm/35284.html">89D4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35284.html">Update Monty's position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35427"></span><a href="../asm/35427.html">8A63</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35427.html">Make Monty jump</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35539"></span><a href="../asm/35539.html">8AD3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35539.html">Update Monty while jumping</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35596"></span><a href="../asm/35596.html">8B0C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35596.html">See if Monty has walked off a ladder, and if so, set some flags</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35615"></span><a href="../asm/35615.html">8B1F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35615.html">Update Monty and act on room flags</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35728"></span><a href="../asm/35728.html">8B90</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35728.html">Determine where Monty can move to</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="35901"></span><a href="../asm/35901.html">8C3D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35901.html">Check what attributes are around Monty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36111"></span><a href="../asm/36111.html">8D0F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36111.html">Update the movement tables (across)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36142"></span><a href="../asm/36142.html">8D2E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36142.html">Update the movement tables (down)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36191"></span><a href="../asm/36191.html">8D5F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36191.html">Return the current screen address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36223"></span><a href="../asm/36223.html">8D7F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36223.html">Play death tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36301"></span><a href="../asm/36301.html">8DCD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36301.html">Move a crusher</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36507"></span><a href="../asm/36507.html">8E9B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36507.html">Set the attributes for a crusher</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36573"></span><a href="../asm/36573.html">8EDD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36573.html">Animate Monty's angel as he has died</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36657"></span><a href="../asm/36657.html">8F31</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36657.html">Update the moving platforms</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36767"></span><a href="../asm/36767.html">8F9F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36767.html">IM2 routine for main game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="36946"></span><a href="../asm/36946.html">9052</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36946.html">Update one side of a moving platform</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37027"></span><a href="../asm/37027.html">90A3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37027.html">Update one byte of a moving platform</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37032"></span><a href="../asm/37032.html">90A8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37032.html">Animate water</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37053"></span><a href="../asm/37053.html">90BD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37053.html">Animate the shower water in room 11</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37164"></span><a href="../asm/37164.html">912C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37164.html">Animate the shower water in room 11 (2)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37192"></span><a href="../asm/37192.html">9148</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37192.html">Check that a crusher has killed Monty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37242"></span><a href="../asm/37242.html">917A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37242.html">Make Monty climb a ladder</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37277"></span><a href="../asm/37277.html">919D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37277.html">Add value of coal to the current score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37352"></span><a href="../asm/37352.html">91E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37352.html">Print the score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37416"></span><a href="../asm/37416.html">9228</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37416.html">Check to see if Monty has collided with a nasty</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37464"></span><a href="../asm/37464.html">9258</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37464.html">See if Monty is touching some coal and can collect it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37502"></span><a href="../asm/37502.html">927E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37502.html">Check if Monty is touching a (non-coal) collectable item, and if so, pick it up</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37528"></span><a href="../asm/37528.html">9298</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37528.html">Check if Monty has collided with a nasty that can be removed with an item</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37671"></span><a href="../asm/37671.html">9327</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37671.html">Return IX pointing to the index of the nasty Monty is touching, or 0</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37724"></span><a href="../asm/37724.html">935C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37724.html">Check to see if Monty has moved near any coal, and if so, pick it up</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37900"></span><a href="../asm/37900.html">940C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37900.html">Enter a room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="37998"></span><a href="../asm/37998.html">946E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37998.html">Monty has died. Play the "death" tune and lose a life</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38046"></span><a href="../asm/38046.html">949E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38046.html">Print the number of lives on the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38083"></span><a href="../asm/38083.html">94C3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38083.html">Copy the data for the current room into the working buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38105"></span><a href="../asm/38105.html">94D9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38105.html">Move into a new room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38191"></span><a href="../asm/38191.html">952F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38191.html">Put (non coal) collectable objects on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38225"></span><a href="../asm/38225.html">9551</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38225.html">Display the current room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38248"></span><a href="../asm/38248.html">9568</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38248.html">Pick up an item</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38318"></span><a href="../asm/38318.html">95AE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38318.html">Reset the index of the collectable item, as it was picked up</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38323"></span><a href="../asm/38323.html">95B3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38323.html">Animate the coal colours in the room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38376"></span><a href="../asm/38376.html">95E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38376.html">Animate an item of coal in a room.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38415"></span><a href="../asm/38415.html">960F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38415.html">Draw the coal in the room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38541"></span><a href="../asm/38541.html">968D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38541.html">Clear a non-coal item, as it has been collected</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38570"></span><a href="../asm/38570.html">96AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38570.html">Refresh any coal in the room.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="38617"></span><a href="../asm/38617.html">96D9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38617.html">Animate the rolling minecart in room 10</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="50730"></span><a href="../asm/50730.html">C62A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/50730.html">Copy the room graphic buffer to screen so it is visible</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="51921"></span><a href="../asm/51921.html">CAD1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51921.html">Display the "game won" sequence</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="51971"></span><a href="../asm/51971.html">CB03</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51971.html">Print a message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="51989"></span><a href="../asm/51989.html">CB15</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51989.html">Scroll a line of the message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52021"></span><a href="../asm/52021.html">CB35</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52021.html">Print a character in a message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52067"></span><a href="../asm/52067.html">CB63</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52067.html">Move a line of a message upwards</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52115"></span><a href="../asm/52115.html">CB93</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52115.html">Run one frame in the first (outdoor) room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52518"></span><a href="../asm/52518.html">CD26</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52518.html">Convert a sprite ID to a graphic offset</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52545"></span><a href="../asm/52545.html">CD41</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52545.html">Display the first (outdoor) room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52676"></span><a href="../asm/52676.html">CDC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52676.html">Monty has grabbed the bucket - start the miner chase</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52719"></span><a href="../asm/52719.html">CDEF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52719.html">Interrupt routine for first room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="52941"></span><a href="../asm/52941.html">CECD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52941.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="53844"></span><a href="../asm/53844.html">D254</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53844.html">Copy the screen to storage buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="53856"></span><a href="../asm/53856.html">D260</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53856.html">Save game to tape</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="53904"></span><a href="../asm/53904.html">D290</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53904.html">Main entry point</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60384"></span><a href="../asm/60384.html">EBE0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60384.html">Print an animinated object on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60527"></span><a href="../asm/60527.html">EC6F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60527.html">Shift a sprite to the right and copy it into a working buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60578"></span><a href="../asm/60578.html">ECA2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60578.html">Shift a sprite to the left and copy it into a working buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61230"></span><a href="../asm/61230.html">EF2E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61230.html">Animate the smoke in the start room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61291"></span><a href="../asm/61291.html">EF6B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61291.html">Initialize smoke animation in the start room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61310"></span><a href="../asm/61310.html">EF7E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61310.html">Set up graphics for the start room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61373"></span><a href="../asm/61373.html">EFBD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61373.html">Draw static UDGs on the start room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63053"></span><a href="../asm/63053.html">F64D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63053.html">See if Monty has picked up enough coal to open a blocking wall</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63142"></span><a href="../asm/63142.html">F6A6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63142.html">Hide any blocking walls if sufficient coal has been picked up</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63229"></span><a href="../asm/63229.html">F6FD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63229.html">Erase a wall from the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63258"></span><a href="../asm/63258.html">F71A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63258.html">Hide a wall after enough coal has been collected</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63431"></span><a href="../asm/63431.html">F7C7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63431.html">Perform interrupt handler background updates</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63446"></span><a href="../asm/63446.html">F7D6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63446.html">Start a new game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63511"></span><a href="../asm/63511.html">F817</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63511.html">Print the "game over" message and start a new game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63576"></span><a href="../asm/63576.html">F858</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63576.html">Print the "game won" message and start a new game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64493"></span><a href="../asm/64493.html">FBED</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64493.html">Fill a sprite with an attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64508"></span><a href="../asm/64508.html">FBFC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64508.html">Fill three rows with an attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64536"></span><a href="../asm/64536.html">FC18</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64536.html">Convert a co-ordinate to an attribute address.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64923"></span><a href="../asm/64923.html">FD9B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64923.html">Generate a random time for the crusher</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64981"></span><a href="../asm/64981.html">FDD5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64981.html">Print all static characters in the current room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65002"></span><a href="../asm/65002.html">FDEA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65002.html">Print a line of characters in a room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65089"></span><a href="../asm/65089.html">FE41</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65089.html">Print a character in the room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65167"></span><a href="../asm/65167.html">FE8F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65167.html">Convert a screen address to a buffer address and store it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65186"></span><a href="../asm/65186.html">FEA2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65186.html">Check the attribute at the current position matches the "moving" type</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65216"></span><a href="../asm/65216.html">FEC0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65216.html">Get the attribute at the specified position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65280"></span><a href="../asm/65280.html">FF00</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65280.html">Set control option and reset IY</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="65371"></span><a href="../asm/65371.html">FF5B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65371.html">Halt and run one frame in the first (outdoor) room</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

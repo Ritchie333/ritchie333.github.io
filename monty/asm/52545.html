@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CD41</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52544.html">CD40</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52545">Map</a></td>
+<td class="next">
+Next: <a href="52676.html">CDC4</a>
+</td>
+</tr>
+</table>
+<div class="description">CD41: Display the first (outdoor) room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52545"></span>CD41</td>
+<td class="instruction">LD HL,$964D</td>
+<td class="comment-1" rowspan="5">Reset the "collected" flag on all coal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52548"></span>CD44</td>
+<td class="instruction">LD B,$40</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52550"></span>CD46</td>
+<td class="instruction">RES 7,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52552"></span>CD48</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52553"></span>CD49</td>
+<td class="instruction">DJNZ $CD46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52555"></span>CD4B</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="3">Set the miner in room 0 to invisible.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52557"></span>CD4D</td>
+<td class="instruction">LD ($9BBE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52560"></span>CD50</td>
+<td class="instruction">LD ($9BD2),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52563"></span>CD53</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 1 to set some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52565"></span>CD55</td>
+<td class="instruction">LD ($CD32),A</td>
+<td class="comment-1" rowspan="1">Set no bucket collected.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52568"></span>CD58</td>
+<td class="instruction">LD ($CD35),A</td>
+<td class="comment-1" rowspan="1">Set miner's x co-ordinate to 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52571"></span>CD5B</td>
+<td class="instruction">LD HL,$4FD8</td>
+<td class="comment-1" rowspan="2">Set Monty's position to D8 4F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52574"></span>CD5E</td>
+<td class="instruction">LD ($5C7B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52577"></span>CD61</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Turn off interrupts, so a new service routine can be used.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52578"></span>CD62</td>
+<td class="instruction">LD A,$C7</td>
+<td class="comment-1" rowspan="2">Point <span class="register">I</span> to the jump buffer at <a href="50944.html">C700</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52580"></span>CD64</td>
+<td class="instruction">LD I,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52582"></span>CD66</td>
+<td class="instruction">LD HL,$CDEF</td>
+<td class="comment-1" rowspan="2">Set the interrupt service routine to jump to <a href="52719.html">CDEF</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52585"></span>CD69</td>
+<td class="instruction">LD ($5B5C),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52588"></span>CD6C</td>
+<td class="instruction">LD A,$C3</td>
+<td class="comment-1" rowspan="2">Add a 'JP' command to the first byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52590"></span>CD6E</td>
+<td class="instruction">LD ($5B5B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52593"></span>CD71</td>
+<td class="instruction">IM 2</td>
+<td class="comment-1" rowspan="1">Switch to interrupt mode 2 so this routine will be fired.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52595"></span>CD73</td>
+<td class="instruction">LD HL,$D260</td>
+<td class="comment-1" rowspan="5">Clear the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52598"></span>CD76</td>
+<td class="instruction">LD DE,$D261</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52601"></span>CD79</td>
+<td class="instruction">LD BC,$17FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52604"></span>CD7C</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52606"></span>CD7E</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52608"></span>CD80</td>
+<td class="instruction">LD HL,$F14B</td>
+<td class="comment-1" rowspan="1"><a href="61771.html">F14B</a> points to the static UDGs on screen at <a href="31744.html">7C00</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52611"></span>CD83</td>
+<td class="instruction">CALL <a href="61310.html">$EF7E</a></td>
+<td class="comment-1" rowspan="1">Print the graphics.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52614"></span>CD86</td>
+<td class="instruction">CALL <a href="50730.html">$C62A</a></td>
+<td class="comment-1" rowspan="1">Copy the graphic buffer to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52617"></span>CD89</td>
+<td class="instruction">CALL <a href="37352.html">$91E8</a></td>
+<td class="comment-1" rowspan="1">Print the score.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52620"></span>CD8C</td>
+<td class="instruction">CALL <a href="38046.html">$949E</a></td>
+<td class="comment-1" rowspan="1">Print number of lives.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52623"></span>CD8F</td>
+<td class="instruction">CALL <a href="53844.html">$D254</a></td>
+<td class="comment-1" rowspan="1">Copy the screen back to the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52626"></span>CD92</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="1">Turn interrupts on, the service routine can now be run.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52627"></span>CD93</td>
+<td class="instruction">LD A,$75</td>
+<td class="comment-1" rowspan="2">Make 75 (bright cyan on yellow) a deadly attribute. (<a href="50459.html">C51B</a>) so Monty will die if he touches the water under bridge.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52629"></span>CD95</td>
+<td class="instruction">LD ($C51B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52632"></span>CD98</td>
+<td class="instruction">CALL <a href="65371.html">$FF5B</a></td>
+<td class="comment-1" rowspan="1">Wait for interrupts and run one frame in the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52635"></span>CD9B</td>
+<td class="instruction">CALL <a href="37528.html">$9298</a></td>
+<td class="comment-1" rowspan="1">Check for collision.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52638"></span>CD9E</td>
+<td class="instruction">CALL <a href="33446.html">$82A6</a></td>
+<td class="comment-1" rowspan="1">Check for player input.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52641"></span>CDA1</td>
+<td class="instruction">CALL <a href="35284.html">$89D4</a></td>
+<td class="comment-1" rowspan="1">Update Monty's position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52644"></span>CDA4</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="2">Is Monty's X co-ordinate the same as the bucket?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52647"></span>CDA7</td>
+<td class="instruction">CP $40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52649"></span>CDA9</td>
+<td class="instruction">CALL Z,<a href="52676.html">$CDC4</a></td>
+<td class="comment-1" rowspan="1">If so, pick it up.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52652"></span>CDAC</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="2">Has Monty reached the far right of the room?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52655"></span>CDAF</td>
+<td class="instruction">CP $E0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52657"></span>CDB1</td>
+<td class="instruction">JR NZ,$CD98</td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52659"></span>
+<div class="comments">
+<div class="paragraph">
+Monty has reached the far right of the room, so move into room 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52659"></span>CDB3</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts as the service routine will be refreshed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52660"></span>CDB4</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Set the current room to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52661"></span>CDB5</td>
+<td class="instruction">LD ($9649),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52664"></span>CDB8</td>
+<td class="instruction">LD HL,$2718</td>
+<td class="comment-1" rowspan="2">Set the current position to 18 27 ie: in front of the miner.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52667"></span>CDBB</td>
+<td class="instruction">LD ($5C7B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52670"></span>CDBE</td>
+<td class="instruction">LD ($964B),HL</td>
+<td class="comment-1" rowspan="1">Make this the start position if a life is lost.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52673"></span>CDC1</td>
+<td class="instruction">JP <a href="37900.html">$940C</a></td>
+<td class="comment-1" rowspan="1">Enter the new room.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52544.html">CD40</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52545">Map</a></td>
+<td class="next">
+Next: <a href="52676.html">CDC4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

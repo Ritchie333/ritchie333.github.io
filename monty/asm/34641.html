@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8751</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34638.html">874E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34641">Map</a></td>
+<td class="next">
+Next: <a href="34918.html">8866</a>
+</td>
+</tr>
+</table>
+<div class="description">8751: Move all the nasties on the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37528.html#37599">92DF</a> and <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34641"></span>8751</td>
+<td class="instruction">LD HL,$C596</td>
+<td class="comment-1" rowspan="1">Point HL at the start of the nasty buffer. (<a href="50582.html">C596</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34644"></span>8754</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="1">Maximum of six characters on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34646"></span>8756</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="34647"></span>8757</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember character count.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34648"></span>8758</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Swap HL for IX so the buffer can be indexed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34649"></span>8759</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34651"></span>875B</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Get the type flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34654"></span>875E</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">If the type is not 0, skip forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34655"></span>875F</td>
+<td class="instruction">JP NZ,<a href="34941.html">$887D</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34658"></span>
+<div class="comments">
+<div class="paragraph">
+Move a simple nasty. This entry point is used by the routine at <a href="35172.html">8964</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34658"></span>8762</td>
+<td class="instruction">LD L,(IX+$0C)</td>
+<td class="comment-1" rowspan="1">Put the current X co-ordinate in L.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34661"></span>8765</td>
+<td class="instruction">LD H,(IX+$0D)</td>
+<td class="comment-1" rowspan="1">Put the current Y co-ordinate in H.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34664"></span>8768</td>
+<td class="instruction">LD ($8962),HL</td>
+<td class="comment-1" rowspan="1">Store this in <a href="35170.html">8962</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34667"></span>876B</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="1">Get the current direction.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34670"></span>876E</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it down?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34671"></span>876F</td>
+<td class="instruction">JR NZ,$87A6</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34673"></span>
+<div class="comments">
+<div class="paragraph">
+Moving up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34673"></span>8771</td>
+<td class="instruction">LD B,(IX+$11)</td>
+<td class="comment-1" rowspan="4">Increment the Y co-ordinate by the speed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34676"></span>8774</td>
+<td class="instruction">LD A,(IX+$0D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34679"></span>8777</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34680"></span>8778</td>
+<td class="instruction">LD (IX+$0D),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34683"></span>877B</td>
+<td class="instruction">LD L,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Put the "up" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34686"></span>877E</td>
+<td class="instruction">LD H,(IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34689"></span>8781</td>
+<td class="instruction">LD A,(IX+$10)</td>
+<td class="comment-1" rowspan="2">Decrement the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34692"></span>8784</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34693"></span>8785</td>
+<td class="instruction">JR NZ,$8797</td>
+<td class="comment-1" rowspan="1">Skip the next code if it is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34695"></span>8787</td>
+<td class="instruction">LD L,(IX+$03)</td>
+<td class="comment-1" rowspan="2">Put the "down" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34698"></span>878A</td>
+<td class="instruction">LD H,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34701"></span>878D</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="3">Change the direction to "down".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34704"></span>8790</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34705"></span>8791</td>
+<td class="instruction">LD (IX+$0B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34708"></span>8794</td>
+<td class="instruction">LD A,(IX+$0E)</td>
+<td class="comment-1" rowspan="2">Set the distance to travel back to the default.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34711"></span>8797</td>
+<td class="instruction">LD (IX+$10),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34714"></span>879A</td>
+<td class="instruction">LD A,(IX+$0F)</td>
+<td class="comment-1" rowspan="4">Increment the animation frame, looping from 0 - 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34717"></span>879D</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34718"></span>879E</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34720"></span>87A0</td>
+<td class="instruction">LD (IX+$0F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34723"></span>87A3</td>
+<td class="instruction">JP $8827</td>
+<td class="comment-1" rowspan="1">Move forward to draw the nasty.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34726"></span>
+<div class="comments">
+<div class="paragraph">
+Moving down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34726"></span>87A6</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Is the direction up?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34728"></span>87A8</td>
+<td class="instruction">JR NZ,$87D2</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34730"></span>87AA</td>
+<td class="instruction">LD A,(IX+$0D)</td>
+<td class="comment-1" rowspan="4">Decrement the Y co-ordinate by the speed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34733"></span>87AD</td>
+<td class="instruction">LD B,(IX+$11)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34736"></span>87B0</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34737"></span>87B1</td>
+<td class="instruction">LD (IX+$0D),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34740"></span>87B4</td>
+<td class="instruction">LD A,(IX+$10)</td>
+<td class="comment-1" rowspan="1">Get the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34743"></span>87B7</td>
+<td class="instruction">LD L,(IX+$03)</td>
+<td class="comment-1" rowspan="2">Put the "down" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34746"></span>87BA</td>
+<td class="instruction">LD H,(IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34749"></span>87BD</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrement the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34750"></span>87BE</td>
+<td class="instruction">JR NZ,$8797</td>
+<td class="comment-1" rowspan="1">Skip the next code if it is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34752"></span>87C0</td>
+<td class="instruction">LD L,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Put the "up" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34755"></span>87C3</td>
+<td class="instruction">LD H,(IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34758"></span>87C6</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="3">Change the direction to "up".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34761"></span>87C9</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34762"></span>87CA</td>
+<td class="instruction">LD (IX+$0B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34765"></span>87CD</td>
+<td class="instruction">LD A,(IX+$0E)</td>
+<td class="comment-1" rowspan="1">Set the distance to travel back to the default</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34768"></span>87D0</td>
+<td class="instruction">JR $8797</td>
+<td class="comment-1" rowspan="1">Jump back to draw the nasty.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34770"></span>
+<div class="comments">
+<div class="paragraph">
+Moving left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34770"></span>87D2</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1">Is the direction left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34772"></span>87D4</td>
+<td class="instruction">JR NZ,$87FE</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34774"></span>87D6</td>
+<td class="instruction">LD A,(IX+$0C)</td>
+<td class="comment-1" rowspan="4">Decrement the X co-ordinate by the speed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34777"></span>87D9</td>
+<td class="instruction">LD B,(IX+$11)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34780"></span>87DC</td>
+<td class="instruction">SUB B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34781"></span>87DD</td>
+<td class="instruction">LD (IX+$0C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34784"></span>87E0</td>
+<td class="instruction">LD A,(IX+$10)</td>
+<td class="comment-1" rowspan="1">Get the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34787"></span>87E3</td>
+<td class="instruction">LD L,(IX+$05)</td>
+<td class="comment-1" rowspan="2">Put the "left" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34790"></span>87E6</td>
+<td class="instruction">LD H,(IX+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34793"></span>87E9</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrement the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34794"></span>87EA</td>
+<td class="instruction">JR NZ,$8797</td>
+<td class="comment-1" rowspan="1">Skip the next code if it is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34796"></span>87EC</td>
+<td class="instruction">LD L,(IX+$07)</td>
+<td class="comment-1" rowspan="2">Put the "right" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34799"></span>87EF</td>
+<td class="instruction">LD H,(IX+$08)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34802"></span>87F2</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="3">Change the direction to "right".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34805"></span>87F5</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34806"></span>87F6</td>
+<td class="instruction">LD (IX+$0B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34809"></span>87F9</td>
+<td class="instruction">LD A,(IX+$0E)</td>
+<td class="comment-1" rowspan="1">Set the distance to travel back to default.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34812"></span>87FC</td>
+<td class="instruction">JR $8797</td>
+<td class="comment-1" rowspan="1">Jump back to draw the nasty.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34814"></span>
+<div class="comments">
+<div class="paragraph">
+Moving right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34814"></span>87FE</td>
+<td class="instruction">LD A,(IX+$0C)</td>
+<td class="comment-1" rowspan="4">Increment the X co-ordinate by the speed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34817"></span>8801</td>
+<td class="instruction">LD B,(IX+$11)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34820"></span>8804</td>
+<td class="instruction">ADD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34821"></span>8805</td>
+<td class="instruction">LD (IX+$0C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34824"></span>8808</td>
+<td class="instruction">LD L,(IX+$07)</td>
+<td class="comment-1" rowspan="2">Put the "right" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34827"></span>880B</td>
+<td class="instruction">LD H,(IX+$08)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34830"></span>880E</td>
+<td class="instruction">LD A,(IX+$10)</td>
+<td class="comment-1" rowspan="2">Decrement the distance to travel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34833"></span>8811</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34834"></span>8812</td>
+<td class="instruction">JR NZ,$8797</td>
+<td class="comment-1" rowspan="1">Skip the next code if it is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34836"></span>8814</td>
+<td class="instruction">LD L,(IX+$05)</td>
+<td class="comment-1" rowspan="2">Put the "left" graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34839"></span>8817</td>
+<td class="instruction">LD H,(IX+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34842"></span>881A</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="3">Change the direction to "left".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34845"></span>881D</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34846"></span>881E</td>
+<td class="instruction">LD (IX+$0B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34849"></span>8821</td>
+<td class="instruction">LD A,(IX+$0E)</td>
+<td class="comment-1" rowspan="1">Set the distance to travel back to the default.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34852"></span>8824</td>
+<td class="instruction">JP $8797</td>
+<td class="comment-1" rowspan="1">Jump back to draw the nasty.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34855"></span>
+<div class="comments">
+<div class="paragraph">
+After updating the position, the nasty can be drawn.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34855"></span>8827</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> over.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34856"></span>8828</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">Get the top 3 bits of animation to determine the frame to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34857"></span>8829</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34859"></span>882B</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34860"></span>882C</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34862"></span>882E</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="5">Multiply by 32 to get a address of graphics.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34863"></span>882F</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34864"></span>8830</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34865"></span>8831</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34866"></span>8832</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34867"></span>8833</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the basic address of the graphics to get the right one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34868"></span>8834</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set the graphics to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34871"></span>8837</td>
+<td class="instruction">LD L,(IX+$0C)</td>
+<td class="comment-1" rowspan="3">Set the co-ordinates.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34874"></span>883A</td>
+<td class="instruction">LD H,(IX+$0D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34877"></span>883D</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34880"></span>8840</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34883"></span>8843</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is the status 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34886"></span>8846</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34887"></span>8847</td>
+<td class="instruction">JR NZ,$8857</td>
+<td class="comment-1" rowspan="1">Move on if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34889"></span>
+<div class="comments">
+<div class="paragraph">
+The nasty's attributes needs to be drawn.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34889"></span>8849</td>
+<td class="instruction">LD HL,($8962)</td>
+<td class="comment-1" rowspan="1">Get the old position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34892"></span>884C</td>
+<td class="instruction">LD C,$47</td>
+<td class="comment-1" rowspan="1">Use bright white to erase the old attribute.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34894"></span>884E</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34895"></span>884F</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34896"></span>8850</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="34897"></span>8851</td>
+<td class="instruction">CALL <a href="34918.html#34927">$886F</a></td>
+<td class="comment-1" rowspan="1">Draw these specific attributes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34900"></span>8854</td>
+<td class="instruction">CALL <a href="34918.html">$8866</a></td>
+<td class="comment-1" rowspan="1">Draw the new attributes from the actual nasty data.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34903"></span>
+<div class="comments">
+<div class="paragraph">
+All done with this nasty, move to the next. This entry point is used by the routine at <a href="35172.html">8964</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34903"></span>8857</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="4">Add 14 bytes to point to the next nasty data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34905"></span>8859</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34906"></span>885A</td>
+<td class="instruction">LD DE,$0014</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34909"></span>885D</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34910"></span>885E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34911"></span>885F</td>
+<td class="instruction">DJNZ $8863</td>
+<td class="comment-1" rowspan="1">Loop back if there are more nasties to look at.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34913"></span>8861</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="2">Otherwise re-enable interrupts and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34914"></span>8862</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34915"></span>8863</td>
+<td class="instruction">JP $8757</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34638.html">874E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34641">Map</a></td>
+<td class="next">
+Next: <a href="34918.html">8866</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

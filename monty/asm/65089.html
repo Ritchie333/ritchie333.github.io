@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at FE41</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65002.html">FDEA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65089">Map</a></td>
+<td class="next">
+Next: <a href="65158.html">FE86</a>
+</td>
+</tr>
+</table>
+<div class="description">FE41: Print a character in the room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="65002.html">FDEA</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Character to draw is in bits 0-3</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Y co-ordinate</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">X co-ordinate</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65089"></span>FE41</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65090"></span>FE42</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1">The bottom 3 bits contain the relevant character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65092"></span>FE44</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65093"></span>FE45</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="4">Shift by 8 to get an offset in the graphics table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65094"></span>FE46</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65095"></span>FE47</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65096"></span>FE48</td>
+<td class="instruction">ADD A,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65097"></span>FE49</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember screen position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65098"></span>FE4A</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="2">Put the offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65099"></span>FE4B</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65101"></span>FE4D</td>
+<td class="instruction">LD HL,$C54E</td>
+<td class="comment-1" rowspan="1"><a href="50510.html">C54E</a> is the static character graphics table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65104"></span>FE50</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="2">Get the right offset and put it in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65105"></span>FE51</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65106"></span>FE52</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore screen position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65107"></span>FE53</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember screen position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65108"></span>FE54</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-1" rowspan="1">Put X co-ordinate in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65109"></span>FE55</td>
+<td class="instruction">LD L,H</td>
+<td class="comment-1" rowspan="3">Double Y co-ordinate to get a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65110"></span>FE56</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65112"></span>FE58</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65113"></span>FE59</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Remember address of character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65114"></span>FE5A</td>
+<td class="instruction">LD DE,$EA60</td>
+<td class="comment-1" rowspan="1"><a href="60000.html">EA60</a> is the screen offsets table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65117"></span>FE5D</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="5">Put the appropriate screen position in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65118"></span>FE5E</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65119"></span>FE5F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65120"></span>FE60</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65121"></span>FE61</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="65122"></span>
+<div class="comments">
+<div class="paragraph">
+Now copy the found graphic into the screen buffer. The first byte contains the attribute.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65122"></span>FE62</td>
+<td class="instruction">LD DE,$9260</td>
+<td class="comment-1" rowspan="2">Add this value to convert a screen address into an offset from <a href="53856.html">D260</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65125"></span>FE65</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65126"></span>FE66</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to 0 so <span class="register">BC</span> can be used an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65128"></span>FE68</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore address of character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65129"></span>FE69</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Add the X offset so <span class="register">HL</span> now points to the right place in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65130"></span>FE6A</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="2">Copy the next attribute and store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65131"></span>FE6B</td>
+<td class="instruction">LD (IY+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65134"></span>FE6E</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Move onto the next byte.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="65135"></span>
+<div class="comments">
+<div class="paragraph">
+Now copy the pixel data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65135"></span>FE6F</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1">8 rows to copy.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65137"></span>FE71</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="2">Copy this row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65138"></span>FE72</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65139"></span>FE73</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65140"></span>FE74</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Move to the next graphic byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65141"></span>FE75</td>
+<td class="instruction">DJNZ $FE71</td>
+<td class="comment-1" rowspan="1">Loop while there is more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65143"></span>FE77</td>
+<td class="instruction">INC IY</td>
+<td class="comment-1" rowspan="1">Move to the next attribute address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65145"></span>FE79</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65146"></span>FE7A</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65147"></span>FE7B</td>
+<td class="instruction">INC L</td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65148"></span>FE7C</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="2">Have we reached the end of a column?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65149"></span>FE7D</td>
+<td class="instruction">AND $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65151"></span>FE7F</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not. Having reached the end of a column, need to point to the right place.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65152"></span>FE80</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="1">Set the column back to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65153"></span>FE81</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="3">Move to the next segment on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65154"></span>FE82</td>
+<td class="instruction">SUB $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65156"></span>FE84</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65157"></span>FE85</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65002.html">FDEA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65089">Map</a></td>
+<td class="next">
+Next: <a href="65158.html">FE86</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

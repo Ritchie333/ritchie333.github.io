@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 9327</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37528.html">9298</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37671">Map</a></td>
+<td class="next">
+Next: <a href="37724.html">935C</a>
+</td>
+</tr>
+</table>
+<div class="description">9327: Return IX pointing to the index of the nasty Monty is touching, or 0</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37528.html#37599">92DF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37671"></span>9327</td>
+<td class="instruction">LD IX,$C596</td>
+<td class="comment-1" rowspan="1">Point IX to the nasties buffer at <a href="50582.html">C596</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37675"></span>932B</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="1">Maximum of 6 nasties per room.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37677"></span>932D</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37680"></span>9330</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37681"></span>9331</td>
+<td class="instruction">SUB (IX+$0C)</td>
+<td class="comment-1" rowspan="1">Subtract the X co-ordinate of the nasty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37684"></span>9334</td>
+<td class="instruction">JR NC,$9338</td>
+<td class="comment-1" rowspan="1">If it is less than or the same, skip forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37686"></span>9336</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="3">If it is greater than, skip forward.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37688"></span>9338</td>
+<td class="instruction">AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37690"></span>933A</td>
+<td class="instruction">JR NZ,$9350</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37692"></span>933C</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1">Put the Y co-ordinate in A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37693"></span>933D</td>
+<td class="instruction">SUB (IX+$0D)</td>
+<td class="comment-1" rowspan="1">Subtract the Y co-ordinate of the nasty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37696"></span>9340</td>
+<td class="instruction">JR NC,$9344</td>
+<td class="comment-1" rowspan="1">If it is less than or the same, skip forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37698"></span>9342</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="3">If it is greater than, skip forward.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37700"></span>9344</td>
+<td class="instruction">AND $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37702"></span>9346</td>
+<td class="instruction">JR NZ,$9350</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37704"></span>9348</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is the collectable item flag set?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37707"></span>934B</td>
+<td class="instruction">CP $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37709"></span>934D</td>
+<td class="instruction">JR Z,$9350</td>
+<td class="comment-1" rowspan="1">No, so loop forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37711"></span>934F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return with IX pointing at the nasty found.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37712"></span>9350</td>
+<td class="instruction">LD DE,$0014</td>
+<td class="comment-1" rowspan="3">Loop round to the next nasty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37715"></span>9353</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37717"></span>9355</td>
+<td class="instruction">DJNZ $932D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37719"></span>9357</td>
+<td class="instruction">LD IX,$0000</td>
+<td class="comment-1" rowspan="2">Clear <span class="register">IX</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37723"></span>935B</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37528.html">9298</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37671">Map</a></td>
+<td class="next">
+Next: <a href="37724.html">935C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

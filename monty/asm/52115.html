@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CB93</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52114.html">CB92</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52115">Map</a></td>
+<td class="next">
+Next: <a href="52518.html">CD26</a>
+</td>
+</tr>
+</table>
+<div class="description">CB93: Run one frame in the first (outdoor) room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="65371.html">FF5B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52115"></span>CB93</td>
+<td class="instruction">LD A,($CD32)</td>
+<td class="comment-1" rowspan="2">Has the bucket been collected?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52118"></span>CB96</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52119"></span>CB97</td>
+<td class="instruction">JR Z,$CBC3</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52121"></span>
+<div class="comments">
+<div class="paragraph">
+The bucket is animated after 4 calls to this routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52121"></span>CB99</td>
+<td class="instruction">LD A,($CD33)</td>
+<td class="comment-1" rowspan="3">Decrement the tick counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52124"></span>CB9C</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52125"></span>CB9D</td>
+<td class="instruction">LD ($CD33),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52128"></span>CBA0</td>
+<td class="instruction">JR NZ,$CBC3</td>
+<td class="comment-1" rowspan="1">Jump forward if the counter hasn't reached 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52130"></span>CBA2</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Otherwise reset it to 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52132"></span>CBA4</td>
+<td class="instruction">LD ($CD33),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52135"></span>CBA7</td>
+<td class="instruction">LD A,($CD34)</td>
+<td class="comment-1" rowspan="2">Increment the frame counter for the bucket.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52138"></span>CBAA</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52139"></span>CBAB</td>
+<td class="instruction">AND $03</td>
+<td class="comment-1" rowspan="2">If the counter reaches 3, reset it to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52141"></span>CBAD</td>
+<td class="instruction">LD ($CD34),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52144"></span>CBB0</td>
+<td class="instruction">CALL <a href="52518.html">$CD26</a></td>
+<td class="comment-1" rowspan="1">Convert into an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52147"></span>CBB3</td>
+<td class="instruction">LD HL,$6000</td>
+<td class="comment-1" rowspan="2">Add to the base address of the bucket (<a href="24576.html">6000</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52150"></span>CBB6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52151"></span>CBB7</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Next graphic to print</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52154"></span>CBBA</td>
+<td class="instruction">LD HL,$4F2F</td>
+<td class="comment-1" rowspan="2">Set Location to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52157"></span>CBBD</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52160"></span>CBC0</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52163"></span>CBC3</td>
+<td class="instruction">LD A,($CD32)</td>
+<td class="comment-1" rowspan="2">Has the bucket been collected?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52166"></span>CBC6</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52167"></span>CBC7</td>
+<td class="instruction">JR NZ,$CC13</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52169"></span>
+<div class="comments">
+<div class="paragraph">
+As the bucket has been collected, the miner needs to chase Monty.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52169"></span>CBC9</td>
+<td class="instruction">LD A,($CD35)</td>
+<td class="comment-1" rowspan="3">Increment the miner's X co-ordinate (<a href="52533.html">CD35</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52172"></span>CBCC</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52173"></span>CBCD</td>
+<td class="instruction">LD ($CD35),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52176"></span>CBD0</td>
+<td class="instruction">LD HL,$6080</td>
+<td class="comment-1" rowspan="1"><a href="24704.html">6080</a> - base address of miner graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52179"></span>CBD3</td>
+<td class="instruction">LD A,($CD36)</td>
+<td class="comment-1" rowspan="1">Get the frame ID of the miner.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52182"></span>CBD6</td>
+<td class="instruction">CALL <a href="52518.html">$CD26</a></td>
+<td class="comment-1" rowspan="1">Get the actual graphic offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52185"></span>CBD9</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Remember the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52186"></span>CBDA</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add this to the base address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52187"></span>CBDB</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store the graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52190"></span>CBDE</td>
+<td class="instruction">LD A,($CD35)</td>
+<td class="comment-1" rowspan="2">Store the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52193"></span>CBE1</td>
+<td class="instruction">LD ($ECDE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52196"></span>CBE4</td>
+<td class="instruction">LD A,$5F</td>
+<td class="comment-1" rowspan="2">Y co-ordinate is always 5F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52198"></span>CBE6</td>
+<td class="instruction">LD ($ECDF),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52201"></span>CBE9</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52204"></span>CBEC</td>
+<td class="instruction">LD HL,$6100</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the bottom half of the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52207"></span>CBEF</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52208"></span>CBF0</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52209"></span>CBF1</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store the graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52212"></span>CBF4</td>
+<td class="instruction">LD A,$4F</td>
+<td class="comment-1" rowspan="2">Y co-ordinate is always 4F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52214"></span>CBF6</td>
+<td class="instruction">LD ($ECDF),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52217"></span>CBF9</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52220"></span>
+<div class="comments">
+<div class="paragraph">
+The miner is animated after 4 calls to this routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52220"></span>CBFC</td>
+<td class="instruction">LD A,($CD37)</td>
+<td class="comment-1" rowspan="3">Decrement the frame counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52223"></span>CBFF</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52224"></span>CC00</td>
+<td class="instruction">LD ($CD37),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52227"></span>CC03</td>
+<td class="instruction">JR NZ,$CC13</td>
+<td class="comment-1" rowspan="1">Jump forward if it is not 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52229"></span>CC05</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Otherwise set it back to 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52231"></span>CC07</td>
+<td class="instruction">LD ($CD37),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52234"></span>CC0A</td>
+<td class="instruction">LD A,($CD36)</td>
+<td class="comment-1" rowspan="4">Increment the animination frame for the miner, but if it reaches 4, reset it to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52237"></span>CC0D</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52238"></span>CC0E</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52240"></span>CC10</td>
+<td class="instruction">LD ($CD36),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52243"></span>
+<div class="comments">
+<div class="paragraph">
+Draw the squirrel, and if necessary, a nut.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52243"></span>CC13</td>
+<td class="instruction">LD A,($CD38)</td>
+<td class="comment-1" rowspan="1">Get the direction.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52246"></span>CC16</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52248"></span>CC18</td>
+<td class="instruction">JR Z,$CC6E</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52250"></span>
+<div class="comments">
+<div class="paragraph">
+The squirrel is moving right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52250"></span>CC1A</td>
+<td class="instruction">LD A,($CD39)</td>
+<td class="comment-1" rowspan="3">Increment the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52253"></span>CC1D</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52254"></span>CC1E</td>
+<td class="instruction">LD ($CD39),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52257"></span>CC21</td>
+<td class="instruction">LD A,($CD3A)</td>
+<td class="comment-1" rowspan="3">Decrement the frame counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52260"></span>CC24</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52261"></span>CC25</td>
+<td class="instruction">LD ($CD3A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52264"></span>CC28</td>
+<td class="instruction">LD A,($CD3B)</td>
+<td class="comment-1" rowspan="1">Get the animation frame for the squirrel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52267"></span>CC2B</td>
+<td class="instruction">JR NZ,$CC3B</td>
+<td class="comment-1" rowspan="1">Jump forward if it is not 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52269"></span>CC2D</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Otherwise set it back to 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52271"></span>CC2F</td>
+<td class="instruction">LD ($CD3A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52274"></span>CC32</td>
+<td class="instruction">LD A,($CD3B)</td>
+<td class="comment-1" rowspan="4">Increment the animination frame for the squirrel, but if it reaches 4, reset it to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52277"></span>CC35</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52278"></span>CC36</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52280"></span>CC38</td>
+<td class="instruction">LD ($CD3B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52283"></span>CC3B</td>
+<td class="instruction">CALL <a href="52518.html">$CD26</a></td>
+<td class="comment-1" rowspan="1">Convert the graphic ID into a screen offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52286"></span>CC3E</td>
+<td class="instruction">LD HL,$6200</td>
+<td class="comment-1" rowspan="1">Base address of the squirrel - left (<a href="25088.html">6200</a>).</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52289"></span>CC41</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52290"></span>CC42</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store the graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52293"></span>CC45</td>
+<td class="instruction">LD A,($CD39)</td>
+<td class="comment-1" rowspan="2">Store the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52296"></span>CC48</td>
+<td class="instruction">LD ($ECDE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52299"></span>CC4B</td>
+<td class="instruction">LD A,$AF</td>
+<td class="comment-1" rowspan="2">Y co-ordinate is always AF.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52301"></span>CC4D</td>
+<td class="instruction">LD ($ECDF),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52304"></span>CC50</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52307"></span>CC53</td>
+<td class="instruction">LD A,($CD39)</td>
+<td class="comment-1" rowspan="2">Has the squirrel reached the tree trunk?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52310"></span>CC56</td>
+<td class="instruction">CP $80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52312"></span>CC58</td>
+<td class="instruction">JR NZ,$CCA9</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52314"></span>CC5A</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Otherwise set the X co-ordinate to the maximum of 7F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52315"></span>CC5B</td>
+<td class="instruction">LD ($CD39),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52318"></span>CC5E</td>
+<td class="instruction">LD A,($CD3C)</td>
+<td class="comment-1" rowspan="2">Is there a nut?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52321"></span>CC61</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52322"></span>CC62</td>
+<td class="instruction">JR NZ,$CCA9</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52324"></span>
+<div class="comments">
+<div class="paragraph">
+The squirrel has reached the trunk, drop a nut.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52324"></span>CC64</td>
+<td class="instruction">LD A,($CD38)</td>
+<td class="comment-1" rowspan="3">Invert the direction from right to left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52327"></span>CC67</td>
+<td class="instruction">NEG</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52329"></span>CC69</td>
+<td class="instruction">LD ($CD38),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52332"></span>CC6C</td>
+<td class="instruction">JR $CCA9</td>
+<td class="comment-1" rowspan="1">Jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52334"></span>
+<div class="comments">
+<div class="paragraph">
+The squirrel is moving left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52334"></span>CC6E</td>
+<td class="instruction">LD A,($CD39)</td>
+<td class="comment-1" rowspan="3">Decrement the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52337"></span>CC71</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52338"></span>CC72</td>
+<td class="instruction">LD ($CD39),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52341"></span>CC75</td>
+<td class="instruction">LD A,($CD3A)</td>
+<td class="comment-1" rowspan="3">Decrement the frame counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52344"></span>CC78</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52345"></span>CC79</td>
+<td class="instruction">LD ($CD3A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52348"></span>CC7C</td>
+<td class="instruction">LD A,($CD3B)</td>
+<td class="comment-1" rowspan="1">Get the animation frame for the squirrel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52351"></span>CC7F</td>
+<td class="instruction">JR NZ,$CC8F</td>
+<td class="comment-1" rowspan="1">Jump forward if the counter is not 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52353"></span>CC81</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Otherwise reset to 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52355"></span>CC83</td>
+<td class="instruction">LD ($CD3A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52358"></span>CC86</td>
+<td class="instruction">LD A,($CD3B)</td>
+<td class="comment-1" rowspan="1">Get the animation frame for the squirrel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52361"></span>CC89</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="3">Increment the frame, but if it reaches 4, reset to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52362"></span>CC8A</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52364"></span>CC8C</td>
+<td class="instruction">LD ($CD3B),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52367"></span>CC8F</td>
+<td class="instruction">CALL <a href="52518.html">$CD26</a></td>
+<td class="comment-1" rowspan="1">Get the graphic offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52370"></span>CC92</td>
+<td class="instruction">LD HL,$6280</td>
+<td class="comment-1" rowspan="1">Base address of the squirrel - right (<a href="25216.html">6280</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52373"></span>CC95</td>
+<td class="instruction">LD A,($CD39)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52376"></span>CC98</td>
+<td class="instruction">CP $70</td>
+<td class="comment-1" rowspan="1">Has the squirrel reached the end of the branch?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52378"></span>CC9A</td>
+<td class="instruction">JR NZ,$CC41</td>
+<td class="comment-1" rowspan="1">Jump if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52380"></span>CC9C</td>
+<td class="instruction">LD A,($CD38)</td>
+<td class="comment-1" rowspan="3">Change the direction from left to right.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52383"></span>CC9F</td>
+<td class="instruction">NEG</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52385"></span>CCA1</td>
+<td class="instruction">LD ($CD38),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52388"></span>CCA4</td>
+<td class="instruction">LD ($CD3C),A</td>
+<td class="comment-1" rowspan="2">Signal that a nut should be dropped and loop back to draw the squirrel.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52391"></span>CCA7</td>
+<td class="instruction">JR $CC41</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52393"></span>
+<div class="comments">
+<div class="paragraph">
+Draw the nut if it exists.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52393"></span>CCA9</td>
+<td class="instruction">LD A,($CD3C)</td>
+<td class="comment-1" rowspan="2">Is there a nut?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52396"></span>CCAC</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52397"></span>CCAD</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if not, nothing more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52398"></span>CCAE</td>
+<td class="instruction">LD A,($CD3D)</td>
+<td class="comment-1" rowspan="2">Is the nut exploding?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52401"></span>CCB1</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52402"></span>CCB2</td>
+<td class="instruction">JR NZ,$CCD6</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52404"></span>CCB4</td>
+<td class="instruction">LD A,($CD3E)</td>
+<td class="comment-1" rowspan="3">Decrement the height of the nut by 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52407"></span>CCB7</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52408"></span>CCB8</td>
+<td class="instruction">LD ($CD3E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52411"></span>CCBB</td>
+<td class="instruction">LD HL,$6300</td>
+<td class="comment-1" rowspan="1">Base address of the nut (<a href="25344.html">6300</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52414"></span>CCBE</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52417"></span>CCC1</td>
+<td class="instruction">LD ($ECDF),A</td>
+<td class="comment-1" rowspan="1">Store the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52420"></span>CCC4</td>
+<td class="instruction">LD A,$68</td>
+<td class="comment-1" rowspan="2">X co-ordinate is always 68.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52422"></span>CCC6</td>
+<td class="instruction">LD ($ECDE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52425"></span>CCC9</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52428"></span>CCCC</td>
+<td class="instruction">LD A,($CD3E)</td>
+<td class="comment-1" rowspan="2">Has the nut reached the floor?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52431"></span>CCCF</td>
+<td class="instruction">CP $4F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52433"></span>CCD1</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not, nothing more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52434"></span>CCD2</td>
+<td class="instruction">LD ($CD3D),A</td>
+<td class="comment-1" rowspan="2">Set the flag (<a href="52541.html">CD3D</a>) to denote the nut should now explode and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52437"></span>CCD5</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52438"></span>
+<div class="comments">
+<div class="paragraph">
+The nut has reached the floor and should explode.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52438"></span>CCD6</td>
+<td class="instruction">LD A,($CD3F)</td>
+<td class="comment-1" rowspan="3">Decrement the timer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52441"></span>CCD9</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52442"></span>CCDA</td>
+<td class="instruction">LD ($CD3F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52445"></span>CCDD</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if the timer is not yet zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52446"></span>CCDE</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Otherwise restore to 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52448"></span>CCE0</td>
+<td class="instruction">LD ($CD3F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52451"></span>CCE3</td>
+<td class="instruction">LD A,($CD40)</td>
+<td class="comment-1" rowspan="4">Increment the graphic ID, but if it reaches 4, reset to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52454"></span>CCE6</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52455"></span>CCE7</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52457"></span>CCE9</td>
+<td class="instruction">LD ($CD40),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52460"></span>CCEC</td>
+<td class="instruction">JR Z,$CD0A</td>
+<td class="comment-1" rowspan="1">If the last frame was reached, the nut has gone.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52462"></span>CCEE</td>
+<td class="instruction">LD A,($CD3E)</td>
+<td class="comment-1" rowspan="2">Otherwise store the Y co-ordinate (was 4F).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52465"></span>CCF1</td>
+<td class="instruction">LD ($ECDF),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52468"></span>CCF4</td>
+<td class="instruction">LD A,$68</td>
+<td class="comment-1" rowspan="2">X co-ordinate is always 68.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52470"></span>CCF6</td>
+<td class="instruction">LD ($ECDE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52473"></span>CCF9</td>
+<td class="instruction">LD A,($CD40)</td>
+<td class="comment-1" rowspan="1">Get the graphic ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52476"></span>CCFC</td>
+<td class="instruction">CALL <a href="52518.html">$CD26</a></td>
+<td class="comment-1" rowspan="1">Convert this to an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52479"></span>CCFF</td>
+<td class="instruction">LD HL,$6300</td>
+<td class="comment-1" rowspan="1"><a href="25344.html">6300</a> is the base address for the nut graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52482"></span>CD02</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52483"></span>CD03</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store this as the graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52486"></span>CD06</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52489"></span>CD09</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52490"></span>
+<div class="comments">
+<div class="paragraph">
+The nut exploded and is no more.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52490"></span>CD0A</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 0 to clear some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52491"></span>CD0B</td>
+<td class="instruction">LD ($CD3C),A</td>
+<td class="comment-1" rowspan="1">Squirrel is not dropping a nut.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52494"></span>CD0E</td>
+<td class="instruction">LD ($CD3D),A</td>
+<td class="comment-1" rowspan="1">Nut will be falling when next dropped.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52497"></span>CD11</td>
+<td class="instruction">LD HL,$7780</td>
+<td class="comment-1" rowspan="1"><a href="30592.html">7780</a> is the empty graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52500"></span>CD14</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Store the graphic to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52503"></span>CD17</td>
+<td class="instruction">LD HL,$4F68</td>
+<td class="comment-1" rowspan="1">Erase the graphic at 68 4F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52506"></span>CD1A</td>
+<td class="instruction">LD ($ECDE),HL</td>
+<td class="comment-1" rowspan="1">Store the co-ordinates.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52509"></span>CD1D</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Print the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52512"></span>CD20</td>
+<td class="instruction">LD A,$9F</td>
+<td class="comment-1" rowspan="3">Set the nut back to the top of the tree and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52514"></span>CD22</td>
+<td class="instruction">LD ($CD3E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52517"></span>CD25</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52114.html">CB92</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52115">Map</a></td>
+<td class="next">
+Next: <a href="52518.html">CD26</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

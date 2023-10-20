@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at D260</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53844.html">D254</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53856">Map</a></td>
+<td class="next">
+Next: <a href="53904.html">D290</a>
+</td>
+</tr>
+</table>
+<div class="description">D260: Save game to tape</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Once the intro tune has played, this area to EA5F becomes the screen buffer
+</div>
+<div class="paragraph">
+Control continues to <a href="53904.html">D290</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53856"></span>D260</td>
+<td class="instruction">LD HL,$D2E9</td>
+<td class="comment-1" rowspan="4">Put the "death" tune somewhere where it won't be overwritten.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53859"></span>D263</td>
+<td class="instruction">LD DE,$5C7D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53862"></span>D266</td>
+<td class="instruction">LD BC,$0064</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53865"></span>D269</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53867"></span>D26B</td>
+<td class="instruction">LD HL,$D34D</td>
+<td class="comment-1" rowspan="4">Put the "game won" message where it won't be overwritten.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53870"></span>D26E</td>
+<td class="instruction">LD DE,$5CE1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53873"></span>D271</td>
+<td class="instruction">LD BC,$026C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53876"></span>D274</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53878"></span>D276</td>
+<td class="instruction">LD HL,$CF54</td>
+<td class="comment-1" rowspan="5">Clear the screen attribute buffer to zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53881"></span>D279</td>
+<td class="instruction">LD DE,$CF55</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53884"></span>D27C</td>
+<td class="instruction">LD BC,$02FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53887"></span>D27F</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53889"></span>D281</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53891"></span>D283</td>
+<td class="instruction">LD IX,$4000</td>
+<td class="comment-1" rowspan="5">Call the ROM save routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53895"></span>D287</td>
+<td class="instruction">LD DE,$C000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53898"></span>D28A</td>
+<td class="instruction">LD A,$71</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53900"></span>D28C</td>
+<td class="instruction">SCF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53901"></span>D28D</td>
+<td class="instruction">CALL $04C2</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53844.html">D254</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53856">Map</a></td>
+<td class="next">
+Next: <a href="53904.html">D290</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

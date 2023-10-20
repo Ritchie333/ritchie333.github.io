@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 90BD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37032.html">90A8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37053">Map</a></td>
+<td class="next">
+Next: <a href="37131.html">910B</a>
+</td>
+</tr>
+</table>
+<div class="description">90BD: Animate the shower water in room 11</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="36767.html">8F9F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37053"></span>90BD</td>
+<td class="instruction">LD HL,$912B</td>
+<td class="comment-1" rowspan="1">Get the graphic index for the shower head (<a href="37163.html">912B</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37056"></span>90C0</td>
+<td class="instruction">LD A,($C526)</td>
+<td class="comment-1" rowspan="2">Does it match the index for this room?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37059"></span>90C3</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37060"></span>90C4</td>
+<td class="instruction">JR NZ,<a href="37164.html">$912C</a></td>
+<td class="comment-1" rowspan="1">No, so set it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37062"></span>90C6</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Return if it is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37063"></span>90C7</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37064"></span>90C8</td>
+<td class="instruction">LD HL,($9129)</td>
+<td class="comment-1" rowspan="1">Put the last two bytes of the graphic in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37067"></span>90CB</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37068"></span>90CC</td>
+<td class="instruction">LD HL,$9128</td>
+<td class="comment-1" rowspan="4">Shift the other bytes down.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37071"></span>90CF</td>
+<td class="instruction">LD DE,$912A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37074"></span>90D2</td>
+<td class="instruction">LD BC,$001E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37077"></span>90D5</td>
+<td class="instruction">LDDR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37079"></span>90D7</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore the last byte and put it on the front.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37080"></span>90D8</td>
+<td class="instruction">LD ($910B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37083"></span>90DB</td>
+<td class="instruction">LD IX,$910B</td>
+<td class="comment-1" rowspan="1">Point to the first graphic frame.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37087"></span>90DF</td>
+<td class="instruction">LD HL,$4841</td>
+<td class="comment-1" rowspan="1">Location on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37090"></span>90E2</td>
+<td class="instruction">LD DE,$DAA1</td>
+<td class="comment-1" rowspan="1">Location in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37093"></span>90E5</td>
+<td class="instruction">CALL $90F2</td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37096"></span>90E8</td>
+<td class="instruction">LD HL,$4861</td>
+<td class="comment-1" rowspan="1">Location on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37099"></span>90EB</td>
+<td class="instruction">LD DE,$DAC1</td>
+<td class="comment-1" rowspan="1">Location in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37102"></span>90EE</td>
+<td class="instruction">LD IX,$911B</td>
+<td class="comment-1" rowspan="1">Pointer to the second graphic frame.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37106"></span>
+<div class="comments">
+<div class="paragraph">
+Draw the next graphic. This entry point is used by the routine at <a href="37164.html">912C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37106"></span>90F2</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1">8 rows to draw.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37108"></span>90F4</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Get the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37111"></span>90F7</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Put the graphic on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37112"></span>90F8</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Put the graphic in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37113"></span>90F9</td>
+<td class="instruction">INC L</td>
+<td class="comment-1" rowspan="2">Move to the next column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37114"></span>90FA</td>
+<td class="instruction">INC E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37115"></span>90FB</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Get the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37118"></span>90FE</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Put the graphic on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37119"></span>90FF</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Put the graphic in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37120"></span>9100</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="4">Move to the next row, and back to the first column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37121"></span>9101</td>
+<td class="instruction">DEC L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37122"></span>9102</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37123"></span>9103</td>
+<td class="instruction">DEC E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37124"></span>9104</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="2">Move forward to the next graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37126"></span>9106</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37128"></span>9108</td>
+<td class="instruction">DJNZ $90F4</td>
+<td class="comment-1" rowspan="2">Loop until all the rows are drawn.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37130"></span>910A</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37032.html">90A8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37053">Map</a></td>
+<td class="next">
+Next: <a href="37131.html">910B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

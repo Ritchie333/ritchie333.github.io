@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8DCD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36223.html">8D7F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36301">Map</a></td>
+<td class="next">
+Next: <a href="36474.html">8E7A</a>
+</td>
+</tr>
+</table>
+<div class="description">8DCD: Move a crusher</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="36767.html">8F9F</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Pointer to room flags (<a href="36179.html">8D53</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36301"></span>8DCD</td>
+<td class="instruction">LD IY,$C527</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the crusher data (<a href="50471.html">C527</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36305"></span>8DD1</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="2">Are the X and Y co-ordinates both zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36308"></span>8DD4</td>
+<td class="instruction">OR (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36311"></span>8DD7</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">If so, there are no crushers here, so return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36312"></span>8DD8</td>
+<td class="instruction">LD A,(IY+$03)</td>
+<td class="comment-1" rowspan="2">Is it time to fire a crusher?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36315"></span>8DDB</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36316"></span>8DDC</td>
+<td class="instruction">JR Z,$8DE2</td>
+<td class="comment-1" rowspan="1">Jump if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36318"></span>8DDE</td>
+<td class="instruction">DEC (IY+$03)</td>
+<td class="comment-1" rowspan="2">Otherwise decrement the time to fire and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36321"></span>8DE1</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36322"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher should now be activated.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36322"></span>8DE2</td>
+<td class="instruction">BIT 0,(IY+$04)</td>
+<td class="comment-1" rowspan="1">Is the crusher descending?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36326"></span>8DE6</td>
+<td class="instruction">CALL NZ,<a href="37192.html">$9148</a></td>
+<td class="comment-1" rowspan="1">See if Monty is underneath one and if so, kill him.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36329"></span>8DE9</td>
+<td class="instruction">BIT 0,(IY+$04)</td>
+<td class="comment-1" rowspan="1">Is the crusher descending?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36333"></span>8DED</td>
+<td class="instruction">JR NZ,$8E10</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36335"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher is ascending.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36335"></span>8DEF</td>
+<td class="instruction">INC (IY+$01)</td>
+<td class="comment-1" rowspan="2">Move down two rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36338"></span>8DF2</td>
+<td class="instruction">INC (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36341"></span>8DF5</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="2">Has the Y co-ordinate reached the top?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36344"></span>8DF8</td>
+<td class="instruction">CP (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36347"></span>8DFB</td>
+<td class="instruction">JR NC,$8E0C</td>
+<td class="comment-1" rowspan="1">Jump forward if it hasn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36349"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher has reached the top.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36349"></span>8DFD</td>
+<td class="instruction">LD (IY+$04),$01</td>
+<td class="comment-1" rowspan="1">Signal that the crusher is descending.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36353"></span>8E01</td>
+<td class="instruction">CALL <a href="64923.html">$FD9B</a></td>
+<td class="comment-1" rowspan="1">Get a pseudo-random number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36356"></span>8E04</td>
+<td class="instruction">RES 7,C</td>
+<td class="comment-1" rowspan="2">Ensure it is a number between 1 and 80.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36358"></span>8E06</td>
+<td class="instruction">INC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36359"></span>8E07</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="3">Store it as the next time to fire and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36360"></span>8E08</td>
+<td class="instruction">LD (IY+$03),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36363"></span>8E0B</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36364"></span>8E0C</td>
+<td class="instruction">CALL $8E2C</td>
+<td class="comment-1" rowspan="2">Redraw the crusher and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36367"></span>8E0F</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36368"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher is descending.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="36368"></span>8E10</td>
+<td class="instruction">DEC (IY+$01)</td>
+<td class="comment-1" rowspan="2">Move down two rows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36371"></span>8E13</td>
+<td class="instruction">DEC (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36374"></span>8E16</td>
+<td class="instruction">LD A,(IY+$02)</td>
+<td class="comment-1" rowspan="2">Has the Y co-ordinate reached the bottom?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36377"></span>8E19</td>
+<td class="instruction">CP (IY+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36380"></span>8E1C</td>
+<td class="instruction">JR C,$8E0C</td>
+<td class="comment-1" rowspan="1">Jump back if it hasn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="36382"></span>
+<div class="comments">
+<div class="paragraph">
+The crusher has reached the bottom.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36382"></span>8E1E</td>
+<td class="instruction">LD (IY+$04),$00</td>
+<td class="comment-1" rowspan="1">Signal that the crusher is ascending.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36386"></span>8E22</td>
+<td class="instruction">LD DE,$0002</td>
+<td class="comment-1" rowspan="1">Set the length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36389"></span>8E25</td>
+<td class="instruction">LD HL,$066A</td>
+<td class="comment-1" rowspan="1">Set the frequency.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36392"></span>8E28</td>
+<td class="instruction">CALL $03B6</td>
+<td class="comment-1" rowspan="1">Call the ROM beep routine without enabling interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="36395"></span>8E2B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36223.html">8D7F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#36301">Map</a></td>
+<td class="next">
+Next: <a href="36474.html">8E7A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

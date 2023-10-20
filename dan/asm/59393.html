@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at E801</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59392.html">E800</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59393">Map</a></td>
+<td class="next">
+Next: <a href="59424.html">E820</a>
+</td>
+</tr>
+</table>
+<div class="description">E801: Clear the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="51329.html">C881</a>, <a href="51803.html">CA5B</a>, <a href="56163.html">DB63</a>, <a href="56566.html">DCF6</a>, <a href="58927.html">E62F</a> and <a href="62196.html">F2F4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59393"></span>E801</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="2">Start copying from the top of the screen, and for the length of it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59396"></span>E804</td>
+<td class="instruction">LD BC,$1800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59399"></span>E807</td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-1" rowspan="1">Set the first byte to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59400"></span>E808</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-1" rowspan="2">Start copying to the second byte in the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59401"></span>E809</td>
+<td class="instruction">LD E,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59403"></span>E80B</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Do the copy, which will fill the screen with 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59405"></span>
+<div class="comments">
+<div class="paragraph">
+At this point, <span class="register">HL</span> is pointing to the attributes.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59405"></span>E80D</td>
+<td class="instruction">LD A,$45</td>
+<td class="comment-1" rowspan="1">Use bright cyan on black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59407"></span>E80F</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set the first cell.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59408"></span>E810</td>
+<td class="instruction">LD BC,$02FF</td>
+<td class="comment-1" rowspan="2">Fill the rest of the attributes.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59411"></span>E813</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59413"></span>
+<div class="comments">
+<div class="paragraph">
+Set the border to black.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59413"></span>E815</td>
+<td class="instruction">LD A,($E800)</td>
+<td class="comment-1" rowspan="1">Get the last read to port FE. (<a href="59392.html">E800</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59416"></span>E818</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-1" rowspan="1">Ignore the border bits, it is always black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59418"></span>E81A</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">Set the port values.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59420"></span>E81C</td>
+<td class="instruction">LD ($E800),A</td>
+<td class="comment-1" rowspan="1">Remember this for later.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59423"></span>E81F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59392.html">E800</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59393">Map</a></td>
+<td class="next">
+Next: <a href="59424.html">E820</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

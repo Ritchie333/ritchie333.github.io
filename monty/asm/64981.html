@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at FDD5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64953.html">FDB9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64981">Map</a></td>
+<td class="next">
+Next: <a href="65002.html">FDEA</a>
+</td>
+</tr>
+</table>
+<div class="description">FDD5: Print all static characters in the current room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="38225.html">9551</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64981"></span>FDD5</td>
+<td class="instruction">LD HL,$AF00</td>
+<td class="comment-1" rowspan="1">Starting position, top left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64984"></span>FDD8</td>
+<td class="instruction">LD IX,$C42A</td>
+<td class="comment-1" rowspan="1"><a href="50218.html">C42A</a> - static characters table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64988"></span>FDDC</td>
+<td class="instruction">LD IY,$CF94</td>
+<td class="comment-1" rowspan="1">Set <span class="register">IY</span> to the second line in the screen attribute buffer (<a href="53076.html">CF54</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64992"></span>FDE0</td>
+<td class="instruction">LD B,$14</td>
+<td class="comment-1" rowspan="1">Draw 14 lines.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64994"></span>FDE2</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64995"></span>FDE3</td>
+<td class="instruction">CALL <a href="65002.html">$FDEA</a></td>
+<td class="comment-1" rowspan="1">Draw a line.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64998"></span>FDE6</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore number of lines.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64999"></span>FDE7</td>
+<td class="instruction">DJNZ $FDE2</td>
+<td class="comment-1" rowspan="1">Loop if there are more lines to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65001"></span>FDE9</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64953.html">FDB9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64981">Map</a></td>
+<td class="next">
+Next: <a href="65002.html">FDEA</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

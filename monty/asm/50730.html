@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at C62A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50729.html">C629</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50730">Map</a></td>
+<td class="next">
+Next: <a href="50753.html">C641</a>
+</td>
+</tr>
+</table>
+<div class="description">C62A: Copy the room graphic buffer to screen so it is visible</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="38225.html">9551</a> and <a href="52545.html">CD41</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50730"></span>C62A</td>
+<td class="instruction">LD HL,$CF54</td>
+<td class="comment-1" rowspan="4">Copy attribute address to attribute buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50733"></span>C62D</td>
+<td class="instruction">LD DE,$5800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50736"></span>C630</td>
+<td class="instruction">LD BC,$0300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50739"></span>C633</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50741"></span>C635</td>
+<td class="instruction">LD HL,$D260</td>
+<td class="comment-1" rowspan="4">Copy screen address to screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50744"></span>C638</td>
+<td class="instruction">LD DE,$4000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50747"></span>C63B</td>
+<td class="instruction">LD BC,$1800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50750"></span>C63E</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50752"></span>C640</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50729.html">C629</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50730">Map</a></td>
+<td class="next">
+Next: <a href="50753.html">C641</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

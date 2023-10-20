@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8B90</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35615.html">8B1F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35728">Map</a></td>
+<td class="next">
+Next: <a href="35901.html">8C3D</a>
+</td>
+</tr>
+</table>
+<div class="description">8B90: Determine where Monty can move to</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="35615.html#35636">8B34</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35728"></span>8B90</td>
+<td class="instruction">CALL <a href="35901.html">$8C3D</a></td>
+<td class="comment-1" rowspan="1">Check for collision.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35731"></span>8B93</td>
+<td class="instruction">LD IX,$8D52</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the room flags (<a href="36178.html">8D52</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35735"></span>8B97</td>
+<td class="instruction">LD IY,$8D54</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the direction flags (<a href="36180.html">8D54</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35739"></span>8B9B</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="3">Clear all bits except 2 and 4 on the room flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35742"></span>8B9E</td>
+<td class="instruction">AND $0A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35744"></span>8BA0</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35747"></span>
+<div class="comments">
+<div class="paragraph">
+Check the movement flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35747"></span>8BA3</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="2">Can Monty move up?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35750"></span>8BA6</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35751"></span>8BA7</td>
+<td class="instruction">JR NZ,$8BAD</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35753"></span>8BA9</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 7 of the room flags - Monty can't move up.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35757"></span>8BAD</td>
+<td class="instruction">LD A,(IY+$01)</td>
+<td class="comment-1" rowspan="2">Can Monty move down?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35760"></span>8BB0</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35761"></span>8BB1</td>
+<td class="instruction">JR NZ,$8BB7</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35763"></span>8BB3</td>
+<td class="instruction">SET 6,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 6 of the room flags - Monty can't move down.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35767"></span>8BB7</td>
+<td class="instruction">LD A,(IY+$02)</td>
+<td class="comment-1" rowspan="2">Can Monty move left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35770"></span>8BBA</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35771"></span>8BBB</td>
+<td class="instruction">JR NZ,$8BC1</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35773"></span>8BBD</td>
+<td class="instruction">SET 5,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of the room flags - Monty can't move left.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35777"></span>8BC1</td>
+<td class="instruction">LD A,(IY+$03)</td>
+<td class="comment-1" rowspan="2">Can Monty move right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35780"></span>8BC4</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35781"></span>8BC5</td>
+<td class="instruction">JR NZ,$8BCB</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35783"></span>8BC7</td>
+<td class="instruction">SET 4,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 4 of the room flags - Monty can't move right.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35787"></span>
+<div class="comments">
+<div class="paragraph">
+Check to see if there is a nasty in the proximity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35787"></span>8BCB</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Is a nasty to the right of Monty?</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35789"></span>8BCD</td>
+<td class="instruction">JP Z,<a href="37998.html">$946E</a></td>
+<td class="comment-1" rowspan="1">If so, Monty dies.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35792"></span>8BD0</td>
+<td class="instruction">LD A,(IY+$02)</td>
+<td class="comment-1" rowspan="1">Is a nasty to the left of Monty?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35795"></span>8BD3</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">If so, Monty dies.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35797"></span>8BD5</td>
+<td class="instruction">JR Z,$8BCD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35799"></span>8BD7</td>
+<td class="instruction">LD A,(IY+$01)</td>
+<td class="comment-1" rowspan="1">Is a nasty below Monty?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35802"></span>8BDA</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">If so, Monty dies.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35804"></span>8BDC</td>
+<td class="instruction">JR Z,$8BCD</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35806"></span>8BDE</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Is a nasty above Monty?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35809"></span>8BE1</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">If so, Monty dies.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35811"></span>8BE3</td>
+<td class="instruction">JR Z,$8BCD</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35813"></span>
+<div class="comments">
+<div class="paragraph">
+See if Monty can climb here.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35813"></span>8BE5</td>
+<td class="instruction">PUSH IY</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35815"></span>8BE7</td>
+<td class="instruction">CALL <a href="65186.html">$FEA2</a></td>
+<td class="comment-1" rowspan="1">Can Monty climb here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35818"></span>8BEA</td>
+<td class="instruction">JR NZ,$8BF0</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35820"></span>8BEC</td>
+<td class="instruction">SET 2,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 2 of the room flags - Monty can climb.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35824"></span>8BF0</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35826"></span>
+<div class="comments">
+<div class="paragraph">
+See if Monty has collided with non-empty space.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35826"></span>8BF2</td>
+<td class="instruction">LD B,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35828"></span>8BF4</td>
+<td class="instruction">LD A,($5C7B)</td>
+<td class="comment-1" rowspan="2">Get the bottom 3 bits of the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35831"></span>8BF7</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35833"></span>8BF9</td>
+<td class="instruction">JR Z,$8BFD</td>
+<td class="comment-1" rowspan="1">Move forward if they are zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35835"></span>8BFB</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Scan 3 rows.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35837"></span>8BFD</td>
+<td class="instruction">CALL <a href="36191.html">$8D5F</a></td>
+<td class="comment-1" rowspan="1">Get the current screen address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35840"></span>8C00</td>
+<td class="instruction">LD C,$00</td>
+<td class="comment-1" rowspan="1">Set <span class="register">C</span> as no bits found.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35842"></span>8C02</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next data from screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35843"></span>8C03</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1">OR it against <span class="register">C</span> to retain any bits found.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35844"></span>8C04</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Store this result back in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35845"></span>8C05</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35846"></span>8C06</td>
+<td class="instruction">DJNZ $8C02</td>
+<td class="comment-1" rowspan="1">Loop back if there are more columns to look at.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35848"></span>8C08</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="2">Was anything found at this screen address?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35849"></span>8C09</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35850"></span>8C0A</td>
+<td class="instruction">JP Z,<a href="35596.html">$8B0C</a></td>
+<td class="comment-1" rowspan="1">If not, set various flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35853"></span>8C0D</td>
+<td class="instruction">BIT 7,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Is Monty in mid-air?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35857"></span>8C11</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so. Monty has reached the ground after falling.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35858"></span>8C12</td>
+<td class="instruction">RES 7,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Reset the mid-air flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35862"></span>8C16</td>
+<td class="instruction">RES 0,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Enable background objects to move.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35866"></span>8C1A</td>
+<td class="instruction">RES 1,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set that Monty is not jumping.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35870"></span>8C1E</td>
+<td class="instruction">LD A,($8D58)</td>
+<td class="comment-1" rowspan="1">Get the height fallen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35873"></span>8C21</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="1">Is it above 20?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35875"></span>8C23</td>
+<td class="instruction">JP NC,<a href="37998.html">$946E</a></td>
+<td class="comment-1" rowspan="1">Yes, Monty has fallen too far, so he's dead.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35878"></span>8C26</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 0 to reset some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35879"></span>8C27</td>
+<td class="instruction">LD ($8D58),A</td>
+<td class="comment-1" rowspan="1">Reset the height fallen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35882"></span>8C2A</td>
+<td class="instruction">LD ($848F),A</td>
+<td class="comment-1" rowspan="1">Reset the position jumped off ground.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35885"></span>8C2D</td>
+<td class="instruction">LD ($8498),A</td>
+<td class="comment-1" rowspan="1">Reset the time being jumped.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35888"></span>8C30</td>
+<td class="instruction">LD HL,$869C</td>
+<td class="comment-1" rowspan="2">Reset the pointer to the movement table back to <a href="34460.html">869C</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35891"></span>8C33</td>
+<td class="instruction">LD ($8492),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35894"></span>8C36</td>
+<td class="instruction">LD HL,($8496)</td>
+<td class="comment-1" rowspan="2">Reset the pitch to sound when jumping back to the default.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35897"></span>8C39</td>
+<td class="instruction">LD ($8494),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35900"></span>8C3C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35615.html">8B1F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35728">Map</a></td>
+<td class="next">
+Next: <a href="35901.html">8C3D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

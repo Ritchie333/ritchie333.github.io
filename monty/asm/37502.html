@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 927E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37464.html">9258</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37502">Map</a></td>
+<td class="next">
+Next: <a href="37528.html">9298</a>
+</td>
+</tr>
+</table>
+<div class="description">927E: Check if Monty is touching a (non-coal) collectable item, and if so, pick it up</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37502"></span>927E</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the current position in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37505"></span>9281</td>
+<td class="instruction">LD A,($C526)</td>
+<td class="comment-1" rowspan="1">Get the collectable item flag (<a href="50470.html">C526</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37508"></span>9284</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37509"></span>9285</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so - there is no item here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37510"></span>9286</td>
+<td class="instruction">LD A,($C524)</td>
+<td class="comment-1" rowspan="2">Does the X co-ordinate match?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37513"></span>9289</td>
+<td class="instruction">CP L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37514"></span>928A</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37515"></span>928B</td>
+<td class="instruction">LD A,($C525)</td>
+<td class="comment-1" rowspan="3">Does the Y co-ordinate match?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37518"></span>928E</td>
+<td class="instruction">CP H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37519"></span>928F</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37520"></span>9290</td>
+<td class="instruction">SET 3,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Mark the item as collected.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37524"></span>9294</td>
+<td class="instruction">CALL <a href="38248.html">$9568</a></td>
+<td class="comment-1" rowspan="2">Pick up the item and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37527"></span>9297</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37464.html">9258</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37502">Map</a></td>
+<td class="next">
+Next: <a href="37528.html">9298</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at D290</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53856.html">D260</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53904">Map</a></td>
+<td class="next">
+Next: <a href="53993.html">D2E9</a>
+</td>
+</tr>
+</table>
+<div class="description">D290: Main entry point</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+When the game has loaded, the ROM loading routine returns to here
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53904"></span>D290</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="13">This does nothing except waste a bit of time.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53905"></span>D291</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53906"></span>D292</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53907"></span>D293</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53908"></span>D294</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53909"></span>D295</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53910"></span>D296</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53911"></span>D297</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53912"></span>D298</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53913"></span>D299</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53914"></span>D29A</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53915"></span>D29B</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53916"></span>D29C</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53917"></span>D29D</td>
+<td class="instruction">LD IX,$D5B9</td>
+<td class="comment-1" rowspan="1">Point to the start of the theme tune (<a href="54713.html">D5B9</a>).</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53921"></span>D2A1</td>
+<td class="instruction">LD E,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the pitch in DE.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53924"></span>D2A4</td>
+<td class="instruction">LD D,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53927"></span>D2A7</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="2">Put the length in HL.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53930"></span>D2AA</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53933"></span>D2AD</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="3">If the length is 0, don't play a note, but pause instead.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53934"></span>D2AE</td>
+<td class="instruction">OR H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53935"></span>D2AF</td>
+<td class="instruction">JP Z,$D2CF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53938"></span>D2B2</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="3">Play the <a href="https://skoolkid.github.io/rom/asm/03B5.html">BEEP routine in the ROM</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53940"></span>D2B4</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53943"></span>D2B7</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53945"></span>D2B9</td>
+<td class="instruction">LD DE,$0004</td>
+<td class="comment-1" rowspan="2">Move onto the next note.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53948"></span>D2BC</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53950"></span>D2BE</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="3">If the second byte of the pitch is FF , the tune is finished, so move on.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53953"></span>D2C1</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53955"></span>D2C3</td>
+<td class="instruction">JR Z,$D2D5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53957"></span>D2C5</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="3">See if a key was pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53959"></span>D2C7</td>
+<td class="instruction">AND $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53961"></span>D2C9</td>
+<td class="instruction">XOR $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53963"></span>D2CB</td>
+<td class="instruction">JR Z,$D2A1</td>
+<td class="comment-1" rowspan="1">If no key pressed, then loop back to play another note.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53965"></span>D2CD</td>
+<td class="instruction">JR $D2D5</td>
+<td class="comment-1" rowspan="1">Otherwise, move on.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53967"></span>
+<div class="comments">
+<div class="paragraph">
+At this point, there is a rest in the tune.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53967"></span>D2CF</td>
+<td class="instruction">LD B,E</td>
+<td class="comment-1" rowspan="3">Pause for the relevant amount of time.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53968"></span>D2D0</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53969"></span>D2D1</td>
+<td class="instruction">DJNZ $D2D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53971"></span>D2D3</td>
+<td class="instruction">JR $D2B9</td>
+<td class="comment-1" rowspan="1">Loop back for another note.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53973"></span>
+<div class="comments">
+<div class="paragraph">
+The tune has finished, or was stopped by pressing a key.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53973"></span>D2D5</td>
+<td class="instruction">LD HL,$F7D6</td>
+<td class="comment-1" rowspan="2">Load <a href="63446.html">F7D6</a> (start a new game) on the stack so the call to <a href="53844.html">D254</a> will return here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53976"></span>D2D8</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53977"></span>D2D9</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53980"></span>D2DC</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53983"></span>D2DF</td>
+<td class="instruction">LD BC,$17FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53986"></span>D2E2</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53988"></span>D2E4</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53990"></span>D2E6</td>
+<td class="instruction">JP <a href="53844.html">$D254</a></td>
+<td class="comment-1" rowspan="1">Copy the screen to the working buffer, then jump to <a href="53844.html">D254</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53856.html">D260</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53904">Map</a></td>
+<td class="next">
+Next: <a href="53993.html">D2E9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

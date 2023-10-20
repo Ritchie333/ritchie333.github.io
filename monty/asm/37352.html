@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 91E8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37277.html">919D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37352">Map</a></td>
+<td class="next">
+Next: <a href="37394.html">9212</a>
+</td>
+</tr>
+</table>
+<div class="description">91E8: Print the score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37277.html">919D</a>, <a href="38225.html">9551</a>, <a href="51921.html">CAD1</a>, <a href="52545.html">CD41</a> and <a href="63511.html">F817</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37352"></span>91E8</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="1">Print 5 characters</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37354"></span>91EA</td>
+<td class="instruction">LD IX,$9217</td>
+<td class="comment-1" rowspan="1">Point IX to the score digits at <a href="37399.html">9217</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37358"></span>91EE</td>
+<td class="instruction">LD IY,$9227</td>
+<td class="comment-1" rowspan="1">Point IY to the end of the score text at <a href="37411.html">9223</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37362"></span>91F2</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Get the next digit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37365"></span>91F5</td>
+<td class="instruction">ADD A,$1B</td>
+<td class="comment-1" rowspan="1">Convert it to a character in the character set (<a href="33083.html">813B</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37367"></span>91F7</td>
+<td class="instruction">LD (IY+$00),A</td>
+<td class="comment-1" rowspan="1">Store the digit in the printable text.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37370"></span>91FA</td>
+<td class="instruction">DEC IY</td>
+<td class="comment-1" rowspan="1">Move back a character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37372"></span>91FC</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Move forward a digit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37374"></span>91FE</td>
+<td class="instruction">DJNZ $91F2</td>
+<td class="comment-1" rowspan="1">Loop until all 5 characters are done.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37376"></span>9200</td>
+<td class="instruction">SET 7,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Set bit 7 on the last character to mark the end of the string.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37380"></span>9204</td>
+<td class="instruction">LD IX,$9212</td>
+<td class="comment-1" rowspan="1">Point IX at the score position data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37384"></span>9208</td>
+<td class="instruction">LD IY,$921C</td>
+<td class="comment-1" rowspan="1">Point IY at the text to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37388"></span>920C</td>
+<td class="instruction">LD B,$01</td>
+<td class="comment-1" rowspan="1">Print one line.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37390"></span>920E</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Ensure the stack is correct for the printing routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37391"></span>920F</td>
+<td class="instruction">JP <a href="32914.html#32925">$809D</a></td>
+<td class="comment-1" rowspan="1">Print the string.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37277.html">919D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37352">Map</a></td>
+<td class="next">
+Next: <a href="37394.html">9212</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

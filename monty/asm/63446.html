@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F7D6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63445.html">F7D5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63446">Map</a></td>
+<td class="next">
+Next: <a href="63511.html">F817</a>
+</td>
+</tr>
+</table>
+<div class="description">F7D6: Start a new game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="53904.html">D290</a> and <a href="63576.html">F858</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63446"></span>F7D6</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Set A to 0 to clear some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63447"></span>F7D7</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63448"></span>F7D8</td>
+<td class="instruction">LD ($848F),A</td>
+<td class="comment-1" rowspan="1">Set position on ground (<a href="33935.html">848F</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63451"></span>F7DB</td>
+<td class="instruction">LD ($8498),A</td>
+<td class="comment-1" rowspan="1">Set time jumping (<a href="33944.html">8498</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63454"></span>F7DE</td>
+<td class="instruction">LD ($8D58),A</td>
+<td class="comment-1" rowspan="1">Set distance fallen (<a href="36184.html">8D58</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63457"></span>F7E1</td>
+<td class="instruction">LD ($8D52),A</td>
+<td class="comment-1" rowspan="1">Set room flags (<a href="36178.html">8D52</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63460"></span>F7E4</td>
+<td class="instruction">LD ($8D53),A</td>
+<td class="comment-1" rowspan="1">Set game flags (<a href="36179.html">8D53</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63463"></span>F7E7</td>
+<td class="instruction">LD ($F7D1),A</td>
+<td class="comment-1" rowspan="1">Set wall flags (<a href="63441.html">F7D1</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63466"></span>F7EA</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Set 3 lives (<a href="38474.html">964A</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63468"></span>F7EC</td>
+<td class="instruction">LD ($964A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63471"></span>F7EF</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="6">Set score (<a href="37399.html">9217</a>) to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63472"></span>F7F0</td>
+<td class="instruction">LD B,$05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63474"></span>F7F2</td>
+<td class="instruction">LD HL,$9217</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63477"></span>F7F5</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63478"></span>F7F6</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63479"></span>F7F7</td>
+<td class="instruction">DJNZ $F7F5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63481"></span>F7F9</td>
+<td class="instruction">LD A,$2C</td>
+<td class="comment-1" rowspan="2">Set current room to 2C (outside).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63483"></span>F7FB</td>
+<td class="instruction">LD ($9649),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63486"></span>F7FE</td>
+<td class="instruction">LD HL,$869C</td>
+<td class="comment-1" rowspan="1">Set the pointer to the movement table to <a href="34460.html">869C</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63489"></span>F801</td>
+<td class="instruction">LD ($8492),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63492"></span>F804</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63495"></span>F807</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63498"></span>F80A</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63500"></span>F80C</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63503"></span>F80F</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63505"></span>F811</td>
+<td class="instruction">CALL <a href="32768.html">$8000</a></td>
+<td class="comment-1" rowspan="1">Display the control options.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63508"></span>F814</td>
+<td class="instruction">JP <a href="37900.html">$940C</a></td>
+<td class="comment-1" rowspan="1">Enter the first room.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63445.html">F7D5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63446">Map</a></td>
+<td class="next">
+Next: <a href="63511.html">F817</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 9228</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37411.html">9223</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37416">Map</a></td>
+<td class="next">
+Next: <a href="37464.html">9258</a>
+</td>
+</tr>
+</table>
+<div class="description">9228: Check to see if Monty has collided with a nasty</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37528.html">9298</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Holds the Y co-ordinate</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">Holds the X co-ordinate</td>
+</tr>
+<tr>
+<td class="register">F</td>
+<td class="register-desc">On exit, resets the zero flag if there was a collision</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37416"></span>9228</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37417"></span>9229</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="8">Convert it to a frame number and put it in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37419"></span>922B</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37420"></span>922C</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37421"></span>922D</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37423"></span>922F</td>
+<td class="instruction">SCF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37424"></span>9230</td>
+<td class="instruction">RRA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37425"></span>9231</td>
+<td class="instruction">DJNZ $9230</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37427"></span>9233</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37428"></span>9234</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37429"></span>9235</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-1" rowspan="4">Convert it to a screen offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37431"></span>9237</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37432"></span>9238</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37433"></span>9239</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37434"></span>923A</td>
+<td class="instruction">LD L,H</td>
+<td class="comment-1" rowspan="3">Put the Y co-ordinate in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37435"></span>923B</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37437"></span>923D</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37438"></span>923E</td>
+<td class="instruction">LD DE,$EA60</td>
+<td class="comment-1" rowspan="2">Add the base offset for the screen address table (#$EA60).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37441"></span>9241</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37442"></span>9242</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Remember the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37443"></span>9243</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Get the actual screen address and put it in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37444"></span>9244</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37445"></span>9245</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37446"></span>9246</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37447"></span>9247</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37448"></span>9248</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="3">Add this to the existing screen address to get an actual address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37450"></span>924A</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37451"></span>924B</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37452"></span>924C</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="3">Add an offset to get an address in the screen buffer at <a href="53856.html">D260</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37453"></span>924D</td>
+<td class="instruction">LD HL,$9260</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37456"></span>9250</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37457"></span>9251</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the byte there.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37458"></span>9252</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="2">Test the bits against the X co-ordinate and store this in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37459"></span>9253</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37460"></span>9254</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the byte on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37461"></span>9255</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="2">Test the bits on screen against that in the buffer, which will reset the zero flag if they don't match.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37462"></span>9256</td>
+<td class="instruction">XOR C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37463"></span>9257</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37411.html">9223</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37416">Map</a></td>
+<td class="next">
+Next: <a href="37464.html">9258</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

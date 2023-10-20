@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 96D9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38609.html">96D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38617">Map</a></td>
+<td class="next">
+Next: <a href="38807.html">9797</a>
+</td>
+</tr>
+</table>
+<div class="description">96D9: Animate the rolling minecart in room 10</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37900.html">940C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38617"></span>96D9</td>
+<td class="instruction">LD A,($5C7C)</td>
+<td class="comment-1" rowspan="2">Is Monty at the bottom of the screen?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38620"></span>96DC</td>
+<td class="instruction">CP $41</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38622"></span>96DE</td>
+<td class="instruction">JP NC,<a href="37900.html#37948">$943C</a></td>
+<td class="comment-1" rowspan="1">Jump back to the main loop if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38625"></span>96E1</td>
+<td class="instruction">LD HL,$2F02</td>
+<td class="comment-1" rowspan="1">Initialize the minecart's position to X=02 y=2F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38628"></span>96E4</td>
+<td class="instruction">LD ($9797),HL</td>
+<td class="comment-1" rowspan="1">Store this</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38631"></span>96E7</td>
+<td class="instruction">LD HL,$3702</td>
+<td class="comment-1" rowspan="1">Initialize Monty's position to X=02 y=37</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38634"></span>96EA</td>
+<td class="instruction">LD ($5C7B),HL</td>
+<td class="comment-1" rowspan="1">Store this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38637"></span>96ED</td>
+<td class="instruction">LD B,$80</td>
+<td class="comment-1" rowspan="1">Run for 80 times.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38639"></span>96EF</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="38640"></span>96F0</td>
+<td class="instruction">LD HL,$5C7B</td>
+<td class="comment-1" rowspan="2">Increment Monty's x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38643"></span>96F3</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38644"></span>96F4</td>
+<td class="instruction">LD HL,$9797</td>
+<td class="comment-1" rowspan="2">Increment the minecart's x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38647"></span>96F7</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38648"></span>96F8</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="2">Set Monty's co-ordinates as the location to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38651"></span>96FB</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38654"></span>96FE</td>
+<td class="instruction">LD HL,$861C</td>
+<td class="comment-1" rowspan="2">Set the graphic to Monty right (<a href="34332.html">861C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38657"></span>9701</td>
+<td class="instruction">LD ($ECE0),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38660"></span>9704</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Print the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38663"></span>9707</td>
+<td class="instruction">LD HL,($9797)</td>
+<td class="comment-1" rowspan="2">Set the minecart's co-ordinates as the location to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38666"></span>970A</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38669"></span>970D</td>
+<td class="instruction">LD HL,$6F80</td>
+<td class="comment-1" rowspan="1">Set the graphic to the minecart (<a href="28544.html">6F80</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38672"></span>9710</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="4">Cycle Monty's current frame from 0 to 7. This is used in the animation cycle for the minecart.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38675"></span>9713</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38676"></span>9714</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38678"></span>9716</td>
+<td class="instruction">LD ($848E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38681"></span>9719</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="3">Put the lowest 3 bits in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38682"></span>971A</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38684"></span>971C</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38685"></span>971D</td>
+<td class="instruction">LD DE,$0020</td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> to move forward a graphic frame with each iteration.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38688"></span>9720</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">If the frame is 0, skip ahead.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38689"></span>9721</td>
+<td class="instruction">JR Z,$9726</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38691"></span>9723</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="2">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38692"></span>9724</td>
+<td class="instruction">DJNZ $9723</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38694"></span>9726</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set the graphic frame as the one to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38697"></span>9729</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the minecart.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38700"></span>972C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">BC</span> and loop if there is more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38701"></span>972D</td>
+<td class="instruction">DJNZ $96EF</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38703"></span>
+<div class="comments">
+<div class="paragraph">
+The minecart has now hit the buffers. Tip it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38703"></span>972F</td>
+<td class="instruction">LD HL,$7780</td>
+<td class="comment-1" rowspan="1"><a href="30592.html">7780</a> is the empty graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38706"></span>9732</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set the graphic to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38709"></span>9735</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="2">Set at the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38712"></span>9738</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38715"></span>973B</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38718"></span>973E</td>
+<td class="instruction">LD HL,$3F98</td>
+<td class="comment-1" rowspan="2">Set a new position to 98 3F.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38721"></span>9741</td>
+<td class="instruction">LD ($5C7B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38724"></span>9744</td>
+<td class="instruction">LD B,$20</td>
+<td class="comment-1" rowspan="1">Run for 20 times.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38726"></span>9746</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38727"></span>9747</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="7">Put the next frame in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38728"></span>9748</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38729"></span>9749</td>
+<td class="instruction">AND $18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38731"></span>974B</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38732"></span>974C</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38733"></span>974D</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38734"></span>974E</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38736"></span>9750</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38737"></span>9751</td>
+<td class="instruction">LD HL,$7000</td>
+<td class="comment-1" rowspan="2">Add to the base offset of the tipping minecart graphic (<a href="28672.html">7000</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38740"></span>9754</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38741"></span>9755</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set this as the graphic to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38744"></span>9758</td>
+<td class="instruction">LD HL,($9797)</td>
+<td class="comment-1" rowspan="2">Set the location to be X = 97 Y = 97.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38747"></span>975B</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38750"></span>975E</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38753"></span>9761</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get Monty's position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38756"></span>9764</td>
+<td class="instruction">LD ($ECDE),HL</td>
+<td class="comment-1" rowspan="1">Set this as the position of the next sprite to update. (<a href="60638.html">ECDE</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38759"></span>9767</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38760"></span>9768</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">No effect, <span class="register">HL</span> is overwritten in the next instruction.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38761"></span>9769</td>
+<td class="instruction">LD HL,$9799</td>
+<td class="comment-1" rowspan="2">Set the location to be X = 97 Y = 99.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38764"></span>976C</td>
+<td class="instruction">LD ($ECE0),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38767"></span>976F</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38770"></span>9772</td>
+<td class="instruction">LD IX,$5C7B</td>
+<td class="comment-1" rowspan="3">Move monty 1 to the right and 1 down.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38774"></span>9776</td>
+<td class="instruction">INC (IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38777"></span>9779</td>
+<td class="instruction">DEC (IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38780"></span>977C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38781"></span>977D</td>
+<td class="instruction">DJNZ $9746</td>
+<td class="comment-1" rowspan="1">Loop while there is still more to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="38783"></span>
+<div class="comments">
+<div class="paragraph">
+Monty has fallen off the edge, put him in the next room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38783"></span>977F</td>
+<td class="instruction">LD A,$11</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 11 to set up some flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38785"></span>9781</td>
+<td class="instruction">LD HL,$A1C0</td>
+<td class="comment-1" rowspan="3">Set the position to X = C0 Y = A1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38788"></span>9784</td>
+<td class="instruction">LD ($5C7B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38791"></span>9787</td>
+<td class="instruction">LD ($964B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38794"></span>978A</td>
+<td class="instruction">LD ($9649),A</td>
+<td class="comment-1" rowspan="1">Set the current room to 11.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38797"></span>978D</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Reset distance fallen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38798"></span>978E</td>
+<td class="instruction">LD ($8D58),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38801"></span>9791</td>
+<td class="instruction">LD ($8498),A</td>
+<td class="comment-1" rowspan="1">Reset time jumping.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38804"></span>9794</td>
+<td class="instruction">JP <a href="37900.html">$940C</a></td>
+<td class="comment-1" rowspan="1">Enter the new room.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38609.html">96D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38617">Map</a></td>
+<td class="next">
+Next: <a href="38807.html">9797</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

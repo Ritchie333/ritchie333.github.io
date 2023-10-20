@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8092</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32906.html">808A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32914">Map</a></td>
+<td class="next">
+Next: <a href="32977.html">80D1</a>
+</td>
+</tr>
+</table>
+<div class="description">8092: Print an option on the intro screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32768.html">8000</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32914"></span>8092</td>
+<td class="instruction">LD IX,$8122</td>
+<td class="comment-1" rowspan="1"><a href="33058.html">8122</a> = options data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32918"></span>8096</td>
+<td class="instruction">LD IY,$826B</td>
+<td class="comment-1" rowspan="1"><a href="33387.html">826B</a> = strings to print</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32922"></span>809A</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="1">Five lines</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32924"></span>809C</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember number of lines.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32925"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="37352.html">91E8</a> (printing the score) and <a href="38046.html">949E</a> (printing the number of lives).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32925"></span>809D</td>
+<td class="instruction">LD H,$00</td>
+<td class="comment-1" rowspan="2">Put the Y position in HL.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32927"></span>809F</td>
+<td class="instruction">LD L,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32930"></span>80A2</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1">Double it to point at a whole word.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32931"></span>80A3</td>
+<td class="instruction">LD DE,$EA60</td>
+<td class="comment-1" rowspan="2">Add the base pointer to screen addresses (<a href="60000.html">EA60</a>). so HL now points to the right row on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32934"></span>80A6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32935"></span>80A7</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="2">Put the X position in DE.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32937"></span>80A9</td>
+<td class="instruction">LD E,(IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32940"></span>80AC</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Extract the screen address for this row and put it in HL.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32941"></span>80AD</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32942"></span>80AE</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32943"></span>80AF</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32944"></span>80B0</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the column, so HL points to the correct place on screen.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32945"></span>80B1</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Get the character to print.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32948"></span>80B4</td>
+<td class="instruction">RES 7,A</td>
+<td class="comment-1" rowspan="1">Bit 7 is used as a string terminator, not used here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32950"></span>80B6</td>
+<td class="instruction">CALL <a href="32977.html">$80D1</a></td>
+<td class="comment-1" rowspan="1">Print the character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32953"></span>80B9</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Get the character again.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32956"></span>80BC</td>
+<td class="instruction">INC IY</td>
+<td class="comment-1" rowspan="1">Move to the next character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32958"></span>80BE</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next screen position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32959"></span>80BF</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">If bit 7 is not set, loop back to print the next character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32961"></span>80C1</td>
+<td class="instruction">JR Z,$80B1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32963"></span>80C3</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="5">Move to the next location data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32965"></span>80C5</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32967"></span>80C7</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32969"></span>80C9</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32971"></span>80CB</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32973"></span>80CD</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the number of lines.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32974"></span>80CE</td>
+<td class="instruction">DJNZ $809C</td>
+<td class="comment-1" rowspan="2">Loop back round if there is more to do, otherwise exit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32976"></span>80D0</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32906.html">808A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32914">Map</a></td>
+<td class="next">
+Next: <a href="32977.html">80D1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

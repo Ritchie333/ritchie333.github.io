@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 919D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37242.html">917A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37277">Map</a></td>
+<td class="next">
+Next: <a href="37352.html">91E8</a>
+</td>
+</tr>
+</table>
+<div class="description">919D: Add value of coal to the current score</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37724.html">935C</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Score to add</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37277"></span>919D</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Start a loop based on the score value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37278"></span>919E</td>
+<td class="instruction">LD A,$0A</td>
+<td class="comment-1" rowspan="1">Flag $0A as the digit requiring decimal adjustment.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37280"></span>91A0</td>
+<td class="instruction">LD IX,$9217</td>
+<td class="comment-1" rowspan="1">Point to the score (<a href="37399.html">9217</a>).</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37284"></span>91A4</td>
+<td class="instruction">INC (IX+$00)</td>
+<td class="comment-1" rowspan="3">Increment the score, but jump forward if it reaches 0A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37287"></span>91A7</td>
+<td class="instruction">CP (IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37290"></span>91AA</td>
+<td class="instruction">JR Z,$91B2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37292"></span>91AC</td>
+<td class="instruction">DJNZ $91A4</td>
+<td class="comment-1" rowspan="1">Otherwise loop back round and add more.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37294"></span>91AE</td>
+<td class="instruction">CALL <a href="37352.html">$91E8</a></td>
+<td class="comment-1" rowspan="2">Print the score and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37297"></span>91B1</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37298"></span>
+<div class="comments">
+<div class="paragraph">
+The score needs adjusting for decimal.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37298"></span>91B2</td>
+<td class="instruction">LD (IX+$00),$00</td>
+<td class="comment-1" rowspan="2">Carry the 10s.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37302"></span>91B6</td>
+<td class="instruction">INC (IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37305"></span>91B9</td>
+<td class="instruction">CP (IX+$01)</td>
+<td class="comment-1" rowspan="2">Continue if there is no more overflow.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37308"></span>91BC</td>
+<td class="instruction">JR NZ,$91AC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37310"></span>91BE</td>
+<td class="instruction">LD (IX+$01),$00</td>
+<td class="comment-1" rowspan="2">Carry the 100s.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37314"></span>91C2</td>
+<td class="instruction">INC (IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37317"></span>91C5</td>
+<td class="instruction">CP (IX+$02)</td>
+<td class="comment-1" rowspan="2">Continue if there is no more overflow.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37320"></span>91C8</td>
+<td class="instruction">JR NZ,$91AC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37322"></span>91CA</td>
+<td class="instruction">LD (IX+$02),$00</td>
+<td class="comment-1" rowspan="2">Carry the 1000s.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37326"></span>91CE</td>
+<td class="instruction">INC (IX+$03)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37329"></span>91D1</td>
+<td class="instruction">CP (IX+$03)</td>
+<td class="comment-1" rowspan="2">Continue if there is no more overflow.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37332"></span>91D4</td>
+<td class="instruction">JR NZ,$91AC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37334"></span>91D6</td>
+<td class="instruction">LD (IX+$03),$00</td>
+<td class="comment-1" rowspan="2">Carry the 10,000s.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37338"></span>91DA</td>
+<td class="instruction">INC (IX+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37341"></span>91DD</td>
+<td class="instruction">CP (IX+$04)</td>
+<td class="comment-1" rowspan="2">Continue if there is no more overflow.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37344"></span>91E0</td>
+<td class="instruction">JR NZ,$91AC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37346"></span>91E2</td>
+<td class="instruction">LD (IX+$04),$00</td>
+<td class="comment-1" rowspan="2">The maximum possible score is 99,999 - overflow to 0 and continue.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37350"></span>91E6</td>
+<td class="instruction">JR $91AC</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37242.html">917A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37277">Map</a></td>
+<td class="next">
+Next: <a href="37352.html">91E8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

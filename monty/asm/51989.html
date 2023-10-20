@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CB15</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51971.html">CB03</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51989">Map</a></td>
+<td class="next">
+Next: <a href="52021.html">CB35</a>
+</td>
+</tr>
+</table>
+<div class="description">CB15: Scroll a line of the message</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51971.html">CB03</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="51989"></span>CB15</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51990"></span>CB16</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Start at column 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51992"></span>CB18</td>
+<td class="instruction">LD C,$00</td>
+<td class="comment-1" rowspan="1">Start at row 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51994"></span>CB1A</td>
+<td class="instruction">LD ($CB91),A</td>
+<td class="comment-1" rowspan="1">Set the current column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51997"></span>CB1D</td>
+<td class="instruction">LD A,($CB92)</td>
+<td class="comment-1" rowspan="4">Increment the timer, which cycles between 0 and 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52000"></span>CB20</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52001"></span>CB21</td>
+<td class="instruction">AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52003"></span>CB23</td>
+<td class="instruction">LD ($CB92),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52006"></span>CB26</td>
+<td class="instruction">JR NZ,$CB2A</td>
+<td class="comment-1" rowspan="1">If the timer is not yet zero, skip this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52008"></span>CB28</td>
+<td class="instruction">LD C,$10</td>
+<td class="comment-1" rowspan="3">Scroll 1A columns.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52010"></span>CB2A</td>
+<td class="instruction">LD A,$0A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52012"></span>CB2C</td>
+<td class="instruction">ADD A,C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52013"></span>CB2D</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Scroll #0A rows.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52014"></span>CB2E</td>
+<td class="instruction">CALL <a href="52067.html">$CB63</a></td>
+<td class="comment-1" rowspan="1">Scroll the column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52017"></span>CB31</td>
+<td class="instruction">DJNZ $CB2E</td>
+<td class="comment-1" rowspan="1">Loop back if there is more to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52019"></span>CB33</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">A</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52020"></span>CB34</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51971.html">CB03</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51989">Map</a></td>
+<td class="next">
+Next: <a href="52021.html">CB35</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

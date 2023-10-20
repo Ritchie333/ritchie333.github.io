@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CAD1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51769.html">CA39</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51921">Map</a></td>
+<td class="next">
+Next: <a href="51971.html">CB03</a>
+</td>
+</tr>
+</table>
+<div class="description">CAD1: Display the "game won" sequence</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63576.html">F858</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="51921"></span>CAD1</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the start of the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51924"></span>CAD4</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Turn off interrupts, so IM1 can be set.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51925"></span>CAD5</td>
+<td class="instruction">LD IY,$5C3A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">IY</span> to the default used in the ROM.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51929"></span>CAD9</td>
+<td class="instruction">IM 1</td>
+<td class="comment-1" rowspan="1">Switch to interrupt mode 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51931"></span>CADB</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="1">Re-enable interrupts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51932"></span>CADC</td>
+<td class="instruction">LD DE,$4001</td>
+<td class="comment-1" rowspan="4">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51935"></span>CADF</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51938"></span>CAE2</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51940"></span>CAE4</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51942"></span>CAE6</td>
+<td class="instruction">LD HL,$5840</td>
+<td class="comment-1" rowspan="5">Set the attributes to bright cyan on black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51945"></span>CAE9</td>
+<td class="instruction">LD DE,$5841</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51948"></span>CAEC</td>
+<td class="instruction">LD BC,$027F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51951"></span>CAEF</td>
+<td class="instruction">LD (HL),$45</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51953"></span>CAF1</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51955"></span>CAF3</td>
+<td class="instruction">CALL <a href="37352.html">$91E8</a></td>
+<td class="comment-1" rowspan="1">Print the score.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51958"></span>CAF6</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Reset the timer for scrolling the message.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51959"></span>CAF7</td>
+<td class="instruction">LD ($CB92),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51962"></span>CAFA</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="2">Start at column 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51964"></span>CAFC</td>
+<td class="instruction">LD ($CB91),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51967"></span>CAFF</td>
+<td class="instruction">LD IX,$5CE1</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> to the end message.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51769.html">CA39</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51921">Map</a></td>
+<td class="next">
+Next: <a href="51971.html">CB03</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

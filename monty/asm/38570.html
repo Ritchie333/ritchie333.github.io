@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 96AA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38541.html">968D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38570">Map</a></td>
+<td class="next">
+Next: <a href="38609.html">96D1</a>
+</td>
+</tr>
+</table>
+<div class="description">96AA: Refresh any coal in the room.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="37724.html">935C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38570"></span>96AA</td>
+<td class="instruction">LD DE,$96D1</td>
+<td class="comment-1" rowspan="4">Put the tempoary store back in the main area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38573"></span>96AD</td>
+<td class="instruction">LD HL,$C537</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38576"></span>96B0</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38579"></span>96B3</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38581"></span>96B5</td>
+<td class="instruction">LD HL,$C537</td>
+<td class="comment-1" rowspan="5">Blank out all fields to FF.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38584"></span>96B8</td>
+<td class="instruction">LD (HL),$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38586"></span>96BA</td>
+<td class="instruction">LD DE,$C538</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38589"></span>96BD</td>
+<td class="instruction">LD BC,$0007</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38592"></span>96C0</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38594"></span>96C2</td>
+<td class="instruction">CALL <a href="38415.html">$960F</a></td>
+<td class="comment-1" rowspan="1">Redraw the coal.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38597"></span>96C5</td>
+<td class="instruction">LD HL,$96D1</td>
+<td class="comment-1" rowspan="5">Copy the temporary store back again and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38600"></span>96C8</td>
+<td class="instruction">LD DE,$C537</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38603"></span>96CB</td>
+<td class="instruction">LD BC,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38606"></span>96CE</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38608"></span>96D0</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38541.html">968D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38570">Map</a></td>
+<td class="next">
+Next: <a href="38609.html">96D1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

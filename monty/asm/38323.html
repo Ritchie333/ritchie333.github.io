@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 95B3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38318.html">95AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38323">Map</a></td>
+<td class="next">
+Next: <a href="38376.html">95E8</a>
+</td>
+</tr>
+</table>
+<div class="description">95B3: Animate the coal colours in the room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="37900.html">940C</a> and <a href="38225.html">9551</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38323"></span>95B3</td>
+<td class="instruction">LD IX,$C53F</td>
+<td class="comment-1" rowspan="1">Point IX at the coal data (<a href="50495.html">C53F</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38327"></span>95B7</td>
+<td class="instruction">LD HL,$CF54</td>
+<td class="comment-1" rowspan="5">Blank out the screen attribute buffer <a href="53076.html">CF54</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38330"></span>95BA</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38332"></span>95BC</td>
+<td class="instruction">LD DE,$CF55</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38335"></span>95BF</td>
+<td class="instruction">LD BC,$02FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38338"></span>95C2</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38340"></span>95C4</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="2">Loop round five items.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="38342"></span>95C6</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38343"></span>95C7</td>
+<td class="instruction">LD L,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Get the coal score index in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38346"></span>95CA</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38348"></span>95CC</td>
+<td class="instruction">LD DE,$964D</td>
+<td class="comment-1" rowspan="1"><a href="38477.html">964D</a> is the base pointer to the coal score table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38351"></span>95CF</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Get the right position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38352"></span>95D0</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="1">Has Monty already picked the coal up?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38354"></span>95D2</td>
+<td class="instruction">JR Z,$95DF</td>
+<td class="comment-1" rowspan="1">If so, there's nothing to do here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38356"></span>95D4</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Are the X and Y co-ordinates both zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38359"></span>95D7</td>
+<td class="instruction">OR (IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38362"></span>95DA</td>
+<td class="instruction">JR Z,$95DF</td>
+<td class="comment-1" rowspan="1">Move forward if so, there's no coal here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38364"></span>95DC</td>
+<td class="instruction">CALL <a href="38376.html">$95E8</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="38367"></span>95DF</td>
+<td class="instruction">LD DE,$0003</td>
+<td class="comment-1" rowspan="2">Point at the next position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38370"></span>95E2</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38372"></span>95E4</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Loop round to the next item.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38373"></span>95E5</td>
+<td class="instruction">DJNZ $95C6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="38375"></span>95E7</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38318.html">95AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#38323">Map</a></td>
+<td class="next">
+Next: <a href="38376.html">95E8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

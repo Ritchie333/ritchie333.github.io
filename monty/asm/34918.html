@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8866</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34641.html">8751</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34918">Map</a></td>
+<td class="next">
+Next: <a href="34941.html">887D</a>
+</td>
+</tr>
+</table>
+<div class="description">8866: Draw the nasty's attributes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="34641.html">8751</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Pointer to nasty data (<a href="50582.html">C596</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34918"></span>8866</td>
+<td class="instruction">LD C,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Get the attribute.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34921"></span>8869</td>
+<td class="instruction">LD H,(IX+$0D)</td>
+<td class="comment-1" rowspan="2">Get the current co-ordinates.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34924"></span>886C</td>
+<td class="instruction">LD L,(IX+$0C)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34927"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine in <a href="34641.html">8751</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="34927"></span>886F</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="4">Convert the X co-ordinate into an appropriate screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34928"></span>8870</td>
+<td class="instruction">CP L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34929"></span>8871</td>
+<td class="instruction">AND H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34930"></span>8872</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34932"></span>8874</td>
+<td class="instruction">JP Z,<a href="64493.html">$FBED</a></td>
+<td class="comment-1" rowspan="1">Draw the attribute, restoring the old background.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34935"></span>8877</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="2">Otherwise get the attribute and just draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="34938"></span>887A</td>
+<td class="instruction">JP $FBC6</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34641.html">8751</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34918">Map</a></td>
+<td class="next">
+Next: <a href="34941.html">887D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

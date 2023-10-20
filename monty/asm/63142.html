@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at F6A6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63053.html">F64D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63142">Map</a></td>
+<td class="next">
+Next: <a href="63229.html">F6FD</a>
+</td>
+</tr>
+</table>
+<div class="description">F6A6: Hide any blocking walls if sufficient coal has been picked up</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63431.html">F7C7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63142"></span>F6A6</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Turn off interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63143"></span>F6A7</td>
+<td class="instruction">LD IX,$F7D1</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the data for disappearing walls at <a href="63441.html">F7D1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63147"></span>F6AB</td>
+<td class="instruction">LD A,($9649)</td>
+<td class="comment-1" rowspan="1">Get the current room (<a href="38473.html">9649</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63150"></span>F6AE</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="1">Is it room 06?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63152"></span>F6B0</td>
+<td class="instruction">JR Z,$F6D0</td>
+<td class="comment-1" rowspan="1">Yes, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63154"></span>F6B2</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="1">It is room 0B?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63156"></span>F6B4</td>
+<td class="instruction">JR Z,$F6DC</td>
+<td class="comment-1" rowspan="1">Yes, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63158"></span>F6B6</td>
+<td class="instruction">CP $0F</td>
+<td class="comment-1" rowspan="1">Is it room 0F?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63160"></span>F6B8</td>
+<td class="instruction">JR Z,$F6E8</td>
+<td class="comment-1" rowspan="1">Yes, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63162"></span>F6BA</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="1">Is it room 14?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63164"></span>F6BC</td>
+<td class="instruction">JR NZ,$F6F4</td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63166"></span>
+<div class="comments">
+<div class="paragraph">
+Handle wall in room 14.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63166"></span>F6BE</td>
+<td class="instruction">LD C,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63168"></span>F6C0</td>
+<td class="instruction">LD HL,$7718</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63171"></span>F6C3</td>
+<td class="instruction">BIT 2,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63175"></span>F6C7</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63176"></span>
+<div class="comments">
+<div class="paragraph">
+Hide the wall if enough coal is collected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63176"></span>F6C8</td>
+<td class="instruction">BIT 0,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Is there a wall here?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63180"></span>F6CC</td>
+<td class="instruction">CALL NZ,<a href="63258.html">$F71A</a></td>
+<td class="comment-1" rowspan="1">Hide if it there is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63183"></span>F6CF</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63184"></span>
+<div class="comments">
+<div class="paragraph">
+Handle wall in room 06.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63184"></span>F6D0</td>
+<td class="instruction">LD C,$07</td>
+<td class="comment-1" rowspan="1">Set <span class="register">C</span> to the length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63186"></span>F6D2</td>
+<td class="instruction">LD HL,$9710</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63189"></span>F6D5</td>
+<td class="instruction">BIT 5,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Return if the wall shouldn't be opened yet.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63193"></span>F6D9</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63194"></span>F6DA</td>
+<td class="instruction">JR $F6C8</td>
+<td class="comment-1" rowspan="1">Jump forward to open it.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63196"></span>
+<div class="comments">
+<div class="paragraph">
+Handle wall in room 0B.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63196"></span>F6DC</td>
+<td class="instruction">LD C,$05</td>
+<td class="comment-1" rowspan="1">Set <span class="register">C</span> to the length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63198"></span>F6DE</td>
+<td class="instruction">LD HL,$8F14</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63201"></span>F6E1</td>
+<td class="instruction">BIT 4,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Return if the wall shouldn't be opened yet.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63205"></span>F6E5</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63206"></span>F6E6</td>
+<td class="instruction">JR $F6C8</td>
+<td class="comment-1" rowspan="1">Jump forward to open it.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63208"></span>
+<div class="comments">
+<div class="paragraph">
+Handle wall in room 0F.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63208"></span>F6E8</td>
+<td class="instruction">LD C,$05</td>
+<td class="comment-1" rowspan="1">Set <span class="register">C</span> to the length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63210"></span>F6EA</td>
+<td class="instruction">LD HL,$471F</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63213"></span>F6ED</td>
+<td class="instruction">BIT 3,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Return if the wall shouldn't be opened yet.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63217"></span>F6F1</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63218"></span>F6F2</td>
+<td class="instruction">JR $F6C8</td>
+<td class="comment-1" rowspan="1">Jump forward to open it.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63220"></span>
+<div class="comments">
+<div class="paragraph">
+Handle any other room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63220"></span>F6F4</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="4">Turn off bits 0, 1, 6 and 7 on the wall flags and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63223"></span>F6F7</td>
+<td class="instruction">AND $3C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63225"></span>F6F9</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63228"></span>F6FC</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63053.html">F64D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63142">Map</a></td>
+<td class="next">
+Next: <a href="63229.html">F6FD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

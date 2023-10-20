@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Unused RAM at 832F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-u">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33582.html">832E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33583">Map</a></td>
+<td class="next">
+Next: <a href="33685.html">8395</a>
+</td>
+</tr>
+</table>
+<div class="description">832F: Unused</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33583"></span>832F</td>
+<td class="instruction">LD A,($848F)</td>
+<td class="comment-1" rowspan="1">Get the current position off the ground.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33586"></span>8332</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33587"></span>8333</td>
+<td class="instruction">JP NZ,$83B5</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33590"></span>8336</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="1">Get the last movement (<a href="33582.html">832E</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33593"></span>8339</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="1">Was "jump" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33595"></span>833B</td>
+<td class="instruction">JR Z,$8342</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33597"></span>833D</td>
+<td class="instruction">RES 7,A</td>
+<td class="comment-1" rowspan="2">Reset the jump flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33599"></span>833F</td>
+<td class="instruction">LD ($848F),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33602"></span>8342</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="2">Get the last movement without the jump bit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33605"></span>8345</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33607"></span>8347</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="1">Was there any movement?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33609"></span>8349</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33610"></span>834A</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33611"></span>834B</td>
+<td class="instruction">LD A,($849B)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33614"></span>834E</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33615"></span>834F</td>
+<td class="instruction">JR NZ,$83AD</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33617"></span>8351</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33619"></span>8353</td>
+<td class="instruction">JR NZ,$837B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33621"></span>8355</td>
+<td class="instruction">LD A,($8490)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33624"></span>8358</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33625"></span>8359</td>
+<td class="instruction">CP $3F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33627"></span>835B</td>
+<td class="instruction">JP Z,$870E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33630"></span>835E</td>
+<td class="instruction">CP $B8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33632"></span>8360</td>
+<td class="instruction">JP Z,$86BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33635"></span>8363</td>
+<td class="instruction">LD ($8490),A</td>
+<td class="comment-1" rowspan="1">This entry point is used by the routine at <a href="33709.html">83AD</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33638"></span>8366</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33641"></span>8369</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="33642"></span>836A</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33644"></span>836C</td>
+<td class="instruction">LD ($848E),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33647"></span>836F</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33649"></span>8371</td>
+<td class="instruction">LD DE,$849C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33652"></span>8374</td>
+<td class="instruction">CALL <a href="33685.html">$8395</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33655"></span>8377</td>
+<td class="instruction">LD ($848C),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33658"></span>837A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="33659"></span>837B</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33661"></span>837D</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33662"></span>837E</td>
+<td class="instruction">LD A,($8490)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33665"></span>8381</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33666"></span>8382</td>
+<td class="instruction">CP $D8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33668"></span>8384</td>
+<td class="instruction">JR NZ,$8387</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33670"></span>8386</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="33671"></span>8387</td>
+<td class="instruction">CP $B8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33673"></span>8389</td>
+<td class="instruction">JP Z,$86BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33676"></span>838C</td>
+<td class="instruction">LD ($8490),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33679"></span>838F</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33682"></span>8392</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="33683"></span>8393</td>
+<td class="instruction">JR $836A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33582.html">832E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33583">Map</a></td>
+<td class="next">
+Next: <a href="33685.html">8395</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at 5E00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Loading system-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24050.html">5DF2</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#24064">Map</a></td>
+<td class="next">
+Next: <a href="24082.html">5E12</a>
+</td>
+</tr>
+</table>
+<div class="description">5E00: Load the second block</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="24082.html">5E12</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24064"></span>5E00</td>
+<td class="instruction">LD IX,$FF00</td>
+<td class="comment-1" rowspan="1">This is changed to <a href="40000.html">9C40</a> in the routine at <a href="24082.html">5E12</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24068"></span>5E04</td>
+<td class="instruction">LD DE,$0007</td>
+<td class="comment-1" rowspan="1">This is changed to 0190 in the routine at <a href="24082.html">5E12</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24071"></span>5E07</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="3">Reset the zero flag and swap AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24072"></span>5E08</td>
+<td class="instruction">EX AF,AF'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24073"></span>5E09</td>
+<td class="instruction">DEC D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24074"></span>5E0A</td>
+<td class="instruction">LD A,$0F</td>
+<td class="comment-1" rowspan="2">Set the border to white</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24076"></span>5E0C</td>
+<td class="instruction">OUT ($FE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24078"></span>5E0E</td>
+<td class="instruction">CALL $0562</td>
+<td class="comment-1" rowspan="1">Load the block</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24081"></span>5E11</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">All done</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24050.html">5DF2</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#24064">Map</a></td>
+<td class="next">
+Next: <a href="24082.html">5E12</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

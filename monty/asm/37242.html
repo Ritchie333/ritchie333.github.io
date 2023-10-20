@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 917A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37241.html">9179</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37242">Map</a></td>
+<td class="next">
+Next: <a href="37277.html">919D</a>
+</td>
+</tr>
+</table>
+<div class="description">917A: Make Monty climb a ladder</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="35284.html">89D4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37242"></span>917A</td>
+<td class="instruction">LD A,($849B)</td>
+<td class="comment-1" rowspan="2">Put the last input data from climbing or falling (<a href="33947.html">849B</a>) in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37245"></span>917D</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37246"></span>917E</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="2">Compare this against the actual last input data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37249"></span>9181</td>
+<td class="instruction">CP B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37250"></span>9182</td>
+<td class="instruction">JP NZ,<a href="35284.html#35419">$8A5B</a></td>
+<td class="comment-1" rowspan="1">Jump back if there isn't a match.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37253"></span>9185</td>
+<td class="instruction">LD HL,$5C7C</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the current Y co-ordinate (<a href="23676.html">5C7C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37256"></span>9188</td>
+<td class="instruction">LD A,($832E)</td>
+<td class="comment-1" rowspan="2">Was the direction up?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37259"></span>918B</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37260"></span>918C</td>
+<td class="instruction">JR NZ,$9193</td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37262"></span>
+<div class="comments">
+<div class="paragraph">
+Monty is moving up the ladder.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37262"></span>918E</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="2">Increase the Y co-ordinate by 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37263"></span>918F</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37264"></span>9190</td>
+<td class="instruction">JP <a href="35284.html#35367">$8A27</a></td>
+<td class="comment-1" rowspan="1">Jump back to update Monty's position.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="37267"></span>
+<div class="comments">
+<div class="paragraph">
+Monty is not moving up the ladder, is he moving down?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="37267"></span>9193</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Was the direction down?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37269"></span>9195</td>
+<td class="instruction">JP NZ,<a href="35284.html#35338">$8A0A</a></td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37272"></span>9198</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="2">Decrease the Y co-ordinate by 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37273"></span>9199</td>
+<td class="instruction">DEC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="37274"></span>919A</td>
+<td class="instruction">JP <a href="35284.html#35367">$8A27</a></td>
+<td class="comment-1" rowspan="1">Jump back to update Monty's position.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="37241.html">9179</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37242">Map</a></td>
+<td class="next">
+Next: <a href="37277.html">919D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

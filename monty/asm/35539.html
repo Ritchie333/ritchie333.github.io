@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8AD3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35524.html">8AC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35539">Map</a></td>
+<td class="next">
+Next: <a href="35596.html">8B0C</a>
+</td>
+</tr>
+</table>
+<div class="description">8AD3: Update Monty while jumping</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="35427.html">8A63</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35539"></span>8AD3</td>
+<td class="instruction">LD A,($848E)</td>
+<td class="comment-1" rowspan="4">Move to the next animation frame 0 - 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35542"></span>8AD6</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35543"></span>8AD7</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35545"></span>8AD9</td>
+<td class="instruction">LD ($848E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35548"></span>8ADC</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Halve this value to get the right graphic index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35550"></span>8ADE</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35551"></span>8ADF</td>
+<td class="instruction">LD DE,$849C</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> to the current jump table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35554"></span>8AE2</td>
+<td class="instruction">LD A,($848F)</td>
+<td class="comment-1" rowspan="1">Get the current jump height.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35557"></span>8AE5</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Decrement by 1 and store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35558"></span>8AE6</td>
+<td class="instruction">LD ($832E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35561"></span>8AE9</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35562"></span>8AEA</td>
+<td class="instruction">CALL <a href="33685.html">$8395</a></td>
+<td class="comment-1" rowspan="1">Select the graphic to draw for Monty.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35565"></span>8AED</td>
+<td class="instruction">LD ($848C),HL</td>
+<td class="comment-1" rowspan="1">Point to this in <a href="33932.html">848C</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35568"></span>8AF0</td>
+<td class="instruction">LD A,($5C7C)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35571"></span>8AF3</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-1" rowspan="2">Redraw Monty to the right.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35573"></span>8AF5</td>
+<td class="instruction">CALL <a href="33874.html">$8452</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35576"></span>8AF8</td>
+<td class="instruction">LD A,($5C7C)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35579"></span>8AFB</td>
+<td class="instruction">SUB $10</td>
+<td class="comment-1" rowspan="2">Redraw Monty to the left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35581"></span>8AFD</td>
+<td class="instruction">CALL <a href="33874.html">$8452</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="35584"></span>8B00</td>
+<td class="instruction">LD HL,($8494)</td>
+<td class="comment-1" rowspan="1">Get the pitch for the jump sound.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35587"></span>8B03</td>
+<td class="instruction">LD DE,$0001</td>
+<td class="comment-1" rowspan="1">Length is always 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35590"></span>8B06</td>
+<td class="instruction">CALL $03B6</td>
+<td class="comment-1" rowspan="1">Call the ROM BEEP routine without disabling interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35593"></span>8B09</td>
+<td class="instruction">JP <a href="35615.html#35636">$8B34</a></td>
+<td class="comment-1" rowspan="1">Move forward to check for movement restrictions.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35524.html">8AC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35539">Map</a></td>
+<td class="next">
+Next: <a href="35596.html">8B0C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

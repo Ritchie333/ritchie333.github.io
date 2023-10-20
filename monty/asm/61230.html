@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at EF2E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60750.html">ED4E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61230">Map</a></td>
+<td class="next">
+Next: <a href="61291.html">EF6B</a>
+</td>
+</tr>
+</table>
+<div class="description">EF2E: Animate the smoke in the start room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52719.html">CDEF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61230"></span>EF2E</td>
+<td class="instruction">LD E,$A7</td>
+<td class="comment-1" rowspan="1">X = A7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61232"></span>EF30</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Y = 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61234"></span>EF32</td>
+<td class="instruction">LD HL,$EA60</td>
+<td class="comment-1" rowspan="1"><a href="60000.html">EA60</a> is the screen offsets table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61237"></span>EF35</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="2">Get the correct screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61238"></span>EF36</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61239"></span>EF37</td>
+<td class="instruction">LD ($EF7A),HL</td>
+<td class="comment-1" rowspan="1">Store this. (<a href="61306.html">EF7A</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61242"></span>EF3A</td>
+<td class="instruction">LD B,$18</td>
+<td class="comment-1" rowspan="1">12 characters to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61244"></span>
+<div class="comments">
+<div class="paragraph">
+Draw each character in the correct frame.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61244"></span>EF3C</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61245"></span>EF3D</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Put the screen address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61246"></span>EF3E</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61247"></span>EF3F</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61248"></span>EF40</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61249"></span>EF41</td>
+<td class="instruction">LD DE,$0019</td>
+<td class="comment-1" rowspan="3">Move down a row and store the result in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61252"></span>EF44</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61253"></span>EF45</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61254"></span>EF46</td>
+<td class="instruction">LD HL,($EF77)</td>
+<td class="comment-1" rowspan="1">Get the pointer to the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61257"></span>EF49</td>
+<td class="instruction">LD BC,$0005</td>
+<td class="comment-1" rowspan="1">5 bytes to copy to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61260"></span>EF4C</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Do the copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61262"></span>EF4E</td>
+<td class="instruction">LD ($EF77),HL</td>
+<td class="comment-1" rowspan="1">Store the next address to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61265"></span>EF51</td>
+<td class="instruction">LD HL,($EF7A)</td>
+<td class="comment-1" rowspan="4">Move back a screen address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61268"></span>EF54</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61269"></span>EF55</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61270"></span>EF56</td>
+<td class="instruction">LD ($EF7A),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61273"></span>EF59</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore count of characters to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61274"></span>EF5A</td>
+<td class="instruction">DJNZ $EF3C</td>
+<td class="comment-1" rowspan="1">Loop back if there is more to do.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61276"></span>
+<div class="comments">
+<div class="paragraph">
+All characters are now drawn.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61276"></span>EF5C</td>
+<td class="instruction">LD A,($EF79)</td>
+<td class="comment-1" rowspan="1">Get the frame counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61279"></span>EF5F</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Move to the next counter.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61280"></span>EF60</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="1">Is this the last frame?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61282"></span>EF62</td>
+<td class="instruction">JR NZ,$EF67</td>
+<td class="comment-1" rowspan="1">If not, jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61284"></span>EF64</td>
+<td class="instruction">CALL <a href="61291.html">$EF6B</a></td>
+<td class="comment-1" rowspan="1">Otherwise reset back to the first frame.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61287"></span>EF67</td>
+<td class="instruction">LD ($EF79),A</td>
+<td class="comment-1" rowspan="2">Store the new frame and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61290"></span>EF6A</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60750.html">ED4E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61230">Map</a></td>
+<td class="next">
+Next: <a href="61291.html">EF6B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

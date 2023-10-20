@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at EA60</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="LoadingSystem-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="LoadingSystem.html#60000">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<div class="description">EA60: Loader</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The BASIC is:
+</div>
+<div class="paragraph">
+10 CLEAR 24575 : PAPER 3 : INK 3 : BORDER 3 : CLS : POKE 23659, 0 : LOAD "" CODE : RANDOMIZE USR 60000
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60000"></span>EA60</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Turn off interrupts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60001"></span>EA61</td>
+<td class="instruction">LD A,$83</td>
+<td class="comment-1" rowspan="1">Start of decryption key</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60003"></span>EA63</td>
+<td class="instruction">LD R,A</td>
+<td class="comment-1" rowspan="1">Put this in the refresh register</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60005"></span>EA65</td>
+<td class="instruction">LD ($081C),A</td>
+<td class="comment-1" rowspan="1">No effect, this is a ROM address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60008"></span>EA68</td>
+<td class="instruction">LD HL,$EA73</td>
+<td class="comment-1" rowspan="1">Start of block to be decrypted</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60011"></span>EA6B</td>
+<td class="instruction">LD B,$FF</td>
+<td class="comment-1" rowspan="1">Length of block</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60013"></span>EA6D</td>
+<td class="instruction">LD A,R</td>
+<td class="comment-1" rowspan="1">Get next decryption key</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60015"></span>EA6F</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-1" rowspan="1">Use it to invert the relevant bits of the next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60016"></span>EA70</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Store the next value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60017"></span>EA71</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Next value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60018"></span>EA72</td>
+<td class="instruction">DJNZ $EAE5</td>
+<td class="comment-1" rowspan="1">Loop (displacement will change once run)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60018"></span>
+<div class="comments">
+<div class="paragraph">
+Once the loop has run, the code then reads
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60018"></span>EA72</td>
+<td class="instruction">DJNZ $EA6D</td>
+<td class="comment-1" rowspan="1">Loop until finished</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60020"></span>EA74</td>
+<td class="instruction">LD A,($5C6B)</td>
+<td class="comment-1" rowspan="1">Get the DF-SZ system variable (was set to 0 in the BASIC to stop breaking into the program)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60023"></span>EA77</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it still zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60024"></span>EA78</td>
+<td class="instruction">JP NZ,$0000</td>
+<td class="comment-1" rowspan="1">Reset the machine if not - somebody's been trying to hack this</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60027"></span>EA7B</td>
+<td class="instruction">LD A,$71</td>
+<td class="comment-1" rowspan="1">Flag byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60029"></span>EA7D</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Set carry flag for loading</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60030"></span>EA7E</td>
+<td class="instruction">LD IX,$4000</td>
+<td class="comment-1" rowspan="1">Start</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60034"></span>EA82</td>
+<td class="instruction">LD DE,$C000</td>
+<td class="comment-1" rowspan="1">Length</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60037"></span>EA85</td>
+<td class="instruction">CALL $0556</td>
+<td class="comment-1" rowspan="1">Call LD-BYTES</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+The stack pointer value at 5FE6 contains EA88. However, during loading, this is changed to the main post-loading entry point at D290.
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="LoadingSystem.html#60000">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

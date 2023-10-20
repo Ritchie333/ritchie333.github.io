@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at CDC4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52545.html">CD41</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52676">Map</a></td>
+<td class="next">
+Next: <a href="52719.html">CDEF</a>
+</td>
+</tr>
+</table>
+<div class="description">CDC4: Monty has grabbed the bucket - start the miner chase</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52545.html">CD41</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52676"></span>CDC4</td>
+<td class="instruction">LD A,($CD32)</td>
+<td class="comment-1" rowspan="2">Has the flag already been set?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52679"></span>CDC7</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52680"></span>CDC8</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52681"></span>CDC9</td>
+<td class="instruction">LD HL,$964D</td>
+<td class="comment-1" rowspan="5">Set all the coal flags as "not collected".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52684"></span>CDCC</td>
+<td class="instruction">LD B,$40</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52686"></span>CDCE</td>
+<td class="instruction">SET 7,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52688"></span>CDD0</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52689"></span>CDD1</td>
+<td class="instruction">DJNZ $CDCE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52691"></span>CDD3</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Set the miner to appear in room 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52693"></span>CDD5</td>
+<td class="instruction">LD ($9BBE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52696"></span>CDD8</td>
+<td class="instruction">LD ($9BD2),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52699"></span>
+<div class="comments">
+<div class="paragraph">
+Erase the bucket.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52699"></span>CDDB</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Signal that Monty has the bucket.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52700"></span>CDDC</td>
+<td class="instruction">LD ($CD32),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52703"></span>CDDF</td>
+<td class="instruction">LD HL,$7780</td>
+<td class="comment-1" rowspan="1"><a href="30592.html">7780</a> is the empty graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52706"></span>CDE2</td>
+<td class="instruction">LD ($ECE0),HL</td>
+<td class="comment-1" rowspan="1">Set the graphic to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52709"></span>CDE5</td>
+<td class="instruction">LD HL,$4F2F</td>
+<td class="comment-1" rowspan="2">Set co-ordinate of the bucket.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52712"></span>CDE8</td>
+<td class="instruction">LD ($ECDE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52715"></span>CDEB</td>
+<td class="instruction">CALL <a href="60384.html">$EBE0</a></td>
+<td class="comment-1" rowspan="2">Draw (erase) the graphic and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52718"></span>CDEE</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52545.html">CD41</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52676">Map</a></td>
+<td class="next">
+Next: <a href="52719.html">CDEF</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

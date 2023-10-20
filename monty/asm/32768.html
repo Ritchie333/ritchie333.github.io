@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at 8000</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31744.html">7C00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32768">Map</a></td>
+<td class="next">
+Next: <a href="32873.html">8069</a>
+</td>
+</tr>
+</table>
+<div class="description">8000: Display input options and wait to start</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63446.html">F7D6</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32768"></span>8000</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32769"></span>8001</td>
+<td class="instruction">CALL <a href="32914.html">$8092</a></td>
+<td class="comment-1" rowspan="1">Display options.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32772"></span>8004</td>
+<td class="instruction">LD IX,$8127</td>
+<td class="comment-1" rowspan="1"><a href="33058.html#33063">8127</a> - default option.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32776"></span>8008</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Set default option to 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32778"></span>800A</td>
+<td class="instruction">CALL <a href="65280.html">$FF00</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32781"></span>800D</td>
+<td class="instruction">EI</td>
+<td class="comment-1" rowspan="1">Re-enable interrupts.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32782"></span>800E</td>
+<td class="instruction">LD BC,$EFFE</td>
+<td class="comment-1" rowspan="2">Check top right of keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32785"></span>8011</td>
+<td class="instruction">IN A,(C)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32787"></span>8013</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was '0' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32789"></span>8015</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so to start the game.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32790"></span>8016</td>
+<td class="instruction">CALL <a href="32873.html">$8069</a></td>
+<td class="comment-1" rowspan="1">Toggle the display flashing.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32793"></span>8019</td>
+<td class="instruction">LD BC,$F7FE</td>
+<td class="comment-1" rowspan="1">Check top left of keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32796"></span>801C</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="3">If any keys were pressed, they will end up with positive bits after this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32798"></span>801E</td>
+<td class="instruction">AND $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32800"></span>8020</td>
+<td class="instruction">XOR $1F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32802"></span>8022</td>
+<td class="instruction">JR Z,$800E</td>
+<td class="comment-1" rowspan="1">Jump back if no keys pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32804"></span>8024</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was "1" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32806"></span>8026</td>
+<td class="instruction">JR Z,$803B</td>
+<td class="comment-1" rowspan="1">Jump if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32808"></span>8028</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="3">Unflash the current selection.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32811"></span>802B</td>
+<td class="instruction">LD C,$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32813"></span>802D</td>
+<td class="instruction">CALL <a href="33023.html">$80FF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32816"></span>8030</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Set option 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32818"></span>8032</td>
+<td class="instruction">LD ($82A3),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32821"></span>8035</td>
+<td class="instruction">LD IX,$8127</td>
+<td class="comment-1" rowspan="2">Point to first option and loop back?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32825"></span>8039</td>
+<td class="instruction">JR $800E</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32827"></span>803B</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Was "2" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32829"></span>803D</td>
+<td class="instruction">JR Z,$8052</td>
+<td class="comment-1" rowspan="1">Jump if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32831"></span>803F</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="3">Unflash the current selection.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32834"></span>8042</td>
+<td class="instruction">LD C,$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32836"></span>8044</td>
+<td class="instruction">CALL <a href="33023.html">$80FF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32839"></span>8047</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="2">Set option 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32841"></span>8049</td>
+<td class="instruction">LD ($82A3),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32844"></span>804C</td>
+<td class="instruction">LD IX,$812C</td>
+<td class="comment-1" rowspan="2">Point to second option and loop back.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32848"></span>8050</td>
+<td class="instruction">JR $800E</td>
+</tr>
+<tr>
+<td class="address-2"><span id="32850"></span>8052</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1">Was "3" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32852"></span>8054</td>
+<td class="instruction">JR Z,$800E</td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32854"></span>8056</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="3">Unflash the current selection.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32857"></span>8059</td>
+<td class="instruction">LD C,$47</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32859"></span>805B</td>
+<td class="instruction">CALL <a href="33023.html">$80FF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32862"></span>805E</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Set option 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32864"></span>8060</td>
+<td class="instruction">LD ($82A3),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32867"></span>8063</td>
+<td class="instruction">LD IX,$8131</td>
+<td class="comment-1" rowspan="2">Point to third option and loop back.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="32871"></span>8067</td>
+<td class="instruction">JR $800E</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="31744.html">7C00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32768">Map</a></td>
+<td class="next">
+Next: <a href="32873.html">8069</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

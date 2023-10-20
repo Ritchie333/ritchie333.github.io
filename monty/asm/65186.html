@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanted : Monty Mole: Routine at FEA2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65176.html">FE98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65186">Map</a></td>
+<td class="next">
+Next: <a href="65216.html">FEC0</a>
+</td>
+</tr>
+</table>
+<div class="description">FEA2: Check the attribute at the current position matches the "moving" type</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="35728.html">8B90</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65186"></span>FEA2</td>
+<td class="instruction">LD A,($C51C)</td>
+<td class="comment-1" rowspan="2">Put the expected attribute in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65189"></span>FEA5</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65190"></span>FEA6</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the position (<a href="23675.html">5C7B</a>, <a href="23676.html">5C7C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65193"></span>FEA9</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="4">Move up one row and across one column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65194"></span>FEAA</td>
+<td class="instruction">LD A,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65196"></span>FEAC</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65197"></span>FEAD</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65198"></span>FEAE</td>
+<td class="instruction">CALL <a href="65216.html">$FEC0</a></td>
+<td class="comment-1" rowspan="1">Get the attribute at this position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65201"></span>FEB1</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Does it match?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65202"></span>FEB2</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if it does.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65203"></span>FEB3</td>
+<td class="instruction">LD HL,($5C7B)</td>
+<td class="comment-1" rowspan="1">Get the position (<a href="23675.html">5C7B</a>, <a href="23676.html">5C7C</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65206"></span>FEB6</td>
+<td class="instruction">LD D,$F1</td>
+<td class="comment-1" rowspan="3">Move down one row and across one column.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65208"></span>FEB8</td>
+<td class="instruction">LD E,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65210"></span>FEBA</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65211"></span>FEBB</td>
+<td class="instruction">CALL <a href="65216.html">$FEC0</a></td>
+<td class="comment-1" rowspan="1">Get the attribute at this position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65214"></span>FEBE</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Does it match?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65215"></span>FEBF</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set if it does.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65176.html">FE98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65186">Map</a></td>
+<td class="next">
+Next: <a href="65216.html">FEC0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Peter Harrap / Gremlin Graphics 1984. This dissassembly by Ritchie Swann 2018-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>
