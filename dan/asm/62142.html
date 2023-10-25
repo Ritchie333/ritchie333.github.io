@@ -38,102 +38,96 @@ Used by the routine at <a href="56163.html">DB63</a>.
 <tr>
 <td class="address-2"><span id="62142"></span>F2BE</td>
 <td class="instruction">CALL <a href="62196.html">$F2F4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear the screen and wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62145"></span>F2C1</td>
 <td class="instruction">LD HL,$F2A5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print "left". (<a href="62117.html">F2A5</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62148"></span>F2C4</td>
 <td class="instruction">CALL <a href="61169.html">$EEF1</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62151"></span>F2C7</td>
 <td class="instruction">CALL <a href="62208.html">$F300</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62154"></span>F2CA</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store the key for "left". (<a href="62062.html">F26E</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62155"></span>F2CB</td>
 <td class="instruction">LD ($F26E),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62158"></span>F2CE</td>
 <td class="instruction">CALL <a href="62196.html">$F2F4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear the screen and wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62161"></span>F2D1</td>
 <td class="instruction">LD HL,$F2AD</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print "right". (<a href="62125.html">F2AD</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62164"></span>F2D4</td>
 <td class="instruction">CALL <a href="61169.html">$EEF1</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62167"></span>F2D7</td>
 <td class="instruction">CALL <a href="62208.html">$F300</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62170"></span>F2DA</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store the key for "right". (<a href="62063.html">F26F</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62171"></span>F2DB</td>
 <td class="instruction">LD ($F26F),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62174"></span>F2DE</td>
 <td class="instruction">CALL <a href="62196.html">$F2F4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear the screen and wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62177"></span>F2E1</td>
 <td class="instruction">LD HL,$F2B6</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print "jump". (<a href="62134.html">F2B6</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62180"></span>F2E4</td>
 <td class="instruction">CALL <a href="61169.html">$EEF1</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62183"></span>F2E7</td>
 <td class="instruction">CALL <a href="62208.html">$F300</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62186"></span>F2EA</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store the key for "jump". (<a href="62064.html">F270</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62187"></span>F2EB</td>
 <td class="instruction">LD ($F270),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62190"></span>F2EE</td>
 <td class="instruction">CALL <a href="62196.html">$F2F4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear the screen and wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62193"></span>F2F1</td>
 <td class="instruction">JP $CA56</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Should be JP <a href="51803.html">CA5B</a>, as this address is in a buffer (<a href="51773.html">CA3D</a>), however, the instructions are harmless and the bug has no effect!</td>
 </tr>
 </table>
 <table class="asm-navigation">

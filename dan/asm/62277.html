@@ -38,22 +38,22 @@ Used by the routine at <a href="51329.html">C881</a>.
 <tr>
 <td class="address-2"><span id="62277"></span>F345</td>
 <td class="instruction">LD HL,$69EA</td>
-<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the objects in the start room.</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the flags in the first room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62280"></span>F348</td>
 <td class="instruction">LD DE,$0007</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment by 7 bytes from the start of an entry to a moving object list.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62283"></span>F34B</td>
 <td class="instruction">LD BC,$0005</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment by 5 bytes from the moving object list to the start of an entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62286"></span>F34E</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Number of rooms to check.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62288"></span>F350</td>
@@ -68,32 +68,31 @@ Used by the routine at <a href="51329.html">C881</a>.
 <tr>
 <td class="address-1"><span id="62292"></span>F354</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the moving object list in this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62293"></span>F355</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set it to empty.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62295"></span>F357</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next room data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62296"></span>F358</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop back while there are more rooms to look at.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62297"></span>F359</td>
 <td class="instruction">JR NZ,$F350</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62299"></span>F35B</td>
 <td class="instruction">LD HL,$F3A0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the flags for what to set on initialisation.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62302"></span>F35E</td>
@@ -113,12 +112,11 @@ Used by the routine at <a href="51329.html">C881</a>.
 <tr>
 <td class="address-1"><span id="62307"></span>F363</td>
 <td class="instruction">LD HL,$69EA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the object data pointer to the first room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62310"></span>F366</td>
 <td class="instruction">LD ($F3A2),HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62313"></span>F369</td>
@@ -173,12 +171,11 @@ Used by the routine at <a href="51329.html">C881</a>.
 <tr>
 <td class="address-1"><span id="62336"></span>F380</td>
 <td class="instruction">LD HL,$69F1</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the object data pointer to more flags in the first room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62339"></span>F383</td>
 <td class="instruction">LD ($F3A2),HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62342"></span>F386</td>

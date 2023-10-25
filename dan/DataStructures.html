@@ -68,7 +68,7 @@ routine in <a href="asm/52157.html">CBBD</a>. The structure is :
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">0B</td>
-<td class="" colspan="1" rowspan="1">If bits 0, 1 or 2 are set, this prints a bank card of UDG CB CC or CD in the room</td>
+<td class="" colspan="1" rowspan="1">If bits 0, 1 or 2 are set, this prints a bank card of UDG CB CC or CD in the room. If bit 7 is set, this room has been visited.</td>
 </tr>
 </table>
 </div>
@@ -109,12 +109,15 @@ for its ID. There is then an optional sequence of :
 </div>
 <div class="paragraph">
 <ul class="default">
-<li>FE, a, b - copy 'a' x 'b' times and move right</li>
-<li>FD, a, b - copy 'a' x 'b' times and move left</li>
-<li>FC, a, b - copy 'a' x 'b' times and move up</li>
-<li>FB, a, b - copy 'a' x 'b' times and move down</li>
+<li>FE, a, b - 'b' times and move right by 'a' spaces</li>
+<li>FD, a, b - 'b' times and move up by 'a' spaces</li>
+<li>FC, a, b - 'b' times and move right by 'a' spaces and down by one space</li>
+<li>FB, a, b - 'b' times and move right by 'a' spaces and up by one space</li>
 <li>FF - end of the list</li>
 </ul>
+</div>
+<div class="paragraph">
+(The last two types, FC and FB are mostly used for staircases).
 </div>
 <div class="paragraph">
 The structure then repeats.

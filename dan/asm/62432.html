@@ -41,53 +41,54 @@ Used by the routines at <a href="56872.html">DE28</a> and <a href="62444.html">F
 <td class="register">A</td>
 <td class="register-desc">Room number</td>
 </tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">On exit, holds the co-ordinates of the card</td>
+</tr>
 </table>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="62432"></span>F3E0</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the room number to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62433"></span>F3E1</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62434"></span>F3E2</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62436"></span>F3E4</td>
 <td class="instruction">LD HL,$F410</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the bank card locations. (<a href="62480.html">F410</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62439"></span>F3E7</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62440"></span>F3E8</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the value found in <span class="register">DE</span> and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62441"></span>F3E9</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62442"></span>F3EA</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62443"></span>F3EB</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

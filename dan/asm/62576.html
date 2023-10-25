@@ -47,92 +47,86 @@ Used by the routines at <a href="56163.html">DB63</a> and <a href="56566.html">D
 <tr>
 <td class="address-2"><span id="62576"></span>F470</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of times to repeat.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62577"></span>F471</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62578"></span>F472</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62579"></span>F473</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62580"></span>F474</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the number of columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62581"></span>F475</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62582"></span>F476</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the number of rows.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62583"></span>F477</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62584"></span>F478</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62585"></span>F479</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62586"></span>F47A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62587"></span>F47B</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62588"></span>F47C</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62589"></span>F47D</td>
 <td class="instruction">CALL <a href="59578.html">$E8BA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Fill the lines with the attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62592"></span>F480</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62593"></span>F481</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62594"></span>F482</td>
 <td class="instruction">DJNZ $F471</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop round until the fill is complete.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62596"></span>F484</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

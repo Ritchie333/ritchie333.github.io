@@ -47,32 +47,29 @@ Used by the routine at <a href="62142.html">F2BE</a>.
 <tr>
 <td class="address-2"><span id="62208"></span>F300</td>
 <td class="instruction">CALL <a href="62218.html">$F30A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get a key pressed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62211"></span>F303</td>
 <td class="instruction">JR NZ,$F300</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62213"></span>F305</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop back if nothing was pressed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62214"></span>F306</td>
 <td class="instruction">JR Z,$F300</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62216"></span>F308</td>
 <td class="instruction">DEC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">D</span> and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62217"></span>F309</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

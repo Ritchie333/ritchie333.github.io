@@ -44,177 +44,191 @@ Next: <a href="62117.html">F2A5</a>
 <tr>
 <td class="address-2"><span id="62065"></span>F271</td>
 <td class="instruction">LD HL,$F26E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the key for left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62068"></span>F274</td>
 <td class="instruction">LD E,$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Initialize <span class="register">E</span> to no keys pressed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62070"></span>F276</td>
 <td class="instruction">LD D,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Number of keys to check.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62072"></span>F278</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the key to press.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62073"></span>F279</td>
 <td class="instruction">CALL <a href="62218.html#62250">$F32A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">See if it was pressed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62076"></span>F27C</td>
 <td class="instruction">CCF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Invert the carry flag, then rotate <span class="register">E</span>, putting the flag in as bit 0. This allows the various key presses to be built up as the keys are checked.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62077"></span>F27D</td>
 <td class="instruction">RL E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62079"></span>F27F</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next key.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62080"></span>F280</td>
 <td class="instruction">DEC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all keys checked.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62081"></span>F281</td>
 <td class="instruction">JR NZ,$F278</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62083"></span>
+<div class="comments">
+<div class="paragraph">
+All keys have been scanned, now check the values.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62083"></span>F283</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the matrix of keys pressed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62084"></span>F284</td>
 <td class="instruction">AND $06</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Only consider bits 1 - 2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62086"></span>F286</td>
 <td class="instruction">CP $06</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the value 6?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62088"></span>F288</td>
 <td class="instruction">JR NZ,$F28E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62090"></span>F28A</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Clear all bits except 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62091"></span>F28B</td>
 <td class="instruction">AND $01</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62093"></span>F28D</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62094"></span>
+<div class="comments">
+<div class="paragraph">
+Now decide what action to take.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62094"></span>F28E</td>
 <td class="instruction">LD C,$05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Default to value 5 (no action).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62096"></span>F290</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the matrix of keys.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62097"></span>F291</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Return if it is zero (nothing pressed).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62098"></span>F292</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62099"></span>F293</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Select option 4 (jump).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62100"></span>F294</td>
 <td class="instruction">CP $01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is only the jump bit set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62102"></span>F296</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62103"></span>F297</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Select option 3 (left).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62104"></span>F298</td>
 <td class="instruction">CP $04</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is left pressed but not jump?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62106"></span>F29A</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62107"></span>F29B</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Select option 2 (jump + left).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62108"></span>F29C</td>
 <td class="instruction">CP $05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Are left and jump pressed?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62110"></span>F29E</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if they are.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62111"></span>F29F</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Selecti option 1 (right).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62112"></span>F2A0</td>
 <td class="instruction">CP $02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is right pressed but not jump?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62114"></span>F2A2</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62115"></span>F2A3</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Only option left is right and jump pressed, select option 0 (jump right) and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62116"></span>F2A4</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

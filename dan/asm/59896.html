@@ -55,57 +55,51 @@ Used by the routines at <a href="58692.html">E544</a> and <a href="61169.html">E
 <tr>
 <td class="address-2"><span id="59896"></span>E9F8</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> to <span class="register">C</span> as a temporary copy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59897"></span>E9F9</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the bottom 3 bits of <span class="register">A</span> in <span class="register">B</span>. Note : This should be AND 0F otherwise bit 3 is lost!</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59899"></span>E9FB</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59900"></span>E9FC</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Take the top 4 bytes to convert.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59901"></span>E9FD</td>
 <td class="instruction">AND $F0</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59903"></span>E9FF</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Shift these down to bits 0 - 3 and put it in C.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59904"></span>EA00</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59905"></span>EA01</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59906"></span>EA02</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59907"></span>EA03</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59908"></span>EA04</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -143,7 +143,7 @@ Used by the routines at <a href="51803.html">CA5B</a>, <a href="52691.html">CDD3
 <tr>
 <td class="address-1"><span id="60705"></span>ED21</td>
 <td class="instruction">CP $FD</td>
-<td class="comment-1" rowspan="2">Jump forward if this is "draw left".</td>
+<td class="comment-1" rowspan="2">Jump forward if this is "draw up".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60707"></span>ED23</td>
@@ -152,7 +152,7 @@ Used by the routines at <a href="51803.html">CA5B</a>, <a href="52691.html">CDD3
 <tr>
 <td class="address-1"><span id="60709"></span>ED25</td>
 <td class="instruction">CP $FC</td>
-<td class="comment-1" rowspan="2">Jump forward if this is "draw up".</td>
+<td class="comment-1" rowspan="2">Jump forward if this is "draw right and down".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60711"></span>ED27</td>
@@ -161,7 +161,7 @@ Used by the routines at <a href="51803.html">CA5B</a>, <a href="52691.html">CDD3
 <tr>
 <td class="address-1"><span id="60713"></span>ED29</td>
 <td class="instruction">CP $FB</td>
-<td class="comment-1" rowspan="2">Jump forward if this is "draw down".</td>
+<td class="comment-1" rowspan="2">Jump forward if this is "draw right and up".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60715"></span>ED2B</td>
@@ -223,32 +223,30 @@ Draw a string of UDGs to the right.
 <tr>
 <td class="address-1"><span id="60727"></span>ED37</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60728"></span>ED38</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60729"></span>ED39</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the increment amount in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60730"></span>ED3A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60731"></span>ED3B</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60732"></span>ED3C</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60733"></span>ED3D</td>
@@ -284,7 +282,7 @@ Draw a string of UDGs to the right.
 <tr>
 <td class="address-1"><span id="60742"></span>ED46</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="3">Increase the X position.</td>
+<td class="comment-1" rowspan="3">Move the X position right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60743"></span>ED47</td>
@@ -297,34 +295,32 @@ Draw a string of UDGs to the right.
 <tr>
 <td class="address-1"><span id="60745"></span>ED49</td>
 <td class="instruction">DJNZ $ED3D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60747"></span>ED4B</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60748"></span>ED4C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move to the next UDG definition.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60749"></span>ED4D</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60750"></span>ED4E</td>
 <td class="instruction">JR $ED06</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="60752"></span>
 <div class="comments">
 <div class="paragraph">
-Draw a string of UDGs to the left.
+Draw a string of UDGs up.
 </div>
 </div>
 </td>
@@ -337,27 +333,25 @@ Draw a string of UDGs to the left.
 <tr>
 <td class="address-1"><span id="60753"></span>ED51</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60754"></span>ED52</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60755"></span>ED53</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1">Put</td>
+<td class="comment-1" rowspan="1">Put the increment amount in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60756"></span>ED54</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60757"></span>ED55</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60758"></span>ED56</td>
@@ -398,7 +392,7 @@ Draw a string of UDGs to the left.
 <tr>
 <td class="address-1"><span id="60768"></span>ED60</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-1" rowspan="3">Decrease the X position.</td>
+<td class="comment-1" rowspan="3">Move the Y position up.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60769"></span>ED61</td>
@@ -411,34 +405,32 @@ Draw a string of UDGs to the left.
 <tr>
 <td class="address-1"><span id="60771"></span>ED63</td>
 <td class="instruction">DJNZ $ED57</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60773"></span>ED65</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60774"></span>ED66</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move to the next UDG definition.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60775"></span>ED67</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60776"></span>ED68</td>
 <td class="instruction">JR $ED06</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="60778"></span>
 <div class="comments">
 <div class="paragraph">
-Draw a string of UDGS up.
+Draw a string of UDGS right and down.
 </div>
 </div>
 </td>
@@ -451,47 +443,42 @@ Draw a string of UDGS up.
 <tr>
 <td class="address-1"><span id="60779"></span>ED6B</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60780"></span>ED6C</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60781"></span>ED6D</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the increment amount in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60782"></span>ED6E</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60783"></span>ED6F</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60784"></span>ED70</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="60785"></span>ED71</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Remember the main registers used.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60786"></span>ED72</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60787"></span>ED73</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60788"></span>ED74</td>
@@ -501,32 +488,28 @@ Draw a string of UDGS up.
 <tr>
 <td class="address-1"><span id="60791"></span>ED77</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Restore the registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60792"></span>ED78</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60793"></span>ED79</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60794"></span>ED7A</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move the X position right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60795"></span>ED7B</td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60796"></span>ED7C</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60797"></span>ED7D</td>
@@ -536,34 +519,32 @@ Draw a string of UDGS up.
 <tr>
 <td class="address-1"><span id="60798"></span>ED7E</td>
 <td class="instruction">DJNZ $ED71</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60800"></span>ED80</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60801"></span>ED81</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move to the next UDG definition.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60802"></span>ED82</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60803"></span>ED83</td>
 <td class="instruction">JR $ED06</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="60805"></span>
 <div class="comments">
 <div class="paragraph">
-Draw a string of UDGS down.
+Draw a string of UDGS right and up.
 </div>
 </div>
 </td>
@@ -576,47 +557,42 @@ Draw a string of UDGS down.
 <tr>
 <td class="address-1"><span id="60806"></span>ED86</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60807"></span>ED87</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60808"></span>ED88</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the increment amount in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60809"></span>ED89</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60810"></span>ED8A</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60811"></span>ED8B</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Remember the main registers used.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60812"></span>ED8C</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60813"></span>ED8D</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60814"></span>ED8E</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60815"></span>ED8F</td>
@@ -626,32 +602,28 @@ Draw a string of UDGS down.
 <tr>
 <td class="address-1"><span id="60818"></span>ED92</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Restore the registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60819"></span>ED93</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60820"></span>ED94</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60821"></span>ED95</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move the X position to the right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60822"></span>ED96</td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60823"></span>ED97</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60824"></span>ED98</td>
@@ -661,7 +633,7 @@ Draw a string of UDGS down.
 <tr>
 <td class="address-1"><span id="60825"></span>ED99</td>
 <td class="instruction">DJNZ $ED8C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60827"></span>ED9B</td>

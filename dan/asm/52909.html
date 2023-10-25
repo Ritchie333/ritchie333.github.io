@@ -38,82 +38,85 @@ Used by the routine at <a href="51200.html">C800</a>.
 <tr>
 <td class="address-2"><span id="52909"></span>CEAD</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Number of rooms to check.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52911"></span>CEAF</td>
 <td class="instruction">LD HL,$CEA4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the first action.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52914"></span>CEB2</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52917"></span>CEB5</td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the special action in this room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52918"></span>CEB6</td>
 <td class="instruction">JR Z,$CEBE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52920"></span>CEB8</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move to the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52921"></span>CEB9</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52922"></span>CEBA</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52923"></span>CEBB</td>
 <td class="instruction">DJNZ $CEB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all actions have been considered.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52925"></span>CEBD</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52926"></span>
+<div class="comments">
+<div class="paragraph">
+A special action was found in this room, so act on it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52926"></span>CEBE</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Put the pointer to the action in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52927"></span>CEBF</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52928"></span>CEC0</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52929"></span>CEC1</td>
 <td class="instruction">LD H,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52930"></span>CEC2</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52931"></span>CEC3</td>
 <td class="instruction">JP (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Do it.</td>
 </tr>
 </table>
 <table class="asm-navigation">

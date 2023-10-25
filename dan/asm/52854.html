@@ -38,97 +38,134 @@ Used by the routine at <a href="52157.html">CBBD</a>.
 <tr>
 <td class="address-2"><span id="52854"></span>CE76</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52857"></span>CE79</td>
 <td class="instruction">CP $1B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the room with the safe?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52859"></span>CE7B</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it's not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52860"></span>
+<div class="comments">
+<div class="paragraph">
+This is the safe room, see if there's anything extra to draw.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52860"></span>CE7C</td>
 <td class="instruction">LD A,($C87E)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the safe locked?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52863"></span>CE7F</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52865"></span>CE81</td>
 <td class="instruction">JR NZ,$CE8C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52867"></span>
+<div class="comments">
+<div class="paragraph">
+The safe's locked, so need's drawing.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52867"></span>CE83</td>
 <td class="instruction">LD DE,$140A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> to the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52870"></span>CE86</td>
 <td class="instruction">LD HL,$EBDC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the graphic. (<a href="60380.html">EBDC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52873"></span>CE89</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52876"></span>
+<div class="comments">
+<div class="paragraph">
+Has Dan got the plans?
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52876"></span>CE8C</td>
 <td class="instruction">LD A,($C87E)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Has Dan got the plans?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52879"></span>CE8F</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52881"></span>CE91</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if he has.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52882"></span>
+<div class="comments">
+<div class="paragraph">
+Dan hasn't got the plans, they need drawing.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52882"></span>CE92</td>
 <td class="instruction">LD DE,$0506</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> to the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52885"></span>CE95</td>
 <td class="instruction">LD HL,$EB89</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> to the graphic. (<a href="60297.html">EB89</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52888"></span>CE98</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52891"></span>CE9B</td>
 <td class="instruction">LD A,($C86C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the number of lives greater than 1A?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52894"></span>CE9E</td>
 <td class="instruction">CP $1A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52896"></span>CEA0</td>
 <td class="instruction">JP NC,$0000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, reset - either a bug or someone's hacking the game.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52899"></span>CEA3</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

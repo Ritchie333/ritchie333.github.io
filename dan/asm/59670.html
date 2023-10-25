@@ -38,147 +38,140 @@ Used by the routine at <a href="58948.html">E644</a>.
 <tr>
 <td class="address-2"><span id="59670"></span>E916</td>
 <td class="instruction">LD DE,$4000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> to the start of screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59673"></span>E919</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">8 8x8 blocks to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59675"></span>E91B</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">BC</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59676"></span>E91C</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59677"></span>E91D</td>
 <td class="instruction">LD B,$07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">7 rows to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59679"></span>E91F</td>
 <td class="instruction">LD L,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Copy <span class="register">DE</span> to <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59680"></span>E920</td>
 <td class="instruction">LD H,D</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59681"></span>E921</td>
 <td class="instruction">INC H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move down a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59682"></span>E922</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remember <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59683"></span>E923</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59684"></span>E924</td>
 <td class="instruction">LD BC,$0020</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Copy a line from <span class="register">HL</span> to a row above in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59687"></span>E927</td>
 <td class="instruction">LDIR</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59689"></span>E929</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59690"></span>E92A</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59691"></span>E92B</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> into <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59692"></span>E92C</td>
 <td class="instruction">DJNZ $E91F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back while there are more rows to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59694"></span>E92E</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59695"></span>E92F</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59696"></span>E930</td>
 <td class="instruction">DEC B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Reduce the number of blocks to update by 1, and return if it is zero.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59697"></span>E931</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59698"></span>E932</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59699"></span>E933</td>
 <td class="instruction">LD BC,$0020</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move down a 8x8 block.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59702"></span>E936</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59703"></span>E937</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59704"></span>E938</td>
 <td class="instruction">LDIR</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Do the copy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59706"></span>E93A</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> as <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59707"></span>E93B</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59708"></span>E93C</td>
 <td class="instruction">JR $E91B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back to update more.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59710"></span>E93E</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">This is never executed, the function executes at <a href="59670.html#59697">E931</a>.</td>
 </tr>
 </table>
 <table class="asm-navigation">

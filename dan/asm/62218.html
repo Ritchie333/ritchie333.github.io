@@ -47,109 +47,129 @@ Used by the routine at <a href="62208.html">F300</a>.
 <tr>
 <td class="address-2"><span id="62218"></span>F30A</td>
 <td class="instruction">LD DE,$FF2F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start with no key pressed and checking key 2F.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62221"></span>F30D</td>
 <td class="instruction">LD BC,$FEFE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start by checking SHIFT-V.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62224"></span>F310</td>
 <td class="instruction">IN A,(C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Read the keyboard.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62226"></span>F312</td>
 <td class="instruction">CPL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Invert the bits so keys pressed have bits set.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62227"></span>F313</td>
 <td class="instruction">AND $1F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Keep only bits 1-5 as the others aren't used.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62229"></span>F315</td>
 <td class="instruction">JR Z,$F323</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if no keys were pressed.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62231"></span>
+<div class="comments">
+<div class="paragraph">
+A key was pressed.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62231"></span>F317</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62232"></span>F318</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62233"></span>F319</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62234"></span>F31A</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62235"></span>F31B</td>
 <td class="instruction">SUB $08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62237"></span>F31D</td>
 <td class="instruction">SRL H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62239"></span>F31F</td>
 <td class="instruction">JR NC,$F31B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62241"></span>F321</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62242"></span>F322</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62243"></span>
+<div class="comments">
+<div class="paragraph">
+Scan another part of the keyboard.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62243"></span>F323</td>
 <td class="instruction">DEC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next key.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62244"></span>F324</td>
 <td class="instruction">RLC B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next section of keyboard, so it cyles from FE - FD - FB - F7 - EF - DF - BF - 7F</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62246"></span>F326</td>
 <td class="instruction">JR C,$F310</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop round for another read if we didn't scan anything. This stops once port 7FFE is checked, as that the only one that doesn't carry when shifting left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62248"></span>F328</td>
 <td class="instruction">CP A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62249"></span>F329</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="62250"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="62065.html">F271</a>.
+Check that a particular key in <span class="register">A</span> was pressed. This entry point is used by the routine at <a href="62065.html">F271</a>.
 </div>
 </div>
 </td>
@@ -157,92 +177,92 @@ This entry point is used by the routine at <a href="62065.html">F271</a>.
 <tr>
 <td class="address-2"><span id="62250"></span>F32A</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62251"></span>F32B</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62253"></span>F32D</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62254"></span>F32E</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62255"></span>F32F</td>
 <td class="instruction">SRL C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62257"></span>F331</td>
 <td class="instruction">SRL C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62259"></span>F333</td>
 <td class="instruction">SRL C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62261"></span>F335</td>
 <td class="instruction">LD A,$05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62263"></span>F337</td>
 <td class="instruction">SUB C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62264"></span>F338</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62265"></span>F339</td>
 <td class="instruction">LD A,$FE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62267"></span>F33B</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62268"></span>F33C</td>
 <td class="instruction">DJNZ $F33B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62270"></span>F33E</td>
 <td class="instruction">IN A,($FE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Read the keyboard.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62272"></span>F340</td>
 <td class="instruction">RRA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the bit in the carry flag.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62273"></span>F341</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62274"></span>F342</td>
 <td class="instruction">JR NZ,$F340</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62276"></span>F344</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

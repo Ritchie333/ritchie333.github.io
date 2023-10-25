@@ -35,187 +35,212 @@ Next: <a href="53193.html">CFC9</a>
 <tr>
 <td class="address-2"><span id="53111"></span>CF77</td>
 <td class="instruction">LD HL,$CED4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Draw the rainbow lifts (<a href="52948.html">CED4</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53114"></span>CF7A</td>
 <td class="instruction">CALL <a href="52976.html">$CEF0</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53117"></span>CF7D</td>
 <td class="instruction">CALL <a href="25251.html">$62A3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Blow the safe up.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53120"></span>CF80</td>
 <td class="instruction">LD A,($62A2)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the frame count. (<a href="25250.html">62A2</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53123"></span>CF83</td>
 <td class="instruction">CP $50</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 50?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53125"></span>CF85</td>
 <td class="instruction">JR NZ,$CFB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53127"></span>CF87</td>
 <td class="instruction">LD A,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's Y co-ordinate. (<a href="51314.html">C872</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53130"></span>CF8A</td>
 <td class="instruction">CP $3E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 3E?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53132"></span>CF8C</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if is isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53133"></span>CF8D</td>
 <td class="instruction">LD A,($C873)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's X co-ordinate. (<a href="51315.html">C873</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53136"></span>CF90</td>
 <td class="instruction">CP $15</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 15?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53138"></span>CF92</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53139"></span>CF93</td>
 <td class="instruction">LD A,($C875)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's frame count. (<a href="51317.html">C875</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53142"></span>CF96</td>
 <td class="instruction">CP $05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 5?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53144"></span>CF98</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53145"></span>CF99</td>
 <td class="instruction">LD A,($C87E)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get some flags.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53148"></span>CF9C</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the safe still locked?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53150"></span>CF9E</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53151"></span>
+<div class="comments">
+<div class="paragraph">
+Dan is next to the safe and it's locked. Can it be blown up?
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53151"></span>CF9F</td>
 <td class="instruction">LD A,($C878)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of dynamite sticks. (<a href="51320.html">C878</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53154"></span>CFA2</td>
 <td class="instruction">CP $08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Has Dan got all 8?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53156"></span>CFA4</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53157"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's got all 8 dynamite sticks, so blow the safe up!
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53157"></span>CFA5</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Start at frame 0. (<a href="25250.html">62A2</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53158"></span>CFA6</td>
 <td class="instruction">LD ($62A2),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53161"></span>CFA9</td>
 <td class="instruction">LD HL,$C87E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set that the safe has been blown up.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53164"></span>CFAC</td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53166"></span>CFAE</td>
 <td class="instruction">LD HL,$6E0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Play the "blown the safe door" tune and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53169"></span>CFB1</td>
 <td class="instruction">CALL <a href="56075.html">$DB0B</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53172"></span>CFB4</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53173"></span>
+<div class="comments">
+<div class="paragraph">
+The safe is being blown up or has been blown up.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53173"></span>CFB5</td>
 <td class="instruction">CP $40</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the frame count 28?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53175"></span>CFB7</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53176"></span>CFB8</td>
 <td class="instruction">LD A,($C86C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise check the number of lives.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53179"></span>CFBB</td>
 <td class="instruction">CP $1A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Are there more than 1A?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53181"></span>CFBD</td>
 <td class="instruction">JP NC,$0000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, somebody's been hacking or there's a bug, so reset the system.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53184"></span>CFC0</td>
 <td class="instruction">LD A,($C873)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53187"></span>CFC3</td>
 <td class="instruction">CP $17</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it greater than 17?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53189"></span>CFC5</td>
 <td class="instruction">RET NC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53190"></span>CFC6</td>
 <td class="instruction">JP <a href="52618.html">$CD8A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise Dan got caught in the blast range - oops - so lose a life.</td>
 </tr>
 </table>
 <table class="asm-navigation">
