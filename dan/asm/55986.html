@@ -20,7 +20,7 @@ Prev: <a href="55966.html">DA9E</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55986">Map</a></td>
 <td class="next">
-Next: <a href="56037.html">DAE5</a>
+Next: <a href="56008.html">DAC8</a>
 </td>
 </tr>
 </table>
@@ -39,11 +39,11 @@ Used by the routines at <a href="56037.html">DAE5</a> and <a href="56800.html">D
 </tr>
 <tr>
 <td class="register">B</td>
-<td class="register-desc">Frequency</td>
+<td class="register-desc">Length</td>
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">Length</td>
+<td class="register-desc">Frequency</td>
 </tr>
 </table>
 </td>
@@ -51,127 +51,89 @@ Used by the routines at <a href="56037.html">DAE5</a> and <a href="56800.html">D
 <tr>
 <td class="address-2"><span id="55986"></span>DAB2</td>
 <td class="instruction">LD A,($E800)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the last read state of port FE. (<a href="59392.html">E800</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="55989"></span>DAB5</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55990"></span>
+<div class="comments">
+<div class="paragraph">
+First, toggle the bit on the speaker to start a square wave
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55990"></span>DAB6</td>
 <td class="instruction">XOR $10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Toggle the speaker bit on the port.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55992"></span>DAB8</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55994"></span>DABA</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember this in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55995"></span>
+<div class="comments">
+<div class="paragraph">
+Now, wait a while, leaving the speaker in this state, then loop back, toggling the bit again to start a new wave.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="55995"></span>DABB</td>
 <td class="instruction">DEC DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrease the length.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55996"></span>DABC</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is it now zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55997"></span>DABD</td>
 <td class="instruction">OR E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55998"></span>DABE</td>
 <td class="instruction">JR NZ,$DABB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56000"></span>DAC0</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the wave length.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56001"></span>DAC1</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the speaker state.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56002"></span>DAC2</td>
 <td class="instruction">DJNZ $DAB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back and toggle it again.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56004"></span>DAC4</td>
 <td class="instruction">LD ($E800),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store the most recent state and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56007"></span>DAC7</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56008"></span>DAC8</td>
-<td class="instruction">LD HL,$DAFA</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56011"></span>DACB</td>
-<td class="instruction">LD ($DA8B),HL</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56014"></span>DACE</td>
-<td class="instruction">LD DE,$000A</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56017"></span>DAD1</td>
-<td class="instruction">LD B,$1E</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56019"></span>DAD3</td>
-<td class="instruction">CALL $DAB2</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56022"></span>DAD6</td>
-<td class="instruction">LD BC,$0740</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56025"></span>DAD9</td>
-<td class="instruction">CALL <a href="54447.html">$D4AF</a></td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56028"></span>DADC</td>
-<td class="instruction">LD DE,$0014</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56031"></span>DADF</td>
-<td class="instruction">LD B,$14</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56033"></span>DAE1</td>
-<td class="instruction">CALL $DAB2</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="56036"></span>DAE4</td>
-<td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -181,7 +143,7 @@ Prev: <a href="55966.html">DA9E</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55986">Map</a></td>
 <td class="next">
-Next: <a href="56037.html">DAE5</a>
+Next: <a href="56008.html">DAC8</a>
 </td>
 </tr>
 </table>

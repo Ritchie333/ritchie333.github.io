@@ -38,8 +38,8 @@ Used by the routines at <a href="56248.html">DBB8</a> and <a href="56513.html">D
 <th colspan="2">Input</th>
 </tr>
 <tr>
-<td class="register">R</td>
-<td class="register-desc">A ID of the food item</td>
+<td class="register">A</td>
+<td class="register-desc">ID of the food item</td>
 </tr>
 <tr>
 <td class="register">HL</td>
@@ -51,52 +51,47 @@ Used by the routines at <a href="56248.html">DBB8</a> and <a href="56513.html">D
 <tr>
 <td class="address-2"><span id="56552"></span>DCE8</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the item ID to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56553"></span>DCE9</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56554"></span>DCEA</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56556"></span>DCEC</td>
 <td class="instruction">LD HL,$65DA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the food table (<a href="26074.html">65DA</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56559"></span>DCEF</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56560"></span>DCF0</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Put the data found in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56561"></span>DCF1</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56562"></span>DCF2</td>
 <td class="instruction">LD H,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56563"></span>DCF3</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56564"></span>DCF4</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

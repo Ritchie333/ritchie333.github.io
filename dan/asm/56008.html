@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamite Dan: Routine at DAC8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Dynamite Dan</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55986.html">DAB2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56008">Map</a></td>
+<td class="next">
+Next: <a href="56037.html">DAE5</a>
+</td>
+</tr>
+</table>
+<div class="description">DAC8: Play a clicking effect while the score is being incremented</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51498.html">C92A</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="56008"></span>DAC8</td>
+<td class="instruction">LD HL,$DAFA</td>
+<td class="comment-1" rowspan="2">Make the next sound action to take (<a href="55947.html">DA8B</a>) as pausing for one second (<a href="56058.html">DAFA</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56011"></span>DACB</td>
+<td class="instruction">LD ($DA8B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56014"></span>DACE</td>
+<td class="instruction">LD DE,$000A</td>
+<td class="comment-1" rowspan="3">Make a short beep.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56017"></span>DAD1</td>
+<td class="instruction">LD B,$1E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56019"></span>DAD3</td>
+<td class="instruction">CALL <a href="55986.html">$DAB2</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="56022"></span>DAD6</td>
+<td class="instruction">LD BC,$0740</td>
+<td class="comment-1" rowspan="2">Pause.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56025"></span>DAD9</td>
+<td class="instruction">CALL <a href="54447.html">$D4AF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="56028"></span>DADC</td>
+<td class="instruction">LD DE,$0014</td>
+<td class="comment-1" rowspan="3">Make another short beep.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56031"></span>DADF</td>
+<td class="instruction">LD B,$14</td>
+</tr>
+<tr>
+<td class="address-1"><span id="56033"></span>DAE1</td>
+<td class="instruction">CALL <a href="55986.html">$DAB2</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="56036"></span>DAE4</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55986.html">DAB2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56008">Map</a></td>
+<td class="next">
+Next: <a href="56037.html">DAE5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">Copyright Rod Bowkett / Mirrorsoft 1985. This dissassembly by Ritchie Swann 2019-2023.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

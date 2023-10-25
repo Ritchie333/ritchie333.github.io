@@ -39,7 +39,7 @@ Used by the routines at <a href="53710.html">D1CE</a> and <a href="56967.html">D
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">Current co-ordinates.</td>
+<td class="register-desc">Co-ordinates of the item.</td>
 </tr>
 </table>
 </td>
@@ -47,82 +47,74 @@ Used by the routines at <a href="53710.html">D1CE</a> and <a href="56967.html">D
 <tr>
 <td class="address-2"><span id="56120"></span>DB38</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56121"></span>DB39</td>
 <td class="instruction">LD HL,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's co-ordinates (<a href="51314.html">C872</a>, <a href="51315.html">C873</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56124"></span>DB3C</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the Y co-ordinate in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56125"></span>DB3D</td>
 <td class="instruction">SUB D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Is this close enough to the Y co-ordinate of the item?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56126"></span>DB3E</td>
 <td class="instruction">ADD A,$03</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56128"></span>DB40</td>
 <td class="instruction">CP $07</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56130"></span>DB42</td>
 <td class="instruction">JR NC,$DB50</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56132"></span>DB44</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56133"></span>DB45</td>
 <td class="instruction">SRL A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="6">Set the carry flag if this close enough to the X co-ordinate of the item.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56135"></span>DB47</td>
 <td class="instruction">SRL A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56137"></span>DB49</td>
 <td class="instruction">SRL A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56139"></span>DB4B</td>
 <td class="instruction">SUB E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56140"></span>DB4C</td>
 <td class="instruction">ADD A,$03</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56142"></span>DB4E</td>
 <td class="instruction">CP $07</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56144"></span>DB50</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56145"></span>DB51</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

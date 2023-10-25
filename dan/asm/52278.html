@@ -38,122 +38,130 @@ Used by the routine at <a href="52157.html">CBBD</a>.
 <tr>
 <td class="address-2"><span id="52278"></span>CC36</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52281"></span>CC39</td>
 <td class="instruction">CP $08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it less than 8?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52283"></span>CC3B</td>
 <td class="instruction">RET NC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, the room is not at ground level, so return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52284"></span>
+<div class="comments">
+<div class="paragraph">
+The room is at ground level, so draw the river.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52284"></span>CC3C</td>
 <td class="instruction">LD HL,$6985</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the river graphics. (<a href="27013.html">6985</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52287"></span>CC3F</td>
 <td class="instruction">LD DE,$5060</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the initial screen position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52290"></span>CC42</td>
 <td class="instruction">LD C,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 rows to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52292"></span>CC44</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the screen posiiton in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52293"></span>CC45</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">20 columns to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52295"></span>CC47</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the graphic data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52296"></span>CC48</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put it on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52297"></span>CC49</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next graphic data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52298"></span>CC4A</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52299"></span>CC4B</td>
 <td class="instruction">DJNZ $CC47</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more columns on this row to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52301"></span>CC4D</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the screen position in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52302"></span>CC4E</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next row on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52303"></span>CC4F</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop while there are more rows to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52304"></span>CC50</td>
 <td class="instruction">JR NZ,$CC44</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52306"></span>CC52</td>
 <td class="instruction">LD DE,$5A60</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the attributes.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52309"></span>CC55</td>
 <td class="instruction">LD A,$4F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw bright white on blue.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52311"></span>CC57</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">20 columns to set attributes for.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52313"></span>CC59</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set this column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52314"></span>CC5A</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52315"></span>CC5B</td>
 <td class="instruction">DJNZ $CC59</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all the columns have had attributes set.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52317"></span>CC5D</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

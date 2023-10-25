@@ -38,77 +38,93 @@ Used by the routine at <a href="55949.html">DA8D</a>.
 <tr>
 <td class="address-2"><span id="56087"></span>DB17</td>
 <td class="instruction">LD HL,($DA88)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the address of the current note in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56090"></span>DB1A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the value in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56091"></span>DB1B</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next note.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56092"></span>DB1C</td>
 <td class="instruction">LD ($DA88),HL</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56095"></span>
+<div class="comments">
+<div class="paragraph">
+Now play the relevant note.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56095"></span>DB1F</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this the end of the tune?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56097"></span>DB21</td>
 <td class="instruction">JR Z,$DB29</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56099"></span>DB23</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this a rest?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56100"></span>DB24</td>
 <td class="instruction">JR Z,<a href="56058.html">$DAFA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56102"></span>DB26</td>
 <td class="instruction">JP <a href="55966.html#55975">$DAA7</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise play the note.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56105"></span>
+<div class="comments">
+<div class="paragraph">
+The tune is now finished.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56105"></span>DB29</td>
 <td class="instruction">LD HL,$DAFA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the current sound type (<a href="55947.html">DA8B</a>) to pause (<a href="56058.html">DAFA</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56108"></span>DB2C</td>
 <td class="instruction">LD ($DA8B),HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56111"></span>DB2F</td>
 <td class="instruction">LD A,($DA8A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Reset bit 0 on the current playing state.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56114"></span>DB32</td>
 <td class="instruction">RES 0,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56116"></span>DB34</td>
 <td class="instruction">LD ($DA8A),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56119"></span>DB37</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">
