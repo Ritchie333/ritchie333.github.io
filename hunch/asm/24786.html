@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 60D2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24785.html">60D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24786">Map</a></td>
+<td class="next">
+Next: <a href="24864.html">6120</a>
+</td>
+</tr>
+</table>
+<div class="description">60D2: Main entry point 2</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+This entry point is called at the start of each level, or after losing a life
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24786"></span>60D2</td>
+<td class="instruction">LD HL,$9C40</td>
+<td class="comment-1" rowspan="4">Copy the title screen at <a href="40000.html">9C40</a> to the main screen memory.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24789"></span>60D5</td>
+<td class="instruction">LD DE,$4000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24792"></span>60D8</td>
+<td class="instruction">LD BC,$1B00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24795"></span>60DB</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24797"></span>60DD</td>
+<td class="instruction">CALL $028E</td>
+<td class="comment-1" rowspan="1">Get a keypress using the <a href="https://skoolkid.github.io/rom/asm/028E.html">ROM keyboard scanning routine</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24800"></span>60E0</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Put the keypress in A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24801"></span>60E1</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Was a key pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24803"></span>60E3</td>
+<td class="instruction">JR Z,$60DD</td>
+<td class="comment-1" rowspan="1">Loop back if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24805"></span>60E5</td>
+<td class="instruction">CALL $0DAF</td>
+<td class="comment-1" rowspan="1">Clear the screen (<a href="https://skoolkid.github.io/rom/asm/0DAF.html">ROM routine</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24808"></span>60E8</td>
+<td class="instruction">LD IX,$948B</td>
+<td class="comment-1" rowspan="1"><a href="38027.html">948B</a> - game options UDG data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24812"></span>60EC</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+<td class="comment-1" rowspan="1">Display it.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24815"></span>60EF</td>
+<td class="instruction">CALL $028E</td>
+<td class="comment-1" rowspan="2">Get a keypress in A.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24818"></span>60F2</td>
+<td class="instruction">LD A,E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24819"></span>60F3</td>
+<td class="instruction">CP $24</td>
+<td class="comment-1" rowspan="1">Was "1" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24821"></span>60F5</td>
+<td class="instruction">JR NZ,$60F9</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24823"></span>60F7</td>
+<td class="instruction">JR <a href="24864.html">$6120</a></td>
+<td class="comment-1" rowspan="1">Otherwise start the game.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24825"></span>60F9</td>
+<td class="instruction">CP $1C</td>
+<td class="comment-1" rowspan="1">Was "2" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24827"></span>60FB</td>
+<td class="instruction">JR NZ,$6104</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24829"></span>60FD</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Otherwise set the Kempston flag (<a href="24761.html">60B9</a>) and start the game.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24831"></span>60FF</td>
+<td class="instruction">LD ($60B9),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24834"></span>6102</td>
+<td class="instruction">JR <a href="24864.html">$6120</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24836"></span>6104</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="1">Was "3" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24838"></span>6106</td>
+<td class="instruction">JR NZ,$610F</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24840"></span>6108</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Otherwise set the Protek flag (<a href="24763.html">60BB</a>) and start the game.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24842"></span>610A</td>
+<td class="instruction">LD ($60BB),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24845"></span>610D</td>
+<td class="instruction">JR <a href="24864.html">$6120</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24847"></span>610F</td>
+<td class="instruction">CP $0C</td>
+<td class="comment-1" rowspan="1">Was "4" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24849"></span>6111</td>
+<td class="instruction">JR NZ,$611A</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24851"></span>6113</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Otherwise set the Interface 2 flag (<a href="24762.html">60BA</a>) and start the game.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24853"></span>6115</td>
+<td class="instruction">LD ($60BA),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24856"></span>6118</td>
+<td class="instruction">JR <a href="24864.html">$6120</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24858"></span>611A</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="1">Was "5" pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24860"></span>611C</td>
+<td class="instruction">JR NZ,$60EF</td>
+<td class="comment-1" rowspan="1">Jump back to find another keypress if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24862"></span>611E</td>
+<td class="instruction">JR <a href="24871.html">$6127</a></td>
+<td class="comment-1" rowspan="1">Otherwise run the demo.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24785.html">60D1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24786">Map</a></td>
+<td class="next">
+Next: <a href="24864.html">6120</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

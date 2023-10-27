@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 6691</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26241.html">6681</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26257">Map</a></td>
+<td class="next">
+Next: <a href="26307.html">66C3</a>
+</td>
+</tr>
+</table>
+<div class="description">6691: Check for jumping</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="26042.html">65BA</a>, <a href="26097.html">65F1</a>, <a href="26144.html">6620</a>, <a href="26155.html">662B</a>, <a href="26194.html">6652</a>, <a href="26241.html">6681</a>, <a href="60204.html">EB2C</a> and <a href="60218.html">EB3A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26257"></span>6691</td>
+<td class="instruction">LD A,($6085)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26260"></span>6694</td>
+<td class="instruction">CP $01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26262"></span>6696</td>
+<td class="instruction">JR Z,<a href="26307.html#26345">$66E9</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26264"></span>6698</td>
+<td class="instruction">CP $02</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26266"></span>669A</td>
+<td class="instruction">JR Z,<a href="26357.html">$66F5</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26268"></span>669C</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26270"></span>669E</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26272"></span>66A0</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26274"></span>66A2</td>
+<td class="instruction">JR Z,<a href="26307.html">$66C3</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26276"></span>66A4</td>
+<td class="instruction">LD A,($60B9)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26279"></span>66A7</td>
+<td class="instruction">CP $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26281"></span>66A9</td>
+<td class="instruction">JR Z,$66B1</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26283"></span>66AB</td>
+<td class="instruction">IN A,($1F)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26285"></span>66AD</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26287"></span>66AF</td>
+<td class="instruction">JR NZ,<a href="26307.html">$66C3</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26289"></span>66B1</td>
+<td class="instruction">LD A,($60BA)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26292"></span>66B4</td>
+<td class="instruction">CP $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26294"></span>66B6</td>
+<td class="instruction">JP NZ,<a href="60186.html">$EB1A</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26297"></span>66B9</td>
+<td class="instruction">LD A,($60BB)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26300"></span>66BC</td>
+<td class="instruction">CP $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26302"></span>66BE</td>
+<td class="instruction">JP NZ,<a href="60216.html">$EB38</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26305"></span>66C1</td>
+<td class="instruction">JR <a href="26374.html#26379">$670B</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26241.html">6681</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26257">Map</a></td>
+<td class="next">
+Next: <a href="26307.html">66C3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

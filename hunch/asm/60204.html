@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at EB2C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60192.html">EB20</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60204">Map</a></td>
+<td class="next">
+Next: <a href="60216.html">EB38</a>
+</td>
+</tr>
+</table>
+<div class="description">EB2C: Check for "left" on Protek Interface</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="26155.html">662B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60204"></span>EB2C</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="2">Scan top left of the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60206"></span>EB2E</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60208"></span>EB30</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Return if '5' was not pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60210"></span>EB32</td>
+<td class="instruction">JP NZ,<a href="26257.html">$6691</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60213"></span>EB35</td>
+<td class="instruction">JP <a href="26194.html">$6652</a></td>
+<td class="comment-1" rowspan="1">Otherwise move to the "left" routine.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60192.html">EB20</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60204">Map</a></td>
+<td class="next">
+Next: <a href="60216.html">EB38</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

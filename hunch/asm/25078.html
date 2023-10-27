@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 61F6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25054.html">61DE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25078">Map</a></td>
+<td class="next">
+Next: <a href="25097.html">6209</a>
+</td>
+</tr>
+</table>
+<div class="description">61F6: Set up level 5</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25054.html">61DE</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25078"></span>61F6</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="1">Is this level 5?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25080"></span>61F8</td>
+<td class="instruction">JR NZ,<a href="25097.html">$6209</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25082"></span>61FA</td>
+<td class="instruction">LD ($609E),A</td>
+<td class="comment-1" rowspan="5">Set high R - L fireballs.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25085"></span>61FD</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25087"></span>61FF</td>
+<td class="instruction">LD ($6096),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25090"></span>6202</td>
+<td class="instruction">LD A,$15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25092"></span>6204</td>
+<td class="instruction">LD ($6099),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25095"></span>6207</td>
+<td class="instruction">JR <a href="25054.html#25058">$61E2</a></td>
+<td class="comment-1" rowspan="1">Otherwise same as level 4.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25054.html">61DE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25078">Map</a></td>
+<td class="next">
+Next: <a href="25097.html">6209</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

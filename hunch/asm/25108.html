@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 6214</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25097.html">6209</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25108">Map</a></td>
+<td class="next">
+Next: <a href="25138.html">6232</a>
+</td>
+</tr>
+</table>
+<div class="description">6214: Set up level 7</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25097.html">6209</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25108"></span>6214</td>
+<td class="instruction">CP $07</td>
+<td class="comment-1" rowspan="1">Is this level 7?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25110"></span>6216</td>
+<td class="instruction">JR NZ,<a href="25138.html">$6232</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25112"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="25028.html">61C4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25112"></span>6218</td>
+<td class="instruction">LD IX,$8918</td>
+<td class="comment-1" rowspan="2">Display the pit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25116"></span>621C</td>
+<td class="instruction">CALL <a href="39500.html">$9A4C</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25119"></span>621F</td>
+<td class="instruction">LD IX,$927E</td>
+<td class="comment-1" rowspan="2">Display pit edge.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25123"></span>6223</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25126"></span>6226</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Put the pit in this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25128"></span>6228</td>
+<td class="instruction">LD ($60B1),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25131"></span>622B</td>
+<td class="instruction">LD HL,$07D0</td>
+<td class="comment-1" rowspan="2">Make the game faster.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25134"></span>622E</td>
+<td class="instruction">LD ($670D),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25137"></span>6231</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25097.html">6209</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25108">Map</a></td>
+<td class="next">
+Next: <a href="25138.html">6232</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

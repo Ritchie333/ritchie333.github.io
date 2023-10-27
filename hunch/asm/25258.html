@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 62AA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25252.html">62A4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25258">Map</a></td>
+<td class="next">
+Next: <a href="25288.html">62C8</a>
+</td>
+</tr>
+</table>
+<div class="description">62AA: Set up level E</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25252.html">62A4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25258"></span>62AA</td>
+<td class="instruction">CP $0E</td>
+<td class="comment-1" rowspan="1">Is this level E?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25260"></span>62AC</td>
+<td class="instruction">JR NZ,<a href="25288.html">$62C8</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25262"></span>62AE</td>
+<td class="instruction">LD IX,$8918</td>
+<td class="comment-1" rowspan="2">Put the pit in this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25266"></span>62B2</td>
+<td class="instruction">CALL <a href="39500.html">$9A4C</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25269"></span>62B5</td>
+<td class="instruction">LD IX,$927E</td>
+<td class="comment-1" rowspan="2">Draw the pit edges.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25273"></span>62B9</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25276"></span>62BC</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Put bells in the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25278"></span>62BE</td>
+<td class="instruction">LD ($60C4),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25281"></span>62C1</td>
+<td class="instruction">LD ($609D),A</td>
+<td class="comment-1" rowspan="2">Add R - L ground and L - R high arrows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25284"></span>62C4</td>
+<td class="instruction">LD ($609B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25287"></span>62C7</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25252.html">62A4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25258">Map</a></td>
+<td class="next">
+Next: <a href="25288.html">62C8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

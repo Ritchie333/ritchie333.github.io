@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 62FD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25328.html">62F0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25341">Map</a></td>
+<td class="next">
+Next: <a href="25403.html">633B</a>
+</td>
+</tr>
+</table>
+<div class="description">62FD: Draw the game stats</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24871.html">6127</a> and <a href="25403.html">633B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25341"></span>62FD</td>
+<td class="instruction">CALL <a href="27345.html">$6AD1</a></td>
+<td class="comment-1" rowspan="1">Print the score.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25344"></span>6300</td>
+<td class="instruction">CALL <a href="27337.html">$6AC9</a></td>
+<td class="comment-1" rowspan="1">Draw the main playing area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25347"></span>6303</td>
+<td class="instruction">LD IX,$92D4</td>
+<td class="comment-1" rowspan="2">Draw the bonus bells.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25351"></span>6307</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25354"></span>630A</td>
+<td class="instruction">CALL <a href="27371.html">$6AEB</a></td>
+<td class="comment-1" rowspan="1">Make any bonus visible that should be.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25357"></span>630D</td>
+<td class="instruction">CALL <a href="27931.html">$6D1B</a></td>
+<td class="comment-1" rowspan="1">Draw lives.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25360"></span>6310</td>
+<td class="instruction">CALL <a href="28973.html">$712D</a></td>
+<td class="comment-1" rowspan="1">Display the current level in the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25363"></span>6313</td>
+<td class="instruction">LD A,($60B1)</td>
+<td class="comment-1" rowspan="2">Does this level have a pit?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25366"></span>6316</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25368"></span>6318</td>
+<td class="instruction">CALL NZ,<a href="47566.html">$B9CE</a></td>
+<td class="comment-1" rowspan="1">Set it up if it does.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25371"></span>631B</td>
+<td class="instruction">LD A,($60B0)</td>
+<td class="comment-1" rowspan="2">Does this level have soldiers?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25374"></span>631E</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25376"></span>6320</td>
+<td class="instruction">JR Z,$6329</td>
+<td class="comment-1" rowspan="1">Jump forward if it doesn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25378"></span>6322</td>
+<td class="instruction">LD IX,$9325</td>
+<td class="comment-1" rowspan="2">Draw the soldiers (<a href="37669.html">9325</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25382"></span>6326</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25385"></span>6329</td>
+<td class="instruction">LD A,($60C4)</td>
+<td class="comment-1" rowspan="2">Does this room have bells?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25388"></span>632C</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25390"></span>632E</td>
+<td class="instruction">JR Z,$6337</td>
+<td class="comment-1" rowspan="1">Jump forward if it doesn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25392"></span>6330</td>
+<td class="instruction">LD IX,$96C5</td>
+<td class="comment-1" rowspan="2">Draw the bells (<a href="38597.html">96C5</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25396"></span>6334</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25399"></span>6337</td>
+<td class="instruction">CALL <a href="33000.html">$80E8</a></td>
+<td class="comment-1" rowspan="1">Play the "start of level" tune.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25402"></span>633A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25328.html">62F0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25341">Map</a></td>
+<td class="next">
+Next: <a href="25403.html">633B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

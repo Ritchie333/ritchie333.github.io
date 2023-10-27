@@ -1,0 +1,2959 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Memory map</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="MemoryMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Memory map</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th class="map-page">Page</th>
+<th class="map-byte">Byte</th>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-page">64</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="16384"></span><a href="../asm/16384.html">4000</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/16384.html">Loading screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">91</td>
+<td class="map-byte">0</td>
+<td class="map-u"><span id="23296"></span><a href="../asm/23296.html">5B00</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/23296.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">124</td>
+<td class="map-c"><span id="24700"></span><a href="../asm/24700.html">607C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24700.html">Main entry point 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">127</td>
+<td class="map-g"><span id="24703"></span><a href="../asm/24703.html">607F</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24703.html">Quasimodo Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">128</td>
+<td class="map-g"><span id="24704"></span><a href="../asm/24704.html">6080</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24704.html">Quasimodo X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">129</td>
+<td class="map-g"><span id="24705"></span><a href="../asm/24705.html">6081</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24705.html">Quasimodo sub-frame</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">130</td>
+<td class="map-g"><span id="24706"></span><a href="../asm/24706.html">6082</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24706.html">Y co-ordinate of current fireball / arrow / chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">131</td>
+<td class="map-g"><span id="24707"></span><a href="../asm/24707.html">6083</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24707.html">X co-ordinate of current fireball / arrow / chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">132</td>
+<td class="map-g"><span id="24708"></span><a href="../asm/24708.html">6084</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24708.html">Sub-frame of current fireball / arrow / chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">133</td>
+<td class="map-g"><span id="24709"></span><a href="../asm/24709.html">6085</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24709.html">Jump flag</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">134</td>
+<td class="map-g"><span id="24710"></span><a href="../asm/24710.html">6086</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24710.html">Direction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">135</td>
+<td class="map-g"><span id="24711"></span><a href="../asm/24711.html">6087</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24711.html">R - L Fireball / arrow attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">136</td>
+<td class="map-g"><span id="24712"></span><a href="../asm/24712.html">6088</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24712.html">R - L Fireball / arrow X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">137</td>
+<td class="map-g"><span id="24713"></span><a href="../asm/24713.html">6089</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24713.html">R - L Fireball / arrow Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">138</td>
+<td class="map-g"><span id="24714"></span><a href="../asm/24714.html">608A</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24714.html">R - L Fireball / arrow sprite ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">139</td>
+<td class="map-g"><span id="24715"></span><a href="../asm/24715.html">608B</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24715.html">Set to 1 for R - L fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">140</td>
+<td class="map-g"><span id="24716"></span><a href="../asm/24716.html">608C</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24716.html">L - R Fireball / arrow attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">141</td>
+<td class="map-g"><span id="24717"></span><a href="../asm/24717.html">608D</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24717.html">L - R Fireball / arrow X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">142</td>
+<td class="map-g"><span id="24718"></span><a href="../asm/24718.html">608E</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24718.html">L - R Fireball / arrow Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">143</td>
+<td class="map-g"><span id="24719"></span><a href="../asm/24719.html">608F</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24719.html">L - R Fireball / arrow sprite ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">144</td>
+<td class="map-g"><span id="24720"></span><a href="../asm/24720.html">6090</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24720.html">Set to 1 for L - R fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">145</td>
+<td class="map-g"><span id="24721"></span><a href="../asm/24721.html">6091</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24721.html">High L - R fireball / arrow attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">146</td>
+<td class="map-g"><span id="24722"></span><a href="../asm/24722.html">6092</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24722.html">High L - R fireball / arrow X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">147</td>
+<td class="map-g"><span id="24723"></span><a href="../asm/24723.html">6093</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24723.html">High L - R fireball / arrow Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">148</td>
+<td class="map-g"><span id="24724"></span><a href="../asm/24724.html">6094</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24724.html">High L - R fireball / arrow sprite ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">149</td>
+<td class="map-g"><span id="24725"></span><a href="../asm/24725.html">6095</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24725.html">Set to 1 for L - R high fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">150</td>
+<td class="map-g"><span id="24726"></span><a href="../asm/24726.html">6096</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24726.html">High R - L fireball / arrow attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">151</td>
+<td class="map-g"><span id="24727"></span><a href="../asm/24727.html">6097</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24727.html">High R - L fireball / arrow X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">152</td>
+<td class="map-g"><span id="24728"></span><a href="../asm/24728.html">6098</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24728.html">High R - L fireball / arrow Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">153</td>
+<td class="map-g"><span id="24729"></span><a href="../asm/24729.html">6099</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24729.html">High R - L fireball / arrow sprite ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">154</td>
+<td class="map-g"><span id="24730"></span><a href="../asm/24730.html">609A</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24730.html">Set to 1 for R - L high fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">155</td>
+<td class="map-g"><span id="24731"></span><a href="../asm/24731.html">609B</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24731.html">Set to 1 if this level has R - L fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">156</td>
+<td class="map-g"><span id="24732"></span><a href="../asm/24732.html">609C</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24732.html">Set to 1 if this level has L - R fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">157</td>
+<td class="map-g"><span id="24733"></span><a href="../asm/24733.html">609D</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24733.html">Set to 1 if this level has L - R high fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">158</td>
+<td class="map-g"><span id="24734"></span><a href="../asm/24734.html">609E</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24734.html">Set to 1 if this level has R - L high fireballs or arrows</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">159</td>
+<td class="map-g"><span id="24735"></span><a href="../asm/24735.html">609F</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24735.html">Set to 1 for collision</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">160</td>
+<td class="map-g"><span id="24736"></span><a href="../asm/24736.html">60A0</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24736.html">Current level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">161</td>
+<td class="map-g"><span id="24737"></span><a href="../asm/24737.html">60A1</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24737.html">Score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">168</td>
+<td class="map-g"><span id="24744"></span><a href="../asm/24744.html">60A8</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24744.html">Level bonus</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">173</td>
+<td class="map-g"><span id="24749"></span><a href="../asm/24749.html">60AD</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24749.html">Number of bells rung</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">174</td>
+<td class="map-g"><span id="24750"></span><a href="../asm/24750.html">60AE</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24750.html">Time before switching soldier state</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">175</td>
+<td class="map-g"><span id="24751"></span><a href="../asm/24751.html">60AF</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24751.html">State of rampart soldiers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">176</td>
+<td class="map-g"><span id="24752"></span><a href="../asm/24752.html">60B0</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24752.html">Set to 1 to put soldiers in the ramparts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">177</td>
+<td class="map-g"><span id="24753"></span><a href="../asm/24753.html">60B1</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24753.html">Set to 1 if this level has the fiery pit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">178</td>
+<td class="map-g"><span id="24754"></span><a href="../asm/24754.html">60B2</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24754.html">Game status buffer entry at 60B2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">179</td>
+<td class="map-g"><span id="24755"></span><a href="../asm/24755.html">60B3</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24755.html">Game status buffer entry at 60B3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">180</td>
+<td class="map-g"><span id="24756"></span><a href="../asm/24756.html">60B4</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24756.html">Game status buffer entry at 60B4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">181</td>
+<td class="map-g"><span id="24757"></span><a href="../asm/24757.html">60B5</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24757.html">Game status buffer entry at 60B5</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">182</td>
+<td class="map-g"><span id="24758"></span><a href="../asm/24758.html">60B6</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24758.html">Next sprite ID to use for L - R static objects</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">183</td>
+<td class="map-g"><span id="24759"></span><a href="../asm/24759.html">60B7</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24759.html">Next sprite ID to use for "high" static objects</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">184</td>
+<td class="map-g"><span id="24760"></span><a href="../asm/24760.html">60B8</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24760.html">Number of lives</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">185</td>
+<td class="map-g"><span id="24761"></span><a href="../asm/24761.html">60B9</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24761.html">Set to 1 if a Kempston joystick is installed</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">186</td>
+<td class="map-g"><span id="24762"></span><a href="../asm/24762.html">60BA</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24762.html">Set to 1 if Interface 2 is installed</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">187</td>
+<td class="map-g"><span id="24763"></span><a href="../asm/24763.html">60BB</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24763.html">Set to 1 if Protek joystick is installed</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">188</td>
+<td class="map-g"><span id="24764"></span><a href="../asm/24764.html">60BC</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24764.html">Score to award (in hundreds)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">189</td>
+<td class="map-g"><span id="24765"></span><a href="../asm/24765.html">60BD</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24765.html">Chasing knight Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">190</td>
+<td class="map-g"><span id="24766"></span><a href="../asm/24766.html">60BE</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24766.html">Chasing knight UDG ID (climbing)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">191</td>
+<td class="map-g"><span id="24767"></span><a href="../asm/24767.html">60BF</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24767.html">Set to 1 if Quasimodo is on the rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">192</td>
+<td class="map-g"><span id="24768"></span><a href="../asm/24768.html">60C0</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24768.html">Set to 1 if Quasimodo died while on the rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">193</td>
+<td class="map-g"><span id="24769"></span><a href="../asm/24769.html">60C1</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24769.html">Game status buffer entry at 60C1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">194</td>
+<td class="map-g"><span id="24770"></span><a href="../asm/24770.html">60C2</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24770.html">Time before the chasing knight should move</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">195</td>
+<td class="map-g"><span id="24771"></span><a href="../asm/24771.html">60C3</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24771.html">Game status buffer entry at 60C3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">196</td>
+<td class="map-g"><span id="24772"></span><a href="../asm/24772.html">60C4</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24772.html">Set to 1 to put in a row of bells</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">197</td>
+<td class="map-g"><span id="24773"></span><a href="../asm/24773.html">60C5</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24773.html">Set to 1 if Quasimodo has grabbed a bell on the pit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">198</td>
+<td class="map-g"><span id="24774"></span><a href="../asm/24774.html">60C6</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24774.html">Set to 1 if all objects should be updated</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">199</td>
+<td class="map-g"><span id="24775"></span><a href="../asm/24775.html">60C7</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24775.html">Animation state of the "HELP" message on the last level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">200</td>
+<td class="map-g"><span id="24776"></span><a href="../asm/24776.html">60C8</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24776.html">Game status buffer entry at 60C8</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">201</td>
+<td class="map-g"><span id="24777"></span><a href="../asm/24777.html">60C9</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24777.html">Chasing knight Y co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">202</td>
+<td class="map-g"><span id="24778"></span><a href="../asm/24778.html">60CA</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24778.html">Chasing knight X co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">203</td>
+<td class="map-g"><span id="24779"></span><a href="../asm/24779.html">60CB</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24779.html">Chasing knight sprite ID (chasing)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">204</td>
+<td class="map-g"><span id="24780"></span><a href="../asm/24780.html">60CC</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24780.html">Time before chasing knight sprite ID moves forward</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">205</td>
+<td class="map-g"><span id="24781"></span><a href="../asm/24781.html">60CD</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24781.html">Set to 1 if the chasking knight has climbed the wall</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">206</td>
+<td class="map-g"><span id="24782"></span><a href="../asm/24782.html">60CE</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24782.html">Game status buffer entry at 60CE</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">207</td>
+<td class="map-g"><span id="24783"></span><a href="../asm/24783.html">60CF</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24783.html">Position on the level display</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">208</td>
+<td class="map-g"><span id="24784"></span><a href="../asm/24784.html">60D0</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24784.html">Set to 1 if awarding extra life</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">209</td>
+<td class="map-g"><span id="24785"></span><a href="../asm/24785.html">60D1</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24785.html">Set to 1 if Quasimodo has fallen off a ledge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">96</td>
+<td class="map-byte">210</td>
+<td class="map-c"><span id="24786"></span><a href="../asm/24786.html">60D2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24786.html">Main entry point 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">32</td>
+<td class="map-c"><span id="24864"></span><a href="../asm/24864.html">6120</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24864.html">Start the game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">39</td>
+<td class="map-c"><span id="24871"></span><a href="../asm/24871.html">6127</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24871.html">Run the demo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">154</td>
+<td class="map-c"><span id="24986"></span><a href="../asm/24986.html">619A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24986.html">Reset to level 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">166</td>
+<td class="map-c"><span id="24998"></span><a href="../asm/24998.html">61A6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24998.html">Set up the playing field</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">196</td>
+<td class="map-c"><span id="25028"></span><a href="../asm/25028.html">61C4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25028.html">Set up level 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">203</td>
+<td class="map-c"><span id="25035"></span><a href="../asm/25035.html">61CB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25035.html">Set up level 3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">222</td>
+<td class="map-c"><span id="25054"></span><a href="../asm/25054.html">61DE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25054.html">Set up level 4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">97</td>
+<td class="map-byte">246</td>
+<td class="map-c"><span id="25078"></span><a href="../asm/25078.html">61F6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25078.html">Set up level 5</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">9</td>
+<td class="map-c"><span id="25097"></span><a href="../asm/25097.html">6209</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25097.html">Set up level 6</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">20</td>
+<td class="map-c"><span id="25108"></span><a href="../asm/25108.html">6214</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25108.html">Set up level 7</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">50</td>
+<td class="map-c"><span id="25138"></span><a href="../asm/25138.html">6232</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25138.html">Set up level 8</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">64</td>
+<td class="map-c"><span id="25152"></span><a href="../asm/25152.html">6240</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25152.html">Set up level 9</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">101</td>
+<td class="map-c"><span id="25189"></span><a href="../asm/25189.html">6265</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25189.html">Set up level A</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">116</td>
+<td class="map-c"><span id="25204"></span><a href="../asm/25204.html">6274</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25204.html">Set up level B</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">149</td>
+<td class="map-c"><span id="25237"></span><a href="../asm/25237.html">6295</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25237.html">Set up level C</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">164</td>
+<td class="map-c"><span id="25252"></span><a href="../asm/25252.html">62A4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25252.html">Set up level D</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">170</td>
+<td class="map-c"><span id="25258"></span><a href="../asm/25258.html">62AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25258.html">Set up level E</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">200</td>
+<td class="map-c"><span id="25288"></span><a href="../asm/25288.html">62C8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25288.html">Set up level F</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">240</td>
+<td class="map-c"><span id="25328"></span><a href="../asm/25328.html">62F0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25328.html">Reset back to level 1 and run it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">98</td>
+<td class="map-byte">253</td>
+<td class="map-c"><span id="25341"></span><a href="../asm/25341.html">62FD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25341.html">Draw the game stats</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">99</td>
+<td class="map-byte">59</td>
+<td class="map-c"><span id="25403"></span><a href="../asm/25403.html">633B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25403.html">Start a game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">99</td>
+<td class="map-byte">140</td>
+<td class="map-c"><span id="25484"></span><a href="../asm/25484.html">638C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25484.html">Main loop (1)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">100</td>
+<td class="map-byte">29</td>
+<td class="map-c"><span id="25629"></span><a href="../asm/25629.html">641D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25629.html">Redraw Quasimodo while jumping</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">100</td>
+<td class="map-byte">106</td>
+<td class="map-c"><span id="25706"></span><a href="../asm/25706.html">646A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25706.html">Copy player's co-ordinates to a test buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">100</td>
+<td class="map-byte">125</td>
+<td class="map-c"><span id="25725"></span><a href="../asm/25725.html">647D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25725.html">Copy player's co-ordinates from a test buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">100</td>
+<td class="map-byte">144</td>
+<td class="map-c"><span id="25744"></span><a href="../asm/25744.html">6490</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25744.html">Main loop (2) - Update all objects on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">101</td>
+<td class="map-byte">186</td>
+<td class="map-c"><span id="26042"></span><a href="../asm/26042.html">65BA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26042.html">Check for moving right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">101</td>
+<td class="map-byte">241</td>
+<td class="map-c"><span id="26097"></span><a href="../asm/26097.html">65F1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26097.html">Move right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">32</td>
+<td class="map-c"><span id="26144"></span><a href="../asm/26144.html">6620</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26144.html">Handle state wrap-around moving right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">43</td>
+<td class="map-c"><span id="26155"></span><a href="../asm/26155.html">662B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26155.html">Check for moving left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">82</td>
+<td class="map-c"><span id="26194"></span><a href="../asm/26194.html">6652</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26194.html">Move left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">129</td>
+<td class="map-c"><span id="26241"></span><a href="../asm/26241.html">6681</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26241.html">Handle state wrap-around moving left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">145</td>
+<td class="map-c"><span id="26257"></span><a href="../asm/26257.html">6691</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26257.html">Check for jumping</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">195</td>
+<td class="map-c"><span id="26307"></span><a href="../asm/26307.html">66C3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26307.html">Jump</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">102</td>
+<td class="map-byte">245</td>
+<td class="map-c"><span id="26357"></span><a href="../asm/26357.html">66F5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26357.html">Fall after jumping</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">6</td>
+<td class="map-c"><span id="26374"></span><a href="../asm/26374.html">6706</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26374.html">Reset the jump flag</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">12</td>
+<td class="map-c"><span id="26380"></span><a href="../asm/26380.html">670C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26380.html">Pause</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">21</td>
+<td class="map-c"><span id="26389"></span><a href="../asm/26389.html">6715</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26389.html">Move fireball or arrow R - L</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">122</td>
+<td class="map-c"><span id="26490"></span><a href="../asm/26490.html">677A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26490.html">Draw a row of bells</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">186</td>
+<td class="map-c"><span id="26554"></span><a href="../asm/26554.html">67BA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26554.html">Check if there is an object colliding with Quasimodo on the floor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">204</td>
+<td class="map-c"><span id="26572"></span><a href="../asm/26572.html">67CC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26572.html">Check if there is an object colliding with Quasimodo while jumping</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">222</td>
+<td class="map-c"><span id="26590"></span><a href="../asm/26590.html">67DE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26590.html">Check for an object colliding with Quasimodo on the floor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">103</td>
+<td class="map-byte">250</td>
+<td class="map-c"><span id="26618"></span><a href="../asm/26618.html">67FA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26618.html">Check for an object colliding with Quasimodo on the floor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">26</td>
+<td class="map-c"><span id="26650"></span><a href="../asm/26650.html">681A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26650.html">Mark a collision</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">32</td>
+<td class="map-c"><span id="26656"></span><a href="../asm/26656.html">6820</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26656.html">Get an attribute from screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">49</td>
+<td class="map-c"><span id="26673"></span><a href="../asm/26673.html">6831</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26673.html">Throw Quasimodo off the wall as he's died</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">104</td>
+<td class="map-byte">229</td>
+<td class="map-c"><span id="26853"></span><a href="../asm/26853.html">68E5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26853.html">Reset the level after dying</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">105</td>
+<td class="map-byte">93</td>
+<td class="map-c"><span id="26973"></span><a href="../asm/26973.html">695D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26973.html">Tidy up after losing a life</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">105</td>
+<td class="map-byte">110</td>
+<td class="map-c"><span id="26990"></span><a href="../asm/26990.html">696E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26990.html">Reset all the level flags to default</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">81</td>
+<td class="map-c"><span id="27217"></span><a href="../asm/27217.html">6A51</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27217.html">Level completed</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">201</td>
+<td class="map-c"><span id="27337"></span><a href="../asm/27337.html">6AC9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27337.html">Draw the main paying area</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">209</td>
+<td class="map-c"><span id="27345"></span><a href="../asm/27345.html">6AD1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27345.html">Print the score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">106</td>
+<td class="map-byte">235</td>
+<td class="map-c"><span id="27371"></span><a href="../asm/27371.html">6AEB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27371.html">Display the bonus bells</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">8</td>
+<td class="map-c"><span id="27400"></span><a href="../asm/27400.html">6B08</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27400.html">Award the super bonus</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">117</td>
+<td class="map-c"><span id="27509"></span><a href="../asm/27509.html">6B75</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27509.html">Lower the soldiers' spears</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">142</td>
+<td class="map-c"><span id="27534"></span><a href="../asm/27534.html">6B8E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27534.html">Draw the soldiers attributes (raised)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">175</td>
+<td class="map-c"><span id="27567"></span><a href="../asm/27567.html">6BAF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27567.html">Draw the soldiers attributes (normal)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">196</td>
+<td class="map-c"><span id="27588"></span><a href="../asm/27588.html">6BC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27588.html">Move fireball or arrow L - R</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">108</td>
+<td class="map-byte">60</td>
+<td class="map-c"><span id="27708"></span><a href="../asm/27708.html">6C3C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27708.html">Move high fireball or arrow R - L</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">108</td>
+<td class="map-byte">161</td>
+<td class="map-c"><span id="27809"></span><a href="../asm/27809.html">6CA1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27809.html">Move high fireball or arrow L - R</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">27</td>
+<td class="map-c"><span id="27931"></span><a href="../asm/27931.html">6D1B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27931.html">Draw the remaining lives</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">60</td>
+<td class="map-c"><span id="27964"></span><a href="../asm/27964.html">6D3C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27964.html">Adjust the score for decimal arithmetic (?)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">91</td>
+<td class="map-c"><span id="27995"></span><a href="../asm/27995.html">6D5B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27995.html">Move the chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">186</td>
+<td class="map-c"><span id="28090"></span><a href="../asm/28090.html">6DBA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28090.html">Move the chasing knight towards Quasimodo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">222</td>
+<td class="map-c"><span id="28126"></span><a href="../asm/28126.html">6DDE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28126.html">Adjust level bonus for decimal arithmetic (?)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">109</td>
+<td class="map-byte">253</td>
+<td class="map-c"><span id="28157"></span><a href="../asm/28157.html">6DFD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28157.html">Draw the level bonus</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">22</td>
+<td class="map-c"><span id="28182"></span><a href="../asm/28182.html">6E16</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28182.html">Adjust Quasimodo after grabbing a bell</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">69</td>
+<td class="map-c"><span id="28229"></span><a href="../asm/28229.html">6E45</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28229.html">Draw Quasimodo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">115</td>
+<td class="map-c"><span id="28275"></span><a href="../asm/28275.html">6E73</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28275.html">Draw Quaismodo (alt graphic)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">169</td>
+<td class="map-c"><span id="28329"></span><a href="../asm/28329.html">6EA9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28329.html">Draw the "HELP" message on the last level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">110</td>
+<td class="map-byte">215</td>
+<td class="map-c"><span id="28375"></span><a href="../asm/28375.html">6ED7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28375.html">Draw the chasing knight if it has climbed the wall</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">111</td>
+<td class="map-byte">10</td>
+<td class="map-c"><span id="28426"></span><a href="../asm/28426.html">6F0A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28426.html">Draw the chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">111</td>
+<td class="map-byte">139</td>
+<td class="map-c"><span id="28555"></span><a href="../asm/28555.html">6F8B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28555.html">Move Quasimodo along the rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">111</td>
+<td class="map-byte">232</td>
+<td class="map-c"><span id="28648"></span><a href="../asm/28648.html">6FE8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28648.html">Quasimodo has died while on a rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">33</td>
+<td class="map-c"><span id="28705"></span><a href="../asm/28705.html">7021</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28705.html">Draw the attributes for the playing area</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">124</td>
+<td class="map-c"><span id="28796"></span><a href="../asm/28796.html">707C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28796.html">Swap Quasimodo's sprite between the main and working copy</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">149</td>
+<td class="map-c"><span id="28821"></span><a href="../asm/28821.html">7095</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28821.html">Swap memory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">163</td>
+<td class="map-c"><span id="28835"></span><a href="../asm/28835.html">70A3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28835.html">See if the room has a pit or rampart, and if so, call the logic for that</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">112</td>
+<td class="map-byte">202</td>
+<td class="map-c"><span id="28874"></span><a href="../asm/28874.html">70CA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28874.html">Check for collision on a room with bells</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">33</td>
+<td class="map-c"><span id="28961"></span><a href="../asm/28961.html">7121</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28961.html">Update sub-frame of current object</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">40</td>
+<td class="map-c"><span id="28968"></span><a href="../asm/28968.html">7128</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28968.html">Get the current's object sub-frame</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">45</td>
+<td class="map-c"><span id="28973"></span><a href="../asm/28973.html">712D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28973.html">Display the current level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">86</td>
+<td class="map-c"><span id="29014"></span><a href="../asm/29014.html">7156</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29014.html">See if Quasimodo has fallen off a ledge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">116</td>
+<td class="map-c"><span id="29044"></span><a href="../asm/29044.html">7174</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29044.html">See if Quasimodo has fallen off a rampart</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">161</td>
+<td class="map-c"><span id="29089"></span><a href="../asm/29089.html">71A1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29089.html">Mark Quasimodo as fallen if the sub-frame is not 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">170</td>
+<td class="map-c"><span id="29098"></span><a href="../asm/29098.html">71AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29098.html">Check the X co-ordinate to see if Quasimodo has fallen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">113</td>
+<td class="map-byte">247</td>
+<td class="map-c"><span id="29175"></span><a href="../asm/29175.html">71F7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29175.html">Mark Quasimodo as fallen if the sub-frame is 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">0</td>
+<td class="map-c"><span id="29184"></span><a href="../asm/29184.html">7200</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29184.html">Mark Quasimodo as fallen if the sub-frame is not 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">9</td>
+<td class="map-c"><span id="29193"></span><a href="../asm/29193.html">7209</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29193.html">Award an extra life every 10,000 points</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">26</td>
+<td class="map-c"><span id="29210"></span><a href="../asm/29210.html">721A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29210.html">Mark falling off a ledge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">34</td>
+<td class="map-c"><span id="29218"></span><a href="../asm/29218.html">7222</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29218.html">Draw a magenta stripe on the right of the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">49</td>
+<td class="map-u"><span id="29233"></span><a href="../asm/29233.html">7231</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29233.html">Unused (?)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">114</td>
+<td class="map-byte">56</td>
+<td class="map-u"><span id="29240"></span><a href="../asm/29240.html">7238</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29240.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">120</td>
+<td class="map-byte">132</td>
+<td class="map-s"><span id="30852"></span><a href="../asm/30852.html">7884</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30852.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">120</td>
+<td class="map-byte">156</td>
+<td class="map-u"><span id="30876"></span><a href="../asm/30876.html">789C</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30876.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">121</td>
+<td class="map-byte">24</td>
+<td class="map-b"><span id="31000"></span><a href="../asm/31000.html">7918</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31000.html">Copy of Quasimodo R</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">122</td>
+<td class="map-byte">142</td>
+<td class="map-u"><span id="31374"></span><a href="../asm/31374.html">7A8E</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/31374.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">128</td>
+<td class="map-byte">232</td>
+<td class="map-c"><span id="33000"></span><a href="../asm/33000.html">80E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33000.html">Play the tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">18</td>
+<td class="map-u"><span id="33042"></span><a href="../asm/33042.html">8112</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33042.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">36</td>
+<td class="map-s"><span id="33060"></span><a href="../asm/33060.html">8124</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33060.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">76</td>
+<td class="map-c"><span id="33100"></span><a href="../asm/33100.html">814C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33100.html">Play a note in the tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">130</td>
+<td class="map-s"><span id="33154"></span><a href="../asm/33154.html">8182</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33154.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">176</td>
+<td class="map-b"><span id="33200"></span><a href="../asm/33200.html">81B0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33200.html">Number of notes in the tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">177</td>
+<td class="map-b"><span id="33201"></span><a href="../asm/33201.html">81B1</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33201.html">Tune data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">241</td>
+<td class="map-s"><span id="33265"></span><a href="../asm/33265.html">81F1</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33265.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">130</td>
+<td class="map-byte">20</td>
+<td class="map-u"><span id="33300"></span><a href="../asm/33300.html">8214</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33300.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">130</td>
+<td class="map-byte">220</td>
+<td class="map-c"><span id="33500"></span><a href="../asm/33500.html">82DC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33500.html">Print the current level as a dot on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">131</td>
+<td class="map-byte">9</td>
+<td class="map-b"><span id="33545"></span><a href="../asm/33545.html">8309</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33545.html">Current level graphic data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">131</td>
+<td class="map-byte">17</td>
+<td class="map-s"><span id="33553"></span><a href="../asm/33553.html">8311</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33553.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">131</td>
+<td class="map-byte">24</td>
+<td class="map-u"><span id="33560"></span><a href="../asm/33560.html">8318</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33560.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">131</td>
+<td class="map-byte">108</td>
+<td class="map-s"><span id="33644"></span><a href="../asm/33644.html">836C</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33644.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">134</td>
+<td class="map-byte">196</td>
+<td class="map-c"><span id="34500"></span><a href="../asm/34500.html">86C4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34500.html">See if Quasimodo has collided with something</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">135</td>
+<td class="map-byte">150</td>
+<td class="map-c"><span id="34710"></span><a href="../asm/34710.html">8796</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34710.html">Check if Quasimodo is close enough to have collided</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">7</td>
+<td class="map-s"><span id="34823"></span><a href="../asm/34823.html">8807</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34823.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">22</td>
+<td class="map-c"><span id="34838"></span><a href="../asm/34838.html">8816</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34838.html">Collision : Get a buffer to a sprite given its index</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">34</td>
+<td class="map-u"><span id="34850"></span><a href="../asm/34850.html">8822</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34850.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">38</td>
+<td class="map-c"><span id="34854"></span><a href="../asm/34854.html">8826</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34854.html">Collision : Get the screen address from a co-ordinate</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">82</td>
+<td class="map-s"><span id="34898"></span><a href="../asm/34898.html">8852</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34898.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">84</td>
+<td class="map-c"><span id="34900"></span><a href="../asm/34900.html">8854</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34900.html">Set the flag that Quasimodo collided with an object</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">90</td>
+<td class="map-g"><span id="34906"></span><a href="../asm/34906.html">885A</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34906.html">Set to 1 if Quasimodo collided with an object</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">91</td>
+<td class="map-s"><span id="34907"></span><a href="../asm/34907.html">885B</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/34907.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">136</td>
+<td class="map-byte">184</td>
+<td class="map-b"><span id="35000"></span><a href="../asm/35000.html">88B8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35000.html">Full wall graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">137</td>
+<td class="map-byte">24</td>
+<td class="map-b"><span id="35096"></span><a href="../asm/35096.html">8918</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35096.html">Pit wall graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">137</td>
+<td class="map-byte">120</td>
+<td class="map-b"><span id="35192"></span><a href="../asm/35192.html">8978</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35192.html">Rampart wall graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">137</td>
+<td class="map-byte">216</td>
+<td class="map-b"><span id="35288"></span><a href="../asm/35288.html">89D8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35288.html">Rampart with soldiers wall graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">138</td>
+<td class="map-byte">56</td>
+<td class="map-s"><span id="35384"></span><a href="../asm/35384.html">8A38</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35384.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">138</td>
+<td class="map-byte">72</td>
+<td class="map-c"><span id="35400"></span><a href="../asm/35400.html">8A48</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35400.html">End the game after all lives have been lost</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">138</td>
+<td class="map-byte">113</td>
+<td class="map-c"><span id="35441"></span><a href="../asm/35441.html">8A71</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35441.html">Put the score on the high score table if necessary</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">12</td>
+<td class="map-c"><span id="35596"></span><a href="../asm/35596.html">8B0C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35596.html">Find the right slot for the high score</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">43</td>
+<td class="map-g"><span id="35627"></span><a href="../asm/35627.html">8B2B</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35627.html">Holds the slot the new score should be put in on the table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">44</td>
+<td class="map-c"><span id="35628"></span><a href="../asm/35628.html">8B2C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35628.html">Compare the current score with an existing one</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">79</td>
+<td class="map-c"><span id="35663"></span><a href="../asm/35663.html">8B4F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35663.html">Display the high score table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">95</td>
+<td class="map-c"><span id="35679"></span><a href="../asm/35679.html">8B5F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35679.html">Input a new entry in the high score table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">196</td>
+<td class="map-c"><span id="35780"></span><a href="../asm/35780.html">8BC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35780.html">Display an entry in the high score table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">241</td>
+<td class="map-c"><span id="35825"></span><a href="../asm/35825.html">8BF1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35825.html">Display a character in the high score table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">252</td>
+<td class="map-c"><span id="35836"></span><a href="../asm/35836.html">8BFC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35836.html">Convert a Y co-ordinate to a screen address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">19</td>
+<td class="map-c"><span id="35859"></span><a href="../asm/35859.html">8C13</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35859.html">Enter a character for the new high score name</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">56</td>
+<td class="map-c"><span id="35896"></span><a href="../asm/35896.html">8C38</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35896.html">Move the high score entry cursor right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">69</td>
+<td class="map-c"><span id="35909"></span><a href="../asm/35909.html">8C45</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35909.html">Move the high score entry cursor left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">82</td>
+<td class="map-t"><span id="35922"></span><a href="../asm/35922.html">8C52</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35922.html">High score 00 - text : A-Z</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">113</td>
+<td class="map-t"><span id="35953"></span><a href="../asm/35953.html">8C71</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35953.html">High score 01 - name 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">128</td>
+<td class="map-t"><span id="35968"></span><a href="../asm/35968.html">8C80</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35968.html">High score 02 - name 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">143</td>
+<td class="map-t"><span id="35983"></span><a href="../asm/35983.html">8C8F</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35983.html">High score 03 - name 3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">158</td>
+<td class="map-t"><span id="35998"></span><a href="../asm/35998.html">8C9E</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/35998.html">High score 04 - name 4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">173</td>
+<td class="map-t"><span id="36013"></span><a href="../asm/36013.html">8CAD</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36013.html">High score 05 - name 5</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">188</td>
+<td class="map-t"><span id="36028"></span><a href="../asm/36028.html">8CBC</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36028.html">High score 06 - value 1</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">198</td>
+<td class="map-t"><span id="36038"></span><a href="../asm/36038.html">8CC6</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36038.html">High score 07 - value 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">208</td>
+<td class="map-t"><span id="36048"></span><a href="../asm/36048.html">8CD0</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36048.html">High score 08 - value 3</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">218</td>
+<td class="map-t"><span id="36058"></span><a href="../asm/36058.html">8CDA</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36058.html">High score 09 - value 4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">228</td>
+<td class="map-t"><span id="36068"></span><a href="../asm/36068.html">8CE4</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36068.html">High score 0A - value 5</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">238</td>
+<td class="map-t"><span id="36078"></span><a href="../asm/36078.html">8CEE</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36078.html">High score 0B - "HIGH SCORE"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">251</td>
+<td class="map-t"><span id="36091"></span><a href="../asm/36091.html">8CFB</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36091.html">High score 0C - "1"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">140</td>
+<td class="map-byte">255</td>
+<td class="map-t"><span id="36095"></span><a href="../asm/36095.html">8CFF</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36095.html">High score 0D - "2"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">3</td>
+<td class="map-t"><span id="36099"></span><a href="../asm/36099.html">8D03</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36099.html">High score 0E - "3"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">7</td>
+<td class="map-t"><span id="36103"></span><a href="../asm/36103.html">8D07</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36103.html">High score 0F - "4"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">11</td>
+<td class="map-t"><span id="36107"></span><a href="../asm/36107.html">8D0B</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36107.html">High score 10 - "5"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">15</td>
+<td class="map-t"><span id="36111"></span><a href="../asm/36111.html">8D0F</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36111.html">High score 11 - "Q-LEFT"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">24</td>
+<td class="map-t"><span id="36120"></span><a href="../asm/36120.html">8D18</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36120.html">High score 12 - "W-RIGHT"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">34</td>
+<td class="map-t"><span id="36130"></span><a href="../asm/36130.html">8D22</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36130.html">High score 13 - "0-DELETE"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">45</td>
+<td class="map-t"><span id="36141"></span><a href="../asm/36141.html">8D2D</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36141.html">High score 14 - "ENTER-END"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">57</td>
+<td class="map-t"><span id="36153"></span><a href="../asm/36153.html">8D39</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36153.html">High score 15 - "S SHIFT-SELCT"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">73</td>
+<td class="map-t"><span id="36169"></span><a href="../asm/36169.html">8D49</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36169.html">High score 16 - Numbers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">88</td>
+<td class="map-t"><span id="36184"></span><a href="../asm/36184.html">8D58</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36184.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">89</td>
+<td class="map-t"><span id="36185"></span><a href="../asm/36185.html">8D59</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36185.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">90</td>
+<td class="map-t"><span id="36186"></span><a href="../asm/36186.html">8D5A</a></td>
+<td class="map-t-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36186.html">Score text</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">97</td>
+<td class="map-c"><span id="36193"></span><a href="../asm/36193.html">8D61</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36193.html">Clear the screen blue (for high score display)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">120</td>
+<td class="map-c"><span id="36216"></span><a href="../asm/36216.html">8D78</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36216.html">Clear the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">128</td>
+<td class="map-s"><span id="36224"></span><a href="../asm/36224.html">8D80</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36224.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">204</td>
+<td class="map-c"><span id="36300"></span><a href="../asm/36300.html">8DCC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36300.html">Display the high score table in demo mode</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">141</td>
+<td class="map-byte">237</td>
+<td class="map-s"><span id="36333"></span><a href="../asm/36333.html">8DED</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/36333.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">144</td>
+<td class="map-byte">136</td>
+<td class="map-b"><span id="37000"></span><a href="../asm/37000.html">9088</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37000.html">Graphics : Main playing area</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">89</td>
+<td class="map-b"><span id="37465"></span><a href="../asm/37465.html">9259</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37465.html">Graphics : Ramparts (short) left edge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">126</td>
+<td class="map-b"><span id="37502"></span><a href="../asm/37502.html">927E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37502.html">Graphics : Pit left edge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">163</td>
+<td class="map-b"><span id="37539"></span><a href="../asm/37539.html">92A3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37539.html">Graphics : Ramparts (long) left edge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">212</td>
+<td class="map-b"><span id="37588"></span><a href="../asm/37588.html">92D4</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37588.html">Graphics : Blank bell area</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">147</td>
+<td class="map-byte">37</td>
+<td class="map-b"><span id="37669"></span><a href="../asm/37669.html">9325</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37669.html">Graphics : Rampart soldiers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">147</td>
+<td class="map-byte">158</td>
+<td class="map-b"><span id="37790"></span><a href="../asm/37790.html">939E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37790.html">Graphics : Rampart soldiers raised spears</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">147</td>
+<td class="map-byte">195</td>
+<td class="map-b"><span id="37827"></span><a href="../asm/37827.html">93C3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37827.html">Graphics : Rampart soldiers raised foot</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">147</td>
+<td class="map-byte">220</td>
+<td class="map-b"><span id="37852"></span><a href="../asm/37852.html">93DC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37852.html">Graphics : Rampart soldiers lowered spears</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">148</td>
+<td class="map-byte">1</td>
+<td class="map-b"><span id="37889"></span><a href="../asm/37889.html">9401</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37889.html">Graphics : Rampart soldiers lowered foot</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">148</td>
+<td class="map-byte">26</td>
+<td class="map-b"><span id="37914"></span><a href="../asm/37914.html">941A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/37914.html">Graphics : End of level score box</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">148</td>
+<td class="map-byte">139</td>
+<td class="map-b"><span id="38027"></span><a href="../asm/38027.html">948B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38027.html">Graphics : Start of game options</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">150</td>
+<td class="map-byte">176</td>
+<td class="map-b"><span id="38576"></span><a href="../asm/38576.html">96B0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38576.html">Graphics : SCORE</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">150</td>
+<td class="map-byte">197</td>
+<td class="map-b"><span id="38597"></span><a href="../asm/38597.html">96C5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38597.html">Graphics : Row of bells</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">151</td>
+<td class="map-byte">86</td>
+<td class="map-b"><span id="38742"></span><a href="../asm/38742.html">9756</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38742.html">Graphics : Esmerelda</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">151</td>
+<td class="map-byte">223</td>
+<td class="map-b"><span id="38879"></span><a href="../asm/38879.html">97DF</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38879.html">Graphics : HELP</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">151</td>
+<td class="map-byte">240</td>
+<td class="map-b"><span id="38896"></span><a href="../asm/38896.html">97F0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38896.html">Graphics : Heart</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">152</td>
+<td class="map-byte">1</td>
+<td class="map-s"><span id="38913"></span><a href="../asm/38913.html">9801</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/38913.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">152</td>
+<td class="map-byte">88</td>
+<td class="map-b"><span id="39000"></span><a href="../asm/39000.html">9858</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39000.html">Copy of Quasimodo L</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">153</td>
+<td class="map-byte">216</td>
+<td class="map-s"><span id="39384"></span><a href="../asm/39384.html">99D8</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39384.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">76</td>
+<td class="map-c"><span id="39500"></span><a href="../asm/39500.html">9A4C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39500.html">Print the main wall</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">115</td>
+<td class="map-c"><span id="39539"></span><a href="../asm/39539.html">9A73</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39539.html">Convert Y co-ordinate to a screen address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">144</td>
+<td class="map-c"><span id="39568"></span><a href="../asm/39568.html">9A90</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39568.html">Print a graphic on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">174</td>
+<td class="map-c"><span id="39598"></span><a href="../asm/39598.html">9AAE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39598.html">Convert a graphic ID to an address in memory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">186</td>
+<td class="map-c"><span id="39610"></span><a href="../asm/39610.html">9ABA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39610.html">Convert a screen address to attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">202</td>
+<td class="map-c"><span id="39626"></span><a href="../asm/39626.html">9ACA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39626.html">Print a group of graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">154</td>
+<td class="map-byte">235</td>
+<td class="map-c"><span id="39659"></span><a href="../asm/39659.html">9AEB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39659.html">Erase a group of graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">12</td>
+<td class="map-c"><span id="39692"></span><a href="../asm/39692.html">9B0C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39692.html">Erase a graphic on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">43</td>
+<td class="map-g"><span id="39723"></span><a href="../asm/39723.html">9B2B</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39723.html">Game status buffer entry at 9B2B</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">44</td>
+<td class="map-u"><span id="39724"></span><a href="../asm/39724.html">9B2C</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39724.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">67</td>
+<td class="map-u"><span id="39747"></span><a href="../asm/39747.html">9B43</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39747.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">74</td>
+<td class="map-s"><span id="39754"></span><a href="../asm/39754.html">9B4A</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/39754.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">156</td>
+<td class="map-byte">64</td>
+<td class="map-b"><span id="40000"></span><a href="../asm/40000.html">9C40</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/40000.html">Title screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">183</td>
+<td class="map-byte">64</td>
+<td class="map-s"><span id="46912"></span><a href="../asm/46912.html">B740</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46912.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">183</td>
+<td class="map-byte">152</td>
+<td class="map-c"><span id="47000"></span><a href="../asm/47000.html">B798</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47000.html">Draw a sprite</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">184</td>
+<td class="map-byte">234</td>
+<td class="map-c"><span id="47338"></span><a href="../asm/47338.html">B8EA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47338.html">Get a buffer to a sprite given its ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">184</td>
+<td class="map-byte">246</td>
+<td class="map-u"><span id="47350"></span><a href="../asm/47350.html">B8F6</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47350.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">184</td>
+<td class="map-byte">250</td>
+<td class="map-c"><span id="47354"></span><a href="../asm/47354.html">B8FA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47354.html">Convert a Y co-ordinate to a screen address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">38</td>
+<td class="map-s"><span id="47398"></span><a href="../asm/47398.html">B926</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47398.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">40</td>
+<td class="map-c"><span id="47400"></span><a href="../asm/47400.html">B928</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47400.html">Convert a screen address into an attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">57</td>
+<td class="map-u"><span id="47417"></span><a href="../asm/47417.html">B939</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47417.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">58</td>
+<td class="map-s"><span id="47418"></span><a href="../asm/47418.html">B93A</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47418.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">140</td>
+<td class="map-c"><span id="47500"></span><a href="../asm/47500.html">B98C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47500.html">Update the rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">206</td>
+<td class="map-c"><span id="47566"></span><a href="../asm/47566.html">B9CE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47566.html">Update the rope and redraw it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">247</td>
+<td class="map-c"><span id="47607"></span><a href="../asm/47607.html">B9F7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47607.html">Update the rope angle (?)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">253</td>
+<td class="map-c"><span id="47613"></span><a href="../asm/47613.html">B9FD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47613.html">Update the rope position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">186</td>
+<td class="map-byte">3</td>
+<td class="map-g"><span id="47619"></span><a href="../asm/47619.html">BA03</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47619.html">Rope X position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">186</td>
+<td class="map-byte">4</td>
+<td class="map-g"><span id="47620"></span><a href="../asm/47620.html">BA04</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47620.html">Rope angle (?)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">186</td>
+<td class="map-byte">5</td>
+<td class="map-c"><span id="47621"></span><a href="../asm/47621.html">BA05</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47621.html">Draw the rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">186</td>
+<td class="map-byte">51</td>
+<td class="map-b"><span id="47667"></span><a href="../asm/47667.html">BA33</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47667.html">Rope graphics buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">187</td>
+<td class="map-byte">14</td>
+<td class="map-s"><span id="47886"></span><a href="../asm/47886.html">BB0E</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47886.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">104</td>
+<td class="map-b"><span id="49000"></span><a href="../asm/49000.html">BF68</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49000.html">Number of notes in the level completed tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">105</td>
+<td class="map-b"><span id="49001"></span><a href="../asm/49001.html">BF69</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49001.html">Level completed note data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">113</td>
+<td class="map-u"><span id="49009"></span><a href="../asm/49009.html">BF71</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49009.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">114</td>
+<td class="map-b"><span id="49010"></span><a href="../asm/49010.html">BF72</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49010.html">Number of notes ??</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">115</td>
+<td class="map-b"><span id="49011"></span><a href="../asm/49011.html">BF73</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49011.html">Note data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">119</td>
+<td class="map-b"><span id="49015"></span><a href="../asm/49015.html">BF77</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49015.html">Number of notes in the jump tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">120</td>
+<td class="map-b"><span id="49016"></span><a href="../asm/49016.html">BF78</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49016.html">Jump tune note data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">124</td>
+<td class="map-b"><span id="49020"></span><a href="../asm/49020.html">BF7C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49020.html">Number of notes in the lost a life tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">125</td>
+<td class="map-b"><span id="49021"></span><a href="../asm/49021.html">BF7D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49021.html">Lost a life note data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">149</td>
+<td class="map-s"><span id="49045"></span><a href="../asm/49045.html">BF95</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49045.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">164</td>
+<td class="map-b"><span id="49060"></span><a href="../asm/49060.html">BFA4</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49060.html">Number of notes in the ???</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">165</td>
+<td class="map-b"><span id="49061"></span><a href="../asm/49061.html">BFA5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49061.html">Note data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">191</td>
+<td class="map-byte">169</td>
+<td class="map-s"><span id="49065"></span><a href="../asm/49065.html">BFA9</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49065.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">48</td>
+<td class="map-c"><span id="49200"></span><a href="../asm/49200.html">C030</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49200.html">Animate the fiery pit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">96</td>
+<td class="map-c"><span id="49248"></span><a href="../asm/49248.html">C060</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49248.html">Set the attributes for the fiery pit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">107</td>
+<td class="map-g"><span id="49259"></span><a href="../asm/49259.html">C06B</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49259.html">Current frame for the fiery pit flames</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">108</td>
+<td class="map-b"><span id="49260"></span><a href="../asm/49260.html">C06C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49260.html">Fiery pit graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">172</td>
+<td class="map-s"><span id="49324"></span><a href="../asm/49324.html">C0AC</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49324.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">198</td>
+<td class="map-c"><span id="49350"></span><a href="../asm/49350.html">C0C6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49350.html">Refresh the rope and pit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">205</td>
+<td class="map-s"><span id="49357"></span><a href="../asm/49357.html">C0CD</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49357.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">192</td>
+<td class="map-byte">248</td>
+<td class="map-c"><span id="49400"></span><a href="../asm/49400.html">C0F8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49400.html">Beep during the super bonus award</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">46</td>
+<td class="map-c"><span id="49454"></span><a href="../asm/49454.html">C12E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49454.html">Flash the bells in the super bonus award</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">76</td>
+<td class="map-g"><span id="49484"></span><a href="../asm/49484.html">C14C</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49484.html">Time remaining on the super bonus beep</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">92</td>
+<td class="map-c"><span id="49500"></span><a href="../asm/49500.html">C15C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49500.html">Play a sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">130</td>
+<td class="map-c"><span id="49538"></span><a href="../asm/49538.html">C182</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49538.html">Play a note in the sound data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">184</td>
+<td class="map-s"><span id="49592"></span><a href="../asm/49592.html">C1B8</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/49592.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">195</td>
+<td class="map-byte">80</td>
+<td class="map-b"><span id="50000"></span><a href="../asm/50000.html">C350</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/50000.html">Sprite 00 - 07 : Quasimodo right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">196</td>
+<td class="map-byte">208</td>
+<td class="map-b"><span id="50384"></span><a href="../asm/50384.html">C4D0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/50384.html">Sprite 08 - 0F : Quasimodo left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">198</td>
+<td class="map-byte">80</td>
+<td class="map-b"><span id="50768"></span><a href="../asm/50768.html">C650</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/50768.html">Sprite 10 - 13 : Arrow left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">199</td>
+<td class="map-byte">16</td>
+<td class="map-b"><span id="50960"></span><a href="../asm/50960.html">C710</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/50960.html">Sprite 14 - 17 : Fireball left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">199</td>
+<td class="map-byte">208</td>
+<td class="map-b"><span id="51152"></span><a href="../asm/51152.html">C7D0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51152.html">Sprite 18 - 1B : Arrow right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">200</td>
+<td class="map-byte">144</td>
+<td class="map-b"><span id="51344"></span><a href="../asm/51344.html">C890</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51344.html">Sprite 1C - 1F : Fireball right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">201</td>
+<td class="map-byte">80</td>
+<td class="map-b"><span id="51536"></span><a href="../asm/51536.html">C950</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51536.html">Sprite 20 - 27 : Quasimodo on rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">202</td>
+<td class="map-byte">208</td>
+<td class="map-b"><span id="51920"></span><a href="../asm/51920.html">CAD0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51920.html">Sprite 28 - 2B : Chasing knight</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">203</td>
+<td class="map-byte">144</td>
+<td class="map-s"><span id="52112"></span><a href="../asm/52112.html">CB90</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52112.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">205</td>
+<td class="map-byte">12</td>
+<td class="map-b"><span id="52492"></span><a href="../asm/52492.html">CD0C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52492.html">UDGs</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">210</td>
+<td class="map-byte">164</td>
+<td class="map-s"><span id="53924"></span><a href="../asm/53924.html">D2A4</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53924.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">213</td>
+<td class="map-byte">172</td>
+<td class="map-u"><span id="54700"></span><a href="../asm/54700.html">D5AC</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/54700.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">13</td>
+<td class="map-u"><span id="58893"></span><a href="../asm/58893.html">E60D</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58893.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">79</td>
+<td class="map-s"><span id="58959"></span><a href="../asm/58959.html">E64F</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58959.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">80</td>
+<td class="map-u"><span id="58960"></span><a href="../asm/58960.html">E650</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58960.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">175</td>
+<td class="map-s"><span id="59055"></span><a href="../asm/59055.html">E6AF</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59055.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">176</td>
+<td class="map-u"><span id="59056"></span><a href="../asm/59056.html">E6B0</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59056.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">192</td>
+<td class="map-s"><span id="59072"></span><a href="../asm/59072.html">E6C0</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59072.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">193</td>
+<td class="map-u"><span id="59073"></span><a href="../asm/59073.html">E6C1</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59073.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">201</td>
+<td class="map-u"><span id="59081"></span><a href="../asm/59081.html">E6C9</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59081.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">230</td>
+<td class="map-byte">236</td>
+<td class="map-u"><span id="59116"></span><a href="../asm/59116.html">E6EC</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59116.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">29</td>
+<td class="map-u"><span id="59933"></span><a href="../asm/59933.html">EA1D</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59933.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">96</td>
+<td class="map-c"><span id="60000"></span><a href="../asm/60000.html">EA60</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60000.html">Update state if Quasimodo is near a rope</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">168</td>
+<td class="map-u"><span id="60072"></span><a href="../asm/60072.html">EAA8</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60072.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">170</td>
+<td class="map-s"><span id="60074"></span><a href="../asm/60074.html">EAAA</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60074.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">176</td>
+<td class="map-u"><span id="60080"></span><a href="../asm/60080.html">EAB0</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60080.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">196</td>
+<td class="map-c"><span id="60100"></span><a href="../asm/60100.html">EAC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60100.html">Flash the wall after dying</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">234</td>
+<td class="map-byte">241</td>
+<td class="map-c"><span id="60145"></span><a href="../asm/60145.html">EAF1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60145.html">Fill the wall with an attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">6</td>
+<td class="map-c"><span id="60166"></span><a href="../asm/60166.html">EB06</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60166.html">Check for "right" on Interface 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">18</td>
+<td class="map-c"><span id="60178"></span><a href="../asm/60178.html">EB12</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60178.html">Jump to <a href="../asm/60218.html">EB3A</a></a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">20</td>
+<td class="map-s"><span id="60180"></span><a href="../asm/60180.html">EB14</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60180.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">26</td>
+<td class="map-c"><span id="60186"></span><a href="../asm/60186.html">EB1A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60186.html">Jump to <a href="../asm/60230.html">EB46</a></a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">28</td>
+<td class="map-s"><span id="60188"></span><a href="../asm/60188.html">EB1C</a></td>
+<td class="map-s-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60188.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">32</td>
+<td class="map-c"><span id="60192"></span><a href="../asm/60192.html">EB20</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60192.html">Check for "right" on Protek Interface</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">44</td>
+<td class="map-c"><span id="60204"></span><a href="../asm/60204.html">EB2C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60204.html">Check for "left" on Protek Interface</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">56</td>
+<td class="map-c"><span id="60216"></span><a href="../asm/60216.html">EB38</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60216.html">Jump to <a href="../asm/60240.html">EB50</a></a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">58</td>
+<td class="map-c"><span id="60218"></span><a href="../asm/60218.html">EB3A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60218.html">Check for "left" on Interface 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">70</td>
+<td class="map-c"><span id="60230"></span><a href="../asm/60230.html">EB46</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60230.html">Check for "jump" on Interface 2</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">80</td>
+<td class="map-c"><span id="60240"></span><a href="../asm/60240.html">EB50</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60240.html">Check for "jump" on Protek Interface</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">129</td>
+<td class="map-u"><span id="60289"></span><a href="../asm/60289.html">EB81</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60289.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">237</td>
+<td class="map-byte">234</td>
+<td class="map-u"><span id="60906"></span><a href="../asm/60906.html">EDEA</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60906.html">Unused</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">238</td>
+<td class="map-byte">69</td>
+<td class="map-u"><span id="60997"></span><a href="../asm/60997.html">EE45</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60997.html">Unused</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

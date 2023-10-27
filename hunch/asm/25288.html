@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 62C8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25258.html">62AA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25288">Map</a></td>
+<td class="next">
+Next: <a href="25328.html">62F0</a>
+</td>
+</tr>
+</table>
+<div class="description">62C8: Set up level F</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Draw Esmerelda if it's the final level
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25288"></span>62C8</td>
+<td class="instruction">CP $0F</td>
+<td class="comment-1" rowspan="1">Is this level F?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25290"></span>62CA</td>
+<td class="instruction">JR NZ,<a href="25328.html">$62F0</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25292"></span>62CC</td>
+<td class="instruction">LD IX,$9756</td>
+<td class="comment-1" rowspan="2">Draw Esmerelda</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25296"></span>62D0</td>
+<td class="instruction">CALL <a href="39626.html">$9ACA</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25299"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="25252.html">62A4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25299"></span>62D3</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="10">Add L - R and R - L fireballs.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25301"></span>62D5</td>
+<td class="instruction">LD ($609C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25304"></span>62D8</td>
+<td class="instruction">LD ($609B),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25307"></span>62DB</td>
+<td class="instruction">LD A,$15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25309"></span>62DD</td>
+<td class="instruction">LD ($608A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25312"></span>62E0</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25314"></span>62E2</td>
+<td class="instruction">LD ($608C),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25317"></span>62E5</td>
+<td class="instruction">LD ($6087),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25320"></span>62E8</td>
+<td class="instruction">LD A,$1D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25322"></span>62EA</td>
+<td class="instruction">LD ($608F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25325"></span>62ED</td>
+<td class="instruction">JP <a href="25054.html#25058">$61E2</a></td>
+<td class="comment-1" rowspan="1">Otherwise same as level 4.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25258.html">62AA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25288">Map</a></td>
+<td class="next">
+Next: <a href="25328.html">62F0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

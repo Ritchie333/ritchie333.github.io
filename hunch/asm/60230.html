@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at EB46</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60218.html">EB3A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60230">Map</a></td>
+<td class="next">
+Next: <a href="60240.html">EB50</a>
+</td>
+</tr>
+</table>
+<div class="description">EB46: Check for "jump" on Interface 2</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60186.html">EB1A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60230"></span>EB46</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="2">Scan top left of the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60232"></span>EB48</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60234"></span>EB4A</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Return if '5' was not pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60236"></span>EB4C</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60237"></span>EB4D</td>
+<td class="instruction">JP <a href="26307.html">$66C3</a></td>
+<td class="comment-1" rowspan="1">Otherwise move to the jump routine.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60218.html">EB3A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60230">Map</a></td>
+<td class="next">
+Next: <a href="60240.html">EB50</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

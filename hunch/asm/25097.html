@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hunchback: Routine at 6209</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Hunchback</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25078.html">61F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25097">Map</a></td>
+<td class="next">
+Next: <a href="25108.html">6214</a>
+</td>
+</tr>
+</table>
+<div class="description">6209: Set up level 6</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25078.html">61F6</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25097"></span>6209</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="1">Is this level 6?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25099"></span>620B</td>
+<td class="instruction">JR NZ,<a href="25108.html">$6214</a></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25101"></span>620D</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1">Set L - R arrows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25103"></span>620F</td>
+<td class="instruction">LD ($609C),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25106"></span>6212</td>
+<td class="instruction">JR <a href="25035.html#25039">$61CF</a></td>
+<td class="comment-1" rowspan="1">Otherwise same as level 3.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25078.html">61F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25097">Map</a></td>
+<td class="next">
+Next: <a href="25108.html">6214</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>
