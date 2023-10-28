@@ -38,47 +38,45 @@ Used by the routine at <a href="51200.html">C800</a>.
 <tr>
 <td class="address-2"><span id="58979"></span>E663</td>
 <td class="instruction">LD IY,$EDBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the table of teleporters. (<a href="58979.html">E663</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58983"></span>E667</td>
 <td class="instruction">LD B,$0A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">10 entries to check.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58985"></span>E669</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="58988"></span>E66C</td>
 <td class="instruction">CP (IY+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this entry for this room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58991"></span>E66F</td>
 <td class="instruction">JR Z,$E679</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, jump forward and handle it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58993"></span>E671</td>
 <td class="instruction">LD DE,$0006</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next entry in the table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58996"></span>E674</td>
 <td class="instruction">ADD IY,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58998"></span>E676</td>
 <td class="instruction">DJNZ $E66C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all entries have been looked at.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59000"></span>E678</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -93,224 +91,219 @@ This room has a teleporter, update it
 <tr>
 <td class="address-2"><span id="59001"></span>E679</td>
 <td class="instruction">LD HL,$E662</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the current colour sequence for the teleporter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59004"></span>E67C</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Increment it and put the result in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59005"></span>E67D</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59006"></span>E67E</td>
 <td class="instruction">LD L,(IY+$01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the teleporter co-ordinates in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59009"></span>E681</td>
 <td class="instruction">LD H,(IY+$02)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59012"></span>E684</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">4 rows to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59014"></span>E686</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59016"></span>E688</td>
 <td class="instruction">JR NZ,$E68B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59018"></span>E68A</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59019"></span>E68B</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59020"></span>E68C</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59021"></span>E68D</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59022"></span>E68E</td>
 <td class="instruction">DJNZ $E686</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59024"></span>E690</td>
 <td class="instruction">DEC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59025"></span>E691</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59026"></span>E692</td>
 <td class="instruction">LD A,($E662)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59029"></span>E695</td>
 <td class="instruction">CP $C8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59031"></span>E697</td>
 <td class="instruction">RET C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59032"></span>E698</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59034"></span>E69A</td>
 <td class="instruction">JR NZ,$E6A0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59036"></span>E69C</td>
 <td class="instruction">LD A,$45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59038"></span>E69E</td>
 <td class="instruction">JR $E6A4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59040"></span>E6A0</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59041"></span>E6A1</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59042"></span>E6A2</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59043"></span>E6A3</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59044"></span>E6A4</td>
 <td class="instruction">CALL <a href="60580.html">$ECA4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Flash the teleporter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59047"></span>E6A7</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59048"></span>E6A8</td>
 <td class="instruction">RRCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59049"></span>E6A9</td>
 <td class="instruction">CALL <a href="56065.html">$DB01</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the sound effect.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59052"></span>E6AC</td>
 <td class="instruction">LD DE,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put Dan's position in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59056"></span>E6B0</td>
 <td class="instruction">CALL <a href="59657.html">$E909</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Convert this to an attribute address and put it in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59059"></span>E6B3</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59060"></span>E6B4</td>
 <td class="instruction">LD DE,$0040</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move down one row in the attribute buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59063"></span>E6B7</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59064"></span>E6B8</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59065"></span>E6B9</td>
 <td class="instruction">LD A,($E662)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current colour sequence for the teleporter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59068"></span>E6BC</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Return if it is not active.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59070"></span>E6BE</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59071"></span>E6BF</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59072"></span>E6C0</td>
 <td class="instruction">CP C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59073"></span>E6C1</td>
 <td class="instruction">LD A,$45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bright cyan on black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59075"></span>E6C3</td>
 <td class="instruction">JP NZ,<a href="60580.html">$ECA4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="59078"></span>
 <div class="comments">
 <div class="paragraph">
-The teleporter has flashed and Dan is standing under it
+The teleporter has flashed and Dan is standing under it.
 </div>
 </div>
 </td>
@@ -318,37 +311,34 @@ The teleporter has flashed and Dan is standing under it
 <tr>
 <td class="address-1"><span id="59078"></span>E6C6</td>
 <td class="instruction">LD A,(IY+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the new Y co-ordinate (<a href="51314.html">C872</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59081"></span>E6C9</td>
 <td class="instruction">LD ($C872),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59084"></span>E6CC</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the new X co-ordinate (<a href="51315.html">C873</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59087"></span>E6CF</td>
 <td class="instruction">LD ($C873),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59090"></span>E6D2</td>
 <td class="instruction">LD A,(IY+$03)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the new room number in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59093"></span>E6D5</td>
 <td class="instruction">CALL <a href="52157.html">$CBBD</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Switch to the new room and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59096"></span>E6D8</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

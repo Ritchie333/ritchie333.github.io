@@ -51,72 +51,70 @@ Used by the routines at <a href="54631.html">D567</a> and <a href="54814.html">D
 <tr>
 <td class="address-2"><span id="54869"></span>D655</td>
 <td class="instruction">CALL <a href="59602.html">$E8D2</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert the co-ordinates to a screen address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54872"></span>D658</td>
 <td class="instruction">LD C,$02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">2 rows to copy.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54874"></span>D65A</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54875"></span>D65B</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 columns to copy.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54877"></span>D65D</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the screen data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54878"></span>D65E</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put it in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54879"></span>D65F</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next buffer position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54880"></span>D660</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54881"></span>D661</td>
 <td class="instruction">DJNZ $D65D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more columns in this row to copy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54883"></span>D663</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54884"></span>D664</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move down a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54885"></span>D665</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Loop until all rows are done.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54886"></span>D666</td>
 <td class="instruction">JR NZ,$D65A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54888"></span>D668</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -24,7 +24,7 @@ Next: <a href="55223.html">D7B7</a>
 </td>
 </tr>
 </table>
-<div class="description">D7A2: Colour in a sprite vertically</div>
+<div class="description">D7A2: Colour in a sprite horizontally</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -45,59 +45,69 @@ Used by the routine at <a href="55090.html">D732</a>.
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="55202"></span>
+<div class="comments">
+<div class="paragraph">
+D current column to draw
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="55202"></span>D7A2</td>
 <td class="instruction">LD E,(IY+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the fixed row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55205"></span>D7A5</td>
 <td class="instruction">CALL <a href="59619.html">$E8E3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert this to an attribute address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55208"></span>D7A8</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55209"></span>D7A9</td>
 <td class="instruction">LD DE,$0020</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55212"></span>D7AC</td>
 <td class="instruction">LD A,($D72E)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55215"></span>D7AF</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55216"></span>D7B0</td>
 <td class="instruction">LD A,$45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="55218"></span>D7B2</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55219"></span>D7B3</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55220"></span>D7B4</td>
 <td class="instruction">DJNZ $D7B2</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55222"></span>D7B6</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

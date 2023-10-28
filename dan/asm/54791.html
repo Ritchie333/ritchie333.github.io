@@ -38,57 +38,65 @@ Used by the routines at <a href="53369.html">D079</a>, <a href="53468.html">D0DC
 <tr>
 <td class="address-2"><span id="54791"></span>D607</td>
 <td class="instruction">EXX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54792"></span>D608</td>
 <td class="instruction">LD A,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54795"></span>D60B</td>
 <td class="instruction">CP $84</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the maximum? (84)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54797"></span>D60D</td>
 <td class="instruction">JR NZ,<a href="54814.html">$D61E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54799"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has fallen into another room.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54799"></span>D60F</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the Y co-ordinate to the top. (02)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54801"></span>D611</td>
 <td class="instruction">LD ($C872),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54804"></span>D614</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54807"></span>D617</td>
 <td class="instruction">SUB $08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Subtract 8 to get the room below.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54809"></span>D619</td>
 <td class="instruction">CALL <a href="52157.html">$CBBD</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Switch to this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54812"></span>D61C</td>
 <td class="instruction">EXX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Swap main registers and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54813"></span>D61D</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

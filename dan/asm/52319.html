@@ -38,147 +38,149 @@ Used by the routine at <a href="51200.html">C800</a>.
 <tr>
 <td class="address-2"><span id="52319"></span>CC5F</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52322"></span>CC62</td>
 <td class="instruction">CP $08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it greater than 8?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52324"></span>CC64</td>
 <td class="instruction">RET NC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is, the room's not by the river.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52325"></span>CC65</td>
 <td class="instruction">LD HL,$CC5E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the river's animation frame. (<a href="52318.html">CC5E</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52328"></span>CC68</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Decrement it, and return if it's not zero.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52329"></span>CC69</td>
 <td class="instruction">JR Z,$CC6C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52331"></span>CC6B</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52332"></span>
+<div class="comments">
+<div class="paragraph">
+The river needs updating.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52332"></span>CC6C</td>
 <td class="instruction">LD (HL),$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the tick count back to 3.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52334"></span>CC6E</td>
 <td class="instruction">LD DE,$5060</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> at the correct place on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52337"></span>CC71</td>
 <td class="instruction">LD C,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 rows to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52339"></span>CC73</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52340"></span>CC74</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next byte of the river.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52341"></span>CC75</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store it in <span class="register">H</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52342"></span>CC76</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52343"></span>CC77</td>
 <td class="instruction">LD B,$1F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">1F columns to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52345"></span>CC79</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move this graphic data to the previous column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52346"></span>CC7A</td>
 <td class="instruction">DEC E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52347"></span>CC7B</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52348"></span>CC7C</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move back to this column, then onto the next one.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52349"></span>CC7D</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52350"></span>CC7E</td>
 <td class="instruction">DJNZ $CC79</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more columns to copy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52352"></span>CC80</td>
 <td class="instruction">DEC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back to the last column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52353"></span>CC81</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the old value of the first column (that was in <span class="register">H</span>) here.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52354"></span>CC82</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52355"></span>CC83</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52356"></span>CC84</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move up a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52357"></span>CC85</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Loop until all row have been updated.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52358"></span>CC86</td>
 <td class="instruction">JR NZ,$CC73</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52360"></span>CC88</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

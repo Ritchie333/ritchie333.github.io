@@ -38,132 +38,127 @@ Used by the routines at <a href="51200.html">C800</a> and <a href="56717.html">D
 <tr>
 <td class="address-2"><span id="61308"></span>EF7C</td>
 <td class="instruction">LD HL,$EF48</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the tick count. (<a href="61256.html">EF48</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61311"></span>EF7F</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61312"></span>EF80</td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Return if bit 0 is no longer set.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61314"></span>EF82</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61315"></span>EF83</td>
 <td class="instruction">LD HL,($EF7A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set <span class="register">A</span> to the next attribute in the table at <a href="61306.html">EF7A</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61318"></span>EF86</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61319"></span>EF87</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61320"></span>EF88</td>
 <td class="instruction">CP $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 7?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61322"></span>EF8A</td>
 <td class="instruction">JR NZ,$EF8F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip the next code if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61324"></span>EF8C</td>
 <td class="instruction">LD HL,$EF71</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise, loop back to the start of the buffer.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61327"></span>EF8F</td>
 <td class="instruction">LD ($EF7A),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the current pointer to the attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61330"></span>EF92</td>
 <td class="instruction">LD ($EF5C),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the attribute for the dynamite.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61333"></span>EF95</td>
 <td class="instruction">LD ($EF70),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the attribute for the test tube.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61336"></span>EF98</td>
 <td class="instruction">BIT 5,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is there any dynamite in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61340"></span>EF9C</td>
 <td class="instruction">JR Z,$EFAA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61342"></span>EF9E</td>
 <td class="instruction">LD E,(IX+$09)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the dynamite co-ordinates in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61345"></span>EFA1</td>
 <td class="instruction">LD D,(IX+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61348"></span>EFA4</td>
 <td class="instruction">LD HL,$EF49</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the dynamite UDG (<a href="61257.html">EF49</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61351"></span>EFA7</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61354"></span>EFAA</td>
 <td class="instruction">BIT 4,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is there a test tube in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61358"></span>EFAE</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61359"></span>EFAF</td>
 <td class="instruction">LD E,(IX+$02)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the test tube co-ordinates in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61362"></span>EFB2</td>
 <td class="instruction">LD D,(IX+$03)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61365"></span>EFB5</td>
 <td class="instruction">LD HL,$EF5D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the test tube UDG (<a href="61277.html">EF5D</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61368"></span>EFB8</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61371"></span>EFBB</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -38,82 +38,80 @@ Used by the routine at <a href="51803.html">CA5B</a>.
 <tr>
 <td class="address-2"><span id="60834"></span>EDA2</td>
 <td class="instruction">LD HL,$EDA1</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the current colour. (<a href="60833.html">EDA1</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60837"></span>EDA5</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60838"></span>EDA6</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Take the bottom 2 bits.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60839"></span>EDA7</td>
 <td class="instruction">AND $03</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60841"></span>EDA9</td>
 <td class="instruction">CP $03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the colour now magenta?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60843"></span>EDAB</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60844"></span>EDAC</td>
 <td class="instruction">LD A,($5878)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point A at the last attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60847"></span>EDAF</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60848"></span>EDB0</td>
 <td class="instruction">LD B,$13</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">13 columns to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60850"></span>EDB2</td>
 <td class="instruction">LD HL,$5867</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the start of the attributes to change.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60853"></span>EDB5</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the current attribute in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60854"></span>EDB6</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Replace it with the previous attribute in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60855"></span>EDB7</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Make the previous attribute the current.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60856"></span>EDB8</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60857"></span>EDB9</td>
 <td class="instruction">DJNZ $EDB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all columns are re-coloured.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60859"></span>EDBB</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

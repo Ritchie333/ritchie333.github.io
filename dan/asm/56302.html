@@ -38,187 +38,220 @@ Used by the routine at <a href="53209.html">CFD9</a>.
 <tr>
 <td class="address-2"><span id="56302"></span>DBEE</td>
 <td class="instruction">LD HL,$DA8A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current sound state. (<a href="55946.html">DA8A</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56305"></span>DBF1</td>
 <td class="instruction">RES 1,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset bit 1 to mark "losing a life".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56307"></span>DBF3</td>
 <td class="instruction">LD HL,$C874</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get some flags. (<a href="51316.html">C874</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56310"></span>DBF6</td>
 <td class="instruction">RES 5,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset bit 5, Dan will at least lose a life.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56312"></span>DBF8</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the frames in the "touched moving object" sequence (<a href="51328.html">C880</a>) to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56313"></span>DBF9</td>
 <td class="instruction">LD ($C880),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56316"></span>DBFC</td>
 <td class="instruction">LD HL,$DBED</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's height above the river. (<a href="56301.html">DBED</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56319"></span>DBFF</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrease it by 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56320"></span>DC00</td>
 <td class="instruction">JR NZ,$DC0A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip the next bit if it is not yet zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56322"></span>
+<div class="comments">
+<div class="paragraph">
+Play the "drowned" tune.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56322"></span>DC02</td>
 <td class="instruction">LD HL,$EE63</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the tune.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56325"></span>DC05</td>
 <td class="instruction">CALL <a href="56075.html">$DB0B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56328"></span>DC08</td>
 <td class="instruction">JR $DC18</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip the next bit.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56330"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has not hit the river bottom yet, so update his position.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56330"></span>DC0A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the height above the river in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56331"></span>DC0B</td>
 <td class="instruction">CP $0F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it greater than 0F?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56333"></span>DC0D</td>
 <td class="instruction">JR NC,$DC18</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56335"></span>DC0F</td>
 <td class="instruction">LD A,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put Dan's Y co-ordinate (<a href="51314.html">C872</a>) in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56338"></span>DC12</td>
 <td class="instruction">CALL <a href="54814.html">$D61E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Fall one frame through the air</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56341"></span>DC15</td>
 <td class="instruction">JP <a href="53710.html">$D1CE</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Redraw Dan and check for any collision detection.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56344"></span>DC18</td>
 <td class="instruction">CP $DC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the height above the river DC?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56346"></span>DC1A</td>
 <td class="instruction">JR NZ,$DC45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56348"></span>DC1C</td>
 <td class="instruction">LD A,$0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set Dan's height above the river to 0E.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56350"></span>DC1E</td>
 <td class="instruction">LD ($DBED),A</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56353"></span>
+<div class="comments">
+<div class="paragraph">
+Dan can survive falling in the river if he has an oxygen tank AND if he doesn't have the plans.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56353"></span>DC21</td>
 <td class="instruction">LD HL,$C87E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get some flags. (<a href="51326.html">C87E</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56356"></span>DC24</td>
 <td class="instruction">BIT 6,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does Dan have an oxygen tank?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56358"></span>DC26</td>
 <td class="instruction">JR Z,$DC41</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56360"></span>DC28</td>
 <td class="instruction">BIT 1,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does Dan have the plans?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56362"></span>DC2A</td>
 <td class="instruction">JR NZ,$DC41</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56364"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has survived the river.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56364"></span>DC2C</td>
 <td class="instruction">RES 6,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remove the oxygen tank as it has been used.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56366"></span>DC2E</td>
 <td class="instruction">LD HL,$1016</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Reset Dan's position to inside the blimp.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56369"></span>DC31</td>
 <td class="instruction">LD ($C872),HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56372"></span>DC34</td>
 <td class="instruction">LD HL,$C874</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at some flags. (<a href="51316.html">C874</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56375"></span>DC37</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Reset all flags except bit 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56376"></span>DC38</td>
 <td class="instruction">AND $02</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56378"></span>DC3A</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56379"></span>DC3B</td>
 <td class="instruction">LD A,$2B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put Dan back in the start room and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56381"></span>DC3D</td>
 <td class="instruction">CALL <a href="52157.html">$CBBD</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56384"></span>DC40</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -233,12 +266,12 @@ Dan has drowned. Game over.
 <tr>
 <td class="address-2"><span id="56385"></span>DC41</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Tidy up the stack.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56386"></span>DC42</td>
 <td class="instruction">JP <a href="52691.html#52698">$CDDA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Display the "game over" screen.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -253,102 +286,103 @@ Dan is submerged; display the "air bubble" graphic while drowning
 <tr>
 <td class="address-2"><span id="56389"></span>DC45</td>
 <td class="instruction">LD A,($DBED)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's height above the waterline.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56392"></span>DC48</td>
 <td class="instruction">CPL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Invert the bits and shift left to give an index between 00 and 07F.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56393"></span>DC49</td>
 <td class="instruction">SRL A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56395"></span>DC4B</td>
 <td class="instruction">CP $0C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">If the index is above 00C, use 00B instead.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56397"></span>DC4D</td>
 <td class="instruction">JR C,$DC51</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56399"></span>DC4F</td>
 <td class="instruction">LD A,$0B</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56401"></span>
+<div class="comments">
+<div class="paragraph">
+Got a graphic index between 0 and 00B, so display it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56401"></span>DC51</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Multiply by 8 to get a suitable offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56402"></span>DC52</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56403"></span>DC53</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56404"></span>DC54</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56405"></span>DC55</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56407"></span>DC57</td>
 <td class="instruction">LD HL,$F485</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the "drowning" graphic (<a href="62597.html">F485</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56410"></span>DC5A</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56411"></span>DC5B</td>
 <td class="instruction">LD A,($C873)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56414"></span>DC5E</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set one more than this as the column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56415"></span>DC5F</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56416"></span>DC60</td>
 <td class="instruction">LD E,$12</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Row is always 12.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56418"></span>DC62</td>
 <td class="instruction">LD BC,$0101</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Size is always 1x1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56421"></span>DC65</td>
 <td class="instruction">CALL <a href="59514.html">$E87A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the graphic on screen and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56424"></span>DC68</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

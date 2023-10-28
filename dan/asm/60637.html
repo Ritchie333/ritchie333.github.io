@@ -55,97 +55,94 @@ Used by the routines at <a href="59126.html">E6F6</a> and <a href="59244.html">E
 <tr>
 <td class="address-2"><span id="60637"></span>ECDD</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60638"></span>ECDE</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60639"></span>ECDF</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60640"></span>ECE0</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60641"></span>ECE1</td>
 <td class="instruction">AND $03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60643"></span>ECE3</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60644"></span>ECE4</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60645"></span>ECE5</td>
 <td class="instruction">RLCA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60646"></span>ECE6</td>
 <td class="instruction">OR $40</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60648"></span>ECE8</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60649"></span>ECE9</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">8 lines to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60651"></span>ECEB</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the UDG data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60652"></span>ECEC</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy it to screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60653"></span>ECED</td>
 <td class="instruction">INC H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a line.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60654"></span>ECEE</td>
 <td class="instruction">INC DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward in the graphic buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60655"></span>ECEF</td>
 <td class="instruction">DJNZ $ECEB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all 8 lines are drawn.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60657"></span>ECF1</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Restore <span class="register">HL</span> and <span class="register">DE</span> and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60658"></span>ECF2</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60659"></span>ECF3</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

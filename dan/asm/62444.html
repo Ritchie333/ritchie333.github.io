@@ -24,7 +24,7 @@ Next: <a href="62480.html">F410</a>
 </td>
 </tr>
 </table>
-<div class="description">F3EC: Draw any bank cards in the room</div>
+<div class="description">F3EC: Draw any special objects in the room</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -58,7 +58,7 @@ Used by the routine at <a href="52157.html">CBBD</a>.
 <span id="62447"></span>
 <div class="comments">
 <div class="paragraph">
-Check type 1.
+Check for an oxygen tank.
 </div>
 </div>
 </td>
@@ -76,7 +76,7 @@ Check type 1.
 <tr>
 <td class="address-1"><span id="62451"></span>F3F3</td>
 <td class="instruction">LD C,$CD</td>
-<td class="comment-1" rowspan="2">Draw bank card CD.</td>
+<td class="comment-1" rowspan="2">Draw an oxygen tank. (<a href="35329.html">8A01</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62453"></span>F3F5</td>
@@ -87,7 +87,7 @@ Check type 1.
 <span id="62455"></span>
 <div class="comments">
 <div class="paragraph">
-Check type 2.
+Check for a bank card.
 </div>
 </div>
 </td>
@@ -105,7 +105,7 @@ Check type 2.
 <tr>
 <td class="address-1"><span id="62459"></span>F3FB</td>
 <td class="instruction">LD C,$CB</td>
-<td class="comment-1" rowspan="2">Draw bank card CB.</td>
+<td class="comment-1" rowspan="2">Draw a bank card. (<a href="35271.html">89C7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62461"></span>F3FD</td>
@@ -116,7 +116,7 @@ Check type 2.
 <span id="62463"></span>
 <div class="comments">
 <div class="paragraph">
-Check type 3.
+Check for an aerosol.
 </div>
 </div>
 </td>
@@ -129,19 +129,19 @@ Check type 3.
 <tr>
 <td class="address-1"><span id="62465"></span>F401</td>
 <td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1">Return if not, there are no bank cards here.</td>
+<td class="comment-1" rowspan="1">Return if not, there are no special objects here.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62466"></span>F402</td>
 <td class="instruction">LD C,$CC</td>
-<td class="comment-1" rowspan="1">Otherwise draw bank card CC.</td>
+<td class="comment-1" rowspan="1">Otherwise draw aerosol. (<a href="35309.html">89ED</a>).</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="62468"></span>
 <div class="comments">
 <div class="paragraph">
-Now draw the card.
+Now draw the object.
 </div>
 </div>
 </td>
@@ -149,7 +149,7 @@ Now draw the card.
 <tr>
 <td class="address-2"><span id="62468"></span>F404</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="2">Get the bank card location for this room.</td>
+<td class="comment-1" rowspan="2">Get the special object location for this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62469"></span>F405</td>
@@ -167,7 +167,7 @@ Now draw the card.
 <tr>
 <td class="address-1"><span id="62476"></span>F40C</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-1" rowspan="2">Draw the card and return.</td>
+<td class="comment-1" rowspan="2">Draw the object and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62479"></span>F40F</td>

@@ -52,7 +52,7 @@ routine in <a href="asm/52157.html">CBBD</a>. The structure is :
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">04</td>
-<td class="" colspan="1" rowspan="1">Bits 0-2 contain an index (from 0-7) of a food item. Bits 6-7 are an index (0-3) into an array at <a href="asm/27686.html">6C26</a> containing two custom attribute bytes that represent floors (in addition to a hard-coded six more) ie: can be stood on, followed by 6 bytes of attributes that represent walls ie: cannot be walked through.</td>
+<td class="" colspan="1" rowspan="1">Various bit fields.</td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">05 - 06</td>
@@ -68,7 +68,32 @@ routine in <a href="asm/52157.html">CBBD</a>. The structure is :
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">0B</td>
-<td class="" colspan="1" rowspan="1">If bits 0, 1 or 2 are set, this prints a bank card of UDG CB CC or CD in the room. If bit 7 is set, this room has been visited.</td>
+<td class="" colspan="1" rowspan="1">If bits 0, 1 or 2 are set, this prints a bank card, an aerosol, or an oxygen tank in the room respectively. (<a href="asm/62444.html">F3EC</a>) If bit 7 is set, this room has been visited.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The bit fields in offset 4 are:
+<table class="map">
+<tr>
+<td class="" colspan="1" rowspan="1">00 - 02</td>
+<td class="" colspan="1" rowspan="1">An index (0 - 7) of a food item.</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">03</td>
+<td class="" colspan="1" rowspan="1">If set, food is in the room.</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">04</td>
+<td class="" colspan="1" rowspan="1">If set, a test tube is in the room.</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">If set, dynamite is in the room.</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">06 - 07</td>
+<td class="" colspan="1" rowspan="1">An index (0-3) into an array at <a href="asm/27686.html">6C26</a> containing two custom attribute bytes that represent floors (in addition to a hard-coded six more) ie: can be stood on, followed by 6 bytes of attributes that represent walls ie: cannot be walked through.</td>
 </tr>
 </table>
 </div>
@@ -203,7 +228,7 @@ The fields are:
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">04</td>
-<td class="" colspan="1" rowspan="1">Bitfield of flags</td>
+<td class="" colspan="1" rowspan="1">Bitfield of flags. If bit 6 is set, Dan collided with the object and it should not be drawn.</td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">05</td>

@@ -117,13 +117,44 @@
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51316.html">Various flags</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-If bit 0 is set, Dan is jumping
-</div>
-<div class="paragraph">
-If bit 5 is set, Dan is safe; if reset, he has touched a moving object and will lose a life
-</div>
-<div class="paragraph">
-If bit 7 is set, Dan is above water; if reset, he has fallen in the river
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">bit</th>
+<th colspan="1" rowspan="1">description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Dan is jumping</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Dan is facing right</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Dan is falling onto a trampoline</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Dan is changing direction when hitting a trampoline</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Dan is rising off a trampoline</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Dan is safe (ie: if reset he will lose a life)</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Dan is in mid-air and falling</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Dan is drowning</td>
+</tr>
+</table>
 </div>
 </div>
 </td>
@@ -156,7 +187,7 @@ If bit 7 is set, Dan is above water; if reset, he has fallen in the river
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51319.html">Height for the next jump</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-This is normally $0B, but can be increased when on a trampoline
+This is normally 0B but can be increased when on a trampoline
 </div>
 </div>
 </td>
@@ -183,7 +214,7 @@ This is normally $0B, but can be increased when on a trampoline
 <td class="map-g"><span id="51322"></span><a href="../asm/51322.html">C87A</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51322.html">Lift flags</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51322.html">Time until lift next moves</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -195,7 +226,20 @@ This is normally $0B, but can be increased when on a trampoline
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51323.html">Lift flags</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-If bit 2 is set, Dan is standing on the lift
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">bit</th>
+<td class="" colspan="1" rowspan="1">description</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">lift is moving up</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Dan is standing on the lift</td>
+</tr>
+</table>
 </div>
 </div>
 </td>
@@ -246,8 +290,14 @@ If bit 7 is reset, Dan has got the plans and is in the blimp
 <td class="map-g"><span id="51327"></span><a href="../asm/51327.html">C87F</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51327.html">Set bit 7 if a laser is firing</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/51327.html">Various flags</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Set bit 0 if a set of rainbow lifts is operating
+</div>
+<div class="paragraph">
+Set bit 7 if a laser is firing
+</div>
 </div>
 </td>
 </tr>
@@ -300,7 +350,7 @@ If bit 7 is reset, Dan has got the plans and is in the blimp
 <td class="map-g"><span id="52318"></span><a href="../asm/52318.html">CC5E</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52318.html">Current animation frame for the river (1-3)</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52318.html">Tick count for updating the river (1-3)</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/52319.html">CC5F</a>
@@ -342,7 +392,7 @@ Used by the routine at <a href="../asm/52319.html">CC5F</a>
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52970.html">Current height of rainbow lift</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Used be the routine at <a href="../asm/52976.html">CEF0</a>
+Used by the routine at <a href="../asm/52976.html">CEF0</a>
 </div>
 </div>
 </td>
@@ -402,6 +452,21 @@ Used be the routine at <a href="../asm/52976.html">CEF0</a>
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="53709"></span><a href="../asm/53709.html">D1CD</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/53709.html">Collision flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Bits 0 - 2 hold the attribute (0-7) that Dan has collided with
+</div>
+<div class="paragraph">
+Bit 7 is set to mark that Dan has collided with this object
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="54901"></span><a href="../asm/54901.html">D675</a></td>
 <td class="map-length">2</td>
 <td class="map-g-desc">
@@ -432,6 +497,18 @@ Used by the routine at <a href="../asm/55271.html">D7E7</a>
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="54973"></span><a href="../asm/54973.html">D6BD</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/54973.html">Pointer to current vertical sprite being drawn</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/55271.html">D7E7</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="55086"></span><a href="../asm/55086.html">D72E</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
@@ -446,6 +523,27 @@ Used by the routine at <a href="../asm/55271.html">D7E7</a>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55087.html">Current Y co-ordinate for the horizontal sprite being drawn</a></div>
 <div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55088"></span><a href="../asm/55088.html">D730</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55088.html">Pointer to current horizontal sprite being drawn</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55315"></span><a href="../asm/55315.html">D813</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55315.html">Offset for current moving object table</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used in the routine at <a href="../asm/55317.html">D815</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -469,9 +567,60 @@ Used by the routine at <a href="../asm/55271.html">D7E7</a>
 </tr>
 <tr>
 <td class="map-g"><span id="55786"></span><a href="../asm/55786.html">D9EA</a></td>
-<td class="map-length">2</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55786.html">Current room the raft is in</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55787"></span><a href="../asm/55787.html">D9EB</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55787.html">Tick count until the raft should be moved</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55943"></span><a href="../asm/55943.html">DA87</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55943.html">Current type of tune being played</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55944"></span><a href="../asm/55944.html">DA88</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55944.html">Current note in a tune being played</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55946"></span><a href="../asm/55946.html">DA8A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55946.html">Current state of playing a sound (used by <a href="../asm/55949.html">DA8D</a>)</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+If bit 0 is not set, play a tune instead
+</div>
+<div class="paragraph">
+If bit 1 is not set, the "lose a life" effect should be played instead
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55947"></span><a href="../asm/55947.html">DA8B</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55947.html">Next action to take during playing a sound (used by <a href="../asm/55949.html">DA8D</a>)</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -481,6 +630,24 @@ Used by the routine at <a href="../asm/55271.html">D7E7</a>
 <td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/56301.html">Height (in lines) of Dan above the river waterline</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="56565"></span><a href="../asm/56565.html">DCF5</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/56565.html">Set bit 0 to denote items are only being drawn for instructions</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="56913"></span><a href="../asm/56913.html">DE51</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/56913.html">Time left for the aerosol to run</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -561,7 +728,7 @@ These are set up in the routine at <a href="../asm/58692.html">E544</a> and acce
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/59097.html">Tick counters for lasers.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-This counter increments by 1 for every run round the main loop. When it reaches $80, the laser fires.
+Used by the routine in <a href="../asm/59126.html">E6F6</a>.
 </div>
 </div>
 </td>
@@ -592,6 +759,48 @@ This counter increments by 1 for every run round the main loop. When it reaches 
 <div class="map-entry-desc">
 <div class="paragraph">
 Used to set the border colour, and to play sound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="59834"></span><a href="../asm/59834.html">E9BA</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/59834.html">Current input routine</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60833"></span><a href="../asm/60833.html">EDA1</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60833.html">Current colour to set for the next letter on the main title</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/60834.html">EDA2</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61256"></span><a href="../asm/61256.html">EF48</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61256.html">Counter to make glowing objects alternate between colour and black</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61306"></span><a href="../asm/61306.html">EF7A</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61306.html">Pointer to current attribute state of glowing objects</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/61308.html">EF7C</a>.
 </div>
 </div>
 </td>
@@ -632,6 +841,30 @@ Used by the routine at <a href="../asm/61473.html">F021</a>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62064.html">Key for jump</a></div>
 <div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62368"></span><a href="../asm/62368.html">F3A0</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62368.html">Bitmask for what objects to select in initialisation</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/62277.html">F345</a> and <a href="../asm/62372.html">F3A4</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62370"></span><a href="../asm/62370.html">F3A2</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62370.html">Pointer to object data in current room being looked at</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/62277.html">F345</a>
+</div>
 </div>
 </td>
 </tr>

@@ -47,27 +47,25 @@ Used by the routine at <a href="52157.html">CBBD</a>.
 <tr>
 <td class="address-2"><span id="56513"></span>DCC1</td>
 <td class="instruction">LD A,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is there food in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56516"></span>DCC4</td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56518"></span>DCC6</td>
 <td class="instruction">JR NZ,$DCCC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if there is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56520"></span>DCC8</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set "no attribute" for food in this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56522"></span>DCCA</td>
 <td class="instruction">JR $DCE4</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -82,72 +80,68 @@ This entry point is used by the routine at <a href="56566.html">DCF6</a>.
 <tr>
 <td class="address-2"><span id="56524"></span>DCCC</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the bottom 3 bits, containing the food ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56526"></span>DCCE</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember this value in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56527"></span>DCCF</td>
 <td class="instruction">CALL <a href="56552.html">$DCE8</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert the food ID to its graphic address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56530"></span>DCD2</td>
 <td class="instruction">LD E,(IX+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the location in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56533"></span>DCD5</td>
 <td class="instruction">LD D,(IX+$06)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56536"></span>DCD8</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56539"></span>DCDB</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the food ID in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56540"></span>DCDC</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the ID in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56541"></span>DCDD</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56543"></span>DCDF</td>
 <td class="instruction">LD HL,$65EA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the food attribute buffer (<a href="26090.html">65EA</a>) and store it in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56546"></span>DCE2</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56547"></span>DCE3</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the attribute in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56548"></span>DCE4</td>
 <td class="instruction">LD ($CFC9),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Update the attribute marking food (<a href="53193.html">CFC9</a>) and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56551"></span>DCE7</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

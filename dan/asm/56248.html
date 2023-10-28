@@ -47,137 +47,136 @@ Each item of food scores (ID + 1) * 5 points
 <tr>
 <td class="address-2"><span id="56248"></span>DBB8</td>
 <td class="instruction">LD E,(IX+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56251"></span>DBBB</td>
 <td class="instruction">LD D,(IX+$06)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the Y co-ordinate in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56254"></span>DBBE</td>
 <td class="instruction">RES 3,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset the "food in room" flag.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56258"></span>DBC2</td>
 <td class="instruction">LD A,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get bits 0-2 of the room flags, which contain the food index.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56261"></span>DBC5</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56263"></span>DBC7</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> with the food ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56264"></span>DBC8</td>
 <td class="instruction">CALL <a href="56552.html">$DCE8</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert this to a graphic address in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56267"></span>DBCB</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the actual address referenced in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56268"></span>DBCC</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56269"></span>DBCD</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56270"></span>DBCE</td>
 <td class="instruction">CALL <a href="59543.html">$E897</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remove the food from screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56273"></span>DBD1</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56274"></span>
+<div class="comments">
+<div class="paragraph">
+Now add points based on the type of food.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56274"></span>DBD2</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Increment by 1, then multiply by 5 to get the score to add.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56275"></span>DBD3</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56276"></span>DBD4</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56277"></span>DBD5</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56278"></span>DBD6</td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56279"></span>DBD7</td>
 <td class="instruction">LD HL,$C86B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the score to add. (<a href="51307.html">C86B</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56282"></span>DBDA</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add on this score.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56283"></span>DBDB</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56284"></span>DBDC</td>
 <td class="instruction">LD HL,$EE46</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Play the "picked up the food" tune.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56287"></span>DBDF</td>
 <td class="instruction">CALL <a href="56075.html">$DB0B</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56290"></span>DBE2</td>
 <td class="instruction">LD A,$08</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore the energy (<a href="51309.html">C86D</a>) to 8.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56292"></span>DBE4</td>
 <td class="instruction">LD ($C86D),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56295"></span>DBE7</td>
 <td class="instruction">LD A,$C8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Reset the tick count before energy is decreased (<a href="51311.html">C86F</a>) to the maximum of C8.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56297"></span>DBE9</td>
 <td class="instruction">LD ($C86F),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56300"></span>DBEC</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

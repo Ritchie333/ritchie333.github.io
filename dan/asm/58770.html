@@ -38,6 +38,10 @@ Used by the routine at <a href="51200.html">C800</a>.
 <th colspan="2">Input</th>
 </tr>
 <tr>
+<td class="register">IX</td>
+<td class="register-desc">Pointer to room data</td>
+</tr>
+<tr>
 <td class="register">IY</td>
 <td class="register-desc">Pointer to moving object data</td>
 </tr>
@@ -47,39 +51,39 @@ Used by the routine at <a href="51200.html">C800</a>.
 <tr>
 <td class="address-2"><span id="58770"></span>E592</td>
 <td class="instruction">LD L,(IX+$07)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the moving object data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58773"></span>E595</td>
 <td class="instruction">LD H,(IX+$08)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58776"></span>E598</td>
 <td class="instruction">LD DE,$0006</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move past the header to the actual data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58779"></span>E59B</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58780"></span>E59C</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point <span class="register">IY</span> to this.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58781"></span>E59D</td>
 <td class="instruction">POP IY</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="58783"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="51803.html">CA5B</a>.
+This entry point is used by the routine at <a href="51803.html">CA5B</a>, where IY already points to the right place.
+</div>
+<div class="paragraph">
+Move the first vertical objects.
 </div>
 </div>
 </td>
@@ -87,127 +91,167 @@ This entry point is used by the routine at <a href="51803.html">CA5B</a>.
 <tr>
 <td class="address-2"><span id="58783"></span>E59F</td>
 <td class="instruction">LD HL,($DED8)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the the first buffer. (<a href="57048.html">DED8</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58786"></span>E5A2</td>
 <td class="instruction">LD ($D6BB),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the X and Y co-ordinates. (<a href="54971.html">D6BB</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58789"></span>E5A5</td>
 <td class="instruction">LD HL,$DEDA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next sprite to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58792"></span>E5A8</td>
 <td class="instruction">LD ($D6BD),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy this. (<a href="54973.html">D6BD</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58795"></span>E5AB</td>
 <td class="instruction">LD A,($E540)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the number of moving objects of this type in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58798"></span>E5AE</td>
 <td class="instruction">CALL <a href="54975.html">$D6BF</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the objects.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58801"></span>
+<div class="comments">
+<div class="paragraph">
+Move the second vertical objects.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58801"></span>E5B1</td>
 <td class="instruction">LD HL,($DFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the the second buffer. (<a href="57290.html">DFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58804"></span>E5B4</td>
 <td class="instruction">LD ($D6BB),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the X and Y co-ordinates. (<a href="54971.html">D6BB</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58807"></span>E5B7</td>
 <td class="instruction">LD HL,$DFCC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next sprite to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58810"></span>E5BA</td>
 <td class="instruction">LD ($D6BD),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy this. (<a href="54973.html">D6BD</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58813"></span>E5BD</td>
 <td class="instruction">LD A,($E541)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the number of moving objects of this type in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58816"></span>E5C0</td>
 <td class="instruction">CALL <a href="54975.html">$D6BF</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the objects.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58819"></span>
+<div class="comments">
+<div class="paragraph">
+Move the first horizontal objects.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58819"></span>E5C3</td>
 <td class="instruction">LD HL,($E0BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the the third buffer. (<a href="57532.html">E0BC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58822"></span>E5C6</td>
 <td class="instruction">LD ($D72E),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the X and Y co-ordinates. (<a href="55086.html">D72E</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58825"></span>E5C9</td>
 <td class="instruction">LD HL,$E0BE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next sprite to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58828"></span>E5CC</td>
 <td class="instruction">LD ($D730),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy this. (<a href="55088.html">D730</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58831"></span>E5CF</td>
 <td class="instruction">LD A,($E542)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the number of moving objects of this type in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58834"></span>E5D2</td>
 <td class="instruction">CALL <a href="55090.html">$D732</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the objects.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58837"></span>
+<div class="comments">
+<div class="paragraph">
+Move the second horizontal objects.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58837"></span>E5D5</td>
 <td class="instruction">LD HL,($E2FE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the the fourth buffer. (<a href="58110.html">E2FE</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58840"></span>E5D8</td>
 <td class="instruction">LD ($D72E),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the X and Y co-ordinates. (<a href="55086.html">D72E</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58843"></span>E5DB</td>
 <td class="instruction">LD HL,$E300</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next sprite to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58846"></span>E5DE</td>
 <td class="instruction">LD ($D730),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy this. (<a href="55088.html">D730</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58849"></span>E5E1</td>
 <td class="instruction">LD A,($E543)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the number of moving objects of this type in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58852"></span>E5E4</td>
 <td class="instruction">CALL <a href="55090.html">$D732</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the objects.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58855"></span>
+<div class="comments">
+<div class="paragraph">
+All done.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58855"></span>E5E7</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

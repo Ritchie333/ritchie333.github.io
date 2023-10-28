@@ -24,7 +24,7 @@ Next: <a href="55271.html">D7E7</a>
 </td>
 </tr>
 </table>
-<div class="description">D7D6: Colour in a sprite horizontally</div>
+<div class="description">D7D6: Colour in a sprite vertically</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -41,53 +41,57 @@ Used by the routine at <a href="54975.html">D6BF</a>.
 <td class="register">IY</td>
 <td class="register-desc">pointer to sprite attribute data</td>
 </tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">current row to draw</td>
+</tr>
 </table>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="55254"></span>D7D6</td>
 <td class="instruction">LD D,(IY+$01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the fixed column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55257"></span>D7D9</td>
 <td class="instruction">CALL <a href="59619.html">$E8E3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert this to an attribute address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55260"></span>D7DC</td>
 <td class="instruction">LD A,($D6BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55263"></span>D7DF</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55264"></span>D7E0</td>
 <td class="instruction">LD A,$45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="55266"></span>D7E2</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55267"></span>D7E3</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55268"></span>D7E4</td>
 <td class="instruction">DJNZ $D7E2</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55270"></span>D7E6</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -20,7 +20,7 @@ Prev: <a href="53709.html">D1CD</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#53710">Map</a></td>
 <td class="next">
-Next: <a href="54000.html">D2F0</a>
+Next: <a href="53951.html">D2BF</a>
 </td>
 </tr>
 </table>
@@ -124,7 +124,7 @@ There is now a working sprite for Dan, so find the right place on screen to put 
 <tr>
 <td class="address-1"><span id="53739"></span>D1EB</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1">Swap <span class="register">BC</span>, <span class="register">DE</span> and <span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Swap <span class="register">BC</span>, <span class="register">DE</span> and <span class="register">HL</span> so the graphic addresses can be preserved.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53740"></span>D1EC</td>
@@ -187,202 +187,234 @@ Found a place on screen to draw Dan, so do it.
 <tr>
 <td class="address-1"><span id="53759"></span>D1FF</td>
 <td class="instruction">LD C,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">2 UDG cells to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53761"></span>D201</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53762"></span>D202</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53763"></span>D203</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 columns to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53765"></span>D205</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current attribute on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53766"></span>D206</td>
 <td class="instruction">CP $45</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it empty (bright cyan on black)?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53768"></span>D208</td>
 <td class="instruction">JR NZ,$D210</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53770"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's in empty space.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53770"></span>D20A</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Set the current working graphic data to 0 and jump forward.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53771"></span>D20B</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53772"></span>D20C</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53773"></span>D20D</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53774"></span>D20E</td>
 <td class="instruction">JR $D238</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53776"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's not in empty space, need to figure out what's here. If Dan's collided with some dynamite or a test tube, the cycling attribute will equal 0 at this point, and be picked up.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53776"></span>D210</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the attribute zero? (ie: dynamite or test tube)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53777"></span>D211</td>
 <td class="instruction">JR NZ,$D216</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53779"></span>D213</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise exchange the main registers and jump forward.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53780"></span>D214</td>
 <td class="instruction">JR $D21F</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53782"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's collided with something.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53782"></span>D216</td>
 <td class="instruction">AND $78</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get bits 3-6.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53784"></span>D218</td>
 <td class="instruction">CP $40</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is only bit 6 set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53786"></span>D21A</td>
 <td class="instruction">JR NZ,$D238</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53788"></span>D21C</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap the main registers to make the graphic and buffer active in <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53789"></span>D21D</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the current working graphic data to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53790"></span>D21E</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="53791"></span>D21F</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the next graphic data in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53792"></span>D220</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53793"></span>D221</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53794"></span>D222</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap the main registers to make the screen and attributes active in <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53795"></span>D223</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53796"></span>D224</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53797"></span>D225</td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does the graphic data match what's on screen?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53798"></span>D226</td>
 <td class="instruction">JR Z,$D22E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53800"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has collided with something, find out what.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53800"></span>D228</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53801"></span>D229</td>
 <td class="instruction">SET 7,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bit 7 (Dan collided with something).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53803"></span>D22B</td>
 <td class="instruction">LD ($D1CD),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store this in the collision flags (#$D1CD).</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53806"></span>D22E</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53807"></span>D22F</td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Overlay this graphic data with what's on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53808"></span>D230</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53809"></span>D231</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the screen data to be a combination of the graphics.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53810"></span>D232</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53811"></span>D233</td>
 <td class="instruction">INC L</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53812"></span>D234</td>
 <td class="instruction">DJNZ $D205</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more columns to check.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53814"></span>D236</td>
@@ -390,146 +422,171 @@ Found a place on screen to draw Dan, so do it.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="53816"></span>
+<div class="comments">
+<div class="paragraph">
+Handle Dan in empty space.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="53816"></span>D238</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap registers to the graphic buffers are active in <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53817"></span>D239</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the next graphic byte in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53818"></span>D23A</td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Merge with what's in the graphic buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53819"></span>D23B</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53820"></span>D23C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53821"></span>D23D</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap registers so the screen and attributes are active in <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53822"></span>D23E</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put this graphic byte on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53823"></span>D23F</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53824"></span>D240</td>
 <td class="instruction">INC L</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward in the attributes.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53825"></span>D241</td>
 <td class="instruction">DJNZ $D205</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more columns to check.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53827"></span>
+<div class="comments">
+<div class="paragraph">
+All done with checking this column, see if there is more to do.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53827"></span>D243</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53828"></span>D244</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53829"></span>D245</td>
 <td class="instruction">INC D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move down a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53830"></span>D246</td>
 <td class="instruction">DEC C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all rows have been checked.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53831"></span>D247</td>
 <td class="instruction">JR NZ,$D201</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53833"></span>D249</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53834"></span>D24A</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward two columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53835"></span>D24B</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53836"></span>D24C</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53837"></span>D24D</td>
 <td class="instruction">DJNZ $D1F4</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back while there are more UDGs to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53839"></span>
+<div class="comments">
+<div class="paragraph">
+Having drawn Dan, see what, if anything, he collided with.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53839"></span>D24F</td>
 <td class="instruction">LD HL,$D1CD</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the collision attribute and flags (<a href="53709.html">D1CD</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53842"></span>D252</td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is bit 7 set (collided with something)?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53844"></span>D254</td>
 <td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53845"></span>D255</td>
 <td class="instruction">RES 7,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the collision attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53847"></span>D257</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53848"></span>D258</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">It it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53849"></span>D259</td>
 <td class="instruction">JP Z,<a href="56967.html">$DE87</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, Dan's hit a good object (test tube or dynamite), so handle it.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="53852"></span>
 <div class="comments">
 <div class="paragraph">
-Dan has hit a moving object
+Dan has hit a moving object.
 </div>
 </div>
 </td>
@@ -537,312 +594,235 @@ Dan has hit a moving object
 <tr>
 <td class="address-1"><span id="53852"></span>D25C</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53855"></span>D25F</td>
 <td class="instruction">CP $1B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the safe room? (<a href="27422.html">6B1E</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53857"></span>D261</td>
 <td class="instruction">JR NZ,$D270</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53859"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's in the safe room, if he's hit Dr. Blitzen or Donna then he's in real trouble as they are immune from aerosol and won't disappear.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53859"></span>D263</td>
 <td class="instruction">LD A,($D1CD)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the collision attribute. (<a href="53709.html">D1CD</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53862"></span>D266</td>
 <td class="instruction">CP $43</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Has Dan hit bright magenta?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53864"></span>D268</td>
 <td class="instruction">JP Z,<a href="52618.html">$CD8A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, Dan has hit Blitzen - lose a life and return immmediately.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53867"></span>D26B</td>
 <td class="instruction">CP $47</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Has Dan hit a bright white?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53869"></span>D26D</td>
 <td class="instruction">JP Z,<a href="52618.html">$CD8A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, Dan has hit Donna - lose a life and return immediately.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53872"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's hit an object that's not Blitzen or Donna. The aerosol might get him out of trouble.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53872"></span>D270</td>
 <td class="instruction">LD A,($C87E)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get some flags. (<a href="51326.html">C87E</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53875"></span>D273</td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is bit 5 (Dan has the aerosol) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53877"></span>D275</td>
 <td class="instruction">JR Z,$D286</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53879"></span>
+<div class="comments">
+<div class="paragraph">
+Dan's got the aerosol, so hitting the object isn't fatal.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53879"></span>D277</td>
 <td class="instruction">LD HL,$FE71</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Play the "got a moving object with the aerosol" tune. (<a href="65137.html">FE71</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53882"></span>D27A</td>
 <td class="instruction">CALL <a href="56075.html">$DB0B</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53885"></span>D27D</td>
 <td class="instruction">LD A,$14</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Add 0E to the score.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53887"></span>D27F</td>
 <td class="instruction">LD HL,$C86B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53890"></span>D282</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53891"></span>D283</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53892"></span>D284</td>
 <td class="instruction">JR $D289</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip over starting the "lose a life" sequence as Dan's got the aerosol.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53894"></span>
+<div class="comments">
+<div class="paragraph">
+Dan hit a moving object without the aerosol. Bad news.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53894"></span>D286</td>
 <td class="instruction">CALL <a href="52618.html">$CD8A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start the "lose a life" sequence.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53897"></span>
+<div class="comments">
+<div class="paragraph">
+Now Dan has hit the moving object, and it's not Blitzen or Donna, get rid of it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53897"></span>D289</td>
 <td class="instruction">LD L,(IX+$07)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the moving objects table for this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53900"></span>D28C</td>
 <td class="instruction">LD H,(IX+$08)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53903"></span>D28F</td>
 <td class="instruction">LD DE,$0006</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Skip past the header.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53906"></span>D292</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53907"></span>D293</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point <span class="register">IY</span> at the start of the tables.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53908"></span>D294</td>
 <td class="instruction">POP IY</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53910"></span>D296</td>
 <td class="instruction">LD BC,($DED8)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the first moving graphics buffer. (<a href="57048.html">DED8</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53914"></span>D29A</td>
 <td class="instruction">LD A,($E540)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">A</span> at the count of moving objects. (<a href="58688.html">E540</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53917"></span>D29D</td>
-<td class="instruction">CALL $D2BF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="53951.html">$D2BF</a></td>
+<td class="comment-1" rowspan="1">Look for the object and remove it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53920"></span>D2A0</td>
 <td class="instruction">LD BC,($DFCA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the second moving graphics buffer. (<a href="57290.html">DFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53924"></span>D2A4</td>
 <td class="instruction">LD A,($E541)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">A</span> at the count of moving objects. (<a href="58688.html">E540</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53927"></span>D2A7</td>
-<td class="instruction">CALL $D2BF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="53951.html">$D2BF</a></td>
+<td class="comment-1" rowspan="1">Look for the object and remove it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53930"></span>D2AA</td>
 <td class="instruction">LD BC,($E0BC)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the third moving graphics buffer. (<a href="57532.html">E0BC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53934"></span>D2AE</td>
 <td class="instruction">LD A,($E542)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">A</span> at the count of moving objects. (<a href="58688.html">E540</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53937"></span>D2B1</td>
-<td class="instruction">CALL $D2BF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="53951.html">$D2BF</a></td>
+<td class="comment-1" rowspan="1">Look for the object and remove it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53940"></span>D2B4</td>
 <td class="instruction">LD BC,($E2FE)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the fourth moving graphics buffer. (<a href="58110.html">E2FE</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53944"></span>D2B8</td>
 <td class="instruction">LD A,($E543)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">A</span> at the count of moving objects. (<a href="58688.html">E540</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53947"></span>D2BB</td>
-<td class="instruction">CALL $D2BF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="53951.html">$D2BF</a></td>
+<td class="comment-1" rowspan="1">Look for the object and remove it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53950"></span>D2BE</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="53951"></span>D2BF</td>
-<td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53952"></span>D2C0</td>
-<td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53953"></span>D2C1</td>
-<td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="53954"></span>D2C2</td>
-<td class="instruction">LD A,($D1CD)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53957"></span>D2C5</td>
-<td class="instruction">CP (IY+$05)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53960"></span>D2C8</td>
-<td class="instruction">JR NZ,$D2D5</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53962"></span>D2CA</td>
-<td class="instruction">LD E,(IY+$00)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53965"></span>D2CD</td>
-<td class="instruction">LD D,(IY+$01)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53968"></span>D2D0</td>
-<td class="instruction">CALL <a href="56120.html">$DB38</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53971"></span>D2D3</td>
-<td class="instruction">JR C,$D2DE</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="53973"></span>D2D5</td>
-<td class="instruction">LD DE,$0008</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53976"></span>D2D8</td>
-<td class="instruction">ADD IY,DE</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53978"></span>D2DA</td>
-<td class="instruction">DEC L</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53979"></span>D2DB</td>
-<td class="instruction">JR NZ,$D2C2</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53981"></span>D2DD</td>
-<td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="53982"></span>D2DE</td>
-<td class="instruction">LD D,(IY+$01)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53985"></span>D2E1</td>
-<td class="instruction">LD A,(IY+$00)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53988"></span>D2E4</td>
-<td class="instruction">ADD A,C</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53989"></span>D2E5</td>
-<td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53990"></span>D2E6</td>
-<td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53991"></span>D2E7</td>
-<td class="instruction">SET 6,(IY+$04)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53995"></span>D2EB</td>
-<td class="instruction">CALL <a href="59543.html">$E897</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53998"></span>D2EE</td>
-<td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="53999"></span>D2EF</td>
-<td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">All done, return.</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -852,7 +832,7 @@ Prev: <a href="53709.html">D1CD</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#53710">Map</a></td>
 <td class="next">
-Next: <a href="54000.html">D2F0</a>
+Next: <a href="53951.html">D2BF</a>
 </td>
 </tr>
 </table>

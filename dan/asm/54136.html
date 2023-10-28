@@ -38,107 +38,95 @@ Used by the routine at <a href="51329.html">C881</a>.
 <tr>
 <td class="address-2"><span id="54136"></span>D378</td>
 <td class="instruction">LD HL,$D3AC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the UDGs for the display area. (<a href="54188.html">D3AC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54139"></span>D37B</td>
 <td class="instruction">CALL <a href="60678.html">$ED06</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print them.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54142"></span>D37E</td>
 <td class="instruction">LD HL,$D3D4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the text for the display area. (<a href="54228.html">D3D4</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54145"></span>D381</td>
 <td class="instruction">CALL <a href="61169.html">$EEF1</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54148"></span>D384</td>
 <td class="instruction">LD A,$4F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="7">Fill bright white on blue for the score box.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54150"></span>D386</td>
 <td class="instruction">LD BC,$0801</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54153"></span>D389</td>
 <td class="instruction">LD DE,$0016</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54156"></span>D38C</td>
 <td class="instruction">CALL <a href="59578.html">$E8BA</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54159"></span>D38F</td>
 <td class="instruction">LD BC,$0A02</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54162"></span>D392</td>
 <td class="instruction">LD DE,$0A16</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54165"></span>D395</td>
 <td class="instruction">CALL <a href="59578.html">$E8BA</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54168"></span>D398</td>
 <td class="instruction">LD HL,$5AE0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="6">Draw the energy bars, from white down to blue.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54171"></span>D39B</td>
 <td class="instruction">LD B,$07</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="54173"></span>D39D</td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54174"></span>D39E</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54175"></span>D39F</td>
 <td class="instruction">DJNZ $D39D</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54177"></span>D3A1</td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54178"></span>D3A2</td>
 <td class="instruction">LD HL,$C925</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the high score.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54181"></span>D3A5</td>
 <td class="instruction">LD DE,$51D0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54184"></span>D3A8</td>
 <td class="instruction">CALL <a href="61169.html#61177">$EEF9</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54187"></span>D3AB</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -24,7 +24,7 @@ Next: <a href="59755.html">E96B</a>
 </td>
 </tr>
 </table>
-<div class="description">E93F: Toggle the colours on any test tubes or dynamite so they glow</div>
+<div class="description">E93F: Set the colours on any test tubes or dynamite to black</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -47,112 +47,104 @@ Used by the routines at <a href="51200.html">C800</a> and <a href="56717.html">D
 <tr>
 <td class="address-2"><span id="59711"></span>E93F</td>
 <td class="instruction">BIT 5,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is there dynamite in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59715"></span>E943</td>
 <td class="instruction">JR Z,$E952</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if there isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59717"></span>E945</td>
 <td class="instruction">LD E,(IX+$09)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the dynamite co-ordinates in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59720"></span>E948</td>
 <td class="instruction">LD D,(IX+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59723"></span>E94B</td>
 <td class="instruction">CALL <a href="59619.html">$E8E3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert this into an attribute address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59726"></span>E94E</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the attribute to black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59727"></span>E94F</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59728"></span>E950</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward a column and do the same.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59729"></span>E951</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59730"></span>E952</td>
 <td class="instruction">BIT 4,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is there a test tube in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59734"></span>E956</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if there isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59735"></span>E957</td>
 <td class="instruction">LD E,(IX+$02)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the test tube co-ordinates in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59738"></span>E95A</td>
 <td class="instruction">LD D,(IX+$03)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59741"></span>E95D</td>
 <td class="instruction">CALL <a href="59619.html">$E8E3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert this into an attribute address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59744"></span>E960</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59745"></span>E961</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the attribute to black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59746"></span>E962</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59747"></span>E963</td>
 <td class="instruction">LD BC,$0020</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Move forward a row and do the same.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59750"></span>E966</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59751"></span>E967</td>
 <td class="instruction">SBC HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59753"></span>E969</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59754"></span>E96A</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

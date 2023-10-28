@@ -38,7 +38,7 @@ Used by the routines at <a href="52157.html">CBBD</a> and <a href="52691.html">C
 <tr>
 <td class="address-2"><span id="59424"></span>E820</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-1" rowspan="28">Clear the screen from 4000 - 5000. { Fill the attributes to cyan on black. } Return.</td>
+<td class="comment-1" rowspan="6">Clear the screen from 4000 - 5000.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59427"></span>E823</td>
@@ -63,62 +63,77 @@ Used by the routines at <a href="52157.html">CBBD</a> and <a href="52691.html">C
 <tr>
 <td class="address-1"><span id="59436"></span>E82C</td>
 <td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59437"></span>E82D</td>
 <td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59439"></span>E82F</td>
 <td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59440"></span>E830</td>
 <td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59441"></span>E831</td>
 <td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59442"></span>E832</td>
 <td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59443"></span>E833</td>
 <td class="instruction">LD BC,$007F</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59446"></span>E836</td>
 <td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59448"></span>E838</td>
 <td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59449"></span>E839</td>
 <td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59450"></span>E83A</td>
 <td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59451"></span>E83B</td>
 <td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59452"></span>E83C</td>
 <td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59453"></span>E83D</td>
 <td class="instruction">DJNZ $E82F</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59455"></span>E83F</td>
 <td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="7">Fill the attributes to cyan on black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59458"></span>E842</td>
@@ -147,6 +162,7 @@ Used by the routines at <a href="52157.html">CBBD</a> and <a href="52691.html">C
 <tr>
 <td class="address-1"><span id="59469"></span>E84D</td>
 <td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

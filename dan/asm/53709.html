@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dynamite Dan: Data at D1CD</title>
+<title>Dynamite Dan: Game status buffer entry at D1CD</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 </head>
-<body class="Asm-b">
+<body class="Asm-g">
 <table class="header">
 <tr>
 <td class="logo"><a href="../index.html">Dynamite Dan</a></td>
-<td class="page-header">Data</td>
+<td class="page-header">Game status buffer</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -24,16 +24,16 @@ Next: <a href="53710.html">D1CE</a>
 </td>
 </tr>
 </table>
-<div class="description">D1CD: Command flags</div>
+<div class="description">D1CD: Collision flags</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Set bit 7 to gain an extra life
+Bits 0 - 2 hold the attribute (0-7) that Dan has collided with
 </div>
 <div class="paragraph">
-Set bit 6 to lose a life
+Bit 7 is set to mark that Dan has collided with this object
 </div>
 </div>
 </td>

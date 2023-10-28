@@ -38,37 +38,36 @@ Used by the routines at <a href="51200.html">C800</a>, <a href="51803.html">CA5B
 <tr>
 <td class="address-2"><span id="55949"></span>DA8D</td>
 <td class="instruction">LD A,($DA8A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current sound state. (<a href="55946.html">DA8A</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55952"></span>DA90</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is bit 1 (Dan okay) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55954"></span>DA92</td>
 <td class="instruction">JP NZ,<a href="56037.html">$DAE5</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55957"></span>DA95</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is bit 0 (Play a tune) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55959"></span>DA97</td>
 <td class="instruction">JP NZ,<a href="56087.html">$DB17</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55962"></span>DA9A</td>
 <td class="instruction">LD HL,($DA8B)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise take the next action (<a href="55947.html">DA8B</a>) and perform it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55965"></span>DA9D</td>
 <td class="instruction">JP (HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

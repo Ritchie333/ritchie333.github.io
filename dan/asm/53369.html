@@ -38,42 +38,41 @@ Used by the routine at <a href="53209.html">CFD9</a>.
 <tr>
 <td class="address-2"><span id="53369"></span>D079</td>
 <td class="instruction">LD HL,$C876</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the height fallen. (<a href="51318.html">C876</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53372"></span>D07C</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the value FF?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53373"></span>D07D</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53375"></span>D07F</td>
 <td class="instruction">JR NZ,$D083</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53377"></span>D081</td>
 <td class="instruction">LD (HL),$1C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise reset to 1C.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53379"></span>D083</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increase the height.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53380"></span>D084</td>
 <td class="instruction">CALL <a href="54791.html">$D607</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update falling through the air.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53383"></span>D087</td>
 <td class="instruction">JP <a href="53710.html">$D1CE</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Redraw Dan and check for any collision detection.</td>
 </tr>
 </table>
 <table class="asm-navigation">

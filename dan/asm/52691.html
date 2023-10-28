@@ -38,22 +38,21 @@ Used by the routine at <a href="52634.html">CD9A</a>.
 <tr>
 <td class="address-2"><span id="52691"></span>CDD3</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Tidy the stack, so returning from here will go back to the main entry point.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52692"></span>CDD4</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52693"></span>CDD5</td>
 <td class="instruction">LD HL,$C87F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at some flags. (#$C87F)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52696"></span>CDD8</td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bit 7 (laser firing)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -68,197 +67,194 @@ This entry point is used by the routine at <a href="56302.html">DBEE</a>.
 <tr>
 <td class="address-2"><span id="52698"></span>CDDA</td>
 <td class="instruction">CALL <a href="59424.html">$E820</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear the screen to cyan ink / black paper.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52701"></span>CDDD</td>
 <td class="instruction">LD HL,$E800</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the last read state of port FE in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52704"></span>CDE0</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52705"></span>CDE1</td>
 <td class="instruction">AND $F8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Keep only the top 5 bits, this ensures a black border is set.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52707"></span>CDE3</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52708"></span>CDE4</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the border colour.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52710"></span>CDE6</td>
 <td class="instruction">LD HL,$DA8A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current sound state. (<a href="55946.html">DA8A</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52713"></span>CDE9</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Turn all sound off, the game's over.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52715"></span>CDEB</td>
 <td class="instruction">LD HL,$CE68</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> towards Blitzen on the "game over" screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52718"></span>CDEE</td>
 <td class="instruction">CALL <a href="60678.html">$ED06</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52721"></span>CDF1</td>
 <td class="instruction">LD HL,$E6D9</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the tick count for lasers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52724"></span>CDF4</td>
 <td class="instruction">LD (HL),$7F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set it so it will fire immediately.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52726"></span>CDF6</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Start drawing the laser bolt in black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52727"></span>CDF7</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52729"></span>CDF9</td>
 <td class="instruction">LD IY,$CE72</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at Blitzen's laser data. (<a href="52850.html">CE72</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52733"></span>CDFD</td>
 <td class="instruction">CALL <a href="59126.html">$E6F6</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the laser.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52736"></span>CE00</td>
 <td class="instruction">LD HL,$DA8A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current sound state. (<a href="55946.html">DA8A</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52739"></span>CE03</td>
 <td class="instruction">RES 1,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset bit 1 to play a sound effect.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52741"></span>CE05</td>
 <td class="instruction">CALL <a href="55949.html">$DA8D</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the sound.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52744"></span>CE08</td>
 <td class="instruction">LD A,($E6DA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the current laser colour in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52747"></span>CE0B</td>
 <td class="instruction">CALL <a href="61473.html">$F021</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Animate Dan dying.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52750"></span>CE0E</td>
 <td class="instruction">CALL <a href="51498.html">$C92A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the main status area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52753"></span>CE11</td>
 <td class="instruction">LD A,($E6DA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current laser colour.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52756"></span>CE14</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52757"></span>CE15</td>
 <td class="instruction">JR NZ,$CDFD</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52759"></span>CE17</td>
 <td class="instruction">LD A,$B8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point Blitzen to the next UDG. (<a href="37556.html">92B4</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52761"></span>CE19</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52762"></span>CE1A</td>
 <td class="instruction">CALL <a href="62419.html">$F3D3</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert the UDG into an address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52765"></span>CE1D</td>
 <td class="instruction">LD DE,$0209</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the size in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52768"></span>CE20</td>
 <td class="instruction">CALL <a href="59470.html">$E84E</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the UDG.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52771"></span>CE23</td>
 <td class="instruction">CALL <a href="56058.html">$DAFA</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Pause.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52774"></span>CE26</td>
 <td class="instruction">CALL <a href="51498.html">$C92A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the main status area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52777"></span>CE29</td>
 <td class="instruction">CALL <a href="55949.html">$DA8D</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the laser sound.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52780"></span>CE2C</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52781"></span>CE2D</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next UDG for Blitzen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52782"></span>CE2E</td>
 <td class="instruction">CP $BB</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Have we reached the final one? (<a href="38023.html">9487</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52784"></span>CE30</td>
 <td class="instruction">JR NZ,$CE19</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back to draw the next one if not.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52786"></span>CE32</td>
 <td class="instruction">CALL <a href="51498.html">$C92A</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the main status area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52789"></span>CE35</td>
 <td class="instruction">CALL <a href="55949.html">$DA8D</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the laser sound.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52792"></span>CE38</td>
@@ -268,17 +264,26 @@ This entry point is used by the routine at <a href="56302.html">DBEE</a>.
 <tr>
 <td class="address-1"><span id="52795"></span>CE3B</td>
 <td class="instruction">LD A,($C86B)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is there anything to be added to the final score?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52798"></span>CE3E</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52799"></span>CE3F</td>
 <td class="instruction">JR NZ,$CE32</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back until there isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52801"></span>
+<div class="comments">
+<div class="paragraph">
+The final score has been updated and Dan has been killed by Blitzen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52801"></span>CE41</td>
@@ -293,32 +298,30 @@ This entry point is used by the routine at <a href="56302.html">DBEE</a>.
 <tr>
 <td class="address-1"><span id="52807"></span>CE47</td>
 <td class="instruction">LD B,$32</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop round the pause routine this many times.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52809"></span>CE49</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Pause.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52810"></span>CE4A</td>
 <td class="instruction">CALL <a href="56058.html">$DAFA</a></td>
-<td class="comment-1" rowspan="1">Pause.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52813"></span>CE4D</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52814"></span>CE4E</td>
 <td class="instruction">DJNZ $CE49</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all iterations completed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52816"></span>CE50</td>
 <td class="instruction">JP <a href="51200.html#51204">$C804</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back to start a new game.</td>
 </tr>
 </table>
 <table class="asm-navigation">

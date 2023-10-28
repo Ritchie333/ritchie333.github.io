@@ -38,87 +38,92 @@ Used by the routine at <a href="53209.html">CFD9</a>.
 <tr>
 <td class="address-2"><span id="52634"></span>CD9A</td>
 <td class="instruction">LD HL,$C880</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current tick counter. (<a href="51328.html">C880</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52637"></span>CD9D</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52638"></span>CD9E</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52639"></span>CD9F</td>
 <td class="instruction">JR Z,$CDA3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52641"></span>CDA1</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise decrease the tick counter and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52642"></span>CDA2</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52643"></span>
+<div class="comments">
+<div class="paragraph">
+A frame needs to be updated.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="52643"></span>CDA3</td>
 <td class="instruction">LD HL,$DA8A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the current sound state. (#$DA8A)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52646"></span>CDA6</td>
 <td class="instruction">RES 1,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset bit 1, to stop all sounds and play this effect instead.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52648"></span>CDA8</td>
 <td class="instruction">LD HL,$C86D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the current energy (<a href="51309.html">C86D</a>) in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52651"></span>CDAB</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52652"></span>CDAC</td>
 <td class="instruction">CP $08</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 8 (full)?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52654"></span>CDAE</td>
 <td class="instruction">JR Z,$CDB9</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52656"></span>CDB0</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increase the energy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52657"></span>CDB1</td>
 <td class="instruction">SLA A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Multiply the energy amount by 4.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52659"></span>CDB3</td>
 <td class="instruction">SLA A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="52661"></span>CDB5</td>
 <td class="instruction">CALL <a href="56065.html">$DB01</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Play the sound and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="52664"></span>CDB8</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">

@@ -38,122 +38,150 @@ Used by the routine at <a href="53209.html">CFD9</a>.
 <tr>
 <td class="address-2"><span id="53615"></span>D16F</td>
 <td class="instruction">LD A,($C87B)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the lift flags. (<a href="51323.html">C87B</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53618"></span>D172</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the lift moving upwards?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53620"></span>D174</td>
 <td class="instruction">JR Z,$D17B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53622"></span>
+<div class="comments">
+<div class="paragraph">
+Move Dan on the lift downwards.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53622"></span>D176</td>
 <td class="instruction">CALL <a href="54791.html">$D607</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Drop Dan down one frame.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53625"></span>D179</td>
 <td class="instruction">JR $D17E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53627"></span>
+<div class="comments">
+<div class="paragraph">
+Move Dan on the lift upwards.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53627"></span>D17B</td>
 <td class="instruction">CALL <a href="54631.html">$D567</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move Dan upwards.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53630"></span>
+<div class="comments">
+<div class="paragraph">
+Now update the lift.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="53630"></span>D17E</td>
 <td class="instruction">LD A,($C87C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate. (<a href="51324.html">C87C</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53633"></span>D181</td>
 <td class="instruction">CALL <a href="52516.html">$CD24</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Redraw the lift at this position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53636"></span>D184</td>
 <td class="instruction">CALL <a href="53710.html">$D1CE</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Redraw Dan and do any collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53639"></span>D187</td>
 <td class="instruction">LD DE,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put Dan's X co-ordinate (<a href="51314.html">C872</a>) in <span class="register">D</span> and his Y co-ordinate (<a href="51315.html">C873</a>) in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53643"></span>D18B</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Add 1A to the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53644"></span>D18C</td>
 <td class="instruction">ADD A,$1A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53646"></span>D18E</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="53647"></span>D18F</td>
 <td class="instruction">LD ($C87C),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Make this the lift's Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53650"></span>D192</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53653"></span>D195</td>
 <td class="instruction">LD ($C87D),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Make this the lift's current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53656"></span>D198</td>
 <td class="instruction">CALL <a href="52516.html#52523">$CD2B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Redraw the lift.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53659"></span>D19B</td>
 <td class="instruction">LD DE,($C87C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the lift's room (<a href="51324.html">C87C</a>) in <span class="register">D</span> and its Y co-ordinate in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53663"></span>D19F</td>
 <td class="instruction">LD BC,($C87A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the time before the lift moves (<a href="51322.html">C87A</a>) in <span class="register">C</span> and the flags (<a href="51323.html">C87B</a>) in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53667"></span>D1A3</td>
 <td class="instruction">CALL <a href="52572.html">$CD5C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the lift's attributes.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53670"></span>D1A6</td>
 <td class="instruction">CALL <a href="53682.html">$D1B2</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check to see if the lift is at the top or bottom.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53673"></span>D1A9</td>
 <td class="instruction">LD ($C87C),DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the room and Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53677"></span>D1AD</td>
 <td class="instruction">LD ($C87A),BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the wait time and flags.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="53681"></span>D1B1</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

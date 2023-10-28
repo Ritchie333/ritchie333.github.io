@@ -38,202 +38,219 @@ Used by the routines at <a href="52361.html">CC89</a> and <a href="53209.html">C
 <tr>
 <td class="address-2"><span id="56433"></span>DC71</td>
 <td class="instruction">LD DE,($C87C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the lift's co-ordinate and room (<a href="51324.html">C87C</a>, <a href="51325.html">C87D</a>) in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56437"></span>DC75</td>
 <td class="instruction">LD HL,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put Dan's co-ordinates (<a href="51314.html">C872</a>, <a href="51315.html">C873</a>) in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56440"></span>DC78</td>
 <td class="instruction">LD A,($C87B)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the lift flags (<a href="51323.html">C87B</a>) in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56443"></span>DC7B</td>
 <td class="instruction">AND $01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put bit 1 in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56445"></span>DC7D</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56446"></span>DC7E</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56449"></span>DC81</td>
 <td class="instruction">CP D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the room the lift is in?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56450"></span>DC82</td>
 <td class="instruction">JR NZ,$DCBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">No, it isn't, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56452"></span>
+<div class="comments">
+<div class="paragraph">
+The lift is in this room.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56452"></span>DC84</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56453"></span>DC85</td>
 <td class="instruction">ADD A,$1A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add 1A (?)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56455"></span>DC87</td>
 <td class="instruction">CP E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does it match the lift's Y co-ordinate?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56456"></span>DC88</td>
 <td class="instruction">JR NZ,$DCBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56458"></span>DC8A</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56459"></span>DC8B</td>
 <td class="instruction">SUB $0D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is Dan by the lift shaft?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56461"></span>DC8D</td>
 <td class="instruction">CP $05</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56463"></span>DC8F</td>
 <td class="instruction">JR NC,$DCBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56465"></span>
+<div class="comments">
+<div class="paragraph">
+Dan is near the lift.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56465"></span>DC91</td>
 <td class="instruction">SET 1,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bit 1 (Dan is on the lift)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56467"></span>DC93</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56468"></span>DC94</td>
 <td class="instruction">CP $0F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56470"></span>DC96</td>
 <td class="instruction">JR Z,$DCB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56472"></span>DC98</td>
 <td class="instruction">LD HL,$DC69</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the list of Dan's frames that will start the lift. (<a href="56425.html">DC69</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56475"></span>DC9B</td>
 <td class="instruction">CP $0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56477"></span>DC9D</td>
 <td class="instruction">JR Z,$DCA8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56479"></span>DC9F</td>
 <td class="instruction">LD HL,$DC6D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the list of Dan's frames that will stop the lift. (<a href="56425.html">DC69</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56482"></span>DCA2</td>
 <td class="instruction">CP $10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56484"></span>DCA4</td>
 <td class="instruction">JR Z,$DCA8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56486"></span>DCA6</td>
 <td class="instruction">JR $DCBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56488"></span>DCA8</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56490"></span>DCAA</td>
 <td class="instruction">LD A,($C875)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Dan's current animation frame.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56493"></span>DCAD</td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56494"></span>DCAE</td>
 <td class="instruction">JR Z,$DCB5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56496"></span>DCB0</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56497"></span>DCB1</td>
 <td class="instruction">DJNZ $DCAD</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56499"></span>DCB3</td>
 <td class="instruction">JR $DCBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56501"></span>DCB5</td>
 <td class="instruction">SET 2,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Mark the lift as moving.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56503"></span>DCB7</td>
 <td class="instruction">LD A,$0D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56505"></span>DCB9</td>
 <td class="instruction">LD ($DBED),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56508"></span>DCBC</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Write the lift flags back to memory.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56509"></span>DCBD</td>
 <td class="instruction">LD ($C87B),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56512"></span>DCC0</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

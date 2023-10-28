@@ -38,167 +38,161 @@ Used by the routines at <a href="56163.html">DB63</a>, <a href="56566.html">DCF6
 <tr>
 <td class="address-2"><span id="56717"></span>DD8D</td>
 <td class="instruction">LD HL,$F4E5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print "Enter / Fire to continue".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56720"></span>DD90</td>
 <td class="instruction">CALL <a href="61169.html">$EEF1</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56723"></span>DD93</td>
 <td class="instruction">LD HL,$F4FE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print the laser around this.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56726"></span>DD96</td>
 <td class="instruction">CALL <a href="60678.html">$ED06</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56729"></span>DD99</td>
 <td class="instruction">LD BC,$1601</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Fill the area with flashing black on yellow.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56732"></span>DD9C</td>
 <td class="instruction">LD DE,$0517</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56735"></span>DD9F</td>
 <td class="instruction">LD A,$B0</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56737"></span>DDA1</td>
 <td class="instruction">CALL <a href="59578.html">$E8BA</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56740"></span>DDA4</td>
 <td class="instruction">LD HL,$E6D9</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the tick counter for lasers. (<a href="59097.html">E6D9</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56743"></span>DDA7</td>
 <td class="instruction">LD (HL),$7F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set it so it will fire immediately.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56745"></span>DDA9</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the laser frame to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56746"></span>DDAA</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56748"></span>DDAC</td>
 <td class="instruction">LD IY,$F59C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the lasers for the instructions. (<a href="62876.html">F59C</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="56752"></span>DDB0</td>
 <td class="instruction">LD A,($DCF5)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56755"></span>DDB3</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56756"></span>DDB4</td>
 <td class="instruction">JR Z,$DDBF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56758"></span>DDB6</td>
 <td class="instruction">CALL <a href="61308.html">$EF7C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56761"></span>DDB9</td>
 <td class="instruction">CALL <a href="56058.html">$DAFA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56764"></span>DDBC</td>
 <td class="instruction">CALL <a href="59711.html">$E93F</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56767"></span>DDBF</td>
 <td class="instruction">CALL <a href="52124.html">$CB9C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56770"></span>DDC2</td>
 <td class="instruction">JR NZ,$DDB0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56772"></span>DDC4</td>
 <td class="instruction">CALL <a href="59126.html">$E6F6</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56775"></span>DDC7</td>
 <td class="instruction">CALL <a href="55949.html">$DA8D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56778"></span>DDCA</td>
 <td class="instruction">CALL <a href="56058.html">$DAFA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56781"></span>DDCD</td>
 <td class="instruction">LD A,($DCF5)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56784"></span>DDD0</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56785"></span>DDD1</td>
 <td class="instruction">JR Z,$DDD9</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56787"></span>DDD3</td>
 <td class="instruction">CALL <a href="59711.html">$E93F</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56790"></span>DDD6</td>
 <td class="instruction">CALL <a href="61308.html">$EF7C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="56793"></span>DDD9</td>
 <td class="instruction">LD A,($E6DA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56796"></span>DDDC</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56797"></span>DDDD</td>
 <td class="instruction">JR NZ,$DDC4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56799"></span>DDDF</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

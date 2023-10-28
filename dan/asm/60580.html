@@ -41,83 +41,83 @@ Used by the routine at <a href="58979.html">E663</a>.
 <td class="register">IY</td>
 <td class="register-desc">Pointer to current teleporter's data</td>
 </tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Attribute to use</td>
+</tr>
 </table>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="60580"></span>ECA4</td>
 <td class="instruction">LD L,(IY+$01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the co-ordinates in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60583"></span>ECA7</td>
 <td class="instruction">LD H,(IY+$02)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60586"></span>ECAA</td>
 <td class="instruction">LD DE,$0020</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60589"></span>ECAD</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60590"></span>ECAE</td>
 <td class="instruction">LD C,$04</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">4 rows to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60592"></span>ECB0</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60593"></span>ECB1</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">4 columns to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60595"></span>ECB3</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60596"></span>ECB4</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60597"></span>ECB5</td>
 <td class="instruction">DJNZ $ECB3</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all columns in this row are drawn.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60599"></span>ECB7</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60600"></span>ECB8</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60601"></span>ECB9</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Loop until all rows are drawn.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60602"></span>ECBA</td>
 <td class="instruction">JR NZ,$ECB0</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60604"></span>ECBC</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

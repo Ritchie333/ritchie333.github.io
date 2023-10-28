@@ -47,312 +47,266 @@ Used by the routines at <a href="51803.html">CA5B</a>, <a href="52691.html">CDD3
 <tr>
 <td class="address-2"><span id="59126"></span>E6F6</td>
 <td class="instruction">LD C,(IY+$03)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the width in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59129"></span>E6F9</td>
 <td class="instruction">LD HL,$E6D9</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the curent tick count. (<a href="59097.html">E6D9</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59132"></span>E6FC</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59133"></span>E6FD</td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it at 80 or above?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59135"></span>E6FF</td>
 <td class="instruction">JP Z,<a href="59266.html#59351">$E7D7</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59138"></span>
+<div class="comments">
+<div class="paragraph">
+The laser should be firing now.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59138"></span>E702</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current tick count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59139"></span>E703</td>
 <td class="instruction">AND $03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the lowest two bits in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59141"></span>E705</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59142"></span>E706</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Multiply by 8 to get a suitable UDG offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59143"></span>E707</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59144"></span>E708</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59145"></span>E709</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59146"></span>E70A</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59148"></span>E70C</td>
 <td class="instruction">LD HL,$ECBD</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the laser graphic. (<a href="60605.html">ECBD</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59151"></span>E70F</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59152"></span>E710</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> so <span class="register">HL</span> has the actual graphic to use.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59153"></span>E711</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Add 3 to the previously stored two bits of the tick count to use as the length. (<a href="59099.html">E6DB</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59154"></span>E712</td>
 <td class="instruction">ADD A,$03</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59156"></span>E714</td>
 <td class="instruction">LD ($E6DB),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59159"></span>E717</td>
 <td class="instruction">LD HL,$E6DA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current colour. (<a href="59098.html">E6DA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59162"></span>E71A</td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is bit 7 set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59164"></span>E71C</td>
 <td class="instruction">JR Z,$E742</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59166"></span>E71E</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise move down a colour.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59167"></span>E71F</td>
 <td class="instruction">CALL <a href="60660.html">$ECF4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Change the colour</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59170"></span>E722</td>
 <td class="instruction">CALL <a href="59253.html">$E775</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the "laser fired" sound effect.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59173"></span>E725</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remove the bright and flash parts of the colour.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59174"></span>E726</td>
 <td class="instruction">AND $3F</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59176"></span>E728</td>
 <td class="instruction">JR NZ,$E73A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward while the laser has a non-black colour.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59178"></span>
+<div class="comments">
+<div class="paragraph">
+The laser needs to be erased.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59178"></span>E72A</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the colour to black</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59179"></span>E72B</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59180"></span>E72C</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the tick count (<a href="59097.html">E6D9</a>) to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59181"></span>E72D</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59182"></span>E72E</td>
 <td class="instruction">LD L,(IY+$01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the position in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59185"></span>E731</td>
 <td class="instruction">LD H,(IY+$02)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59188"></span>E734</td>
 <td class="instruction">CALL <a href="59244.html">$E76C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear a section of laser.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59191"></span>E737</td>
 <td class="instruction">JP <a href="59266.html#59351">$E7D7</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Pause and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59194"></span>
+<div class="comments">
+<div class="paragraph">
+The laser should be drawn.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59194"></span>E73A</td>
 <td class="instruction">CALL $E756</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw one frame</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59197"></span>E73D</td>
 <td class="instruction">CALL <a href="59244.html">$E76C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear any redundant sections.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59200"></span>E740</td>
 <td class="instruction">JR <a href="59266.html">$E782</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the laser forward.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59202"></span>E742</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59203"></span>E743</td>
 <td class="instruction">CALL <a href="60660.html">$ECF4</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59206"></span>E746</td>
 <td class="instruction">CALL <a href="59253.html">$E775</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59209"></span>E749</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59210"></span>E74A</td>
 <td class="instruction">AND $3F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59212"></span>E74C</td>
 <td class="instruction">CP C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59213"></span>E74D</td>
 <td class="instruction">JR NZ,$E751</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59215"></span>E74F</td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="59217"></span>E751</td>
 <td class="instruction">CALL $E756</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw one frame.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59220"></span>E754</td>
 <td class="instruction">JR <a href="59266.html">$E782</a></td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="59222"></span>E756</td>
-<td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59223"></span>E757</td>
-<td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59224"></span>E758</td>
-<td class="instruction">SUB B</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59225"></span>E759</td>
-<td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59226"></span>E75A</td>
-<td class="instruction">LD L,(IY+$01)</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59229"></span>E75D</td>
-<td class="instruction">LD H,(IY+$02)</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-2"><span id="59232"></span>E760</td>
-<td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59233"></span>E761</td>
-<td class="instruction">LD A,($E6DB)</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59236"></span>E764</td>
-<td class="instruction">CALL <a href="60637.html">$ECDD</a></td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59239"></span>E767</td>
-<td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59240"></span>E768</td>
-<td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59241"></span>E769</td>
-<td class="instruction">DJNZ $E760</td>
-<td class="comment-0" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="59243"></span>E76B</td>
-<td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

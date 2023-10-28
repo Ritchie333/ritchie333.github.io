@@ -210,7 +210,7 @@
 <td class="map-byte">127</td>
 <td class="map-b"><span id="26495"></span><a href="../asm/26495.html">677F</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26495.html">Character set (6-high) Character set (6-high)</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26495.html">Character set (6-high)</a></div>
 </td>
 </tr>
 <tr>
@@ -3794,7 +3794,7 @@
 <td class="map-byte">122</td>
 <td class="map-g"><span id="51322"></span><a href="../asm/51322.html">C87A</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51322.html">Lift flags</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51322.html">Time until lift next moves</a></div>
 </td>
 </tr>
 <tr>
@@ -3834,7 +3834,7 @@
 <td class="map-byte">127</td>
 <td class="map-g"><span id="51327"></span><a href="../asm/51327.html">C87F</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51327.html">Set bit 7 if a laser is firing</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51327.html">Various flags</a></div>
 </td>
 </tr>
 <tr>
@@ -4010,7 +4010,7 @@
 <td class="map-byte">94</td>
 <td class="map-g"><span id="52318"></span><a href="../asm/52318.html">CC5E</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52318.html">Current animation frame for the river (1-3)</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52318.html">Tick count for updating the river (1-3)</a></div>
 </td>
 </tr>
 <tr>
@@ -4376,9 +4376,9 @@
 <tr>
 <td class="map-page">209</td>
 <td class="map-byte">205</td>
-<td class="map-b"><span id="53709"></span><a href="../asm/53709.html">D1CD</a></td>
-<td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53709.html">Command flags</a></div>
+<td class="map-g"><span id="53709"></span><a href="../asm/53709.html">D1CD</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53709.html">Collision flags</a></div>
 </td>
 </tr>
 <tr>
@@ -4387,6 +4387,14 @@
 <td class="map-c"><span id="53710"></span><a href="../asm/53710.html">D1CE</a></td>
 <td class="map-c-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53710.html">Draw Dan and do any collision detection</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">210</td>
+<td class="map-byte">191</td>
+<td class="map-c"><span id="53951"></span><a href="../asm/53951.html">D2BF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/53951.html">Remove an object that Dan collided with from the room.</a></div>
 </td>
 </tr>
 <tr>
@@ -4528,8 +4536,8 @@
 <tr>
 <td class="map-page">214</td>
 <td class="map-byte">189</td>
-<td class="map-w"><span id="54973"></span><a href="../asm/54973.html">D6BD</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="54973"></span><a href="../asm/54973.html">D6BD</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/54973.html">Pointer to current vertical sprite being drawn</a></div>
 </td>
 </tr>
@@ -4560,8 +4568,8 @@
 <tr>
 <td class="map-page">215</td>
 <td class="map-byte">48</td>
-<td class="map-w"><span id="55088"></span><a href="../asm/55088.html">D730</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="55088"></span><a href="../asm/55088.html">D730</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55088.html">Pointer to current horizontal sprite being drawn</a></div>
 </td>
 </tr>
@@ -4578,7 +4586,7 @@
 <td class="map-byte">162</td>
 <td class="map-c"><span id="55202"></span><a href="../asm/55202.html">D7A2</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55202.html">Colour in a sprite vertically</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55202.html">Colour in a sprite horizontally</a></div>
 </td>
 </tr>
 <tr>
@@ -4594,7 +4602,7 @@
 <td class="map-byte">214</td>
 <td class="map-c"><span id="55254"></span><a href="../asm/55254.html">D7D6</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55254.html">Colour in a sprite horizontally</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55254.html">Colour in a sprite vertically</a></div>
 </td>
 </tr>
 <tr>
@@ -4608,8 +4616,8 @@
 <tr>
 <td class="map-page">216</td>
 <td class="map-byte">19</td>
-<td class="map-w"><span id="55315"></span><a href="../asm/55315.html">D813</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="55315"></span><a href="../asm/55315.html">D813</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55315.html">Offset for current moving object table</a></div>
 </td>
 </tr>
@@ -4626,7 +4634,7 @@
 <td class="map-byte">149</td>
 <td class="map-c"><span id="55445"></span><a href="../asm/55445.html">D895</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55445.html">Respond to Dan moving</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55445.html">React to what Dan is standing on</a></div>
 </td>
 </tr>
 <tr>
@@ -4634,7 +4642,7 @@
 <td class="map-byte">81</td>
 <td class="map-c"><span id="55633"></span><a href="../asm/55633.html">D951</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55633.html">Move into a new 8x8 cell</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55633.html">Move into a new 8x8 cell and check what is there.</a></div>
 </td>
 </tr>
 <tr>
@@ -4687,6 +4695,14 @@
 </tr>
 <tr>
 <td class="map-page">217</td>
+<td class="map-byte">235</td>
+<td class="map-g"><span id="55787"></span><a href="../asm/55787.html">D9EB</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55787.html">Tick count until the raft should be moved</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">217</td>
 <td class="map-byte">236</td>
 <td class="map-c"><span id="55788"></span><a href="../asm/55788.html">D9EC</a></td>
 <td class="map-c-desc">
@@ -4696,32 +4712,32 @@
 <tr>
 <td class="map-page">218</td>
 <td class="map-byte">135</td>
-<td class="map-b"><span id="55943"></span><a href="../asm/55943.html">DA87</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="55943"></span><a href="../asm/55943.html">DA87</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55943.html">Current type of tune being played</a></div>
 </td>
 </tr>
 <tr>
 <td class="map-page">218</td>
 <td class="map-byte">136</td>
-<td class="map-b"><span id="55944"></span><a href="../asm/55944.html">DA88</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="55944"></span><a href="../asm/55944.html">DA88</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55944.html">Current note in a tune being played</a></div>
 </td>
 </tr>
 <tr>
 <td class="map-page">218</td>
 <td class="map-byte">138</td>
-<td class="map-b"><span id="55946"></span><a href="../asm/55946.html">DA8A</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="55946"></span><a href="../asm/55946.html">DA8A</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55946.html">Current state of playing a sound (used by <a href="../asm/55949.html">DA8D</a>)</a></div>
 </td>
 </tr>
 <tr>
 <td class="map-page">218</td>
 <td class="map-byte">139</td>
-<td class="map-w"><span id="55947"></span><a href="../asm/55947.html">DA8B</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="55947"></span><a href="../asm/55947.html">DA8B</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55947.html">Next action to take during playing a sound (used by <a href="../asm/55949.html">DA8D</a>)</a></div>
 </td>
 </tr>
@@ -4802,7 +4818,7 @@
 <td class="map-byte">56</td>
 <td class="map-c"><span id="56120"></span><a href="../asm/56120.html">DB38</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/56120.html">Return with the carry flag set if Dan has moved over a glowing item</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/56120.html">Return with the carry flag set if Dan has moved over an object item</a></div>
 </td>
 </tr>
 <tr>
@@ -4912,8 +4928,8 @@
 <tr>
 <td class="map-page">220</td>
 <td class="map-byte">245</td>
-<td class="map-b"><span id="56565"></span><a href="../asm/56565.html">DCF5</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="56565"></span><a href="../asm/56565.html">DCF5</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/56565.html">Set bit 0 to denote items are only being drawn for instructions</a></div>
 </td>
 </tr>
@@ -4976,8 +4992,8 @@
 <tr>
 <td class="map-page">222</td>
 <td class="map-byte">81</td>
-<td class="map-b"><span id="56913"></span><a href="../asm/56913.html">DE51</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="56913"></span><a href="../asm/56913.html">DE51</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/56913.html">Time left for the aerosol to run</a></div>
 </td>
 </tr>
@@ -5266,7 +5282,7 @@
 <td class="map-byte">63</td>
 <td class="map-c"><span id="59711"></span><a href="../asm/59711.html">E93F</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59711.html">Toggle the colours on any test tubes or dynamite so they glow</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59711.html">Set the colours on any test tubes or dynamite to black</a></div>
 </td>
 </tr>
 <tr>
@@ -5280,8 +5296,8 @@
 <tr>
 <td class="map-page">233</td>
 <td class="map-byte">186</td>
-<td class="map-w"><span id="59834"></span><a href="../asm/59834.html">E9BA</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="59834"></span><a href="../asm/59834.html">E9BA</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59834.html">Current input routine</a></div>
 </td>
 </tr>
@@ -5464,8 +5480,8 @@
 <tr>
 <td class="map-page">237</td>
 <td class="map-byte">161</td>
-<td class="map-b"><span id="60833"></span><a href="../asm/60833.html">EDA1</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="60833"></span><a href="../asm/60833.html">EDA1</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60833.html">Current colour to set for the next letter on the main title</a></div>
 </td>
 </tr>
@@ -5560,8 +5576,8 @@
 <tr>
 <td class="map-page">239</td>
 <td class="map-byte">72</td>
-<td class="map-b"><span id="61256"></span><a href="../asm/61256.html">EF48</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="61256"></span><a href="../asm/61256.html">EF48</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61256.html">Counter to make glowing objects alternate between colour and black</a></div>
 </td>
 </tr>
@@ -5608,8 +5624,8 @@
 <tr>
 <td class="map-page">239</td>
 <td class="map-byte">122</td>
-<td class="map-w"><span id="61306"></span><a href="../asm/61306.html">EF7A</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="61306"></span><a href="../asm/61306.html">EF7A</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61306.html">Pointer to current attribute state of glowing objects</a></div>
 </td>
 </tr>
@@ -5824,16 +5840,16 @@
 <tr>
 <td class="map-page">243</td>
 <td class="map-byte">160</td>
-<td class="map-b"><span id="62368"></span><a href="../asm/62368.html">F3A0</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62368"></span><a href="../asm/62368.html">F3A0</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62368.html">Bitmask for what objects to select in initialisation</a></div>
 </td>
 </tr>
 <tr>
 <td class="map-page">243</td>
 <td class="map-byte">162</td>
-<td class="map-w"><span id="62370"></span><a href="../asm/62370.html">F3A2</a></td>
-<td class="map-w-desc">
+<td class="map-g"><span id="62370"></span><a href="../asm/62370.html">F3A2</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62370.html">Pointer to object data in current room being looked at</a></div>
 </td>
 </tr>
@@ -5866,7 +5882,7 @@
 <td class="map-byte">236</td>
 <td class="map-c"><span id="62444"></span><a href="../asm/62444.html">F3EC</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62444.html">Draw any bank cards in the room</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62444.html">Draw any special objects in the room</a></div>
 </td>
 </tr>
 <tr>
@@ -5891,6 +5907,22 @@
 <td class="map-b"><span id="62597"></span><a href="../asm/62597.html">F485</a></td>
 <td class="map-b-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62597.html">Dan drowning graphic</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">244</td>
+<td class="map-byte">229</td>
+<td class="map-b"><span id="62693"></span><a href="../asm/62693.html">F4E5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62693.html">"Enter / Fire to continue"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">244</td>
+<td class="map-byte">254</td>
+<td class="map-b"><span id="62718"></span><a href="../asm/62718.html">F4FE</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62718.html">Laser graphics for instructions</a></div>
 </td>
 </tr>
 <tr>
@@ -6099,6 +6131,14 @@
 <td class="map-b"><span id="65143"></span><a href="../asm/65143.html">FE77</a></td>
 <td class="map-b-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65143.html">Game won text</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">255</td>
+<td class="map-byte">17</td>
+<td class="map-u"><span id="65297"></span><a href="../asm/65297.html">FF11</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/65297.html">Unused</a></div>
 </td>
 </tr>
 </table>

@@ -47,172 +47,185 @@ Used by the routine at <a href="53710.html">D1CE</a>.
 <tr>
 <td class="address-2"><span id="56967"></span>DE87</td>
 <td class="instruction">LD E,(IX+$09)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the location of dynamite in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56970"></span>DE8A</td>
 <td class="instruction">LD D,(IX+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56973"></span>DE8D</td>
 <td class="instruction">DEC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move back two columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56974"></span>DE8E</td>
 <td class="instruction">DEC E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56975"></span>DE8F</td>
 <td class="instruction">CALL <a href="56120.html">$DB38</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is Dan at this location?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56978"></span>DE92</td>
 <td class="instruction">JR NC,$DEB8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">No, so jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56980"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has got the dynamite.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56980"></span>DE94</td>
 <td class="instruction">RES 5,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset flag 5 (dynamite collected)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56984"></span>DE98</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward two columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56985"></span>DE99</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56986"></span>DE9A</td>
 <td class="instruction">LD BC,$0201</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Remove the dynamite from screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56989"></span>DE9D</td>
 <td class="instruction">CALL <a href="59543.html">$E897</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56992"></span>DEA0</td>
 <td class="instruction">LD HL,$C878</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the count of dynamite picked up (<a href="51320.html">C878</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56995"></span>DEA3</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="56996"></span>DEA4</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56997"></span>DEA5</td>
 <td class="instruction">LD E,$17</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw on row 11</td>
 </tr>
 <tr>
 <td class="address-1"><span id="56999"></span>DEA7</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw on the column with the number of dynamite collected</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57000"></span>DEA8</td>
 <td class="instruction">LD BC,$0101</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Size is one row and one column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57003"></span>DEAB</td>
 <td class="instruction">LD HL,$DE7F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the dynamite static graphic. (<a href="56959.html">DE7F</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57006"></span>DEAE</td>
 <td class="instruction">CALL <a href="59514.html">$E87A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the dynamite in the status area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57009"></span>DEB1</td>
 <td class="instruction">LD A,$64</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add 64 to the score.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57011"></span>DEB3</td>
 <td class="instruction">LD HL,$EE8B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the "picked up dynamite" tune.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57014"></span>DEB6</td>
 <td class="instruction">JR $DED1</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="57016"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has got a test tube.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="57016"></span>DEB8</td>
 <td class="instruction">LD E,(IX+$02)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the location of the test tube in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57019"></span>DEBB</td>
 <td class="instruction">LD D,(IX+$03)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="57022"></span>DEBE</td>
 <td class="instruction">LD BC,$0102</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Width is one columm and two rows.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57025"></span>DEC1</td>
 <td class="instruction">CALL <a href="59543.html">$E897</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57028"></span>DEC4</td>
 <td class="instruction">RES 4,(IX+$04)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset flag 4 (test tube collected)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57032"></span>DEC8</td>
 <td class="instruction">LD HL,$C86C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the number of lives.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57035"></span>DECB</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57036"></span>DECC</td>
 <td class="instruction">LD A,$32</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add 32 to the score.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57038"></span>DECE</td>
 <td class="instruction">LD HL,$EEBD</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the "picked up a test tube" tune.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="57041"></span>DED1</td>
 <td class="instruction">LD ($C86B),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the points to be awarded. (<a href="51307.html">C86B</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57044"></span>DED4</td>
 <td class="instruction">CALL <a href="56075.html">$DB0B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Play the tune and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="57047"></span>DED7</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -51,87 +51,83 @@ Used by the routines at <a href="54252.html">D3EC</a> and <a href="54453.html">D
 <tr>
 <td class="address-2"><span id="54608"></span>D550</td>
 <td class="instruction">LD C,$0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">0E UDGs to look at.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54610"></span>D552</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54611"></span>D553</td>
 <td class="instruction">CALL <a href="59602.html">$E8D2</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Convert the co-ordinates to a screen address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54614"></span>D556</td>
 <td class="instruction">LD B,$02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Two rows to copy.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54616"></span>D558</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the byte from screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54617"></span>D559</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy it to the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54618"></span>D55A</td>
 <td class="instruction">INC D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move down a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54619"></span>D55B</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move forward in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54620"></span>D55C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54621"></span>D55D</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54622"></span>D55E</td>
 <td class="instruction">DJNZ $D558</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more rows.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54624"></span>D560</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54625"></span>D561</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward to the next UDG space.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54626"></span>D562</td>
 <td class="instruction">INC E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54627"></span>D563</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop while there are more columns to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54628"></span>D564</td>
 <td class="instruction">JR NZ,$D552</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54630"></span>D566</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

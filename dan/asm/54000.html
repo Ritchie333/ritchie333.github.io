@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="53710.html">D1CE</a>
+Prev: <a href="53951.html">D2BF</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#54000">Map</a></td>
 <td class="next">
@@ -38,348 +38,381 @@ Used by the routine at <a href="55445.html">D895</a>.
 <tr>
 <td class="address-2"><span id="54000"></span>D2F0</td>
 <td class="instruction">LD A,($C872)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put Dan's Y co-ordinate (<a href="51314.html">C872</a>) in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54003"></span>D2F3</td>
 <td class="instruction">AND $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54005"></span>D2F5</td>
 <td class="instruction">AND A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54006"></span>D2F6</td>
 <td class="instruction">JP NZ,<a href="55445.html#55632">$D950</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54009"></span>D2F9</td>
 <td class="instruction">LD A,($C876)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the height fallen by (<a href="51318.html">C876</a>) in <span class="register">L</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54012"></span>D2FC</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54013"></span>D2FD</td>
 <td class="instruction">LD A,($C874)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put some flags (<a href="51316.html">C874</a>) in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54016"></span>D300</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54017"></span>D301</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Has Dan fallen less than 3 lines?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54018"></span>D302</td>
 <td class="instruction">CP $03</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54020"></span>D304</td>
 <td class="instruction">JR NC,$D319</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54022"></span>D306</td>
 <td class="instruction">LD A,($C874)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Turn off all flags except bit 1 (facing right) and 5 (safe).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54025"></span>D309</td>
 <td class="instruction">AND $22</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54027"></span>D30B</td>
 <td class="instruction">LD ($C874),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54030"></span>D30E</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the height fallen to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54031"></span>D30F</td>
 <td class="instruction">LD ($C876),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54034"></span>D312</td>
 <td class="instruction">CALL <a href="54631.html">$D567</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Propel Dan upwards.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54037"></span>D315</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clean up the stack.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54038"></span>D316</td>
 <td class="instruction">JP <a href="53710.html">$D1CE</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward to redraw Dan.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54041"></span>
+<div class="comments">
+<div class="paragraph">
+Dan has landed on a trampoline, check for input and react accordingly.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54041"></span>D319</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Store the main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54042"></span>D31A</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54043"></span>D31B</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54044"></span>D31C</td>
 <td class="instruction">CALL <a href="59836.html">$E9BC</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get some user input and put it in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54047"></span>D31F</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54048"></span>D320</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Restore the registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54049"></span>D321</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54050"></span>D322</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54051"></span>D323</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the user input back in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54052"></span>D324</td>
 <td class="instruction">BIT 0,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is Dan jumping?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54054"></span>D326</td>
 <td class="instruction">JR Z,$D32E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward if he isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54056"></span>
+<div class="comments">
+<div class="paragraph">
+Dan is jumping on the trampoline.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54056"></span>D328</td>
 <td class="instruction">SRL L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Double the height to fall and add 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54058"></span>D32A</td>
 <td class="instruction">INC L</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54059"></span>D32B</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">A</span> for the next bit of code.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54060"></span>D32C</td>
 <td class="instruction">JR $D332</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54062"></span>
+<div class="comments">
+<div class="paragraph">
+Dan is not jumping on the trampoline.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54062"></span>D32E</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Halve the height fallen and add the original height.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54063"></span>D32F</td>
 <td class="instruction">SRL A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54065"></span>D331</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54066"></span>
+<div class="comments">
+<div class="paragraph">
+Having determined the height to fall, find out the direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="54066"></span>D332</td>
 <td class="instruction">LD ($C879),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54069"></span>D335</td>
 <td class="instruction">BIT 2,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is Dan jumping straight ahead?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54071"></span>D337</td>
 <td class="instruction">RES 3,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset bit 3 in <span class="register">B</span> (change direction).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54073"></span>D339</td>
 <td class="instruction">JR NZ,$D361</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump foward if Dan is jumping straight ahead.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54075"></span>
+<div class="comments">
+<div class="paragraph">
+Dan is jumping or moving in a particular direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54075"></span>D33B</td>
 <td class="instruction">SET 3,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bit 3 in <span class="register">B</span> (change direction).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54077"></span>D33D</td>
 <td class="instruction">BIT 1,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is Dan moving or jumping left?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54079"></span>D33F</td>
 <td class="instruction">JR NZ,$D34A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54081"></span>D341</td>
 <td class="instruction">BIT 1,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54083"></span>D343</td>
 <td class="instruction">JR NZ,$D361</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54085"></span>D345</td>
 <td class="instruction">CALL <a href="54453.html">$D4B5</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54088"></span>D348</td>
 <td class="instruction">JR $D351</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="54090"></span>D34A</td>
 <td class="instruction">BIT 1,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54092"></span>D34C</td>
 <td class="instruction">JR Z,$D361</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54094"></span>D34E</td>
 <td class="instruction">CALL <a href="54252.html">$D3EC</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="54097"></span>D351</td>
 <td class="instruction">LD A,($C874)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Reset all flags (<a href="51316.html">C874</a>) except "facing right" and "safe".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="54100"></span>D354</td>
 <td class="instruction">AND $22</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54102"></span>D356</td>
 <td class="instruction">LD ($C874),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54105"></span>D359</td>
 <td class="instruction">LD A,$09</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54107"></span>D35B</td>
 <td class="instruction">LD ($C876),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54110"></span>D35E</td>
 <td class="instruction">JP <a href="53710.html">$D1CE</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="54113"></span>D361</td>
 <td class="instruction">SET 4,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54115"></span>D363</td>
 <td class="instruction">RES 2,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54117"></span>D365</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54118"></span>D366</td>
 <td class="instruction">LD ($C874),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54121"></span>D369</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54122"></span>D36A</td>
 <td class="instruction">LD ($C876),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54125"></span>D36D</td>
 <td class="instruction">LD A,$0C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54127"></span>D36F</td>
 <td class="instruction">LD ($CFCB),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54130"></span>D372</td>
 <td class="instruction">LD A,$0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54132"></span>D374</td>
 <td class="instruction">LD ($DBED),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="54135"></span>D377</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="53710.html">D1CE</a>
+Prev: <a href="53951.html">D2BF</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#54000">Map</a></td>
 <td class="next">

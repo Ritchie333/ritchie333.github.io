@@ -38,52 +38,50 @@ Used by the routine at <a href="51200.html">C800</a>.
 <tr>
 <td class="address-2"><span id="59100"></span>E6DC</td>
 <td class="instruction">LD IY,$EDF8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the laser data. (<a href="60920.html">EDF8</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59104"></span>E6E0</td>
 <td class="instruction">LD B,$0F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">15 entries to check.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59106"></span>E6E2</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="53194.html">CFCA</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59109"></span>E6E5</td>
 <td class="instruction">CP (IY+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does it match this one.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59112"></span>E6E8</td>
 <td class="instruction">JR Z,<a href="59126.html">$E6F6</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it does.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59114"></span>E6EA</td>
 <td class="instruction">LD DE,$0004</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise point to the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59117"></span>E6ED</td>
 <td class="instruction">ADD IY,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59119"></span>E6EF</td>
 <td class="instruction">DJNZ $E6E5</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more entries to look at.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59121"></span>E6F1</td>
 <td class="instruction">LD C,$14</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Pause and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59123"></span>E6F3</td>
 <td class="instruction">JP <a href="59266.html#59351">$E7D7</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

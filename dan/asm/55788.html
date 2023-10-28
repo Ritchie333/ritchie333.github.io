@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="55786.html">D9EA</a>
+Prev: <a href="55787.html">D9EB</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55788">Map</a></td>
 <td class="next">
@@ -38,132 +38,143 @@ Used by the routines at <a href="51200.html">C800</a> and <a href="54252.html">D
 <tr>
 <td class="address-2"><span id="55788"></span>D9EC</td>
 <td class="instruction">LD A,($D9EA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the room the raft is in (<a href="55786.html">D9EA</a>) in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55791"></span>D9EF</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55792"></span>D9F0</td>
 <td class="instruction">LD A,($CFCA)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the current room (<a href="53194.html">CFCA</a>) in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55795"></span>D9F3</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55796"></span>D9F4</td>
 <td class="instruction">LD DE,($D9E8)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the raft x-cordinate and frame (<a href="55784.html">D9E8</a>, <a href="55785.html">D9E9</a>) in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55800"></span>D9F8</td>
 <td class="instruction">LD HL,$D9EB</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Decrement the tick count and jump forward until it reaches 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55803"></span>D9FB</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55804"></span>D9FC</td>
 <td class="instruction">JR NZ,$DA1B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55806"></span>D9FE</td>
 <td class="instruction">LD (HL),$03</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset the tick count to 3.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55808"></span>DA00</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next animation frame.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55809"></span>DA01</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Has it reached 4?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55810"></span>DA02</td>
 <td class="instruction">CP $04</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55812"></span>DA04</td>
 <td class="instruction">JR NZ,$DA37</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">No, so move forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55814"></span>
+<div class="comments">
+<div class="paragraph">
+The raft needs moving.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55814"></span>DA06</td>
 <td class="instruction">LD E,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise set it back to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55816"></span>DA08</td>
 <td class="instruction">DEC D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move left one column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55817"></span>DA09</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Has the raft reached the edge of the screen?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55818"></span>DA0A</td>
 <td class="instruction">CP $FC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55820"></span>DA0C</td>
 <td class="instruction">JR NZ,$DA37</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it hasn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55822"></span>DA0E</td>
 <td class="instruction">LD D,$1C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the raft on the right of the screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55824"></span>DA10</td>
 <td class="instruction">INC B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the raft in the room to the left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55825"></span>DA11</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Ensure the room cycles between 0 - 7.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55826"></span>DA12</td>
 <td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55828"></span>DA14</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55829"></span>DA15</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the raft in this room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55830"></span>DA16</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55831"></span>DA17</td>
 <td class="instruction">JR NZ,$DA1B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it's not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55833"></span>
+<div class="comments">
+<div class="paragraph">
+The raft is in this room.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55833"></span>DA19</td>
@@ -372,12 +383,12 @@ The raft is in the current room, so draw it
 <tr>
 <td class="address-1"><span id="55893"></span>DA55</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the offset to get the current graphic.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="55894"></span>DA56</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw 4 columns.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="55896"></span>DA58</td>
@@ -477,17 +488,16 @@ The raft is in the current room, so draw it
 <tr>
 <td class="address-1"><span id="55922"></span>DA72</td>
 <td class="instruction">LD H,$5A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set to the next to bottom row of the screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55924"></span>DA74</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Fill with red on black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55926"></span>DA76</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55927"></span>DA77</td>
@@ -502,12 +512,12 @@ The raft is in the current room, so draw it
 <tr>
 <td class="address-2"><span id="55930"></span>DA7A</td>
 <td class="instruction">INC C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55931"></span>DA7B</td>
 <td class="instruction">DJNZ $DA58</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all columns drawn.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55933"></span>DA7D</td>
@@ -548,7 +558,7 @@ The raft is in the current room, so draw it
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="55786.html">D9EA</a>
+Prev: <a href="55787.html">D9EB</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55788">Map</a></td>
 <td class="next">

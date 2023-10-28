@@ -35,24 +35,23 @@ Next: <a href="55986.html">DAB2</a>
 <tr>
 <td class="address-2"><span id="55966"></span>DA9E</td>
 <td class="instruction">LD HL,$DAFA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the next sound action (<a href="55947.html">DA8B</a>) to pause. (<a href="56058.html">DAFA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55969"></span>DAA1</td>
 <td class="instruction">LD ($DA8B),HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55972"></span>DAA4</td>
 <td class="instruction">LD A,($DA87)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current note.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="55975"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="56087.html">DB17</a>.
+This entry point is used by the routine at <a href="56087.html">DB17</a>, where the current note is already set in <span class="register">A</span>.
 </div>
 </div>
 </td>
@@ -60,42 +59,39 @@ This entry point is used by the routine at <a href="56087.html">DB17</a>.
 <tr>
 <td class="address-2"><span id="55975"></span>DAA7</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55976"></span>DAA8</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this value in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55977"></span>DAA9</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55979"></span>DAAB</td>
 <td class="instruction">LD HL,$6919</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base offset of the pitches (<a href="26905.html">6919</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55982"></span>DAAE</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="55983"></span>DAAF</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the frequency in <span class="register">DE</span>. (<span class="register">D</span> is already 0.)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55984"></span>DAB0</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="55985"></span>DAB1</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
