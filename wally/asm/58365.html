@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at E3FD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58348.html">E3EC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58365">Map</a></td>
+<td class="next">
+Next: <a href="58397.html">E41D</a>
+</td>
+</tr>
+</table>
+<div class="description">E3FD: Do a full refresh of the top status bar</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33109.html">8155</a>, <a href="33156.html">8184</a> and <a href="59291.html">E79B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58365"></span>E3FD</td>
+<td class="instruction">CALL <a href="47409.html">$B931</a></td>
+<td class="comment-1" rowspan="1">Clear the top status bar.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58368"></span>E400</td>
+<td class="instruction">LD HL,$7E3F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the status bar text. (<a href="32319.html">7E3F</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58371"></span>E403</td>
+<td class="instruction">LD DE,$0010</td>
+<td class="comment-1" rowspan="1">Set the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58374"></span>E406</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58377"></span>E409</td>
+<td class="instruction">LD H,$7C</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the right character name (<a href="31744.html">7C00</a>) based on their ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58379"></span>E40B</td>
+<td class="instruction">LD L,(IY-$23)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58382"></span>E40E</td>
+<td class="instruction">LD C,$45</td>
+<td class="comment-1" rowspan="1">Set the attribute to bright cyan on black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58384"></span>E410</td>
+<td class="instruction">LD DE,$001B</td>
+<td class="comment-1" rowspan="1">Set the position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58387"></span>E413</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="comment-1" rowspan="1">Draw the main character display.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58390"></span>E416</td>
+<td class="instruction">CALL <a href="58221.html">$E36D</a></td>
+<td class="comment-1" rowspan="1">Draw endurance.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58393"></span>E419</td>
+<td class="instruction">CALL <a href="58397.html#58400">$E420</a></td>
+<td class="comment-1" rowspan="1">Draw the inventory.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58396"></span>E41C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58348.html">E3EC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58365">Map</a></td>
+<td class="next">
+Next: <a href="58397.html">E41D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

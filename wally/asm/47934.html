@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Data at BB3E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47832.html">BAD8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47934">Map</a></td>
+<td class="next">
+Next: <a href="47996.html">BB7C</a>
+</td>
+</tr>
+</table>
+<div class="description">BB3E: Initial states for collectable objects</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="47832.html">BAD8</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47934"></span>
+<div class="comments">
+<div class="paragraph">
+Objects 00 to 1E are put sequentially into rooms. The remainder of the objects are initially held by the characters. Each table contains the object ID, plus the flags. Bits 0 - 5 show which player can pick the object up, if bit 7 if reset then a computer controlled player can also pick it up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47934"></span>BB3E</td>
+<td class="instruction">DEFB $00,$1F</td>
+<td class="comment-1" rowspan="1">Object 00 - The plunger</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47936"></span>BB40</td>
+<td class="instruction">DEFB $01,$9F</td>
+<td class="comment-1" rowspan="1">Object 01 - The letter A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47938"></span>BB42</td>
+<td class="instruction">DEFB $02,$1F</td>
+<td class="comment-1" rowspan="1">Object 02 - Book 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47940"></span>BB44</td>
+<td class="instruction">DEFB $03,$9F</td>
+<td class="comment-1" rowspan="1">Object 03 - The sand</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47942"></span>BB46</td>
+<td class="instruction">DEFB $04,$9F</td>
+<td class="comment-1" rowspan="1">Object 04 - The battery</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47944"></span>BB48</td>
+<td class="instruction">DEFB $05,$9F</td>
+<td class="comment-1" rowspan="1">Object 05 - The letter K</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47946"></span>BB4A</td>
+<td class="instruction">DEFB $06,$9F</td>
+<td class="comment-1" rowspan="1">Object 06 - The cement</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47948"></span>BB4C</td>
+<td class="instruction">DEFB $07,$1F</td>
+<td class="comment-1" rowspan="1">Object 07 - Book 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47950"></span>BB4E</td>
+<td class="instruction">DEFB $08,$1F</td>
+<td class="comment-1" rowspan="1">Object 08 - The trowel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47952"></span>BB50</td>
+<td class="instruction">DEFB $09,$1F</td>
+<td class="comment-1" rowspan="1">Object 09 - The matches</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47954"></span>BB52</td>
+<td class="instruction">DEFB $0A,$9F</td>
+<td class="comment-1" rowspan="1">Object 0A - The cracked insulator</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47956"></span>BB54</td>
+<td class="instruction">DEFB $0B,$9F</td>
+<td class="comment-1" rowspan="1">Object 0B - Book 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47958"></span>BB56</td>
+<td class="instruction">DEFB $0C,$1F</td>
+<td class="comment-1" rowspan="1">Object 0C - The monkey nuts</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47960"></span>BB58</td>
+<td class="instruction">DEFB $0D,$9F</td>
+<td class="comment-1" rowspan="1">Object 0D - The money</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47962"></span>BB5A</td>
+<td class="instruction">DEFB $0E,$1F</td>
+<td class="comment-1" rowspan="1">Object 0E - Superglue</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47964"></span>BB5C</td>
+<td class="instruction">DEFB $0F,$1F</td>
+<td class="comment-1" rowspan="1">Object 0F - Chewing gum</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47966"></span>BB5E</td>
+<td class="instruction">DEFB $10,$1F</td>
+<td class="comment-1" rowspan="1">Object 10 - The bucket</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47968"></span>BB60</td>
+<td class="instruction">DEFB $11,$9F</td>
+<td class="comment-1" rowspan="1">Object 11 - The jump leads</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47970"></span>BB62</td>
+<td class="instruction">DEFB $12,$9F</td>
+<td class="comment-1" rowspan="1">Object 12 - The bunsen burner</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47972"></span>BB64</td>
+<td class="instruction">DEFB $13,$9F</td>
+<td class="comment-1" rowspan="1">Object 13 - The letter B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47974"></span>BB66</td>
+<td class="instruction">DEFB $14,$1F</td>
+<td class="comment-1" rowspan="1">Object 14 - The gask mask</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47976"></span>BB68</td>
+<td class="instruction">DEFB $15,$1F</td>
+<td class="comment-1" rowspan="1">Object 15 - The parcel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47978"></span>BB6A</td>
+<td class="instruction">DEFB $16,$9F</td>
+<td class="comment-1" rowspan="1">Object 16 - The fuse</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47980"></span>BB6C</td>
+<td class="instruction">DEFB $17,$9F</td>
+<td class="comment-1" rowspan="1">Object 17 - The meat</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47982"></span>BB6E</td>
+<td class="instruction">DEFB $18,$9F</td>
+<td class="comment-1" rowspan="1">Object 18 - The monkey wrench</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47984"></span>BB70</td>
+<td class="instruction">DEFB $19,$1F</td>
+<td class="comment-1" rowspan="1">Object 19 - Screwdriver</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47986"></span>BB72</td>
+<td class="instruction">DEFB $1A,$9F</td>
+<td class="comment-1" rowspan="1">Object 1A - The letter E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47988"></span>BB74</td>
+<td class="instruction">DEFB $1B,$9F</td>
+<td class="comment-1" rowspan="1">Object 1B - The hook</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47990"></span>BB76</td>
+<td class="instruction">DEFB $1C,$1F</td>
+<td class="comment-1" rowspan="1">Object 1C - The patch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47992"></span>BB78</td>
+<td class="instruction">DEFB $1D,$9F</td>
+<td class="comment-1" rowspan="1">Object 1D - The pipe</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47994"></span>BB7A</td>
+<td class="instruction">DEFB $1E,$9F</td>
+<td class="comment-1" rowspan="1">Object 1E - The letter R</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47832.html">BAD8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47934">Map</a></td>
+<td class="next">
+Next: <a href="47996.html">BB7C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

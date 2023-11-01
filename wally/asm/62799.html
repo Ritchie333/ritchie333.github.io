@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F54F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62723.html">F503</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62799">Map</a></td>
+<td class="next">
+Next: <a href="62833.html">F571</a>
+</td>
+</tr>
+</table>
+<div class="description">F54F: Room logic : The Cave</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+If the pipe is not patched and the gas mask is not carried, start dropping endurance immediately as the room is full of gas!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62799"></span>F54F</td>
+<td class="instruction">LD A,($BD7D)</td>
+<td class="comment-1" rowspan="2">Is the pipe in the room?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62802"></span>F552</td>
+<td class="instruction">CP $1D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62804"></span>F554</td>
+<td class="instruction">JR NZ,$F55C</td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62806"></span>F556</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="2">Is the pipe patched?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62808"></span>F558</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62811"></span>F55B</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62812"></span>
+<div class="comments">
+<div class="paragraph">
+The pipe is not patched. See if the player has the gas mask.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62812"></span>F55C</td>
+<td class="instruction">LD A,$14</td>
+<td class="comment-1" rowspan="2">Is the first item carried the gas mask?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62814"></span>F55E</td>
+<td class="instruction">CP (IY+$50)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62817"></span>F561</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62818"></span>F562</td>
+<td class="instruction">CP (IY+$55)</td>
+<td class="comment-1" rowspan="2">Is the second item carried the gas mask?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62821"></span>F565</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62822"></span>
+<div class="comments">
+<div class="paragraph">
+The pipe is not patched and the player does not have the gas mask. Start dropping endurance as they choke to death - oh dear.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62822"></span>F566</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="2">Drop endurance by 6 each frame.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62824"></span>F568</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62827"></span>F56B</td>
+<td class="instruction">CALL <a href="58153.html#58175">$E33F</a></td>
+<td class="comment-1" rowspan="1">Mark an immediate collision to drop endurance.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62830"></span>F56E</td>
+<td class="instruction">JP <a href="60691.html">$ED13</a></td>
+<td class="comment-1" rowspan="1">Otherwise, the logic is the same as the laboratory.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62723.html">F503</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62799">Map</a></td>
+<td class="next">
+Next: <a href="62833.html">F571</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

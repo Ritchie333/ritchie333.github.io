@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AA7F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43568.html">AA30</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43647">Map</a></td>
+<td class="next">
+Next: <a href="43660.html">AA8C</a>
+</td>
+</tr>
+</table>
+<div class="description">AA7F: Generate an "item swapped" sound effect</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43568.html">AA30</a> and <a href="60175.html">EB0F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43647"></span>AA7F</td>
+<td class="instruction">LD BC,$FF0A</td>
+<td class="comment-1" rowspan="1">Set the pitch and "descending" times.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43650"></span>AA82</td>
+<td class="instruction">LD DE,$0114</td>
+<td class="comment-1" rowspan="1">Set the "static" and "ascending" times.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43653"></span>AA85</td>
+<td class="instruction">LD HL,$1401</td>
+<td class="comment-1" rowspan="1">Set the "descending" and "ascending" level.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43656"></span>AA88</td>
+<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
+<td class="comment-1" rowspan="2">Play the sound and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43659"></span>AA8B</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43568.html">AA30</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43647">Map</a></td>
+<td class="next">
+Next: <a href="43660.html">AA8C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

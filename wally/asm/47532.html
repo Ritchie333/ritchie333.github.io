@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B9AC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47442.html">B952</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47532">Map</a></td>
+<td class="next">
+Next: <a href="47574.html">B9D6</a>
+</td>
+</tr>
+</table>
+<div class="description">B9AC: Draw the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="47442.html">B952</a>, <a href="60714.html">ED2A</a> and <a href="60919.html">EDF7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47532"></span>B9AC</td>
+<td class="instruction">LD DE,$5B00</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> into the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47535"></span>B9AF</td>
+<td class="instruction">LD IX,$8278</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the offset table for the main screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47539"></span>B9B3</td>
+<td class="instruction">LD BC,$1000</td>
+<td class="comment-1" rowspan="1">Number of bytes to draw.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47542"></span>B9B6</td>
+<td class="instruction">LD L,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the next address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47545"></span>B9B9</td>
+<td class="instruction">LD H,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47548"></span>B9BC</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="2">Move to the next entry in the table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47550"></span>B9BE</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47552"></span>B9C0</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="comment-1" rowspan="1">Copy the data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47555"></span>B9C3</td>
+<td class="instruction">JP PE,$B9B6</td>
+<td class="comment-1" rowspan="1">Jump back if there is more to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47558"></span>B9C6</td>
+<td class="instruction">LD BC,$0200</td>
+<td class="comment-1" rowspan="1">Number of bytes to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47561"></span>B9C9</td>
+<td class="instruction">LD DE,$FE00</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the attribute buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47564"></span>B9CC</td>
+<td class="instruction">LD HL,$5900</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the attributes for the main play area.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47567"></span>B9CF</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="comment-1" rowspan="1">Copy the data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47570"></span>B9D2</td>
+<td class="instruction">JP PE,$B9CF</td>
+<td class="comment-1" rowspan="1">Jump back if there is more to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47573"></span>B9D5</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47442.html">B952</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47532">Map</a></td>
+<td class="next">
+Next: <a href="47574.html">B9D6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

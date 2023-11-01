@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F177</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61789.html">F15D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61815">Map</a></td>
+<td class="next">
+Next: <a href="61954.html">F202</a>
+</td>
+</tr>
+</table>
+<div class="description">F177: Action A OUT. Go to the "out of town" screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61815"></span>F177</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61818"></span>F17A</td>
+<td class="instruction">LD HL,$06EA</td>
+<td class="comment-1" rowspan="1">Set the extremities in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61821"></span>F17D</td>
+<td class="instruction">CP $80</td>
+<td class="comment-1" rowspan="1">Is the character position greater than 80?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61823"></span>F17F</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="1">Set starting position as the far right.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61825"></span>F181</td>
+<td class="instruction">JR C,$F188</td>
+<td class="comment-1" rowspan="1">If not, the character's moved left to here, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61827"></span>F183</td>
+<td class="instruction">LD HL,$EA06</td>
+<td class="comment-1" rowspan="1">Set the extremities in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61830"></span>F186</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Set position at the far left.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61832"></span>F188</td>
+<td class="instruction">LD ($F158),HL</td>
+<td class="comment-1" rowspan="1">Store the extremeties.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61835"></span>F18B</td>
+<td class="instruction">LD ($F15A),A</td>
+<td class="comment-1" rowspan="1">Store the current position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61838"></span>F18E</td>
+<td class="instruction">LD HL,$0000</td>
+<td class="comment-1" rowspan="2">Set the number of miles walked to 0. (<a href="61787.html">F15B</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61841"></span>F191</td>
+<td class="instruction">LD ($F15B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61844"></span>F194</td>
+<td class="instruction">LD (IY+$0A),$98</td>
+<td class="comment-1" rowspan="1">Ensure the player is on the ground.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61848"></span>F198</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="comment-1" rowspan="1">Clear the playing area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61851"></span>F19B</td>
+<td class="instruction">LD HL,$F15D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the graphics data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61854"></span>F19E</td>
+<td class="instruction">CALL <a href="47442.html#47465">$B969</a></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61857"></span>F1A1</td>
+<td class="instruction">JR $F1D2</td>
+<td class="comment-1" rowspan="1">Enter the room.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61859"></span>F1A3</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="comment-1" rowspan="1">Update the sprite buffers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61862"></span>F1A6</td>
+<td class="instruction">CALL <a href="61954.html">$F202</a></td>
+<td class="comment-1" rowspan="1">Print the number of miles out of town</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61865"></span>F1A9</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="2">Touching an arrow drops the endurance by 4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61867"></span>F1AB</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61870"></span>F1AE</td>
+<td class="instruction">LD A,($F15A)</td>
+<td class="comment-1" rowspan="1">Get the direction of arrows.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61873"></span>F1B1</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1">Is the direction left?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61875"></span>F1B3</td>
+<td class="instruction">LD A,$82</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to "left arrow".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61877"></span>F1B5</td>
+<td class="instruction">JR Z,$F1B9</td>
+<td class="comment-1" rowspan="1">Jump if the direction is left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61879"></span>F1B7</td>
+<td class="instruction">LD A,$84</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to "right arrow".</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61881"></span>F1B9</td>
+<td class="instruction">CALL <a href="60810.html">$ED8A</a></td>
+<td class="comment-1" rowspan="1">Set up moving objects (the movement is the same as the Laboratory).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61884"></span>F1BC</td>
+<td class="instruction">CALL <a href="45215.html">$B09F</a></td>
+<td class="comment-1" rowspan="1">Get user input.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61887"></span>F1BF</td>
+<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
+<td class="comment-1" rowspan="1">Put characters in the sprite buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61890"></span>F1C2</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="comment-1" rowspan="1">Put the sprites on scren.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61893"></span>F1C5</td>
+<td class="instruction">LD BC,($F158)</td>
+<td class="comment-1" rowspan="1">Get the co-ordinate limits in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61897"></span>F1C9</td>
+<td class="instruction">LD HL,($F15B)</td>
+<td class="comment-1" rowspan="1">Put the number of miles walked in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61900"></span>F1CC</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Put the X co-ordinate in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61903"></span>F1CF</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Has it reached the edge?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61904"></span>F1D0</td>
+<td class="instruction">JR NZ,$F1E6</td>
+<td class="comment-1" rowspan="1">Jump forward if it hasn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61906"></span>
+<div class="comments">
+<div class="paragraph">
+Move to a room with more miles.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61906"></span>F1D2</td>
+<td class="instruction">LD BC,($F158)</td>
+<td class="comment-1" rowspan="1">Put the extremities in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61910"></span>F1D6</td>
+<td class="instruction">LD HL,($F15B)</td>
+<td class="comment-1" rowspan="1">Put the number of miles in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61913"></span>F1D9</td>
+<td class="instruction">LD A,($F15A)</td>
+<td class="comment-1" rowspan="1">Put the direction in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61916"></span>F1DC</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="2">Set the X co-ordinate to the initial position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61917"></span>F1DD</td>
+<td class="instruction">LD (IY+$05),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61920"></span>F1E0</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increment the number of miles.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61921"></span>F1E1</td>
+<td class="instruction">LD ($F15B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61924"></span>F1E4</td>
+<td class="instruction">JR $F1A3</td>
+<td class="comment-1" rowspan="1">Jump back to run the room.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61926"></span>
+<div class="comments">
+<div class="paragraph">
+Move to a room with less miles.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61926"></span>F1E6</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="1">Is the Y co-ordinate at the edge?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61927"></span>F1E7</td>
+<td class="instruction">JR NZ,$F1A3</td>
+<td class="comment-1" rowspan="1">Jump back if it isn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61929"></span>F1E9</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="2">Decrement the number of miles.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61930"></span>F1EA</td>
+<td class="instruction">LD ($F15B),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61933"></span>F1ED</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="2">Is this zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61934"></span>F1EE</td>
+<td class="instruction">OR L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61935"></span>F1EF</td>
+<td class="instruction">JR Z,$F1FC</td>
+<td class="comment-1" rowspan="1">If so, jump forward as we're back in town.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61937"></span>F1F1</td>
+<td class="instruction">LD A,($F15A)</td>
+<td class="comment-1" rowspan="1">Put the direction in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61940"></span>F1F4</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="3">Set the X co-ordinate to the initial position.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61941"></span>F1F5</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61942"></span>F1F6</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61943"></span>F1F7</td>
+<td class="instruction">LD (IY+$05),A</td>
+<td class="comment-1" rowspan="1">Set the new X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61946"></span>F1FA</td>
+<td class="instruction">JR $F1A3</td>
+<td class="comment-1" rowspan="1">Jump back to run the room.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61948"></span>
+<div class="comments">
+<div class="paragraph">
+Finally found our way back to town.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61948"></span>F1FC</td>
+<td class="instruction">LD (IY+$05),B</td>
+<td class="comment-1" rowspan="1">Set the X co-ordinate as the starting point for a room with less miles.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61951"></span>F1FF</td>
+<td class="instruction">JP <a href="60919.html#61069">$EE8D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61789.html">F15D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61815">Map</a></td>
+<td class="next">
+Next: <a href="61954.html">F202</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

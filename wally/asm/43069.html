@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at A83D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43067.html">A83B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43069">Map</a></td>
+<td class="next">
+Next: <a href="43168.html">A8A0</a>
+</td>
+</tr>
+</table>
+<div class="description">A83D: Put a static object on screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="61121.html">EEC1</a>, <a href="62260.html">F334</a>, <a href="62524.html">F43C</a>, <a href="62675.html">F4D3</a>, <a href="62834.html">F572</a>, <a href="63212.html">F6EC</a>, <a href="63302.html">F746</a>, <a href="63347.html">F773</a>, <a href="63508.html">F814</a>, <a href="63802.html">F93A</a> and <a href="63989.html">F9F5</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ID of the object to draw.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43069"></span>
+<div class="comments">
+<div class="paragraph">
+The location of the object to draw is stored at <a href="43064.html">A838</a>.
+</div>
+<div class="paragraph">
+This routine is a copy of code used in Pyjamarama, the previous game in the series.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43069"></span>A83D</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43070"></span>A83E</td>
+<td class="instruction">EXX</td>
+<td class="comment-1" rowspan="1">Exchange all main registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43071"></span>A83F</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Remember the object ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43072"></span>A840</td>
+<td class="instruction">LD ($A83B),SP</td>
+<td class="comment-1" rowspan="1">Remember the current stack pointer in <a href="43067.html">A83B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43076"></span>A844</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="2">Put the object ID in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43077"></span>A845</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43079"></span>A847</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="5">Multiply by 32 to get a suitable offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43080"></span>A848</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43081"></span>A849</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43082"></span>A84A</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43083"></span>A84B</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43084"></span>A84C</td>
+<td class="instruction">LD SP,$8378</td>
+<td class="comment-1" rowspan="1">Point the stack at the start of the graphics buffer. (<a href="33656.html">8378</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43087"></span>A84F</td>
+<td class="instruction">ADD HL,SP</td>
+<td class="comment-1" rowspan="2">Add the offset so the stack is at the start of the graphic data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43088"></span>A850</td>
+<td class="instruction">LD SP,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43089"></span>A851</td>
+<td class="instruction">LD A,($A838)</td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43092"></span>A854</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Set this in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43093"></span>A855</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43095"></span>A857</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43096"></span>A858</td>
+<td class="instruction">LD ($A87B),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43099"></span>A85B</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43100"></span>A85C</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43102"></span>A85E</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43103"></span>A85F</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43104"></span>A860</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43105"></span>A861</td>
+<td class="instruction">LD ($EFAF),A</td>
+<td class="comment-1" rowspan="1">Change the routine at <a href="61329.html">EF91</a> to use a different pointer in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43108"></span>A864</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43110"></span>A866</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43111"></span>A867</td>
+<td class="instruction">LD A,($A839)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43114"></span>A86A</td>
+<td class="instruction">SUB $40</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43116"></span>A86C</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43117"></span>A86D</td>
+<td class="instruction">LD H,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43119"></span>A86F</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43120"></span>A870</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43121"></span>A871</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43122"></span>A872</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43123"></span>A873</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43124"></span>A874</td>
+<td class="instruction">LD D,$6B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43126"></span>A876</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43127"></span>A877</td>
+<td class="instruction">LD C,$10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="43129"></span>A879</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43130"></span>A87A</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43132"></span>A87C</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43133"></span>A87D</td>
+<td class="instruction">JR Z,$A889</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43135"></span>A87F</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="43136"></span>A880</td>
+<td class="instruction">SRL E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43138"></span>A882</td>
+<td class="instruction">RR D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43140"></span>A884</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43141"></span>A885</td>
+<td class="instruction">DJNZ $A880</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43143"></span>A887</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43144"></span>A888</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="43145"></span>A889</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43146"></span>A88A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43147"></span>A88B</td>
+<td class="instruction">OR D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43148"></span>A88C</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43149"></span>A88D</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43150"></span>A88E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43151"></span>A88F</td>
+<td class="instruction">OR E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43152"></span>A890</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43153"></span>A891</td>
+<td class="instruction">LD DE,$0022</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43156"></span>A894</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43157"></span>A895</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43158"></span>A896</td>
+<td class="instruction">JP NZ,$A879</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43161"></span>A899</td>
+<td class="instruction">LD SP,($A83B)</td>
+<td class="comment-1" rowspan="1">Restore the stack pointer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43165"></span>A89D</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore the object ID in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43166"></span>A89E</td>
+<td class="instruction">EXX</td>
+<td class="comment-1" rowspan="2">Swap back all main registers and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43167"></span>A89F</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43067.html">A83B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43069">Map</a></td>
+<td class="next">
+Next: <a href="43168.html">A8A0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

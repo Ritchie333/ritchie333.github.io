@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F409</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62465.html">F401</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62473">Map</a></td>
+<td class="next">
+Next: <a href="62524.html">F43C</a>
+</td>
+</tr>
+</table>
+<div class="description">F409: Room logic : The Bakers</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62473"></span>F409</td>
+<td class="instruction">LD A,$06</td>
+<td class="comment-1" rowspan="2">Touching a moving object drops endurance by 6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62475"></span>F40B</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62478"></span>F40E</td>
+<td class="instruction">LD IX,$F401</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62482"></span>F412</td>
+<td class="instruction">LD B,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="62484"></span>F414</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62485"></span>F415</td>
+<td class="instruction">LD BC,$F3FD</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62488"></span>F418</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62491"></span>F41B</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62492"></span>F41C</td>
+<td class="instruction">CP $FE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62494"></span>F41E</td>
+<td class="instruction">JR NZ,$F430</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62496"></span>F420</td>
+<td class="instruction">LD (IX-$01),$FC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62500"></span>F424</td>
+<td class="instruction">LD (IX-$02),$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62504"></span>F428</td>
+<td class="instruction">LD (IX-$03),$80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62508"></span>F42C</td>
+<td class="instruction">LD (IX-$04),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="62512"></span>F430</td>
+<td class="instruction">LD A,$32</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62514"></span>F432</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62517"></span>F435</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62520"></span>F438</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62521"></span>F439</td>
+<td class="instruction">DJNZ $F414</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62523"></span>F43B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62465.html">F401</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62473">Map</a></td>
+<td class="next">
+Next: <a href="62524.html">F43C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

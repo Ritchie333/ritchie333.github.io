@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B3AB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45900.html">B34C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45995">Map</a></td>
+<td class="next">
+Next: <a href="46014.html">B3BE</a>
+</td>
+</tr>
+</table>
+<div class="description">B3AB: Wait for a keypress and return it in A</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="45809.html">B2F1</a>, <a href="46019.html">B3C3</a> and <a href="46161.html">B451</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45995"></span>B3AB</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Read all rows of the keyboard, if any are pressed, then the relevant bit 0 - 5 will be reset. Although this makes it impossible to determine what key is pressed, that doesn't matter here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45996"></span>B3AC</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45998"></span>B3AE</td>
+<td class="instruction">OR $E0</td>
+<td class="comment-1" rowspan="1">Switch on bits 5-7, which are not used.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46000"></span>B3B0</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Were any keys pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46002"></span>B3B2</td>
+<td class="instruction">JR NZ,$B3AB</td>
+<td class="comment-1" rowspan="1">Loop back while there aren't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46004"></span>
+<div class="comments">
+<div class="paragraph">
+A key is pressed. Make sure it's released before continuing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="46004"></span>B3B4</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Read all keys again.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46005"></span>B3B5</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46007"></span>B3B7</td>
+<td class="instruction">OR $E0</td>
+<td class="comment-1" rowspan="1">Switch on bits 5-7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46009"></span>B3B9</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Were any keys pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46011"></span>B3BB</td>
+<td class="instruction">JR Z,$B3B4</td>
+<td class="comment-1" rowspan="1">Loop back while there still are.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46013"></span>B3BD</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45900.html">B34C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45995">Map</a></td>
+<td class="next">
+Next: <a href="46014.html">B3BE</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

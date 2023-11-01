@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EB01</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60139.html">EAEB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60161">Map</a></td>
+<td class="next">
+Next: <a href="60175.html">EB0F</a>
+</td>
+</tr>
+</table>
+<div class="description">EB01: Action 0 : SWAP. An item can be collected. Swap it for the oldest item.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60161"></span>EB01</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Set that the item should be swapped. (<a href="60244.html">EB54</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60163"></span>EB03</td>
+<td class="instruction">LD ($EB54),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60166"></span>EB06</td>
+<td class="instruction">LD B,(IY-$2D)</td>
+<td class="comment-1" rowspan="1">Get the ID of the least recently picked up object the player has.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60169"></span>EB09</td>
+<td class="instruction">CALL <a href="43568.html">$AA30</a></td>
+<td class="comment-1" rowspan="1">Swap the objects.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60172"></span>EB0C</td>
+<td class="instruction">JP <a href="60139.html">$EAEB</a></td>
+<td class="comment-1" rowspan="1">Process more actions.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60139.html">EAEB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60161">Map</a></td>
+<td class="next">
+Next: <a href="60175.html">EB0F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

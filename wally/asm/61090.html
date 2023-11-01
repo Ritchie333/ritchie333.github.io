@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EEA2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60919.html">EDF7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61090">Map</a></td>
+<td class="next">
+Next: <a href="61121.html">EEC1</a>
+</td>
+</tr>
+</table>
+<div class="description">EEA2: Update the sprite buffers at 6B00 and FE00</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33083.html">813B</a>, <a href="60714.html">ED2A</a>, <a href="60919.html">EDF7</a>, <a href="61121.html">EEC1</a>, <a href="61383.html">EFC7</a> and <a href="61815.html">F177</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61090"></span>EEA2</td>
+<td class="instruction">LD DE,$6B00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61093"></span>EEA5</td>
+<td class="instruction">LD HL,$5B00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61096"></span>EEA8</td>
+<td class="instruction">LD BC,$1000</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61099"></span>EEAB</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61102"></span>EEAE</td>
+<td class="instruction">JP PE,$EEAB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61105"></span>EEB1</td>
+<td class="instruction">LD BC,$0200</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61108"></span>EEB4</td>
+<td class="instruction">LD HL,$FE00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61111"></span>EEB7</td>
+<td class="instruction">LD DE,$FC00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61114"></span>EEBA</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61117"></span>EEBD</td>
+<td class="instruction">JP PE,$EEBA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61120"></span>EEC0</td>
+<td class="instruction">RET</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60919.html">EDF7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61090">Map</a></td>
+<td class="next">
+Next: <a href="61121.html">EEC1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

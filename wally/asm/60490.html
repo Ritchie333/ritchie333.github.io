@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EC4A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60477.html">EC3D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60490">Map</a></td>
+<td class="next">
+Next: <a href="60508.html">EC5C</a>
+</td>
+</tr>
+</table>
+<div class="description">EC4A: Set a game flag to a value</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="60835.html">EDA3</a> and <a href="60840.html">EDA8</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Points to the value to use and the flag to set</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60490"></span>EC4A</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60491"></span>EC4B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60492"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="60844.html">EDAC</a>. At this point, <span class="register">E</span> contains the ID of the flag to set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60492"></span>EC4C</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60493"></span>EC4D</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="3">Add the ID to the base address of flags at <a href="60431.html">EC0F</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60495"></span>EC4F</td>
+<td class="instruction">LD HL,$EC0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60498"></span>EC52</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60499"></span>EC53</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the flag already has this value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60500"></span>EC54</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set the value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60501"></span>EC55</td>
+<td class="instruction">CALL NZ,<a href="58397.html">$E41D</a></td>
+<td class="comment-1" rowspan="1">If the value is different, update the inventory as it may have changed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60504"></span>EC58</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60505"></span>EC59</td>
+<td class="instruction">JP <a href="60139.html">$EAEB</a></td>
+<td class="comment-1" rowspan="1">Continue to any further actions to process.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60477.html">EC3D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60490">Map</a></td>
+<td class="next">
+Next: <a href="60508.html">EC5C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

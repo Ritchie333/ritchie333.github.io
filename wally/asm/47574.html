@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B9D6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47532.html">B9AC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47574">Map</a></td>
+<td class="next">
+Next: <a href="47611.html">B9FB</a>
+</td>
+</tr>
+</table>
+<div class="description">B9D6: Update the characters' positions and draw if it's in range</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE</a> and <a href="46019.html">B3C3</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IY</td>
+<td class="register-desc">The buffer containing the current character's data</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47574"></span>B9D6</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Get the current room in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47577"></span>B9D9</td>
+<td class="instruction">LD ($B951),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47580"></span>B9DC</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47582"></span>B9DE</td>
+<td class="instruction">PUSH IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47584"></span>B9E0</td>
+<td class="instruction">LD IY,$BC6B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="47588"></span>B9E4</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47589"></span>B9E5</td>
+<td class="instruction">LD A,($B951)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47592"></span>B9E8</td>
+<td class="instruction">CP (IY+$0F)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47595"></span>B9EB</td>
+<td class="instruction">JR NZ,$B9F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47597"></span>B9ED</td>
+<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="47600"></span>B9F0</td>
+<td class="instruction">DEC IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47602"></span>B9F2</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47603"></span>B9F3</td>
+<td class="instruction">DJNZ $B9E4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47605"></span>B9F5</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47607"></span>B9F7</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47610"></span>B9FA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47532.html">B9AC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47574">Map</a></td>
+<td class="next">
+Next: <a href="47611.html">B9FB</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

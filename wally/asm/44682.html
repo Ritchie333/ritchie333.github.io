@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AE8A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44637.html">AE5D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44682">Map</a></td>
+<td class="next">
+Next: <a href="44711.html">AEA7</a>
+</td>
+</tr>
+</table>
+<div class="description">AE8A: Find the address of an item with the specified index</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43308.html">A92C</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">The item index</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">On exit, holds of the address of the item data currently at that location</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44682"></span>AE8A</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Start at room 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44684"></span>AE8C</td>
+<td class="instruction">LD BC,$21FF</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to 21 (number of rooms) and <span class="register">C</span> to FF (default index)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44687"></span>AE8F</td>
+<td class="instruction">LD HL,$BCE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the start of the object data. (<a href="48361.html">BCE9</a>)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44690"></span>AE92</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44691"></span>AE93</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is this an end marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44693"></span>AE95</td>
+<td class="instruction">JR Z,$AEA0</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44695"></span>AE97</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="4">Move to the next entry.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44696"></span>AE98</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44697"></span>AE99</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44698"></span>AE9A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44699"></span>AE9B</td>
+<td class="instruction">INC C</td>
+<td class="comment-1" rowspan="1">Increment the index count.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44700"></span>AE9C</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="1">Does this match the index?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44701"></span>AE9D</td>
+<td class="instruction">JR NZ,$AE92</td>
+<td class="comment-1" rowspan="1">Jump back to look at more data if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44703"></span>AE9F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return, <span class="register">HL</span> is now pointing at the data for this item.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44704"></span>
+<div class="comments">
+<div class="paragraph">
+There is no object data here.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44704"></span>AEA0</td>
+<td class="instruction">LD C,$FF</td>
+<td class="comment-1" rowspan="1">Set C to "no item found".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44706"></span>AEA2</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next entry in the object buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44707"></span>AEA3</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Increment the room count.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44708"></span>AEA4</td>
+<td class="instruction">DJNZ $AE92</td>
+<td class="comment-1" rowspan="1">Loop while there are more rooms to look at.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44710"></span>AEA6</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44637.html">AE5D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44682">Map</a></td>
+<td class="next">
+Next: <a href="44711.html">AEA7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

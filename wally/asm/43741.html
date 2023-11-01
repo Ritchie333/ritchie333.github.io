@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AADD</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43698.html">AAB2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43741">Map</a></td>
+<td class="next">
+Next: <a href="43785.html">AB09</a>
+</td>
+</tr>
+</table>
+<div class="description">AADD: Movement routine 1. Check a character can be moved right, and do so if possible</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43741"></span>AADD</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43744"></span>AAE0</td>
+<td class="instruction">CP $98</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43746"></span>AAE2</td>
+<td class="instruction">JR Z,$AAF9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43748"></span>AAE4</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43751"></span>AAE7</td>
+<td class="instruction">CP $1F</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43753"></span>AAE9</td>
+<td class="instruction">JR NZ,$AAF9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43755"></span>AAEB</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43758"></span>AAEE</td>
+<td class="instruction">CP $78</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43760"></span>AAF0</td>
+<td class="instruction">JR C,$AAF9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43762"></span>AAF2</td>
+<td class="instruction">LD (IY+$3C),$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43766"></span>AAF6</td>
+<td class="instruction">JP <a href="45704.html">$B288</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="43769"></span>AAF9</td>
+<td class="instruction">LD (IY+$3C),$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43773"></span>AAFD</td>
+<td class="instruction">CALL <a href="45704.html">$B288</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43776"></span>AB00</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43779"></span>AB03</td>
+<td class="instruction">CP $F0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43781"></span>AB05</td>
+<td class="instruction">JP Z,<a href="44637.html">$AE5D</a></td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="43784"></span>AB08</td>
+<td class="instruction">RET</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43698.html">AAB2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43741">Map</a></td>
+<td class="next">
+Next: <a href="43785.html">AB09</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

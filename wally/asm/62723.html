@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F503</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62719.html">F4FF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62723">Map</a></td>
+<td class="next">
+Next: <a href="62799.html">F54F</a>
+</td>
+</tr>
+</table>
+<div class="description">F503: Room logic : The Super Market</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62723"></span>F503</td>
+<td class="instruction">LD A,$FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62725"></span>F505</td>
+<td class="instruction">LD ($AF80),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62728"></span>F508</td>
+<td class="instruction">LD A,$0C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62730"></span>F50A</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62733"></span>F50D</td>
+<td class="instruction">JR Z,$F543</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62735"></span>F50F</td>
+<td class="instruction">LD A,$06</td>
+<td class="comment-1" rowspan="2">Touching a moving object drops endurance by 6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62737"></span>F511</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62740"></span>F514</td>
+<td class="instruction">LD IX,$F4FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62744"></span>F518</td>
+<td class="instruction">LD BC,$F2F7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62747"></span>F51B</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62750"></span>F51E</td>
+<td class="instruction">LD A,$36</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62752"></span>F520</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62755"></span>F523</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62758"></span>F526</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62761"></span>F529</td>
+<td class="instruction">CP $88</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62763"></span>F52B</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62764"></span>F52C</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62767"></span>F52F</td>
+<td class="instruction">SUB (IX-$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62770"></span>F532</td>
+<td class="instruction">SUB $04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62772"></span>F534</td>
+<td class="instruction">CP $F8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62774"></span>F536</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62775"></span>F537</td>
+<td class="instruction">LD A,(IX-$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62778"></span>F53A</td>
+<td class="instruction">LD (IY+$05),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62781"></span>F53D</td>
+<td class="instruction">LD A,$A8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62783"></span>F53F</td>
+<td class="instruction">LD ($AF80),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62786"></span>F542</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="62787"></span>F543</td>
+<td class="instruction">LD HL,$A8F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62790"></span>F546</td>
+<td class="instruction">LD ($A838),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62793"></span>F549</td>
+<td class="instruction">LD A,$36</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62795"></span>F54B</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62798"></span>F54E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62719.html">F4FF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62723">Map</a></td>
+<td class="next">
+Next: <a href="62799.html">F54F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

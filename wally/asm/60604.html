@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at ECBC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60508.html">EC5C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60604">Map</a></td>
+<td class="next">
+Next: <a href="60661.html">ECF5</a>
+</td>
+</tr>
+</table>
+<div class="description">ECBC: Action 5 EARN(x). Pay the current character amount in offset xx</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+HL Pointer to the data for this action.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60604"></span>ECBC</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">Get the next byte as the ID for earnings and put it in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60605"></span>ECBD</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60606"></span>ECBE</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60608"></span>ECC0</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember the current position in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60609"></span>ECC1</td>
+<td class="instruction">LD HL,$EC5C</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the start of the money lookup table. (<a href="60508.html">EC5C</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60612"></span>ECC4</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="3">Add the ID multiplied by 3 to get to the right address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60613"></span>ECC5</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60614"></span>ECC6</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60615"></span>ECC7</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60616"></span>ECC8</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60617"></span>ECC9</td>
+<td class="instruction">JR NZ,$ECF1</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60619"></span>
+<div class="comments">
+<div class="paragraph">
+Allocate the money to the current character.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60619"></span>ECCB</td>
+<td class="instruction">LD (HL),$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60621"></span>ECCD</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60622"></span>ECCE</td>
+<td class="instruction">LD A,(IY-$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60625"></span>ECD1</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60626"></span>ECD2</td>
+<td class="instruction">DAA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60627"></span>ECD3</td>
+<td class="instruction">LD (IY-$0A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60630"></span>ECD6</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60631"></span>ECD7</td>
+<td class="instruction">LD A,(IY-$1E)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60634"></span>ECDA</td>
+<td class="instruction">ADC A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60635"></span>ECDB</td>
+<td class="instruction">DAA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60636"></span>ECDC</td>
+<td class="instruction">LD (IY-$1E),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60639"></span>ECDF</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60640"></span>ECE0</td>
+<td class="instruction">LD A,($ECFF)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60643"></span>ECE3</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60644"></span>ECE4</td>
+<td class="instruction">DAA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60645"></span>ECE5</td>
+<td class="instruction">LD ($ECFF),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60648"></span>ECE8</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60649"></span>ECE9</td>
+<td class="instruction">LD A,($ECFE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60652"></span>ECEC</td>
+<td class="instruction">ADC A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60653"></span>ECED</td>
+<td class="instruction">DAA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60654"></span>ECEE</td>
+<td class="instruction">LD ($ECFE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="60657"></span>ECF1</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore the current position in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60658"></span>ECF2</td>
+<td class="instruction">JP <a href="60139.html">$EAEB</a></td>
+<td class="comment-1" rowspan="1">Jump forward to execute more actions.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60508.html">EC5C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60604">Map</a></td>
+<td class="next">
+Next: <a href="60661.html">ECF5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

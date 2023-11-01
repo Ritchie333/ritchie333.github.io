@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F10E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61706.html">F10A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61710">Map</a></td>
+<td class="next">
+Next: <a href="61784.html">F158</a>
+</td>
+</tr>
+</table>
+<div class="description">F10E: See if the jumping jack needs to be on screen, and if so, move it</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33198.html">81AE</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61710"></span>F10E</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="2">Touching the jumping jack drops endurance by 4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61712"></span>F110</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61715"></span>F113</td>
+<td class="instruction">LD IX,$F104</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61719"></span>F117</td>
+<td class="instruction">LD BC,$F10A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61722"></span>F11A</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61725"></span>F11D</td>
+<td class="instruction">LD A,(IX-$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61728"></span>F120</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61729"></span>F121</td>
+<td class="instruction">JR NZ,$F13F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61731"></span>F123</td>
+<td class="instruction">DEC (IX+$01)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61734"></span>F126</td>
+<td class="instruction">JR NZ,$F13F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61736"></span>F128</td>
+<td class="instruction">LD (IX+$01),$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61740"></span>F12C</td>
+<td class="instruction">LD (IX-$04),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61744"></span>F130</td>
+<td class="instruction">LD (IX-$03),$A8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61748"></span>F134</td>
+<td class="instruction">LD (IX-$01),$FE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61752"></span>F138</td>
+<td class="instruction">CALL <a href="44801.html">$AF01</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61755"></span>F13B</td>
+<td class="instruction">LD (IX+$00),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61758"></span>F13E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61759"></span>F13F</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61762"></span>F142</td>
+<td class="instruction">CP (IY+$0F)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61765"></span>F145</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61766"></span>F146</td>
+<td class="instruction">LD A,(IX-$03)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61769"></span>F149</td>
+<td class="instruction">CP $A8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61771"></span>F14B</td>
+<td class="instruction">LD A,$48</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61773"></span>F14D</td>
+<td class="instruction">JR NZ,$F151</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61775"></span>F14F</td>
+<td class="instruction">LD A,$4A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61777"></span>F151</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61780"></span>F154</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61783"></span>F157</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61706.html">F10A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61710">Map</a></td>
+<td class="next">
+Next: <a href="61784.html">F158</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

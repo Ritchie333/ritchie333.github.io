@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AC06</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43991.html">ABD7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44038">Map</a></td>
+<td class="next">
+Next: <a href="44127.html">AC5F</a>
+</td>
+</tr>
+</table>
+<div class="description">AC06: New room check</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33156.html">8184</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IY</td>
+<td class="register-desc">Pointer to current character data (<a href="48231.html">BC67</a> - BC6B)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44038"></span>
+<div class="comments">
+<div class="paragraph">
+This routine sees if the character is at the left or right of the screen, or 'in' was pressed, and switches rooms if appropriate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44038"></span>AC06</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Get the current player's x co-ordinate. (<a href="48236.html">BC6C</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44041"></span>AC09</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero? (far left)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44042"></span>AC0A</td>
+<td class="instruction">JR Z,$AC15</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44044"></span>AC0C</td>
+<td class="instruction">CP $F0</td>
+<td class="comment-1" rowspan="1">Is it F0? (far right)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44046"></span>AC0E</td>
+<td class="instruction">JR Z,$AC15</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44048"></span>AC10</td>
+<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="comment-1" rowspan="2">Was the 'in' key pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44051"></span>AC13</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44052"></span>AC14</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44053"></span>
+<div class="comments">
+<div class="paragraph">
+Player has moved off screen, so do something.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44053"></span>AC15</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Put the current room in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44056"></span>AC18</td>
+<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
+<td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44059"></span>AC1B</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>, so the "next rooms" table is in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44060"></span>
+<div class="comments">
+<div class="paragraph">
+Loop through the entries in the room, seeing what can be done.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44060"></span>AC1C</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the next entry.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44061"></span>AC1D</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is this an 'end' marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44063"></span>AC1F</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44064"></span>AC20</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Otherwise put the new room in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44065"></span>AC21</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="2">Put the co-ordinate table in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44066"></span>AC22</td>
+<td class="instruction">LD A,(DE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44067"></span>AC23</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44068"></span>AC24</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44069"></span>AC25</td>
+<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
+<td class="comment-1" rowspan="1">Get the co-ordinate table for this index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44072"></span>AC28</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44073"></span>AC29</td>
+<td class="instruction">SUB (IY+$05)</td>
+<td class="comment-1" rowspan="3">Is it close enough to the current X co-ordinate?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44076"></span>AC2C</td>
+<td class="instruction">SUB $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44078"></span>AC2E</td>
+<td class="instruction">CP $F0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44080"></span>AC30</td>
+<td class="instruction">JR C,$AC1C</td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44082"></span>
+<div class="comments">
+<div class="paragraph">
+The X co-ordinate is in range.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44082"></span>AC32</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44083"></span>AC33</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Does it match the player's?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44084"></span>AC34</td>
+<td class="instruction">CP (IY+$0A)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44087"></span>AC37</td>
+<td class="instruction">JR NZ,$AC1C</td>
+<td class="comment-1" rowspan="1">Jump back if it doesn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44089"></span>AC39</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-1" rowspan="1">Jump back to the X co-ordinate placeholder.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44090"></span>AC3A</td>
+<td class="instruction">LD (IY+$0F),B</td>
+<td class="comment-1" rowspan="1">Set the new room to <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44093"></span>AC3D</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44094"></span>AC3E</td>
+<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
+<td class="comment-1" rowspan="1">Get the co-ordinate table for this index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44097"></span>AC41</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44098"></span>AC42</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44099"></span>AC43</td>
+<td class="instruction">JR NZ,$AC47</td>
+<td class="comment-1" rowspan="1">No, must have not come in from the left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44101"></span>AC45</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Otherwise set the co-ordinate to be far left.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44103"></span>AC47</td>
+<td class="instruction">CP $F0</td>
+<td class="comment-1" rowspan="1">Is it far right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44105"></span>AC49</td>
+<td class="instruction">JR NZ,$AC4D</td>
+<td class="comment-1" rowspan="1">No, must have come in from elsewhere.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44107"></span>AC4B</td>
+<td class="instruction">LD A,$EE</td>
+<td class="comment-1" rowspan="1">Otherwise set the co-ordinates to be far right.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44109"></span>AC4D</td>
+<td class="instruction">LD (IY+$05),A</td>
+<td class="comment-1" rowspan="1">Write new X co-ordinate to memory.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44112"></span>AC50</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44113"></span>AC51</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44114"></span>AC52</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="1">Set the new Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44117"></span>AC55</td>
+<td class="instruction">CALL <a href="47442.html">$B952</a></td>
+<td class="comment-1" rowspan="1">Draw the room.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44120"></span>AC58</td>
+<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44123"></span>AC5B</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44124"></span>AC5C</td>
+<td class="instruction">JR NZ,$AC58</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="44126"></span>AC5E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43991.html">ABD7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44038">Map</a></td>
+<td class="next">
+Next: <a href="44127.html">AC5F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

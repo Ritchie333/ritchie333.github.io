@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B09F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45213.html">B09D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45215">Map</a></td>
+<td class="next">
+Next: <a href="45286.html">B0E6</a>
+</td>
+</tr>
+</table>
+<div class="description">B09F: Check for user input and act on it</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F177</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45215"></span>B09F</td>
+<td class="instruction">LD IY,($B09D)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the current player buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45219"></span>B0A3</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="2">Mark the current player's room as the current one. (<a href="47441.html">B951</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45222"></span>B0A6</td>
+<td class="instruction">LD ($B951),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45225"></span>B0A9</td>
+<td class="instruction">CALL <a href="44996.html">$AFC4</a></td>
+<td class="comment-1" rowspan="1">Drop the player to ground if they are in mid-air.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45228"></span>B0AC</td>
+<td class="instruction">LD A,(IY+$46)</td>
+<td class="comment-1" rowspan="1">Set flag (?) to 0. (<a href="48301.html">BCAD</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45231"></span>B0AF</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45232"></span>B0B0</td>
+<td class="instruction">JP NZ,<a href="45478.html#45497">$B1B9</a></td>
+<td class="comment-1" rowspan="1">If not zero, make the character jump.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45235"></span>B0B3</td>
+<td class="instruction">LD A,(IY+$37)</td>
+<td class="comment-1" rowspan="2">Is the character on the ground? (???)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45238"></span>B0B6</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45239"></span>B0B7</td>
+<td class="instruction">JP NZ,<a href="45463.html">$B197</a></td>
+<td class="comment-1" rowspan="1">If not, make them fall one level.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45242"></span>B0BA</td>
+<td class="instruction">CALL <a href="45165.html">$B06D</a></td>
+<td class="comment-1" rowspan="2">Was 'jump' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45245"></span>B0BD</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45246"></span>B0BE</td>
+<td class="instruction">JP NZ,<a href="45478.html">$B1A6</a></td>
+<td class="comment-1" rowspan="1">If it was, make the character jump.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45249"></span>B0C1</td>
+<td class="instruction">LD (IY+$3C),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45253"></span>B0C5</td>
+<td class="instruction">CALL <a href="45067.html">$B00B</a></td>
+<td class="comment-1" rowspan="2">Was 'right' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45256"></span>B0C8</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45257"></span>B0C9</td>
+<td class="instruction">JR Z,$B0D6</td>
+<td class="comment-1" rowspan="1">Jump forward if it wasn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45259"></span>B0CB</td>
+<td class="instruction">LD (IY+$3C),$01</td>
+<td class="comment-1" rowspan="2">Set the direction to "right".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45263"></span>B0CF</td>
+<td class="instruction">LD (IY+$41),$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45267"></span>B0D3</td>
+<td class="instruction">JP <a href="45704.html">$B288</a></td>
+<td class="comment-1" rowspan="1">Move the character.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45270"></span>B0D6</td>
+<td class="instruction">CALL <a href="45116.html">$B03C</a></td>
+<td class="comment-1" rowspan="2">Was 'left' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45273"></span>B0D9</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45274"></span>B0DA</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if it wasn't, no input made.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45275"></span>B0DB</td>
+<td class="instruction">LD (IY+$3C),$FF</td>
+<td class="comment-1" rowspan="2">Set the direction to "left".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45279"></span>B0DF</td>
+<td class="instruction">LD (IY+$41),$FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45283"></span>B0E3</td>
+<td class="instruction">JP <a href="45704.html">$B288</a></td>
+<td class="comment-1" rowspan="1">Move the character.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45213.html">B09D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45215">Map</a></td>
+<td class="next">
+Next: <a href="45286.html">B0E6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

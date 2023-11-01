@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at ED2A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60691.html">ED13</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60714">Map</a></td>
+<td class="next">
+Next: <a href="60810.html">ED8A</a>
+</td>
+</tr>
+</table>
+<div class="description">ED2A: See if we've reached a break, and display a message if so</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33156.html">8184</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60714"></span>ED2A</td>
+<td class="instruction">LD A,($ECF5)</td>
+<td class="comment-1" rowspan="1">Get the index of the next reward screen. (<a href="60661.html">ECF5</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60717"></span>ED2D</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double it to get a word offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60718"></span>ED2E</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60719"></span>ED2F</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60721"></span>ED31</td>
+<td class="instruction">LD HL,$ECF6</td>
+<td class="comment-1" rowspan="2">Add the base address of the reward value buffer. (<a href="60662.html">ECF6</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60724"></span>ED34</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60725"></span>ED35</td>
+<td class="instruction">LD A,($ECFF)</td>
+<td class="comment-1" rowspan="1">Get the "tens" part of the total money earned.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60728"></span>ED38</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-1" rowspan="1">Subtract the "tens" value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60729"></span>ED39</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move to the next entry containsing the "hundreds"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60730"></span>ED3A</td>
+<td class="instruction">LD A,($ECFE)</td>
+<td class="comment-1" rowspan="1">Get the "hundreds" part of the total money earned.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60733"></span>ED3D</td>
+<td class="instruction">SBC A,(HL)</td>
+<td class="comment-1" rowspan="1">Subtract the "hundreds" value, accounting for any carry with the "tens".</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60734"></span>ED3E</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1">Return if the value is greater than our current earnings.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60735"></span>
+<div class="comments">
+<div class="paragraph">
+We've got enough money, so display a graphic.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60735"></span>ED3F</td>
+<td class="instruction">LD BC,$0000</td>
+<td class="comment-1" rowspan="7">Pause for a bit.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60738"></span>ED42</td>
+<td class="instruction">DEC BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60739"></span>ED43</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60740"></span>ED44</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60741"></span>ED45</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60742"></span>ED46</td>
+<td class="instruction">OR C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60743"></span>ED47</td>
+<td class="instruction">JR NZ,$ED42</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60745"></span>ED49</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="comment-1" rowspan="1">Clear the playing area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60748"></span>ED4C</td>
+<td class="instruction">LD HL,$ED00</td>
+<td class="comment-1" rowspan="2">Add the word offset previously stored in <span class="register">DE</span> to the base address of the message buffer. (<a href="60672.html">ED00</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60751"></span>ED4F</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60752"></span>ED50</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">Put the actual address in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60753"></span>ED51</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60754"></span>ED52</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60755"></span>ED53</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60756"></span>ED54</td>
+<td class="instruction">LD DE,$0000</td>
+<td class="comment-1" rowspan="1">Set the position to top left.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60759"></span>ED57</td>
+<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
+<td class="comment-1" rowspan="1">Print the string pointed to by <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60762"></span>ED5A</td>
+<td class="instruction">CALL <a href="47532.html">$B9AC</a></td>
+<td class="comment-1" rowspan="1">Draw the screen.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60765"></span>ED5D</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="comment-1" rowspan="1">Update the sprite buffers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60768"></span>ED60</td>
+<td class="instruction">LD A,($ECF5)</td>
+<td class="comment-1" rowspan="1">Get the index of the next reward screen. (<a href="60661.html">ECF5</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60771"></span>ED63</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="2">Double it and add 65 to get an appropriate index for the reward screen moving graphics.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60772"></span>ED64</td>
+<td class="instruction">ADD A,$65</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60774"></span>ED66</td>
+<td class="instruction">LD IX,$ED06</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table for the reward screens. (<a href="60678.html">ED06</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60778"></span>ED6A</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Three rounds to draw.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60780"></span>ED6C</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60781"></span>ED6D</td>
+<td class="instruction">LD BC,$F5CA</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds for the moving graphics.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60784"></span>ED70</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="comment-1" rowspan="1">Update the moving objects.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60787"></span>ED73</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="comment-1" rowspan="1">Update the graphic buffers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60790"></span>ED76</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60791"></span>ED77</td>
+<td class="instruction">DJNZ $ED6C</td>
+<td class="comment-1" rowspan="1">Loop back while there's more to display.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60793"></span>ED79</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="comment-1" rowspan="1">Put the sprites on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60796"></span>ED7C</td>
+<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="comment-1" rowspan="2">Was a key pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60799"></span>ED7F</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60800"></span>ED80</td>
+<td class="instruction">JR Z,$ED5D</td>
+<td class="comment-1" rowspan="1">If not, loop back to draw some more.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60802"></span>ED82</td>
+<td class="instruction">LD HL,$ECF5</td>
+<td class="comment-1" rowspan="2">Move onto the next reward screen index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60805"></span>ED85</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60806"></span>ED86</td>
+<td class="instruction">CALL <a href="47442.html">$B952</a></td>
+<td class="comment-1" rowspan="1">Draw the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60809"></span>ED89</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60691.html">ED13</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60714">Map</a></td>
+<td class="next">
+Next: <a href="60810.html">ED8A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

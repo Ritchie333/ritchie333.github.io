@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F746</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63290.html">F73A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63302">Map</a></td>
+<td class="next">
+Next: <a href="63347.html">F773</a>
+</td>
+</tr>
+</table>
+<div class="description">F746: Room logic : Wally's House</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="63302"></span>F746</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="2">Moving objects decrease endurance by 8.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63304"></span>F748</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="63307"></span>F74B</td>
+<td class="instruction">LD IX,$F73A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63311"></span>F74F</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="63313"></span>F751</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63314"></span>F752</td>
+<td class="instruction">LD BC,$F2F7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63317"></span>F755</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63320"></span>F758</td>
+<td class="instruction">LD A,(IX-$01)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63323"></span>F75B</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63325"></span>F75D</td>
+<td class="instruction">JR Z,$F767</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63327"></span>F75F</td>
+<td class="instruction">LD (IX-$01),$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63331"></span>F763</td>
+<td class="instruction">LD (IX-$03),$40</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="63335"></span>F767</td>
+<td class="instruction">LD A,$56</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63337"></span>F769</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63340"></span>F76C</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63343"></span>F76F</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63344"></span>F770</td>
+<td class="instruction">DJNZ $F751</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="63346"></span>F772</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63290.html">F73A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63302">Map</a></td>
+<td class="next">
+Next: <a href="63347.html">F773</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

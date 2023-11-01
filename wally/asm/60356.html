@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EBC4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60309.html">EB95</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60356">Map</a></td>
+<td class="next">
+Next: <a href="60386.html">EBE2</a>
+</td>
+</tr>
+</table>
+<div class="description">EBC4: Pattern 4 AT(x,y) : Match if at co-ordinate x,y</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+HL Pointer to data for this pattern.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60356"></span>EBC4</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60359"></span>EBC7</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-1" rowspan="3">Is the player near enough?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60360"></span>EBC8</td>
+<td class="instruction">SUB $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60362"></span>EBCA</td>
+<td class="instruction">CP $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60364"></span>EBCC</td>
+<td class="instruction">JR C,$EBDD</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60366"></span>EBCE</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Point to the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60367"></span>EBCF</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60370"></span>EBD2</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-1" rowspan="3">Is the player near enough?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60371"></span>EBD3</td>
+<td class="instruction">SUB $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60373"></span>EBD5</td>
+<td class="instruction">CP $F8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60375"></span>EBD7</td>
+<td class="instruction">JR C,$EBDE</td>
+<td class="comment-1" rowspan="1">Jump if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60377"></span>EBD9</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Ensure <span class="register">HL</span> points to the next pattern.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60378"></span>EBDA</td>
+<td class="instruction">JP <a href="60095.html#60107">$EACB</a></td>
+<td class="comment-1" rowspan="1">Carry on looking at other patterns.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60381"></span>
+<div class="comments">
+<div class="paragraph">
+The player isn't near enough.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60381"></span>EBDD</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Ensure <span class="register">HL</span> points to the next pattern.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60382"></span>EBDE</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60383"></span>EBDF</td>
+<td class="instruction">JP <a href="60131.html">$EAE3</a></td>
+<td class="comment-1" rowspan="1">Flag the pattern has having not matched.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60309.html">EB95</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60356">Map</a></td>
+<td class="next">
+Next: <a href="60386.html">EBE2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

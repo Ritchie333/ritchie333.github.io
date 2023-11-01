@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at E2FC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57564.html">E0DC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58108">Map</a></td>
+<td class="next">
+Next: <a href="58153.html">E329</a>
+</td>
+</tr>
+</table>
+<div class="description">E2FC: Play a footstep sound effect</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="45704.html">B288</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IY</td>
+<td class="register-desc">Pointer to character data (<a href="48231.html">BC67</a> - BC6B)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58108"></span>E2FC</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Get the character's frame count.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58111"></span>E2FF</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58112"></span>E300</td>
+<td class="instruction">JR Z,$E30B</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58114"></span>E302</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="1">Is it 3?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58116"></span>E304</td>
+<td class="instruction">JR Z,$E30B</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58118"></span>E306</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Reset the "footstep triggered" flag and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58119"></span>E307</td>
+<td class="instruction">LD (IY-$19),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58122"></span>E30A</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58123"></span>E30B</td>
+<td class="instruction">LD A,(IY-$19)</td>
+<td class="comment-1" rowspan="1">Get the "footstep triggered" flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58126"></span>E30E</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58127"></span>E30F</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58128"></span>E310</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1">Otherwise set the "foostep triggered" flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58130"></span>E312</td>
+<td class="instruction">LD (IY-$19),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58133"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="45478.html">B1A6</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58133"></span>E315</td>
+<td class="instruction">LD A,($B951)</td>
+<td class="comment-1" rowspan="1">Get the current room. (<a href="47441.html">B951</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58136"></span>E318</td>
+<td class="instruction">CP (IY+$0F)</td>
+<td class="comment-1" rowspan="1">Is the character in this room? (<a href="48246.html">BC76</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58139"></span>E31B</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58140"></span>
+<div class="comments">
+<div class="paragraph">
+The character is in the room, so make the footstep noise.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58140"></span>E31C</td>
+<td class="instruction">LD BC,$0701</td>
+<td class="comment-1" rowspan="1">Set the pitch and "descending" length.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58143"></span>E31F</td>
+<td class="instruction">LD DE,$0F01</td>
+<td class="comment-1" rowspan="1">Set the "static" and "ascending" lengths.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58146"></span>E322</td>
+<td class="instruction">LD HL,$0404</td>
+<td class="comment-1" rowspan="1">Set the "descending" and "ascending" values.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58149"></span>E325</td>
+<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
+<td class="comment-1" rowspan="2">Play the sound and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58152"></span>E328</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57564.html">E0DC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58108">Map</a></td>
+<td class="next">
+Next: <a href="58153.html">E329</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

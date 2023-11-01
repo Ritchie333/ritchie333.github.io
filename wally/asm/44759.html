@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AED7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44757.html">AED5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44759">Map</a></td>
+<td class="next">
+Next: <a href="44778.html">AEEA</a>
+</td>
+</tr>
+</table>
+<div class="description">AED7: Get the next room that a computer controlled character should swap items</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43308.html">A92C</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">On return, holds the room number</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44759"></span>AED7</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44760"></span>AED8</td>
+<td class="instruction">LD HL,($AED5)</td>
+<td class="comment-1" rowspan="1">Get the current pointer to the swap list.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44763"></span>AEDB</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44764"></span>AEDC</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it an end marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44766"></span>AEDE</td>
+<td class="instruction">JR NZ,$AEE4</td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44768"></span>AEE0</td>
+<td class="instruction">LD HL,$AEEA</td>
+<td class="comment-1" rowspan="2">Otherwise move back to the start of the list. and get that item.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44771"></span>AEE3</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44772"></span>AEE4</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next position in the table and store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44773"></span>AEE5</td>
+<td class="instruction">LD ($AED5),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44776"></span>AEE8</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44777"></span>AEE9</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44757.html">AED5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44759">Map</a></td>
+<td class="next">
+Next: <a href="44778.html">AEEA</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

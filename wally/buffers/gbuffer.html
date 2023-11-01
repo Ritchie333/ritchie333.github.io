@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Game status buffer</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="GameStatusBuffer">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th class="map-length">Length</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-g"><span id="23296"></span><a href="../asm/23296.html">5B00</a></td>
+<td class="map-length">4096</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23296.html">Copy of main playing area</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="27392"></span><a href="../asm/27392.html">6B00</a></td>
+<td class="map-length">4096</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/27392.html">Sprite buffer</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="33082"></span><a href="../asm/33082.html">813A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/33082.html">The current room showing in demo mode.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="43064"></span><a href="../asm/43064.html">A838</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/43064.html">Temporary co-ordinates for putting static objects on screen</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/43069.html">A83D</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="43067"></span><a href="../asm/43067.html">A83B</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/43067.html">Temporary store for the stack pointer for putting static objects on screen</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="45213"></span><a href="../asm/45213.html">B09D</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/45213.html">Buffer for the current player</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+During the game, the value of <span class="register">IY</span> is set to this value and used to access other character specific flags, such as endurance and items held.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="45899"></span><a href="../asm/45899.html">B34B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/45899.html">Game status buffer entry at B34B</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="46311"></span><a href="../asm/46311.html">B4E7</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/46311.html">The address of the next note in the theme tune to play</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="46313"></span><a href="../asm/46313.html">B4E9</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/46313.html">The last key (0 - 4) pressed</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+If any bits are reset, that key was pressed. If all bits are set (ie: FF), no keys were pressed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="46314"></span><a href="../asm/46314.html">B4EA</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/46314.html">The wave to play the next note, 0 = sawtooth, 1 = square</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="46431"></span><a href="../asm/46431.html">B55F</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/46431.html">Set to '1' if the current character is computer controlled</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+During the intro screen, this byte is used as an index to the current theme tune note.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="47441"></span><a href="../asm/47441.html">B951</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/47441.html">The current room number</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="47795"></span><a href="../asm/47795.html">BAB3</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/47795.html">Set to 1 to signal a room redraw</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48171"></span><a href="../asm/48171.html">BC2B</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48171.html">The current direction of each sprite (0 - left, 1 - right)</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45704.html">B288</a> and <a href="../asm/61383.html">EFC7</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48176"></span><a href="../asm/48176.html">BC30</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48176.html">Flags for objects (?)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48181"></span><a href="../asm/48181.html">BC35</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48181.html">Flags for objects (?)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48186"></span><a href="../asm/48186.html">BC3A</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48186.html">ID of the object a player is standing near and could potentially pick up.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48191"></span><a href="../asm/48191.html">BC3F</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48191.html">Character ID (1 = Wally, 2 = Wilma, 4 = Tom, 8 = Dick, 10 = Harry)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48196"></span><a href="../asm/48196.html">BC44</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48196.html">Offset for each character name (from 7C00)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48201"></span><a href="../asm/48201.html">BC49</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48201.html">Earnings / 100</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48206"></span><a href="../asm/48206.html">BC4E</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48206.html">Set to 1 to trigger a footstep sound for each character</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48211"></span><a href="../asm/48211.html">BC53</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48211.html">Set to 1 if a computer controlled character needs updating</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48216"></span><a href="../asm/48216.html">BC58</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48216.html">Game status buffer at BC58</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48221"></span><a href="../asm/48221.html">BC5D</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48221.html">Earnings % 100</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48226"></span><a href="../asm/48226.html">BC62</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48226.html">Game status buffer at BC62</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48231"></span><a href="../asm/48231.html">BC67</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48231.html">The frame ID for each character</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Runs from BC67 (Wally) to BC6B (Harry).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48236"></span><a href="../asm/48236.html">BC6C</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48236.html">x position on screen for each character</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Runs from BC6C (Wally) to BC70 (Harry).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48241"></span><a href="../asm/48241.html">BC71</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48241.html">y position on screen for each character</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Runs from BC71 (Wally) to BC75 (Harry).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48246"></span><a href="../asm/48246.html">BC76</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48246.html">Room number a character is in</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Runs from BC76 (Wally) to BC7A (Harry).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48251"></span><a href="../asm/48251.html">BC7B</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48251.html">Endurance level for each character</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Runs from BC7B (Wally) to BC7F (Harry).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48256"></span><a href="../asm/48256.html">BC80</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48256.html">Game status buffer at BC80</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48261"></span><a href="../asm/48261.html">BC85</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48261.html">Mask offset for a character</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48266"></span><a href="../asm/48266.html">BC8A</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48266.html">Low byte of the character's graphic</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48271"></span><a href="../asm/48271.html">BC8F</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48271.html">High byte of the character's graphic</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48276"></span><a href="../asm/48276.html">BC94</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48276.html">Lives left for each player</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48281"></span><a href="../asm/48281.html">BC99</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48281.html">Game status buffer at BC99</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48286"></span><a href="../asm/48286.html">BC9E</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48286.html">Game status buffer at BC9E</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48291"></span><a href="../asm/48291.html">BCA3</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48291.html">Character jump flag</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+0 = no, 1 = jumping right, FF = jumping left
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48296"></span><a href="../asm/48296.html">BCA8</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48296.html">Character direction (01 = right, FF = left)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48301"></span><a href="../asm/48301.html">BCAD</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48301.html">If jumping, holds the frame number in the animation sequence</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48306"></span><a href="../asm/48306.html">BCB2</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48306.html">Game status buffer at BCB2</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48311"></span><a href="../asm/48311.html">BCB7</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48311.html">First item of each character</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48316"></span><a href="../asm/48316.html">BCBC</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48316.html">Second item of each character</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48321"></span><a href="../asm/48321.html">BCC1</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48321.html">Target room for a computer character (?)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48326"></span><a href="../asm/48326.html">BCC6</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48326.html">Flag that toggles between 0 and 1 when a character not in the current room needs updating.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48331"></span><a href="../asm/48331.html">BCCB</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48331.html">Next movement for a computer character</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48336"></span><a href="../asm/48336.html">BCD0</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48336.html">Game status buffer at BCD0</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48341"></span><a href="../asm/48341.html">BCD5</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48341.html">Game status buffer at BCD5</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48346"></span><a href="../asm/48346.html">BCDA</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48346.html">Game status buffer at BCDA</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48351"></span><a href="../asm/48351.html">BCDF</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48351.html">Lo byte of the item swap buffer</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="48356"></span><a href="../asm/48356.html">BCE4</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48356.html">Hi byte of the item swap buffer</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60244"></span><a href="../asm/60244.html">EB54</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60244.html">Holds 1 if the player is near an object, or 0 for no item.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60431"></span><a href="../asm/60431.html">EC0F</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60431.html">Flag 0 : Bottle is full</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60432"></span><a href="../asm/60432.html">EC10</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60432.html">Flag 1 : Fuse is rewired</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60433"></span><a href="../asm/60433.html">EC11</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60433.html">Flag 2 : Parcel is stamped</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60434"></span><a href="../asm/60434.html">EC12</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60434.html">Flag 3 : Hook is working</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60435"></span><a href="../asm/60435.html">EC13</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60435.html">Flag 4 : Bucket is full</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60436"></span><a href="../asm/60436.html">EC14</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60436.html">Flag 5 : Pipe is patched</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60437"></span><a href="../asm/60437.html">EC15</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60437.html">Flag 6 : Battery is charged</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60438"></span><a href="../asm/60438.html">EC16</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60438.html">Flag 7 : Oil can is full</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60439"></span><a href="../asm/60439.html">EC17</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60439.html">Flag 8 : Fountain is repaired</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60440"></span><a href="../asm/60440.html">EC18</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60440.html">Flag 9 : Wall is built</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60441"></span><a href="../asm/60441.html">EC19</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60441.html">Flag A : Gas is repaired</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60442"></span><a href="../asm/60442.html">EC1A</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60442.html">Flag B : Electricity is repaired</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60443"></span><a href="../asm/60443.html">EC1B</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60443.html">Flag C : Trolley is moving</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60444"></span><a href="../asm/60444.html">EC1C</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60444.html">Flag D : Asteroids game has been won</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62062"></span><a href="../asm/62062.html">F26E</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62062.html">The amount to decrease endurance by in a collision</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63454"></span><a href="../asm/63454.html">F7DE</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63454.html">Location of moving desk in the school (57-5B)</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63455"></span><a href="../asm/63455.html">F7DF</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63455.html">Time until the moving school desk switches</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63504"></span><a href="../asm/63504.html">F810</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63504.html">Game status buffer entry at F810</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63506"></span><a href="../asm/63506.html">F812</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63506.html">Pointer to the next food table entry</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="64768"></span><a href="../asm/64768.html">FD00</a></td>
+<td class="map-length">256</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64768.html">Copy of attribute buffer for additional graphics.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="65024"></span><a href="../asm/65024.html">FE00</a></td>
+<td class="map-length">512</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/65024.html">Copy of attribute buffer for main play area</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

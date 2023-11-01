@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B197</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45286.html">B0E6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45463">Map</a></td>
+<td class="next">
+Next: <a href="45478.html">B1A6</a>
+</td>
+</tr>
+</table>
+<div class="description">B197: Drop the current character's height down one notch up to floor level</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43308.html">A92C</a> and <a href="45215.html">B09F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45463"></span>B197</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45466"></span>B19A</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-1" rowspan="1">Add 4 to it to drop down one level.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45468"></span>B19C</td>
+<td class="instruction">CP $98</td>
+<td class="comment-1" rowspan="3">Set the maximum Y co-ordinate to 98 so they can't drop below floor level.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45470"></span>B19E</td>
+<td class="instruction">JR C,$B1A2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45472"></span>B1A0</td>
+<td class="instruction">LD A,$98</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45474"></span>B1A2</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="2">Store the new Y co-ordinate and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45477"></span>B1A5</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45286.html">B0E6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45463">Map</a></td>
+<td class="next">
+Next: <a href="45478.html">B1A6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

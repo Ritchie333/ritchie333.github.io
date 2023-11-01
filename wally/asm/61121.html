@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EEC1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61090.html">EEA2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61121">Map</a></td>
+<td class="next">
+Next: <a href="61171.html">EEF3</a>
+</td>
+</tr>
+</table>
+<div class="description">EEC1: Refresh the current room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B3C3</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61121"></span>EEC1</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61124"></span>EEC4</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Get the current room in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61127"></span>EEC7</td>
+<td class="instruction">LD ($B951),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61130"></span>EECA</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the start of the object buffer for this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61132"></span>EECC</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61135"></span>EECF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Put the object ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61136"></span>EED0</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is this an end marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61138"></span>EED2</td>
+<td class="instruction">JR Z,$EEE3</td>
+<td class="comment-1" rowspan="1">Jump forward if it is, nothing left to do.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61140"></span>EED4</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="4">Put the co-ordinates found in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61141"></span>EED5</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61142"></span>EED6</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61143"></span>EED7</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61144"></span>EED8</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the buffer for the next item.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61145"></span>EED9</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61146"></span>EEDA</td>
+<td class="instruction">LD ($A838),DE</td>
+<td class="comment-1" rowspan="1">Put the position in the scratch buffer at <a href="43064.html">A838</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61150"></span>EEDE</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="comment-1" rowspan="2">Draw the object, and loop back to see if there is anything further to draw.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61153"></span>EEE1</td>
+<td class="instruction">JR $EECF</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61155"></span>EEE3</td>
+<td class="instruction">LD E,(IY+$0F)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61158"></span>EEE6</td>
+<td class="instruction">SLA E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61160"></span>EEE8</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61162"></span>EEEA</td>
+<td class="instruction">LD HL,$EEF3</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61165"></span>EEED</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61166"></span>EEEE</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61167"></span>EEEF</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61168"></span>EEF0</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61169"></span>EEF1</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61170"></span>EEF2</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61090.html">EEA2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61121">Map</a></td>
+<td class="next">
+Next: <a href="61171.html">EEF3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

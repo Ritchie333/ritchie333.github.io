@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AC5F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44038.html">AC06</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44127">Map</a></td>
+<td class="next">
+Next: <a href="44137.html">AC69</a>
+</td>
+</tr>
+</table>
+<div class="description">AC5F: Get the address for the co-ordinate table of a room</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="44038.html">AC06</a>, <a href="44637.html">AE5D</a> and <a href="62071.html">F277</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">The co-ordinate table index</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">On exit, holds the address of the co-ordinate table to use</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44127"></span>AC5F</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double the co-ordinate index to get a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44128"></span>AC60</td>
+<td class="instruction">LD HL,$AF10</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the start of the co-ordinate tables. (<a href="44816.html">AF10</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44131"></span>AC63</td>
+<td class="instruction">ADD A,L</td>
+<td class="comment-1" rowspan="1">Add the offset to get the correct address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44132"></span>AC64</td>
+<td class="instruction">JR NC,$AC67</td>
+<td class="comment-1" rowspan="2">Increment the high byte if there was an overflow, which shouldn't happen unless there's a bug.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44134"></span>AC66</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-2"><span id="44135"></span>AC67</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="2">Set the correct address and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44136"></span>AC68</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44038.html">AC06</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44127">Map</a></td>
+<td class="next">
+Next: <a href="44137.html">AC69</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

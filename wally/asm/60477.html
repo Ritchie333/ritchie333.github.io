@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EC3D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60468.html">EC34</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60477">Map</a></td>
+<td class="next">
+Next: <a href="60490.html">EC4A</a>
+</td>
+</tr>
+</table>
+<div class="description">EC3D: Check if the item in a room matches a certain object ID and sets the zero flag if it is</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="60459.html">EC2B</a> and <a href="60468.html">EC34</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Buffer containing the nth object number and the target ID</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60477"></span>EC3D</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="1">Put the first byte in <span class="register">B</span> as the object number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60478"></span>EC3E</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Put the second byte in <span class="register">A</span> as the target object ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60479"></span>EC3F</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60480"></span>EC40</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Move to the next part of the buffer for future use, and store it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60481"></span>EC41</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60482"></span>EC42</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="3">Get the current object data for this room in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60483"></span>EC43</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60486"></span>EC46</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60487"></span>EC47</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the ID matches.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60488"></span>EC48</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore the active buffer pointer in <span class="register">HL</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60489"></span>EC49</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60468.html">EC34</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60477">Map</a></td>
+<td class="next">
+Next: <a href="60490.html">EC4A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

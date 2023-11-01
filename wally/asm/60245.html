@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EB55</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60244.html">EB54</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60245">Map</a></td>
+<td class="next">
+Next: <a href="60281.html">EB79</a>
+</td>
+</tr>
+</table>
+<div class="description">EB55: See if the player is touching any collectable item</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33156.html">8184</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60245"></span>EB55</td>
+<td class="instruction">LD BC,$0000</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to 0 (first object) and <span class="register">C</span> to 0 (no items).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60248"></span>EB58</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
+<td class="comment-1" rowspan="1">Get the buffer for this object.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60251"></span>EB5B</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the first byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60252"></span>EB5C</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it an end marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60254"></span>EB5E</td>
+<td class="instruction">JR Z,$EB72</td>
+<td class="comment-1" rowspan="1">If so, there are no items here, so jump forward.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60256"></span>EB60</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60257"></span>EB61</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60260"></span>EB64</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-1" rowspan="5">Convert the player co-ordinate to an object co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60261"></span>EB65</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60262"></span>EB66</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60263"></span>EB67</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60264"></span>EB68</td>
+<td class="instruction">SUB $06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60266"></span>EB6A</td>
+<td class="instruction">CP $F4</td>
+<td class="comment-1" rowspan="1">Are the two near enough?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60268"></span>EB6C</td>
+<td class="instruction">JR C,$EB5B</td>
+<td class="comment-1" rowspan="1">Jump back to look at other entries if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60270"></span>EB6E</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-1" rowspan="2">Otherwise set that an object is found in <span class="register">C</span>, then jump back.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60272"></span>EB70</td>
+<td class="instruction">JR $EB5B</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60274"></span>
+<div class="comments">
+<div class="paragraph">
+At this point, all objects in the room have been checked, and <span class="register">C</span> is set to 1 if the player is near any of them.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60274"></span>EB72</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="2">Were any items found?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60275"></span>EB73</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60276"></span>EB74</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60277"></span>EB75</td>
+<td class="instruction">LD ($EB54),A</td>
+<td class="comment-1" rowspan="2">Otherwise mark that the player is near an object (<a href="60244.html">EB54</a>) and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60280"></span>EB78</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60244.html">EB54</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60245">Map</a></td>
+<td class="next">
+Next: <a href="60281.html">EB79</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at 8155</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33083.html">813B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33109">Map</a></td>
+<td class="next">
+Next: <a href="33156.html">8184</a>
+</td>
+</tr>
+</table>
+<div class="description">8155: Demo mode</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32997.html">80E5</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33109"></span>8155</td>
+<td class="instruction">CALL <a href="47832.html">$BAD8</a></td>
+<td class="comment-1" rowspan="1">Initialize character data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33112"></span>8158</td>
+<td class="instruction">CALL <a href="47341.html">$B8ED</a></td>
+<td class="comment-1" rowspan="1">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33115"></span>815B</td>
+<td class="instruction">CALL <a href="58365.html">$E3FD</a></td>
+<td class="comment-1" rowspan="1">Refresh the status bar.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33118"></span>815E</td>
+<td class="instruction">CALL <a href="33083.html">$813B</a></td>
+<td class="comment-1" rowspan="1">Set up initial data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33121"></span>8161</td>
+<td class="instruction">LD ($813A),A</td>
+<td class="comment-1" rowspan="1">Set the current room (<a href="33082.html">813A</a>) to 0 (set up by the previous routine)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33124"></span>
+<div class="comments">
+<div class="paragraph">
+The main loop of the demo mode begins here.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33124"></span>8164</td>
+<td class="instruction">LD A,($813A)</td>
+<td class="comment-1" rowspan="1">Get the current room in demo mode.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33127"></span>8167</td>
+<td class="instruction">CP (IY+$0F)</td>
+<td class="comment-1" rowspan="1">Is is the current room for the current character?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33130"></span>816A</td>
+<td class="instruction">JR Z,$8175</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33132"></span>816C</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="2">Otherwise copy the current room to the demo mode room flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33135"></span>816F</td>
+<td class="instruction">LD ($813A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33138"></span>8172</td>
+<td class="instruction">CALL <a href="47442.html">$B952</a></td>
+<td class="comment-1" rowspan="1">Draw the room.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33141"></span>8175</td>
+<td class="instruction">CALL <a href="33198.html">$81AE</a></td>
+<td class="comment-1" rowspan="1">Move everything on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33144"></span>8178</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Read all keys.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33145"></span>8179</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33147"></span>817B</td>
+<td class="instruction">OR $E0</td>
+<td class="comment-1" rowspan="1">Set bits 5-7 as the hardware doesn't read those.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33149"></span>817D</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Was any key pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33151"></span>817F</td>
+<td class="instruction">JP NZ,<a href="32997.html">$80E5</a></td>
+<td class="comment-1" rowspan="1">No, so carry on in demo mode.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33154"></span>8182</td>
+<td class="instruction">JR $8164</td>
+<td class="comment-1" rowspan="1">Otherwise loop back round and continue.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33083.html">813B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33109">Map</a></td>
+<td class="next">
+Next: <a href="33156.html">8184</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

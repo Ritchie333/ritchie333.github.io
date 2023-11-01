@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B00B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44996.html">AFC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45067">Map</a></td>
+<td class="next">
+Next: <a href="45116.html">B03C</a>
+</td>
+</tr>
+</table>
+<div class="description">B00B: Check that 'right' has been pressed, and set A to 1 if it has</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="45215.html">B09F</a>, <a href="61632.html">F0C0</a> and <a href="63802.html">F93A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45067"></span>B00B</td>
+<td class="instruction">LD A,($B2DB)</td>
+<td class="comment-1" rowspan="1">Get the input mechanism. (<a href="45787.html">B2DB</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45070"></span>B00E</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is it 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45071"></span>B00F</td>
+<td class="instruction">JR Z,$B028</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45073"></span>B011</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Is it 1?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45075"></span>B013</td>
+<td class="instruction">JR NZ,$B01D</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45077"></span>
+<div class="comments">
+<div class="paragraph">
+Use Kempston input
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45077"></span>B015</td>
+<td class="instruction">IN A,($1F)</td>
+<td class="comment-1" rowspan="1">Read the Kempston interface.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45079"></span>B017</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Was 'right' pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45081"></span>B019</td>
+<td class="instruction">JR NZ,$B025</td>
+<td class="comment-1" rowspan="1">If so, jump forward to signal success.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45083"></span>B01B</td>
+<td class="instruction">JR $B03A</td>
+<td class="comment-1" rowspan="1">Otherwise, jump forward to indicate nothing read.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45085"></span>
+<div class="comments">
+<div class="paragraph">
+Use Sinclair input
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45085"></span>B01D</td>
+<td class="instruction">LD A,$EF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45087"></span>B01F</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45089"></span>B021</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45091"></span>B023</td>
+<td class="instruction">JR NZ,$B03A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45093"></span>
+<div class="comments">
+<div class="paragraph">
+'Left' was pressed, so indicate this.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45093"></span>B025</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Return <span class="register">A</span> with 1 to mark success.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45095"></span>B027</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45096"></span>
+<div class="comments">
+<div class="paragraph">
+Use keyboard input.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45096"></span>B028</td>
+<td class="instruction">LD A,$FB</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45098"></span>B02A</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45100"></span>B02C</td>
+<td class="instruction">OR $F5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45102"></span>B02E</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45103"></span>B02F</td>
+<td class="instruction">LD A,$DF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45105"></span>B031</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45107"></span>B033</td>
+<td class="instruction">OR $EA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45109"></span>B035</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45110"></span>B036</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45112"></span>B038</td>
+<td class="instruction">JR NZ,$B025</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45114"></span>
+<div class="comments">
+<div class="paragraph">
+'Left' wasn't pressed, so indicate this.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45114"></span>B03A</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Return <span class="register">A</span> with 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45115"></span>B03B</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44996.html">AFC4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45067">Map</a></td>
+<td class="next">
+Next: <a href="45116.html">B03C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

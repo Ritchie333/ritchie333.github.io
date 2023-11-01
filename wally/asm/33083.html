@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at 813B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33082.html">813A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33083">Map</a></td>
+<td class="next">
+Next: <a href="33109.html">8155</a>
+</td>
+</tr>
+</table>
+<div class="description">813B: Set up initial game data</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33109.html">8155</a> and <a href="33156.html">8184</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33083"></span>813B</td>
+<td class="instruction">CALL <a href="47442.html">$B952</a></td>
+<td class="comment-1" rowspan="1">Draw the room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33086"></span>813E</td>
+<td class="instruction">LD BC,$0014</td>
+<td class="comment-1" rowspan="1">Number of entries to update.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33089"></span>8141</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33090"></span>8142</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="comment-1" rowspan="1">Update the sprite buffers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33093"></span>8145</td>
+<td class="instruction">CALL <a href="62834.html#62840">$F578</a></td>
+<td class="comment-1" rowspan="1">Draw the fountain.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33096"></span>8148</td>
+<td class="instruction">CALL <a href="47574.html">$B9D6</a></td>
+<td class="comment-1" rowspan="1">Update character positions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33099"></span>814B</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="comment-1" rowspan="1">Put sprites on screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33102"></span>814E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33103"></span>814F</td>
+<td class="instruction">DEC BC</td>
+<td class="comment-1" rowspan="5">Loop until all entries are refreshed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33104"></span>8150</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33105"></span>8151</td>
+<td class="instruction">OR C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33106"></span>8152</td>
+<td class="instruction">JR NZ,$8141</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33108"></span>8154</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33082.html">813A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33083">Map</a></td>
+<td class="next">
+Next: <a href="33109.html">8155</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

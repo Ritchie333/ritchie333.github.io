@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EFC7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61329.html">EF91</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61383">Map</a></td>
+<td class="next">
+Next: <a href="61511.html">F047</a>
+</td>
+</tr>
+</table>
+<div class="description">EFC7: Action 9 CHASE. Drop down to the "shark chase" game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="61383"></span>EFC7</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61386"></span>EFCA</td>
+<td class="instruction">SUB $08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61388"></span>EFCC</td>
+<td class="instruction">CP $E0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61390"></span>EFCE</td>
+<td class="instruction">JR C,$EFD2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61392"></span>EFD0</td>
+<td class="instruction">LD A,$E0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61394"></span>EFD2</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61396"></span>EFD4</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61398"></span>EFD6</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61400"></span>EFD8</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61401"></span>EFD9</td>
+<td class="instruction">LD D,$17</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61403"></span>EFDB</td>
+<td class="instruction">LD HL,$7F16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61406"></span>EFDE</td>
+<td class="instruction">CALL <a href="47147.html">$B82B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61409"></span>EFE1</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61412"></span>EFE4</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61414"></span>EFE6</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61416"></span>EFE8</td>
+<td class="instruction">JR C,$EFEC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61418"></span>EFEA</td>
+<td class="instruction">LD A,$A0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61420"></span>EFEC</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61423"></span>EFEF</td>
+<td class="instruction">CALL <a href="33198.html">$81AE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61426"></span>EFF2</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61429"></span>EFF5</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61431"></span>EFF7</td>
+<td class="instruction">JR NZ,$EFE1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61433"></span>EFF9</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61437"></span>EFFD</td>
+<td class="instruction">LD A,(IY-$3C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61440"></span>F000</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61441"></span>F001</td>
+<td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61444"></span>F004</td>
+<td class="instruction">LD A,$F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61446"></span>F006</td>
+<td class="instruction">LD ($F0BD),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61449"></span>F009</td>
+<td class="instruction">LD HL,$F0B7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61452"></span>F00C</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="comment-1" rowspan="1">Clear the playing area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="61455"></span>F00F</td>
+<td class="instruction">CALL <a href="47442.html#47465">$B969</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61458"></span>F012</td>
+<td class="instruction">LD (IY+$05),$DA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61462"></span>F016</td>
+<td class="instruction">LD (IY+$0A),$3C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61466"></span>F01A</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61469"></span>F01D</td>
+<td class="instruction">CP $98</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61471"></span>F01F</td>
+<td class="instruction">JR Z,$F026</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61473"></span>F021</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61475"></span>F023</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="61478"></span>F026</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61481"></span>F029</td>
+<td class="instruction">CALL <a href="61527.html">$F057</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61484"></span>F02C</td>
+<td class="instruction">CALL <a href="61632.html">$F0C0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61487"></span>F02F</td>
+<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61490"></span>F032</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61493"></span>F035</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61496"></span>F038</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61497"></span>F039</td>
+<td class="instruction">JR NZ,$F01A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61499"></span>F03B</td>
+<td class="instruction">LD (IY+$0F),$1F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61503"></span>F03F</td>
+<td class="instruction">LD (IY+$05),$F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61507"></span>F043</td>
+<td class="instruction">JP <a href="60919.html#61069">$EE8D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="61510"></span>F046</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61329.html">EF91</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61383">Map</a></td>
+<td class="next">
+Next: <a href="61511.html">F047</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

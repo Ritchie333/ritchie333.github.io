@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EDC6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60869.html">EDC5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60870">Map</a></td>
+<td class="next">
+Next: <a href="60919.html">EDF7</a>
+</td>
+</tr>
+</table>
+<div class="description">EDC6: Action 8 SAFE. The safe has been touched with a combination letter. Process it now.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60870"></span>EDC6</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60871"></span>EDC7</td>
+<td class="instruction">LD HL,$EDBE</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the list of which order to bring letters. (<a href="60862.html">EDBE</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60874"></span>EDCA</td>
+<td class="instruction">LD A,($EDC5)</td>
+<td class="comment-1" rowspan="1">Put the number of safe letters already used in <span class="register">A</span>. (<a href="60869.html">EDC5</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60877"></span>EDCD</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="2">Put in this in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60878"></span>EDCE</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60880"></span>EDD0</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the base address of the letters to give an offset from <a href="60863.html">EDBF</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60881"></span>EDD1</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the next character ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60882"></span>EDD2</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it an end marker (FF)?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60884"></span>EDD4</td>
+<td class="instruction">JR Z,$EDE5</td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60886"></span>EDD6</td>
+<td class="instruction">CP (IY-$28)</td>
+<td class="comment-1" rowspan="1">Is the character ID the current player?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60889"></span>EDD9</td>
+<td class="instruction">JR NZ,$EDE9</td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60891"></span>
+<div class="comments">
+<div class="paragraph">
+The right character is at the safe.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60891"></span>EDDB</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60892"></span>EDDC</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="2">Store this as the number of safe letters used.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60893"></span>EDDD</td>
+<td class="instruction">LD ($EDC5),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60896"></span>EDE0</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="1">Have all safe letters been used?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60898"></span>EDE2</td>
+<td class="instruction">JP Z,<a href="46019.html">$B3C3</a></td>
+<td class="comment-1" rowspan="1">If so, the safe is cracked and the game is won! Display the final sequence.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60901"></span>EDE5</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Otherwise, restore <span class="register">HL</span> and process more actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60902"></span>EDE6</td>
+<td class="instruction">JP <a href="60139.html">$EAEB</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60905"></span>
+<div class="comments">
+<div class="paragraph">
+The wrong character is at the safe.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60905"></span>EDE9</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Move back in the list.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60906"></span>EDEA</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Get the character ID from here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60907"></span>EDEB</td>
+<td class="instruction">CP (IY-$28)</td>
+<td class="comment-1" rowspan="1">Does it equal the current character?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60910"></span>EDEE</td>
+<td class="instruction">JR Z,$EDE5</td>
+<td class="comment-1" rowspan="1">If so, leave here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60912"></span>EDF0</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Otherwise, reset the number of letters completed back to 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60914"></span>EDF2</td>
+<td class="instruction">LD ($EDC5),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60917"></span>EDF5</td>
+<td class="instruction">JR $EDE5</td>
+<td class="comment-1" rowspan="1">Jump back to return and process more actions.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60869.html">EDC5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60870">Map</a></td>
+<td class="next">
+Next: <a href="60919.html">EDF7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

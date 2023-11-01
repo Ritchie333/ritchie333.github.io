@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at AA8C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43647.html">AA7F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43660">Map</a></td>
+<td class="next">
+Next: <a href="43680.html">AAA0</a>
+</td>
+</tr>
+</table>
+<div class="description">AA8C: Get address of the item object buffer given its ID</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43308.html">A92C</a>, <a href="43568.html">AA30</a>, <a href="60175.html">EB0F</a>, <a href="60245.html">EB55</a>, <a href="60309.html">EB95</a>, <a href="60477.html">EC3D</a> and <a href="61121.html">EEC1</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">ID of the object to get data for.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">On exit, points to its data buffer.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43660"></span>AA8C</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Get the current room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43663"></span>AA8F</td>
+<td class="instruction">LD HL,$BCE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the start of the object buffer data. (<a href="48361.html">BCE9</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43666"></span>AA92</td>
+<td class="instruction">CALL <a href="44140.html">$AC6C</a></td>
+<td class="comment-1" rowspan="1">Get the address for this room's data.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43669"></span>AA95</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="2">Is the object ID 0?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43670"></span>AA96</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43671"></span>AA97</td>
+<td class="instruction">JR Z,$AA9F</td>
+<td class="comment-1" rowspan="1">Return if it is, it's already pointing to the right place.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43673"></span>
+<div class="comments">
+<div class="paragraph">
+If the object ID is not zero, move to the right one.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43673"></span>AA99</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="4">Move forward four bytes to the next entry.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43674"></span>AA9A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43675"></span>AA9B</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43676"></span>AA9C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="43677"></span>AA9D</td>
+<td class="instruction">DJNZ $AA99</td>
+<td class="comment-1" rowspan="1">Loop for 'n' number of times.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="43679"></span>AA9F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43647.html">AA7F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43660">Map</a></td>
+<td class="next">
+Next: <a href="43680.html">AAA0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

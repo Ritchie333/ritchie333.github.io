@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B8ED</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47300.html">B8C4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47341">Map</a></td>
+<td class="next">
+Next: <a href="47362.html">B902</a>
+</td>
+</tr>
+</table>
+<div class="description">B8ED: Blank the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="32997.html">80E5</a>, <a href="33109.html">8155</a>, <a href="45809.html">B2F1</a>, <a href="46019.html">B3C3</a> and <a href="46161.html">B451</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47341"></span>B8ED</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Clear the display file.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47344"></span>B8F0</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47346"></span>B8F2</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47349"></span>B8F5</td>
+<td class="instruction">LD BC,$1800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47352"></span>B8F8</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47354"></span>B8FA</td>
+<td class="instruction">LD (HL),$46</td>
+<td class="comment-1" rowspan="3">Fill the attribute buffer with bright yellow on black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47356"></span>B8FC</td>
+<td class="instruction">LD BC,$02FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47359"></span>B8FF</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47361"></span>B901</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47300.html">B8C4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47341">Map</a></td>
+<td class="next">
+Next: <a href="47362.html">B902</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

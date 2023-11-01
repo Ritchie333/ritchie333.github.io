@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at E79B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59258.html">E77A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59291">Map</a></td>
+<td class="next">
+Next: <a href="59369.html">E7E9</a>
+</td>
+</tr>
+</table>
+<div class="description">E79B: See if a player wants to swap character, and do so if they can</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33156.html">8184</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59291"></span>E79B</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="2">Get keyboard input from 1 - 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59293"></span>E79D</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59295"></span>E79F</td>
+<td class="instruction">OR $E0</td>
+<td class="comment-1" rowspan="1">Set the top three bits, to ensure all bits are set if no key is pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59297"></span>E7A1</td>
+<td class="instruction">XOR $FF</td>
+<td class="comment-1" rowspan="1">Were no keys pressed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59299"></span>E7A3</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59300"></span>
+<div class="comments">
+<div class="paragraph">
+A key was pressed. Work out what to do.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59300"></span>E7A4</td>
+<td class="instruction">LD B,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Put the current character's room (<a href="48246.html">BC76</a>) in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59303"></span>E7A7</td>
+<td class="instruction">PUSH IY</td>
+<td class="comment-1" rowspan="1">Remember the original pointer in <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59305"></span>E7A9</td>
+<td class="instruction">LD IY,$BC67</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the first character buffer (Wally). (<a href="48231.html">BC67</a>)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59309"></span>E7AD</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1">Was this key pressed? (Loops from 1 - 5.)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59310"></span>E7AE</td>
+<td class="instruction">JR C,$E7B4</td>
+<td class="comment-1" rowspan="1">Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59312"></span>E7B0</td>
+<td class="instruction">INC IY</td>
+<td class="comment-1" rowspan="2">Otherwise move to the next entry and loop back.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59314"></span>E7B2</td>
+<td class="instruction">JR $E7AD</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59316"></span>
+<div class="comments">
+<div class="paragraph">
+Found the character to switch to, can it be done?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59316"></span>E7B4</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Get the character's room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59319"></span>E7B7</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Is it this one?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59320"></span>E7B8</td>
+<td class="instruction">JR Z,$E7C0</td>
+<td class="comment-1" rowspan="1">Yes, so we can switch.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59322"></span>E7BA</td>
+<td class="instruction">CALL <a href="47726.html">$BA6E</a></td>
+<td class="comment-1" rowspan="1">Otherwise, print "{character} is in {room}"</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59325"></span>E7BD</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="2">Clear up the stack and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59327"></span>E7BF</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59328"></span>
+<div class="comments">
+<div class="paragraph">
+The character is in the same room, so the switch can be made.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="59328"></span>E7C0</td>
+<td class="instruction">CALL <a href="43297.html">$A921</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59331"></span>E7C3</td>
+<td class="instruction">JR Z,$E7BD</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59333"></span>E7C5</td>
+<td class="instruction">LD ($B09D),IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59337"></span>E7C9</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59339"></span>E7CB</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59340"></span>E7CC</td>
+<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
+<td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="59343"></span>E7CF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59344"></span>E7D0</td>
+<td class="instruction">LD (IY+$69),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59347"></span>E7D3</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59348"></span>E7D4</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59349"></span>E7D5</td>
+<td class="instruction">LD (IY+$64),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59352"></span>E7D8</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59353"></span>E7D9</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59354"></span>E7DA</td>
+<td class="instruction">LD (IY+$73),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59357"></span>E7DD</td>
+<td class="instruction">LD (IY+$6E),$05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59361"></span>E7E1</td>
+<td class="instruction">LD IY,($B09D)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59365"></span>E7E5</td>
+<td class="instruction">CALL <a href="58365.html">$E3FD</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="59368"></span>E7E8</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59258.html">E77A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59291">Map</a></td>
+<td class="next">
+Next: <a href="59369.html">E7E9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

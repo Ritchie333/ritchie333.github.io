@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Logic</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="skoolkit-dark.css" />
+</head>
+<body class="Logic">
+<table class="header">
+<tr>
+<td class="logo"><a href="index.html">Everyone's A Wally</a></td>
+<td class="page-header">Logic</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#patterns">Patterns</a></li>
+<li><a href="#actions">Actions</a></li>
+<li><a href="#money">Money</a></li>
+</ul>
+<div><span id="introduction"></span></div>
+<div class="box box-1">
+<div class="box-title">Introduction</div>
+<div class="paragraph">
+The game includes a simple compiled programming language, conceptually similar to
+<a href="https://en.wikipedia.org/wiki/AWK">AWK</a> . Each entry includes a number of
+patterns or clauses, that if all are true, invokes one or more actions.
+</div>
+<div class="paragraph">
+The logic for each room is stored in various buffers starting at <a href="asm/59407.html">E80F</a> (for the Town Square).
+These are accessed by the routine at <a href="asm/60095.html">EABF</a>. The routine starts by checking for patterns,
+but switches to checking for actions taken if those patterns are all true with byte F7.
+A new pattern is then identified with byte F6. Byte FF signals the end of the logic.
+</div>
+<div class="paragraph">
+Each room also contains a set of custom code that can be executed on entry. These are
+stored in a table at <a href="asm/61171.html">EEF3</a>. If there is no custom action for the room, the table'S
+entry is <a href="asm/62071.html#62198">F2F6</a>, which is a simple RET instruction.
+</div>
+</div>
+<div><span id="patterns"></span></div>
+<div class="box box-2">
+<div class="box-title">Patterns</div>
+<div class="paragraph">
+A pattern is identified by the byte sequence opcode,[operands]. The number of bytes used as
+operands is dependent on the specific opcode.
+</div>
+<div class="paragraph">
+The routines to handle each pattern is stored in a lookup table at <a href="asm/59369.html">E7E9</a>.
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Instruction</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">AT_OBJ(n)</td>
+<td class="" colspan="1" rowspan="1">True if the player is standing next to the 'n'th object in the room.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">HAS(n)</td>
+<td class="" colspan="1" rowspan="1">True if the player is holding object 'n'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">IS_SET(f)</td>
+<td class="" colspan="1" rowspan="1">True if the flag 'f' is set.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">IS_OBJ(n,i)</td>
+<td class="" colspan="1" rowspan="1">True if the 'n'th object in the room is 'i'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">AT(x,y)</td>
+<td class="" colspan="1" rowspan="1">True if the player is standing at co-ordinates x,y.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">AM(n)</td>
+<td class="" colspan="1" rowspan="1">True if the player is using the character with this ID.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">NOT_HAS(n)</td>
+<td class="" colspan="1" rowspan="1">True if the player isn't holding object 'n'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">NOT_OBJ(n,i)</td>
+<td class="" colspan="1" rowspan="1">True if the 'n'th object in the room isn't 'i'.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The character IDs used in opcode 5 (AM(n)) are:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Character</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">01</td>
+<td class="" colspan="1" rowspan="1">Wally</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">Wilma</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">04</td>
+<td class="" colspan="1" rowspan="1">Tom</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">08</td>
+<td class="" colspan="1" rowspan="1">Dick</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">10</td>
+<td class="" colspan="1" rowspan="1">Harry</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="actions"></span></div>
+<div class="box box-1">
+<div class="box-title">Actions</div>
+<div class="paragraph">
+An action is identified by the byte sequence opcode,[operands]. The number of bytes used as
+operands is dependent on the specific opcode.
+</div>
+<div class="paragraph">
+The routines to handle each action is stored in a lookup table at <a href="asm/59385.html">E7F9</a>.
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Instruction</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">SWAP| Swap the least-recently picked up item for the nearest one in the room.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">SWAPFOR( n )</td>
+<td class="" colspan="1" rowspan="1">Swap the least-recently picked up item for the 'nth' object in the room.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">SET( f )</td>
+<td class="" colspan="1" rowspan="1">Set flag 'f'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">RESET( f )</td>
+<td class="" colspan="1" rowspan="1">Reset flag 'f'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">SET(f, i)</td>
+<td class="" colspan="1" rowspan="1">Set the value 'x' to 'i'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">EARN(i)</td>
+<td class="" colspan="1" rowspan="1">Earn the amount of money indexed.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">WALL</td>
+<td class="" colspan="1" rowspan="1">Build the wall. Only relevant in Wall Street.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">SPACE</td>
+<td class="" colspan="1" rowspan="1">Enter the asteroids game. Only relevant when standing near a phone booth.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">8</td>
+<td class="" colspan="1" rowspan="1">SAFE</td>
+<td class="" colspan="1" rowspan="1">Blow the safe, get the money and complete the game! Only used in the bank.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">9</td>
+<td class="" colspan="1" rowspan="1">CHASE</td>
+<td class="" colspan="1" rowspan="1">Open up the floor and drop the player down to the "chase the shark" room. Most often use when some task needs to be completed at a location, but the player has the wrong character and items.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">A</td>
+<td class="" colspan="1" rowspan="1">OUT</td>
+<td class="" colspan="1" rowspan="1">Enter the "out of town" room.</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="money"></span></div>
+<div class="box box-2">
+<div class="box-title">Money</div>
+<div class="paragraph">
+The money earned by various tasks is defined in a table at #$REC5C.
+Each entry in the table contains three bytes:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Character</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ID of the money value</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Money low byte</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Money high byte</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Money is always given in multiples of £10.
+</div>
+<div class="paragraph">
+The high byte is the hundreds part of the money.
+</div>
+<div class="paragraph">
+The low byte is the tens part of the money, but only the top nybble is used (as a
+decimal digit can be represented as four bytes).
+</div>
+<div class="paragraph">
+Example : $00, $50, $01 = Entry 1, £150.
+</div>
+<div class="paragraph">
+The maximum amount of money that can be earned is defined at <a href="asm/60668.html">ECFC</a> as £4,000.
+</div>
+<div class="paragraph">
+Morning, lunch and tea breaks and the end of the game are reached when a certain amount
+of money has been earned, defined in entries at <a href="asm/60662.html">ECF6</a>. These are:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Character</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">£600</td>
+<td class="" colspan="1" rowspan="1">Morning tea break</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">£1,700</td>
+<td class="" colspan="1" rowspan="1">Lunch time</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">£3,300</td>
+<td class="" colspan="1" rowspan="1">Tea time</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">£4,000</td>
+<td class="" colspan="1" rowspan="1">End of game</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The index of the next index into the buffer is stored in <a href="asm/60661.html">ECF5</a>.
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

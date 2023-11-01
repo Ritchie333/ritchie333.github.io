@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at EB0F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60161.html">EB01</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60175">Map</a></td>
+<td class="next">
+Next: <a href="60244.html">EB54</a>
+</td>
+</tr>
+</table>
+<div class="description">EB0F: Action 1 : SWAPFOR. An item can be collected. Swap it for a specific item.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+-
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Points to the object ID that should be swapped</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60175"></span>EB0F</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Set that the item should be swapped. (<a href="60244.html">EB54</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60177"></span>EB11</td>
+<td class="instruction">LD ($EB54),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60180"></span>EB14</td>
+<td class="instruction">LD B,(IY-$2D)</td>
+<td class="comment-1" rowspan="1">Get the ID of the least recently picked up object the player has.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60183"></span>EB17</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="1">Put the ID of the object to swap in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60184"></span>EB18</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Ensure <span class="register">HL</span> points to the next place in the action buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60185"></span>EB19</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60186"></span>EB1A</td>
+<td class="instruction">PUSH IY</td>
+<td class="comment-1" rowspan="1">Remember the current player pointer in <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60188"></span>EB1C</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
+<td class="comment-1" rowspan="1">Get the buffer for this object.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60191"></span>EB1F</td>
+<td class="instruction">LD A,(IY+$50)</td>
+<td class="comment-1" rowspan="1">Get the ID of the first object held.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60194"></span>EB22</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="1">Does it equal this one?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60195"></span>EB23</td>
+<td class="instruction">JR Z,$EB2F</td>
+<td class="comment-1" rowspan="1">Jump forward if it does.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60197"></span>EB25</td>
+<td class="instruction">INC IY</td>
+<td class="comment-1" rowspan="5">Otherwise, temporarily shift <span class="register">IY</span> forward so the second object held appears at the first.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60199"></span>EB27</td>
+<td class="instruction">INC IY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60201"></span>EB29</td>
+<td class="instruction">INC IY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60203"></span>EB2B</td>
+<td class="instruction">INC IY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60205"></span>EB2D</td>
+<td class="instruction">INC IY</td>
+</tr>
+<tr>
+<td class="address-2"><span id="60207"></span>EB2F</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="1">Put the ID of the object in the room in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60208"></span>EB30</td>
+<td class="instruction">LD A,(IY+$50)</td>
+<td class="comment-1" rowspan="1">Get the ID of the object to swap (first or second) in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60211"></span>EB33</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="2">Swap them round.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60212"></span>EB34</td>
+<td class="instruction">LD (IY+$50),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60215"></span>EB37</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Move to the flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60216"></span>EB38</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60217"></span>EB39</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60218"></span>EB3A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Put the flags in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60219"></span>EB3B</td>
+<td class="instruction">RES 7,A</td>
+<td class="comment-1" rowspan="1">Reset bit 7, the item has been swapped.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60221"></span>EB3D</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Store this in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60222"></span>EB3E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Put the flags in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60223"></span>EB3F</td>
+<td class="instruction">AND $80</td>
+<td class="comment-1" rowspan="1">Clear bit 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60225"></span>EB41</td>
+<td class="instruction">OR (IY-$37)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60228"></span>EB44</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60229"></span>EB45</td>
+<td class="instruction">LD (IY-$37),C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="60232"></span>EB48</td>
+<td class="instruction">POP IY</td>
+<td class="comment-1" rowspan="1">Restore the original value of <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60234"></span>EB4A</td>
+<td class="instruction">CALL <a href="58397.html">$E41D</a></td>
+<td class="comment-1" rowspan="1">Update the inventory.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60237"></span>EB4D</td>
+<td class="instruction">CALL <a href="43647.html">$AA7F</a></td>
+<td class="comment-1" rowspan="1">Play an "item swapped" effect.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60240"></span>EB50</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore the place in the buffer to <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="60241"></span>EB51</td>
+<td class="instruction">JP <a href="60139.html">$EAEB</a></td>
+<td class="comment-1" rowspan="1">Process more actions.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60161.html">EB01</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60175">Map</a></td>
+<td class="next">
+Next: <a href="60244.html">EB54</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

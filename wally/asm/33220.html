@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at 81C4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33198.html">81AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33220">Map</a></td>
+<td class="next">
+Next: <a href="33236.html">81D4</a>
+</td>
+</tr>
+</table>
+<div class="description">81C4: Check for the pause key</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+If CAPS + SPACE is held down, loop until it is released.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="33220"></span>81C4</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read CAPS - V on the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33222"></span>81C6</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33224"></span>81C8</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Put this in B.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33225"></span>81C9</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Read SPACE - B on the keyboard.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33227"></span>81CB</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33229"></span>81CD</td>
+<td class="instruction">OR B</td>
+<td class="comment-1" rowspan="1">Merge the two key presses together.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33230"></span>81CE</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Did both have the first key pressed? (ie: CAPS + SPACE )</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33232"></span>81D0</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="33233"></span>81D1</td>
+<td class="instruction">JP $81C4</td>
+<td class="comment-1" rowspan="1">Otherwise loop back and wait until the keys are released.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33198.html">81AE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33220">Map</a></td>
+<td class="next">
+Next: <a href="33236.html">81D4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

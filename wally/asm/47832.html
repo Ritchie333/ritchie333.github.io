@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at BAD8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47822.html">BACE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47832">Map</a></td>
+<td class="next">
+Next: <a href="47934.html">BB3E</a>
+</td>
+</tr>
+</table>
+<div class="description">BAD8: Initialize character data</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33109.html">8155</a> and <a href="33156.html">8184</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47832"></span>BAD8</td>
+<td class="instruction">LD IY,$BC67</td>
+<td class="comment-1" rowspan="1">Set the current player buffer (<a href="45213.html">B09D</a>) to Wally. (<a href="48231.html">BC67</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47836"></span>BADC</td>
+<td class="instruction">LD ($B09D),IY</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47840"></span>
+<div class="comments">
+<div class="paragraph">
+Copy the initial object states. Objects 00 - 1E are held in rooms, the remainder are held by the characters.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47840"></span>BAE0</td>
+<td class="instruction">LD HL,$BB3E</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the initial collectable object states. (<a href="47934.html">BB3E</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47843"></span>BAE3</td>
+<td class="instruction">LD DE,$BCE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the start of the room object data. (<a href="48361.html">BCE9</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47846"></span>BAE6</td>
+<td class="instruction">LD B,$1F</td>
+<td class="comment-1" rowspan="1">1F items to initialise</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47848"></span>BAE8</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Remember this value.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47849"></span>BAE9</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the next byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47850"></span>BAEA</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="1">Is it an end marker?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47852"></span>BAEC</td>
+<td class="instruction">JR NZ,$BAF1</td>
+<td class="comment-1" rowspan="1">Move forward if it isn't ie: there are objects here.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47854"></span>BAEE</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="2">Otherwise move to the next byte and check the next room.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47855"></span>BAEF</td>
+<td class="instruction">JR $BAE9</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47857"></span>
+<div class="comments">
+<div class="paragraph">
+An object was found. Copy the template data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47857"></span>BAF1</td>
+<td class="instruction">LDI</td>
+<td class="comment-1" rowspan="1">Copy the object ID.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47859"></span>BAF3</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="2">Skip over the co-ordinates which are fixed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47860"></span>BAF4</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47861"></span>BAF5</td>
+<td class="instruction">LDI</td>
+<td class="comment-1" rowspan="1">Copy the flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47863"></span>BAF7</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the flags.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47864"></span>BAF8</td>
+<td class="instruction">DJNZ $BAE8</td>
+<td class="comment-1" rowspan="1">Loop while there are more objects to initialise.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47866"></span>
+<div class="comments">
+<div class="paragraph">
+Copy the initial flags
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47866"></span>BAFA</td>
+<td class="instruction">LD BC,$00AF</td>
+<td class="comment-1" rowspan="1">Number of bytes to copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47869"></span>BAFD</td>
+<td class="instruction">LD HL,$BB7C</td>
+<td class="comment-1" rowspan="1">Copy from the initial template. (<a href="47996.html">BB7C</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47872"></span>BB00</td>
+<td class="instruction">LD DE,$BC30</td>
+<td class="comment-1" rowspan="1">Copy to start of main buffer. (<a href="48176.html">BC30</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47875"></span>BB03</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Do the copy.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47877"></span>BB05</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47878"></span>BB06</td>
+<td class="instruction">LD ($ECF5),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47881"></span>BB09</td>
+<td class="instruction">LD ($ECFE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47884"></span>BB0C</td>
+<td class="instruction">LD ($ECFF),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47887"></span>BB0F</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47888"></span>BB10</td>
+<td class="instruction">LD ($EDC5),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47891"></span>BB13</td>
+<td class="instruction">LD A,$14</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47893"></span>BB15</td>
+<td class="instruction">LD ($F9F4),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47896"></span>BB18</td>
+<td class="instruction">LD A,$28</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47898"></span>BB1A</td>
+<td class="instruction">LD ($F5BE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47901"></span>BB1D</td>
+<td class="instruction">LD A,$3C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47903"></span>BB1F</td>
+<td class="instruction">LD ($F5C2),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47906"></span>BB22</td>
+<td class="instruction">LD A,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47908"></span>BB24</td>
+<td class="instruction">LD ($F5C6),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47911"></span>BB27</td>
+<td class="instruction">LD HL,$EC5C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47914"></span>BB2A</td>
+<td class="instruction">LD B,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="47916"></span>BB2C</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47918"></span>BB2E</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47919"></span>BB2F</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47920"></span>BB30</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47921"></span>BB31</td>
+<td class="instruction">DJNZ $BB2C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47923"></span>BB33</td>
+<td class="instruction">LD HL,$EC0F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47926"></span>BB36</td>
+<td class="instruction">LD B,$0E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="47928"></span>BB38</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47930"></span>BB3A</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47931"></span>BB3B</td>
+<td class="instruction">DJNZ $BB38</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47933"></span>BB3D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47822.html">BACE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47832">Map</a></td>
+<td class="next">
+Next: <a href="47934.html">BB3E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Trivia</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Facts">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Trivia</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#miles_out_of_town">Miles out of town</a></li>
+</ul>
+<div><span id="miles_out_of_town"></span></div>
+<div class="box box-1">
+<div class="box-title">Miles out of town</div>
+<div class="paragraph">
+The "out of town" screen at <a href="../asm/61815.html">F177</a> uses a simple 16-bit word at <a href="../asm/61787.html">F15B</a> to store the number of miles walked.
+Therefore if you've walked 65,535 miles and walk one more, the counter will reset to 0 and you'll be able
+to get back into town in a single move.
+</div>
+<div class="paragraph">
+(Note that 65,535 miles is approximately twice round the circumerence of the Earth.)
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

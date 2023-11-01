@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routines</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="RoutinesMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-c"><span id="32997"></span><a href="../asm/32997.html">80E5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32997.html">Show title screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33083"></span><a href="../asm/33083.html">813B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33083.html">Set up initial game data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33109"></span><a href="../asm/33109.html">8155</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33109.html">Demo mode</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33156"></span><a href="../asm/33156.html">8184</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33156.html">Main entry point</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33198"></span><a href="../asm/33198.html">81AE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33198.html">Move everything on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33220"></span><a href="../asm/33220.html">81C4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33220.html">Check for the pause key</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33236"></span><a href="../asm/33236.html">81D4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33236.html">Change direction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="33251"></span><a href="../asm/33251.html">81E3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33251.html">Change a sprite to the reverse direction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43069"></span><a href="../asm/43069.html">A83D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43069.html">Put a static object on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43168"></span><a href="../asm/43168.html">A8A0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43168.html">Update moving graphic buffers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43297"></span><a href="../asm/43297.html">A921</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43297.html">Set the zero flag if the player is the current one.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43308"></span><a href="../asm/43308.html">A92C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43308.html">Move a computer controlled character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43568"></span><a href="../asm/43568.html">AA30</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43568.html">Swap an item when a character moves over it.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43647"></span><a href="../asm/43647.html">AA7F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43647.html">Generate an "item swapped" sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43660"></span><a href="../asm/43660.html">AA8C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43660.html">Get address of the item object buffer given its ID</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43698"></span><a href="../asm/43698.html">AAB2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43698.html">Movement routine 0. Check a character can be moved left, and do so if possible</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43741"></span><a href="../asm/43741.html">AADD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43741.html">Movement routine 1. Check a character can be moved right, and do so if possible</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43785"></span><a href="../asm/43785.html">AB09</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43785.html">Movement routine 2.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43814"></span><a href="../asm/43814.html">AB26</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43814.html">Movement routine 3.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43843"></span><a href="../asm/43843.html">AB43</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43843.html">Movement routine 4.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43872"></span><a href="../asm/43872.html">AB60</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43872.html">Movement routine 5.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43931"></span><a href="../asm/43931.html">AB9B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43931.html">Movement routine 6.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="43991"></span><a href="../asm/43991.html">ABD7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43991.html">See if the 'in' key was pressed and set A to 1 if it was</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44038"></span><a href="../asm/44038.html">AC06</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44038.html">New room check</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44127"></span><a href="../asm/44127.html">AC5F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44127.html">Get the address for the co-ordinate table of a room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44137"></span><a href="../asm/44137.html">AC69</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44137.html">Get the address of the next room table for this room and put it in HL</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44140"></span><a href="../asm/44140.html">AC6C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44140.html">Search for FF a number of times and return a pointer to the next entry after it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44474"></span><a href="../asm/44474.html">ADBA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44474.html">Update a computer-controlled character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44592"></span><a href="../asm/44592.html">AE30</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44592.html">Get a flag to specify if a room can only be reached via the "in" key</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44637"></span><a href="../asm/44637.html">AE5D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44637.html">This routine is called when a character reaches the edge of a room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44682"></span><a href="../asm/44682.html">AE8A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44682.html">Find the address of an item with the specified index</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44759"></span><a href="../asm/44759.html">AED7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44759.html">Get the next room that a computer controlled character should swap items</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44801"></span><a href="../asm/44801.html">AF01</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44801.html">Set the next room for the jumping jack or Herbert to appear in</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="44996"></span><a href="../asm/44996.html">AFC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44996.html">See if a player is in mid-air, and drop them on a platform or ground</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45067"></span><a href="../asm/45067.html">B00B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45067.html">Check that 'right' has been pressed, and set A to 1 if it has</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45116"></span><a href="../asm/45116.html">B03C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45116.html">Check that 'left' has been pressed, and set A to 1 if it has</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45165"></span><a href="../asm/45165.html">B06D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45165.html">Check that 'jump' has been pressed, and set A to 1 if it has</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45215"></span><a href="../asm/45215.html">B09F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45215.html">Check for user input and act on it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45286"></span><a href="../asm/45286.html">B0E6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45286.html">Put a character into the sprite buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45463"></span><a href="../asm/45463.html">B197</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45463.html">Drop the current character's height down one notch up to floor level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45478"></span><a href="../asm/45478.html">B1A6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45478.html">Make the current character jump</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45704"></span><a href="../asm/45704.html">B288</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45704.html">Move a character left or right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45788"></span><a href="../asm/45788.html">B2DC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45788.html">Select Sinclair control</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45794"></span><a href="../asm/45794.html">B2E2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45794.html">Select Kempston control</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45800"></span><a href="../asm/45800.html">B2E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45800.html">Select Keyboard control</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45809"></span><a href="../asm/45809.html">B2F1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45809.html">Print a breakdown of who earned what</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45900"></span><a href="../asm/45900.html">B34C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45900.html">Print a monetary value on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="45995"></span><a href="../asm/45995.html">B3AB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/45995.html">Wait for a keypress and return it in A</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46019"></span><a href="../asm/46019.html">B3C3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46019.html">The safe has been cracked! Get everyone together and print earnings.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46161"></span><a href="../asm/46161.html">B451</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46161.html">The game has ended. Print the final score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46193"></span><a href="../asm/46193.html">B471</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46193.html">Initialize the theme tune data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46210"></span><a href="../asm/46210.html">B482</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46210.html">Play the next note of the theme tune and get a keypress</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46315"></span><a href="../asm/46315.html">B4EB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46315.html">Pause and collect a keypress from 1 - 4</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46341"></span><a href="../asm/46341.html">B505</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46341.html">Play a note in the theme tune</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46869"></span><a href="../asm/46869.html">B715</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46869.html">Put a character on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="46971"></span><a href="../asm/46971.html">B77B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46971.html">Print an inventory graphic</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47034"></span><a href="../asm/47034.html">B7BA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47034.html">Print a graphic on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47097"></span><a href="../asm/47097.html">B7F9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47097.html">Put a room graphic in screen overlaying existing ones.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47147"></span><a href="../asm/47147.html">B82B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47147.html">Patch the display to do something different</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47179"></span><a href="../asm/47179.html">B84B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47179.html">Draw a room graphic</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47300"></span><a href="../asm/47300.html">B8C4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47300.html">Print an FF terminated string, processing control characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47341"></span><a href="../asm/47341.html">B8ED</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47341.html">Blank the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47362"></span><a href="../asm/47362.html">B902</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47362.html">Clear the room's graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47409"></span><a href="../asm/47409.html">B931</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47409.html">Clear the top status bar</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47442"></span><a href="../asm/47442.html">B952</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47442.html">Draw a room's graphics</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47532"></span><a href="../asm/47532.html">B9AC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47532.html">Draw the screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47574"></span><a href="../asm/47574.html">B9D6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47574.html">Update the characters' positions and draw if it's in range</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47611"></span><a href="../asm/47611.html">B9FB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47611.html">Put the sprites on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47653"></span><a href="../asm/47653.html">BA25</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47653.html">Fast copy memory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47726"></span><a href="../asm/47726.html">BA6E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47726.html">Print a "{character} is in {room}" message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47796"></span><a href="../asm/47796.html">BAB4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47796.html">Move to a new room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47822"></span><a href="../asm/47822.html">BACE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47822.html">Skip forward a string</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="47832"></span><a href="../asm/47832.html">BAD8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47832.html">Initialize character data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58108"></span><a href="../asm/58108.html">E2FC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58108.html">Play a footstep sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58153"></span><a href="../asm/58153.html">E329</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58153.html">Check for collision detection</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58221"></span><a href="../asm/58221.html">E36D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58221.html">Update endurance and lives display</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58323"></span><a href="../asm/58323.html">E3D3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58323.html">Generate a sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58348"></span><a href="../asm/58348.html">E3EC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58348.html">Generate one wave cycle in a sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58365"></span><a href="../asm/58365.html">E3FD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58365.html">Do a full refresh of the top status bar</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58397"></span><a href="../asm/58397.html">E41D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58397.html">Print a character's inventory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="58472"></span><a href="../asm/58472.html">E468</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58472.html">Display an item's description.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="59258"></span><a href="../asm/59258.html">E77A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59258.html">Clear the inventory display, so new text can go on</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="59291"></span><a href="../asm/59291.html">E79B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/59291.html">See if a player wants to swap character, and do so if they can</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60095"></span><a href="../asm/60095.html">EABF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60095.html">Process logic for the current room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60131"></span><a href="../asm/60131.html">EAE3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60131.html">A condition does not match. Skip to the ENDIF (F6) character.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60139"></span><a href="../asm/60139.html">EAEB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60139.html">A condition matches. Process any actions in it.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60161"></span><a href="../asm/60161.html">EB01</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60161.html">Action 0 : SWAP. An item can be collected. Swap it for the oldest item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60175"></span><a href="../asm/60175.html">EB0F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60175.html">Action 1 : SWAPFOR. An item can be collected. Swap it for a specific item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60245"></span><a href="../asm/60245.html">EB55</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60245.html">See if the player is touching any collectable item</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60281"></span><a href="../asm/60281.html">EB79</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60281.html">Action 6 : WALL. The wall is or can be built. Patch the logic in Wall Street for it.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60309"></span><a href="../asm/60309.html">EB95</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60309.html">Pattern 0 AT OBJ(x) : Match if at an item</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60356"></span><a href="../asm/60356.html">EBC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60356.html">Pattern 4 AT(x,y) : Match if at co-ordinate x,y</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60386"></span><a href="../asm/60386.html">EBE2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60386.html">Pattern 5 AM(x) : Match if we are a character (bitfield)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60397"></span><a href="../asm/60397.html">EBED</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60397.html">Pattern 1 HAS(x) : Match if item xx held</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60414"></span><a href="../asm/60414.html">EBFE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60414.html">Pattern 6 NOT HAS(x) : Match if item xx NOT held</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60445"></span><a href="../asm/60445.html">EC1D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60445.html">Get a game status flag and return it in A, setting the zero flag appropriately.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60459"></span><a href="../asm/60459.html">EC2B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60459.html">Pattern 3 OBJ(x,y) : Match if room object x is y</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60468"></span><a href="../asm/60468.html">EC34</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60468.html">Pattern 7 NOT OBJ(x,y) : Match if room object x is not y</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60477"></span><a href="../asm/60477.html">EC3D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60477.html">Check if the item in a room matches a certain object ID and sets the zero flag if it is</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60490"></span><a href="../asm/60490.html">EC4A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60490.html">Set a game flag to a value</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60604"></span><a href="../asm/60604.html">ECBC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60604.html">Action 5 EARN(x). Pay the current character amount in offset xx</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60691"></span><a href="../asm/60691.html">ED13</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60691.html">Room logic : The Laboratory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60714"></span><a href="../asm/60714.html">ED2A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60714.html">See if we've reached a break, and display a message if so</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60810"></span><a href="../asm/60810.html">ED8A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60810.html">Set up moving objects in the Laboratory</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60835"></span><a href="../asm/60835.html">EDA3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60835.html">Action 2 SET(x) : Set flag xx</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60840"></span><a href="../asm/60840.html">EDA8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60840.html">Action 3 RESET(x) : Reset flag xx</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60844"></span><a href="../asm/60844.html">EDAC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60844.html">Action 4 SET(x,y) : Set flag xx to yy</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60851"></span><a href="../asm/60851.html">EDB3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60851.html">Pattern 2 SET(x) : Match if flag x set</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60870"></span><a href="../asm/60870.html">EDC6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60870.html">Action 8 SAFE. The safe has been touched with a combination letter. Process it now.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="60919"></span><a href="../asm/60919.html">EDF7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60919.html">Action 7 SPACE. Play the "asteroids" phone box game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61090"></span><a href="../asm/61090.html">EEA2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61090.html">Update the sprite buffers at 6B00 and FE00</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61121"></span><a href="../asm/61121.html">EEC1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61121.html">Refresh the current room</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61237"></span><a href="../asm/61237.html">EF35</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61237.html">Update the current position of moving objects</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61329"></span><a href="../asm/61329.html">EF91</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61329.html">Set the attributes for the fountain in the town square if it is repaired</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61383"></span><a href="../asm/61383.html">EFC7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61383.html">Action 9 CHASE. Drop down to the "shark chase" game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61511"></span><a href="../asm/61511.html">F047</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61511.html">Refresh a moving object into the graphics buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61527"></span><a href="../asm/61527.html">F057</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61527.html">Chase : Drop the player down to ground level</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61632"></span><a href="../asm/61632.html">F0C0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61632.html">Chase : Check for player movement</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61710"></span><a href="../asm/61710.html">F10E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61710.html">See if the jumping jack needs to be on screen, and if so, move it</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61815"></span><a href="../asm/61815.html">F177</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61815.html">Action A OUT. Go to the "out of town" screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="61954"></span><a href="../asm/61954.html">F202</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61954.html">Print the current miles "out of town"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62003"></span><a href="../asm/62003.html">F233</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62003.html">Print a digit for the miles "out of town"</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62027"></span><a href="../asm/62027.html">F24B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62027.html">Room logic : The Post Office.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62071"></span><a href="../asm/62071.html">F277</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62071.html">Move Herbert</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62217"></span><a href="../asm/62217.html">F309</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62217.html">Room logic : The Pub</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62260"></span><a href="../asm/62260.html">F334</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62260.html">Room logic : The Zoo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62333"></span><a href="../asm/62333.html">F37D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62333.html">Room logic : The Docks</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62379"></span><a href="../asm/62379.html">F3AB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62379.html">Room logic : The Sewer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62473"></span><a href="../asm/62473.html">F409</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62473.html">Room logic : The Bakers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62524"></span><a href="../asm/62524.html">F43C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62524.html">Room logic : Wall Street</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62621"></span><a href="../asm/62621.html">F49D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62621.html">Room logic : The Work Shed</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62675"></span><a href="../asm/62675.html">F4D3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62675.html">Room logic : Motor Way</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62723"></span><a href="../asm/62723.html">F503</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62723.html">Room logic : The Super Market</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62799"></span><a href="../asm/62799.html">F54F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62799.html">Room logic : The Cave</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62834"></span><a href="../asm/62834.html">F572</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62834.html">Room logic : Town Square</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="62961"></span><a href="../asm/62961.html">F5F1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62961.html">Room logic : School Lane</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63092"></span><a href="../asm/63092.html">F674</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63092.html">Room logic : The Park</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63212"></span><a href="../asm/63212.html">F6EC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63212.html">Room logic : The Bank</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63302"></span><a href="../asm/63302.html">F746</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63302.html">Room logic : Wally's House</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63347"></span><a href="../asm/63347.html">F773</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63347.html">Room logic : The School</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63508"></span><a href="../asm/63508.html">F814</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63508.html">See if any food is in the current room, and display it if so</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63673"></span><a href="../asm/63673.html">F8B9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63673.html">Asteroids : Check for collision with lightning.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63802"></span><a href="../asm/63802.html">F93A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63802.html">Asteroids : Check for player's movement</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63908"></span><a href="../asm/63908.html">F9A4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63908.html">Asteroids : Calculate player's position on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63940"></span><a href="../asm/63940.html">F9C4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63940.html">Asteroids : Generate a "hit lightning" sound</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="63989"></span><a href="../asm/63989.html">F9F5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63989.html">Asteroids : Check for firing missile and animate accordingly</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64231"></span><a href="../asm/64231.html">FAE7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64231.html">Asteroids : Play a note of the "won" sound effect</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="64240"></span><a href="../asm/64240.html">FAF0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64240.html">Asteroids : Move the lightning bolts around</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

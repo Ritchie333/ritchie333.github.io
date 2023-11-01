@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at E3D3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58221.html">E36D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58323">Map</a></td>
+<td class="next">
+Next: <a href="58348.html">E3EC</a>
+</td>
+</tr>
+</table>
+<div class="description">E3D3: Generate a sound effect</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43647.html">AA7F</a>, <a href="58108.html">E2FC</a>, <a href="58153.html#58175">E33F</a>, <a href="63508.html">F814</a>, <a href="63989.html">F9F5</a> and <a href="64231.html">FAE7</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">pitch</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">first segment time (descending)</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">second segment time (static)</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">third segment time (ascending)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">pitch to drop on first segment</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">pitch to raise on third segment</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58323"></span>
+<div class="comments">
+<div class="paragraph">
+The sound effect routine uses a basic pitch in <span class="register">B</span>, plus three pitch segments - descending, static and ascending for each component of sound. For the first segment, the pitch is incrementally lowered by <span class="register">H</span>, for the second it is unchanged, while for the third, it is incrementally raised by <span class="register">L</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58323"></span>E3D3</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1">Get the default pitch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58324"></span>E3D4</td>
+<td class="instruction">SUB H</td>
+<td class="comment-1" rowspan="1">Subtract the pitch to drop for the first part</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58325"></span>E3D5</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="2">Play one wave of sound at that pitch.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58326"></span>E3D6</td>
+<td class="instruction">CALL <a href="58348.html">$E3EC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="58329"></span>E3D9</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="2">Loop while there is more to play for the first duration.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58330"></span>E3DA</td>
+<td class="instruction">JR NZ,$E3D3</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58332"></span>E3DC</td>
+<td class="instruction">CALL <a href="58348.html">$E3EC</a></td>
+<td class="comment-1" rowspan="1">Play one wave of sound.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58335"></span>E3DF</td>
+<td class="instruction">DEC D</td>
+<td class="comment-1" rowspan="2">Loop while there is more to play for the second duration.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58336"></span>E3E0</td>
+<td class="instruction">JR NZ,$E3DC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="58338"></span>E3E2</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="3">Raise the pitch by the required amount for the third part.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58339"></span>E3E3</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58340"></span>E3E4</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58341"></span>E3E5</td>
+<td class="instruction">CALL <a href="58348.html">$E3EC</a></td>
+<td class="comment-1" rowspan="1">Play one wave of sound.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58344"></span>E3E8</td>
+<td class="instruction">DEC E</td>
+<td class="comment-1" rowspan="2">Loop while there is more to play for the third duration.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58345"></span>E3E9</td>
+<td class="instruction">JR NZ,$E3E2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="58347"></span>E3EB</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58221.html">E36D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58323">Map</a></td>
+<td class="next">
+Next: <a href="58348.html">E3EC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

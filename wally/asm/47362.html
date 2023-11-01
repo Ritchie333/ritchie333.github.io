@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B902</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47341.html">B8ED</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47362">Map</a></td>
+<td class="next">
+Next: <a href="47409.html">B931</a>
+</td>
+</tr>
+</table>
+<div class="description">B902: Clear the room's graphics</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="47442.html">B952</a>, <a href="60714.html">ED2A</a>, <a href="60919.html">EDF7</a>, <a href="61383.html">EFC7</a> and <a href="61815.html">F177</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47362"></span>B902</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="3">Preserve main registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47363"></span>B903</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47364"></span>B904</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47365"></span>B905</td>
+<td class="instruction">LD IX,$8248</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the table between the status bar and main screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47369"></span>B909</td>
+<td class="instruction">LD C,$98</td>
+<td class="comment-1" rowspan="1">98 rows to process.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47371"></span>B90B</td>
+<td class="instruction">LD L,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Put the address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47374"></span>B90E</td>
+<td class="instruction">LD H,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47377"></span>B911</td>
+<td class="instruction">LD B,$20</td>
+<td class="comment-1" rowspan="4">Clear the next row.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47379"></span>B913</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47381"></span>B915</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47382"></span>B916</td>
+<td class="instruction">DJNZ $B913</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47384"></span>B918</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="2">Move to the next place in the table.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47386"></span>B91A</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47388"></span>B91C</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="2">Loop while there are more rows to handle.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47389"></span>B91D</td>
+<td class="instruction">JR NZ,$B90B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47391"></span>B91F</td>
+<td class="instruction">LD HL,$58A0</td>
+<td class="comment-1" rowspan="8">Fill the relevant part of the attribute buffer with bright yellow on black.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47394"></span>B922</td>
+<td class="instruction">LD BC,$0260</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47397"></span>B925</td>
+<td class="instruction">LD (HL),$46</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47399"></span>B927</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47400"></span>B928</td>
+<td class="instruction">DEC BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47401"></span>B929</td>
+<td class="instruction">LD A,B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47402"></span>B92A</td>
+<td class="instruction">OR C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47403"></span>B92B</td>
+<td class="instruction">JR NZ,$B925</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47405"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="47409.html">B931</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47405"></span>B92D</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="4">Restore main registers and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47406"></span>B92E</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47407"></span>B92F</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47408"></span>B930</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47341.html">B8ED</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47362">Map</a></td>
+<td class="next">
+Next: <a href="47409.html">B931</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

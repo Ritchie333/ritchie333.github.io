@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F233</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61954.html">F202</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62003">Map</a></td>
+<td class="next">
+Next: <a href="62019.html">F243</a>
+</td>
+</tr>
+</table>
+<div class="description">F233: Print a digit for the miles "out of town"</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="61954.html">F202</a>. A Base character to use for drawing. HL Number of miles to print BC Value to divide by (to select the correct digit)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62003"></span>F233</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Increment the current character.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62004"></span>F234</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Reset the carry flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62005"></span>F235</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-1" rowspan="1">Decrement by the divisor.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62007"></span>F237</td>
+<td class="instruction">JR NC,$F233</td>
+<td class="comment-1" rowspan="1">Repeat while there is no carry, which will leave the result of the division in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62009"></span>F239</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Restore the last decrement so the number of miles is correct.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62010"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="61954.html">F202</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62010"></span>F23A</td>
+<td class="instruction">LD C,$70</td>
+<td class="comment-1" rowspan="1">Use bright black on yellow.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62012"></span>F23C</td>
+<td class="instruction">CALL <a href="47097.html">$B7F9</a></td>
+<td class="comment-1" rowspan="1">Print the graphic.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62015"></span>F23F</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62016"></span>F240</td>
+<td class="instruction">LD A,$2F</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> back to just before ASCII '0' for the next run.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62018"></span>F242</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61954.html">F202</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62003">Map</a></td>
+<td class="next">
+Next: <a href="62019.html">F243</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at FEDE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Loading system-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23976.html">5DA8</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#65246">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<div class="description">FEDE: Main loader (2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65246"></span>FEDE</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65248"></span>FEE0</td>
+<td class="instruction">CALL $FEA5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65251"></span>FEE3</td>
+<td class="instruction">JP NC,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65254"></span>FEE6</td>
+<td class="instruction">LD A,$C6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65256"></span>FEE8</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65257"></span>FEE9</td>
+<td class="instruction">RL L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65259"></span>FEEB</td>
+<td class="instruction">LD B,$B0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65261"></span>FEED</td>
+<td class="instruction">JP NC,$FEE0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65264"></span>FEF0</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65265"></span>FEF1</td>
+<td class="instruction">XOR L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65266"></span>FEF2</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65267"></span>FEF3</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65268"></span>FEF4</td>
+<td class="instruction">OR E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65269"></span>FEF5</td>
+<td class="instruction">JR NZ,$FEC7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65271"></span>FEF7</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65274"></span>FEFA</td>
+<td class="instruction">LD BC,$BF24</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65277"></span>FEFD</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65279"></span>FEFF</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65280"></span>FF00</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65281"></span>FF01</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65282"></span>FF02</td>
+<td class="instruction">DEC BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65283"></span>FF03</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65284"></span>FF04</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65285"></span>FF05</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65286"></span>FF06</td>
+<td class="instruction">JR NZ,$FEFF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65288"></span>FF08</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65289"></span>FF09</td>
+<td class="instruction">JP NZ,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="65292"></span>
+<div class="comments">
+<div class="paragraph">
+The rest of the code is not present in the BASIC loader and only loaded after the end of the main tape block.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65292"></span>FF0C</td>
+<td class="instruction">LD DE,$5B80</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the start of the block to decrypt. (<a href="23424.html">5B80</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65295"></span>FF0F</td>
+<td class="instruction">LD HL,$53FE</td>
+<td class="comment-1" rowspan="1">Set the intial key in <span class="register">HL</span> to 53FE.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65298"></span>FF12</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Get the next byte to decrypt.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65299"></span>FF13</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-1" rowspan="1">Invert the bits against the key.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65300"></span>FF14</td>
+<td class="instruction">RES 4,H</td>
+<td class="comment-1" rowspan="1">Reset bit 4 in the key.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65302"></span>FF16</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-1" rowspan="1">Invert the bits again.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65303"></span>FF17</td>
+<td class="instruction">SET 4,H</td>
+<td class="comment-1" rowspan="1">Set it back again ready for the next pass.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65305"></span>FF19</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Store the decrypted byte.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65306"></span>FF1A</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Decrease the key value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65307"></span>FF1B</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Increase the address to look at.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65308"></span>FF1C</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="2">Has the last address (5B9A) been reached yet?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65309"></span>FF1D</td>
+<td class="instruction">CP $9A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65311"></span>FF1F</td>
+<td class="instruction">JR NZ,$FF12</td>
+<td class="comment-1" rowspan="1">Jump back if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65313"></span>FF21</td>
+<td class="instruction">JP $5B94</td>
+<td class="comment-1" rowspan="1">Otherwise run the main decrypter.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23976.html">5DA8</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#65246">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

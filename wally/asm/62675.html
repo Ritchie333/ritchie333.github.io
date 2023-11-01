@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at F4D3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62674.html">F4D2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62675">Map</a></td>
+<td class="next">
+Next: <a href="62719.html">F4FF</a>
+</td>
+</tr>
+</table>
+<div class="description">F4D3: Room logic : Motor Way</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Check the pipe is patched, and display the flame if not
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="62675"></span>F4D3</td>
+<td class="instruction">LD A,($BD7D)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62678"></span>F4D6</td>
+<td class="instruction">CP $1D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62680"></span>F4D8</td>
+<td class="instruction">JR NZ,$F4E0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62682"></span>F4DA</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62684"></span>F4DC</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62687"></span>F4DF</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="62688"></span>F4E0</td>
+<td class="instruction">LD HL,$A880</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62691"></span>F4E3</td>
+<td class="instruction">LD ($A838),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62694"></span>F4E6</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="2">Touching the flame (if it's there) drops endurance by 4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62696"></span>F4E8</td>
+<td class="instruction">LD ($F26E),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62699"></span>F4EB</td>
+<td class="instruction">LD A,($F4D2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62702"></span>F4EE</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62703"></span>F4EF</td>
+<td class="instruction">CP $50</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62705"></span>F4F1</td>
+<td class="instruction">JR NZ,$F4F5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62707"></span>F4F3</td>
+<td class="instruction">LD A,$4C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="62709"></span>F4F5</td>
+<td class="instruction">LD ($F4D2),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62712"></span>F4F8</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62715"></span>F4FB</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62718"></span>F4FE</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62674.html">F4D2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62675">Map</a></td>
+<td class="next">
+Next: <a href="62719.html">F4FF</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

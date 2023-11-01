@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: DataStructures</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="skoolkit-dark.css" />
+</head>
+<body class="DataStructures">
+<table class="header">
+<tr>
+<td class="logo"><a href="index.html">Everyone's A Wally</a></td>
+<td class="page-header">DataStructures</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#room_data">Room data</a></li>
+<li><a href="#block_data">Block data</a></li>
+<li><a href="#object_data">Object data</a></li>
+<li><a href="#next_rooms">Next rooms</a></li>
+<li><a href="#above-floor_platforms">Above-floor platforms</a></li>
+</ul>
+<div><span id="room_data"></span></div>
+<div class="box box-1">
+<div class="box-title">Room data</div>
+<div class="paragraph">
+The room data is defined as a series of entries in <a href="asm/52661.html">CDB5</a>.
+</div>
+<div class="paragraph">
+Each entry contains the block ID to draw plus bit 7 used as the row's least significant bit.
+The next byte contains the remainder of the row in bits 0 - 2 and the column in bits 3 - 7.
+This allows to pack an ID plus two co-ordinates into two bytes, saving memory.
+</div>
+<div class="paragraph">
+Each entry can also contain the following special values:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7E , n</td>
+<td class="" colspan="1" rowspan="1">Block should only be drawn if flag 'n' is set. This is only used to draw the wall in Wall Street if it has been built, otherwise show a pile of bricks. (<a href="asm/52937.html">CEC9</a>)</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">7F</td>
+<td class="" colspan="1" rowspan="1">End of data</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="block_data"></span></div>
+<div class="box box-2">
+<div class="box-title">Block data</div>
+<div class="paragraph">
+The block data is defined as a series of entries in <a href="asm/48518.html">BD86</a>. Each entry can contain the following.
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">A8 - EF , y</td>
+<td class="" colspan="1" rowspan="1">Move forward the value - C8 columns, and by the number of rows in the next byte.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">F0 , y, n</td>
+<td class="" colspan="1" rowspan="1">Draw the graphic 'n' and repeat for 'y' rows.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">F1</td>
+<td class="" colspan="1" rowspan="1">Move forward one column.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">F2 , x, n</td>
+<td class="" colspan="1" rowspan="1">Draw the graphic 'n' and repeat for 'x' pairs of columns.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">F3 , lo, hi</td>
+<td class="" colspan="1" rowspan="1">Jump to block data at the address specified.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">FB , lo, hi</td>
+<td class="" colspan="1" rowspan="1">Use the address pointed to by the next two bytes for the UDG graphic data.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">FD , x, n</td>
+<td class="" colspan="1" rowspan="1">Draw the graphic 'n' and repeat for 'x' pairs of columns.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">FE , x</td>
+<td class="" colspan="1" rowspan="1">Change to attribute 'x'.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">FF</td>
+<td class="" colspan="1" rowspan="1">End of data.</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="object_data"></span></div>
+<div class="box box-1">
+<div class="box-title">Object data</div>
+<div class="paragraph">
+Each room can have a number of objects that can be picked up. These are defined in a series of
+buffers starting at <a href="asm/48361.html">BCE9</a> and accessed via the routine at <a href="asm/43660.html">AA8C</a>.
+</div>
+<div class="paragraph">
+Each object takes four bytes and has the following structure:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Object ID</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">X co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Y co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Flags for the item</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The flags in byte 3 determine if the item can be picked up.
+Bits 0 - 5 are set if a character can pick it up (from bit 0 - Wally to bit 5 - Harry). So, 1F means "all characters".
+It bit 7 is reset, a computer character can pick the item up.
+</div>
+<div class="paragraph">
+The end of the table is denoted by the byte FF. If the room has no objects in it, that is the only byte in the buffer.
+</div>
+</div>
+<div><span id="next_rooms"></span></div>
+<div class="box box-2">
+<div class="box-title">Next rooms</div>
+<div class="paragraph">
+Each room has links to others in a table starting at <a href="asm/44159.html">AC7F</a>. The lookup is done at the routine in <a href="asm/44137.html">AC69</a>.
+</div>
+<div class="paragraph">
+Each entry contains the following structure:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ID of the next room.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">ID of co-ordinates that trigger this room.</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">ID of co-ordinates to start in the new room.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The co-ordinates are an index into a table starting at <a href="asm/44816.html">AF10</a>. Each entry contains an x and y co-ordinate.
+The most common entries are 0 (x = 0, y = 98) and 1 (x = F0 y = 98) which are the far left and
+far right parts of the screen. So common entries are a,$01,$00,b,$00,$01.
+</div>
+<div class="paragraph">
+A new room is automatically triggered when the player moves to the far-left or far-right of the screen,
+or when the player presses the "in" key. However, if the current co-ordinate does match any valid tables,
+nothing will happen.
+</div>
+<div class="paragraph">
+The end of the table is denoted by the byte FF.
+</div>
+</div>
+<div><span id="above-floor_platforms"></span></div>
+<div class="box box-1">
+<div class="box-title">Above-floor platforms</div>
+<div class="paragraph">
+Some rooms allow players to walk elsewhere than the ground, to climb onto things.
+</div>
+<div class="paragraph">
+These are defined in a table with offsets defined at <a href="asm/44943.html">AF8F</a>. Each entry contains three bytes
+with the y co-ordinate, the leftmost co-ordinate and the rightmost. As you might expect, the
+stairs in the sewer are the most complex definition.
+</div>
+<div class="paragraph">
+The specific table used by each room is defined as a table in <a href="asm/44963.html">AFA3</a>. Most rooms use ID 0,
+which has no additional platforms.
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

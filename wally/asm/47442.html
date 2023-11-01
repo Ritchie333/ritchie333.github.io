@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B952</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47441.html">B951</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47442">Map</a></td>
+<td class="next">
+Next: <a href="47532.html">B9AC</a>
+</td>
+</tr>
+</table>
+<div class="description">B952: Draw a room's graphics</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33083.html">813B</a>, <a href="33109.html">8155</a>, <a href="44038.html">AC06</a>, <a href="60714.html">ED2A</a> and <a href="60919.html">EDF7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47442"></span>B952</td>
+<td class="instruction">LD A,$B8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47444"></span>B954</td>
+<td class="instruction">LD ($AF88),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="47447"></span>B957</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="comment-1" rowspan="1">Clear the playing area.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47450"></span>B95A</td>
+<td class="instruction">LD A,(IY+$0F)</td>
+<td class="comment-1" rowspan="1">Get the current room in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47453"></span>B95D</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47454"></span>B95E</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47455"></span>B95F</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47457"></span>B961</td>
+<td class="instruction">LD HL,$CDB5</td>
+<td class="comment-1" rowspan="2">Add the base address of the room data. (<a href="52661.html">CDB5</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47460"></span>B964</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47461"></span>B965</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">Put the actual address in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47462"></span>B966</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47463"></span>B967</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47464"></span>B968</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47465"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="61383.html">EFC7</a> and <a href="61815.html">F177</a>. At this point, <span class="register">HL</span> points to the room graphics data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47465"></span>B969</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="4">Put the first two bytes in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47466"></span>B96A</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47467"></span>B96B</td>
+<td class="instruction">LD E,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47468"></span>B96C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47469"></span>B96D</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="2">Get the first byte and reset bit 7.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47470"></span>B96E</td>
+<td class="instruction">AND $7F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47472"></span>B970</td>
+<td class="instruction">CP $7F</td>
+<td class="comment-1" rowspan="1">Should the screen be refreshed now?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47474"></span>B972</td>
+<td class="instruction">JR Z,$B9A8</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47476"></span>B974</td>
+<td class="instruction">CP $7E</td>
+<td class="comment-1" rowspan="1">Is this data flag dependent?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47478"></span>B976</td>
+<td class="instruction">JR NZ,$B982</td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47480"></span>
+<div class="comments">
+<div class="paragraph">
+These graphics are flag dependent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47480"></span>B978</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Put the second byte in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47481"></span>B979</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="comment-1" rowspan="1">Is the flag set?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47484"></span>B97C</td>
+<td class="instruction">JR NZ,$B969</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47486"></span>B97E</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Otherwise skip over this entry as it shouldn't be drawn.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47487"></span>B97F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47488"></span>B980</td>
+<td class="instruction">JR $B969</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47490"></span>
+<div class="comments">
+<div class="paragraph">
+The graphics can be drawn.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47490"></span>B982</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47491"></span>B983</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Put the first byte as the block ID in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47492"></span>B984</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Get the second value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47493"></span>B985</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-1" rowspan="5">Put only the top 5 bits as a value in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47495"></span>B987</td>
+<td class="instruction">RRA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47496"></span>B988</td>
+<td class="instruction">RRA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47497"></span>B989</td>
+<td class="instruction">RRA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47498"></span>B98A</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47499"></span>B98B</td>
+<td class="instruction">RL D</td>
+<td class="comment-1" rowspan="1">Double <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47501"></span>B98D</td>
+<td class="instruction">RL E</td>
+<td class="comment-1" rowspan="1">Double <span class="register">E</span> and add the top bit of the previous value of <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47503"></span>B98F</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="2">Get the top four bits of the second value.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47504"></span>B990</td>
+<td class="instruction">AND $0F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47506"></span>B992</td>
+<td class="instruction">ADD A,$05</td>
+<td class="comment-1" rowspan="1">Start drawing from row 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47508"></span>B994</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Put the row in <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47509"></span>B995</td>
+<td class="instruction">LD E,C</td>
+<td class="comment-1" rowspan="1">Put the column in <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47510"></span>B996</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-1" rowspan="2">Put the block ID in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47511"></span>B997</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47513"></span>B999</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47514"></span>B99A</td>
+<td class="instruction">LD BC,$BD86</td>
+<td class="comment-1" rowspan="2">Add the basic offset of the room block components (<a href="48518.html">BD86</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47517"></span>B99D</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47518"></span>B99E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Put the address found in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47519"></span>B99F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47520"></span>B9A0</td>
+<td class="instruction">LD H,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47521"></span>B9A1</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47522"></span>B9A2</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic string.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47525"></span>B9A5</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47526"></span>B9A6</td>
+<td class="instruction">JR $B969</td>
+<td class="comment-1" rowspan="1">Jump back to draw some more.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47528"></span>B9A8</td>
+<td class="instruction">CALL <a href="47532.html">$B9AC</a></td>
+<td class="comment-1" rowspan="1">Copy the data to screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47531"></span>B9AB</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47441.html">B951</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47442">Map</a></td>
+<td class="next">
+Next: <a href="47532.html">B9AC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B451</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46019.html">B3C3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46161">Map</a></td>
+<td class="next">
+Next: <a href="46193.html">B471</a>
+</td>
+</tr>
+</table>
+<div class="description">B451: The game has ended. Print the final score.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="58153.html#58175">E33F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="46161"></span>B451</td>
+<td class="instruction">CALL <a href="47341.html">$B8ED</a></td>
+<td class="comment-1" rowspan="1">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46164"></span>B454</td>
+<td class="instruction">LD HL,$ECFE</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the total money earned.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46167"></span>B457</td>
+<td class="instruction">LD DE,$080A</td>
+<td class="comment-1" rowspan="1">Set the position to draw this.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46170"></span>B45A</td>
+<td class="instruction">LD C,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="46172"></span>B45C</td>
+<td class="instruction">CALL <a href="45900.html">$B34C</a></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46175"></span>B45F</td>
+<td class="instruction">LD HL,$7D48</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game over text. (<a href="32072.html">7D48</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46178"></span>B462</td>
+<td class="instruction">LD DE,$0504</td>
+<td class="comment-1" rowspan="1">Set the position to draw the text.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46181"></span>B465</td>
+<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
+<td class="comment-1" rowspan="1">Print it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46184"></span>B468</td>
+<td class="instruction">CALL <a href="45995.html">$B3AB</a></td>
+<td class="comment-1" rowspan="1">Wait for a keypress.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46187"></span>B46B</td>
+<td class="instruction">CALL <a href="45809.html">$B2F1</a></td>
+<td class="comment-1" rowspan="1">Print who earned what.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="46190"></span>B46E</td>
+<td class="instruction">JP <a href="33156.html">$8184</a></td>
+<td class="comment-1" rowspan="1">Restart the game.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46019.html">B3C3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46161">Map</a></td>
+<td class="next">
+Next: <a href="46193.html">B471</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

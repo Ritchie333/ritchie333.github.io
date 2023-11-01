@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B1A6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45463.html">B197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45478">Map</a></td>
+<td class="next">
+Next: <a href="45668.html">B264</a>
+</td>
+</tr>
+</table>
+<div class="description">B1A6: Make the current character jump</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43872.html">AB60</a>, <a href="43931.html">AB9B</a> and <a href="45215.html">B09F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45478"></span>B1A6</td>
+<td class="instruction">LD A,(IY+$3C)</td>
+<td class="comment-1" rowspan="2">Is the character jumping? (<a href="48291.html">BCA3</a>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45481"></span>B1A9</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45482"></span>B1AA</td>
+<td class="instruction">JR NZ,$B1B2</td>
+<td class="comment-1" rowspan="1">Move forward if they are.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45484"></span>B1AC</td>
+<td class="instruction">LD A,(IY+$41)</td>
+<td class="comment-1" rowspan="2">Copy the current direction (<a href="48296.html">BCA8</a>) to the jump flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45487"></span>B1AF</td>
+<td class="instruction">LD (IY+$3C),A</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45490"></span>B1B2</td>
+<td class="instruction">LD (IY+$46),A</td>
+<td class="comment-1" rowspan="1">Copy this to (?) <a href="48301.html">BCAD</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45493"></span>B1B5</td>
+<td class="instruction">LD (IY+$4B),$00</td>
+<td class="comment-1" rowspan="1">Set the jump table index to 0. <a href="48306.html">BCB2</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45497"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="43308.html">A92C</a> and <a href="45215.html">B09F</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45497"></span>B1B9</td>
+<td class="instruction">LD A,(IY+$3C)</td>
+<td class="comment-1" rowspan="1">Get the jump flag.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45500"></span>B1BC</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="1">Is the character jumping right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45502"></span>B1BE</td>
+<td class="instruction">JR Z,$B21C</td>
+<td class="comment-1" rowspan="1">Move to handle that if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45504"></span>
+<div class="comments">
+<div class="paragraph">
+Character is jumping left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45504"></span>B1C0</td>
+<td class="instruction">LD A,(IY+$4B)</td>
+<td class="comment-1" rowspan="1">Get the jump table index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45507"></span>B1C3</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="5">Multiply by 3 and store in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45508"></span>B1C4</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45509"></span>B1C5</td>
+<td class="instruction">ADD A,E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45510"></span>B1C6</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45511"></span>B1C7</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45513"></span>B1C9</td>
+<td class="instruction">LD HL,$B264</td>
+<td class="comment-1" rowspan="2">Add the base address of the jump table (<a href="45668.html">B264</a>) to get an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45516"></span>B1CC</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45517"></span>B1CD</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1">Put the X offset in <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45518"></span>B1CE</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Put the Y offset in <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45519"></span>B1CF</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45520"></span>B1D0</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Put the graphic frame number in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45521"></span>B1D1</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45522"></span>B1D2</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45523"></span>B1D3</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45524"></span>B1D4</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45526"></span>B1D6</td>
+<td class="instruction">JR NZ,$B1ED</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45528"></span>B1D8</td>
+<td class="instruction">LD A,(IY+$37)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45531"></span>B1DB</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45532"></span>B1DC</td>
+<td class="instruction">JR NZ,$B1ED</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45534"></span>B1DE</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45537"></span>B1E1</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45539"></span>B1E3</td>
+<td class="instruction">JR NZ,$B1ED</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45541"></span>B1E5</td>
+<td class="instruction">LD (IY+$4B),$0B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45545"></span>B1E9</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45547"></span>B1EB</td>
+<td class="instruction">JR $B205</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="45549"></span>B1ED</td>
+<td class="instruction">LD A,(IY-$3C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45552"></span>B1F0</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45553"></span>B1F1</td>
+<td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
+<td class="comment-1" rowspan="1">If not, need to change direction.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45556"></span>B1F4</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45559"></span>B1F7</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45560"></span>B1F8</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45563"></span>B1FB</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45566"></span>B1FE</td>
+<td class="instruction">SUB E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45567"></span>B1FF</td>
+<td class="instruction">JR NC,$B202</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45569"></span>B201</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45570"></span>
+<div class="comments">
+<div class="paragraph">
+Common exit point for jumping left and right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45570"></span>B202</td>
+<td class="instruction">LD (IY+$05),A</td>
+<td class="comment-1" rowspan="1">Set the current X co-ordinate (<a href="48236.html">BC6C</a>) to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45573"></span>B205</td>
+<td class="instruction">LD (IY+$00),B</td>
+<td class="comment-1" rowspan="1">Set the current frame number (<a href="48231.html">BC67</a>) to <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45576"></span>B208</td>
+<td class="instruction">INC (IY+$4B)</td>
+<td class="comment-1" rowspan="1">Increment the jump table index.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45579"></span>B20B</td>
+<td class="instruction">LD A,(IY+$4B)</td>
+<td class="comment-1" rowspan="2">Have we reached the end of the table?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45582"></span>B20E</td>
+<td class="instruction">CP $0C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45584"></span>B210</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45585"></span>B211</td>
+<td class="instruction">LD (IY+$3C),$00</td>
+<td class="comment-1" rowspan="2">Set flags as "not jumping"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45589"></span>B215</td>
+<td class="instruction">LD (IY+$46),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45593"></span>B219</td>
+<td class="instruction">JP <a href="58108.html#58133">$E315</a></td>
+<td class="comment-1" rowspan="1">Play a landing footstep sound and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45596"></span>
+<div class="comments">
+<div class="paragraph">
+Character is jumping right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45596"></span>B21C</td>
+<td class="instruction">LD A,(IY+$4B)</td>
+<td class="comment-1" rowspan="1">Get the jump frame number.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45599"></span>B21F</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="5">Multiply by 3 and store in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45600"></span>B220</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45601"></span>B221</td>
+<td class="instruction">ADD A,E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45602"></span>B222</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45603"></span>B223</td>
+<td class="instruction">LD D,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45605"></span>B225</td>
+<td class="instruction">LD HL,$B264</td>
+<td class="comment-1" rowspan="2">Add the base address of the jump table (<a href="45668.html">B264</a>) to get an offset.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45608"></span>B228</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45609"></span>B229</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1">Put the X offset in <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45610"></span>B22A</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Put the Y offset in <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45611"></span>B22B</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45612"></span>B22C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Put the graphic frame number in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45613"></span>B22D</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45614"></span>B22E</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45615"></span>B22F</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45616"></span>B230</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45618"></span>B232</td>
+<td class="instruction">JR NZ,$B249</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45620"></span>B234</td>
+<td class="instruction">LD A,(IY+$37)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45623"></span>B237</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45624"></span>B238</td>
+<td class="instruction">JR NZ,$B249</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45626"></span>B23A</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45629"></span>B23D</td>
+<td class="instruction">AND $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45631"></span>B23F</td>
+<td class="instruction">JR NZ,$B249</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45633"></span>B241</td>
+<td class="instruction">LD (IY+$4B),$0B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45637"></span>B245</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Set the frame number to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45639"></span>B247</td>
+<td class="instruction">JR $B205</td>
+<td class="comment-1" rowspan="1">Jump back to update the sequence.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="45641"></span>B249</td>
+<td class="instruction">LD A,(IY-$3C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45644"></span>B24C</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45645"></span>B24D</td>
+<td class="instruction">CALL Z,<a href="33236.html">$81D4</a></td>
+<td class="comment-1" rowspan="1">If so, need to change direction.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45648"></span>B250</td>
+<td class="instruction">LD A,(IY+$0A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45651"></span>B253</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45652"></span>B254</td>
+<td class="instruction">LD (IY+$0A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45655"></span>B257</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="45658"></span>B25A</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45659"></span>B25B</td>
+<td class="instruction">CP $F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45661"></span>B25D</td>
+<td class="instruction">JR C,$B202</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45663"></span>B25F</td>
+<td class="instruction">LD A,$F0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="45665"></span>B261</td>
+<td class="instruction">JP $B202</td>
+<td class="comment-1" rowspan="1">Jump back and continue.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45463.html">B197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45478">Map</a></td>
+<td class="next">
+Next: <a href="45668.html">B264</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

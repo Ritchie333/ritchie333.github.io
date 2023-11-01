@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at B82B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47097.html">B7F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47147">Map</a></td>
+<td class="next">
+Next: <a href="47179.html">B84B</a>
+</td>
+</tr>
+</table>
+<div class="description">B82B: Patch the display to do something different</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79</a> and <a href="61383.html">EFC7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="47147"></span>B82B</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47148"></span>B82C</td>
+<td class="instruction">LD HL,$B7F9</td>
+<td class="comment-1" rowspan="4">Replace the "CALL $B7BA" instructions in the routine at <a href="47179.html">B84B</a> to call <a href="47097.html">B7F9</a> instead.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47151"></span>B82F</td>
+<td class="instruction">LD ($B8BE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47154"></span>B832</td>
+<td class="instruction">LD ($B8B5),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47157"></span>B835</td>
+<td class="instruction">LD ($B895),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47160"></span>B838</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47161"></span>B839</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="comment-1" rowspan="1">Draw the graphic with the new routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47164"></span>B83C</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Remember <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47165"></span>B83D</td>
+<td class="instruction">LD HL,$B7BA</td>
+<td class="comment-1" rowspan="4">Set it back to the original routine at <a href="47034.html">B7BA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47168"></span>B840</td>
+<td class="instruction">LD ($B895),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47171"></span>B843</td>
+<td class="instruction">LD ($B8BE),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47174"></span>B846</td>
+<td class="instruction">LD ($B8B5),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47177"></span>B849</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="47178"></span>B84A</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47097.html">B7F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47147">Map</a></td>
+<td class="next">
+Next: <a href="47179.html">B84B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>
