@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Routine at FE46</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Loading system-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23976.html">5DA8</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#65094">Map</a></td>
+<td class="next">
+Next: <a href="65189.html">FEA5</a>
+</td>
+</tr>
+</table>
+<div class="description">FE46: Main loader (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="65094"></span>FE46</td>
+<td class="instruction">LD IX,$4000</td>
+<td class="comment-1" rowspan="1">Set the start to 4000.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65098"></span>FE4A</td>
+<td class="instruction">LD DE,$BF25</td>
+<td class="comment-1" rowspan="1">Set the length to read up to FF25.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="65101"></span>FE4D</td>
+<td class="instruction">LD A,$16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65103"></span>FE4F</td>
+<td class="instruction">LD ($FEAA),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65106"></span>FE52</td>
+<td class="instruction">LD A,$FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65108"></span>FE54</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65109"></span>FE55</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65110"></span>FE56</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65111"></span>FE57</td>
+<td class="instruction">DEC D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65112"></span>FE58</td>
+<td class="instruction">LD A,$0F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65114"></span>FE5A</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65116"></span>FE5C</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65118"></span>FE5E</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65119"></span>FE5F</td>
+<td class="instruction">AND $20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65121"></span>FE61</td>
+<td class="instruction">OR $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65123"></span>FE63</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65124"></span>FE64</td>
+<td class="instruction">CP A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65125"></span>FE65</td>
+<td class="instruction">CALL <a href="65189.html#65193">$FEA9</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65128"></span>FE68</td>
+<td class="instruction">JR NC,$FE65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65130"></span>FE6A</td>
+<td class="instruction">LD HL,$0415</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65133"></span>FE6D</td>
+<td class="instruction">DJNZ $FE6D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65135"></span>FE6F</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65136"></span>FE70</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65137"></span>FE71</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65138"></span>FE72</td>
+<td class="instruction">JR NZ,$FE6D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65140"></span>FE74</td>
+<td class="instruction">CALL <a href="65189.html">$FEA5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65143"></span>FE77</td>
+<td class="instruction">JR NC,$FE65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65145"></span>FE79</td>
+<td class="instruction">LD B,$9C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65147"></span>FE7B</td>
+<td class="instruction">CALL <a href="65189.html">$FEA5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65150"></span>FE7E</td>
+<td class="instruction">JR NC,$FE65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65152"></span>FE80</td>
+<td class="instruction">LD A,$C6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65154"></span>FE82</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65155"></span>FE83</td>
+<td class="instruction">JR NC,$FE65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65157"></span>FE85</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65158"></span>FE86</td>
+<td class="instruction">JR NZ,$FE79</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="65160"></span>FE88</td>
+<td class="instruction">LD B,$C9</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65162"></span>FE8A</td>
+<td class="instruction">CALL <a href="65189.html#65193">$FEA9</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65165"></span>FE8D</td>
+<td class="instruction">JR NC,$FE65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65167"></span>FE8F</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65168"></span>FE90</td>
+<td class="instruction">CP $D4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65170"></span>FE92</td>
+<td class="instruction">JR NC,$FE88</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65172"></span>FE94</td>
+<td class="instruction">CALL <a href="65189.html#65193">$FEA9</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65175"></span>FE97</td>
+<td class="instruction">JP NC,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65178"></span>FE9A</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65180"></span>FE9C</td>
+<td class="instruction">LD ($FEAA),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65183"></span>FE9F</td>
+<td class="instruction">LD H,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65185"></span>FEA1</td>
+<td class="instruction">LD B,$B0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="65187"></span>FEA3</td>
+<td class="instruction">JR <a href="65246.html">$FEDE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="23976.html">5DA8</a>
+</td>
+<td class="up">Up: <a href="Loading system.html#65094">Map</a></td>
+<td class="next">
+Next: <a href="65189.html">FEA5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>
