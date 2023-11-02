@@ -17,6 +17,7 @@
 <li><a href="#room_data">Room data</a></li>
 <li><a href="#block_data">Block data</a></li>
 <li><a href="#object_data">Object data</a></li>
+<li><a href="#movement_tables">Movement tables</a></li>
 <li><a href="#next_rooms">Next rooms</a></li>
 <li><a href="#above-floor_platforms">Above-floor platforms</a></li>
 </ul>
@@ -143,8 +144,74 @@ It bit 7 is reset, a computer character can pick the item up.
 The end of the table is denoted by the byte FF. If the room has no objects in it, that is the only byte in the buffer.
 </div>
 </div>
-<div><span id="next_rooms"></span></div>
+<div><span id="movement_tables"></span></div>
 <div class="box box-2">
+<div class="box-title">Movement tables</div>
+<div class="paragraph">
+Each moving object in a room, along with Herbert and the jumping jack (which can appear in any room),
+is associated with two four-byte buffers. The first is fixed and contains the object bounds; the second
+is dynamic and contains the current position and direction change. This is updated by calls to the
+routine at <a href="asm/61237.html">EF35</a>.
+</div>
+<div class="paragraph">
+The buffer containing bounds is fixed at:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Minimum x co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Maximum x co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Minimum y co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Maximum y co-ordinate</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The buffer containing the positions varies over time and contains:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Current x co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Current y co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Distance to move in x</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Distance to move in y</td>
+</tr>
+</table>
+The distances to move are stored as a 2s complement value.
+</div>
+<div class="paragraph">
+When an object hits the minimum or maximum value, its distance to move is
+inverted between positive and negative and it starts travelling back in the
+other direction.
+</div>
+</div>
+<div><span id="next_rooms"></span></div>
+<div class="box box-1">
 <div class="box-title">Next rooms</div>
 <div class="paragraph">
 Each room has links to others in a table starting at <a href="asm/44159.html">AC7F</a>. The lookup is done at the routine in <a href="asm/44137.html">AC69</a>.
@@ -187,7 +254,7 @@ The end of the table is denoted by the byte FF.
 </div>
 </div>
 <div><span id="above-floor_platforms"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Above-floor platforms</div>
 <div class="paragraph">
 Some rooms allow players to walk elsewhere than the ground, to climb onto things.

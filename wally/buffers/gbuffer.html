@@ -26,6 +26,9 @@
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23296.html">Copy of main playing area</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+This is a copy of the bottom two thirds of the screen containing the background graphics that don't change until a room is redrawn.
+</div>
 </div>
 </td>
 </tr>
@@ -35,6 +38,9 @@
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/27392.html">Sprite buffer</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+The buffer contains a copy of the lower two thirds of the screen, sorted sequentially by rows.
+</div>
 </div>
 </td>
 </tr>
@@ -144,8 +150,11 @@ During the intro screen, this byte is used as an index to the current theme tune
 <td class="map-g"><span id="47795"></span><a href="../asm/47795.html">BAB3</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/47795.html">Set to 1 to signal a room redraw</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/47795.html">Tick count for displaying "{character} is in {room}" message</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines in <a href="../asm/47726.html">BA6E</a> and <a href="../asm/47796.html">BAB4</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -648,10 +657,175 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="60678"></span><a href="../asm/60678.html">ED06</a></td>
+<td class="map-length">13</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60678.html">Movement table : Laboratory / Reward screens / Cave</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61510"></span><a href="../asm/61510.html">F046</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61510.html">Direction of the shark</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+0 - left, 1 - right
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61629"></span><a href="../asm/61629.html">F0BD</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61629.html">Chase : Current x co-ordinate of the shark</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61700"></span><a href="../asm/61700.html">F104</a></td>
+<td class="map-length">6</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61700.html">Movement table : Jumping jack</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62019"></span><a href="../asm/62019.html">F243</a></td>
+<td class="map-length">4</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62019.html">Movement table : The Post Office</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="62062"></span><a href="../asm/62062.html">F26E</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62062.html">The amount to decrease endurance by in a collision</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62064"></span><a href="../asm/62064.html">F270</a></td>
+<td class="map-length">7</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62064.html">Movement table : Herbert</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62205"></span><a href="../asm/62205.html">F2FD</a></td>
+<td class="map-length">12</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62205.html">Movement table : The Pub</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62247"></span><a href="../asm/62247.html">F327</a></td>
+<td class="map-length">9</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62247.html">Movement table : The Zoo</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62325"></span><a href="../asm/62325.html">F375</a></td>
+<td class="map-length">8</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62325.html">Movement table : The Docks</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62371"></span><a href="../asm/62371.html">F3A3</a></td>
+<td class="map-length">8</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62371.html">Movement table : The Sewer</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62465"></span><a href="../asm/62465.html">F401</a></td>
+<td class="map-length">8</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62465.html">Movement table : The Bakers</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62609"></span><a href="../asm/62609.html">F491</a></td>
+<td class="map-length">12</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62609.html">Movement table : The Work Shed</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62910"></span><a href="../asm/62910.html">F5BE</a></td>
+<td class="map-length">12</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62910.html">Movement table : School Lane</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63059"></span><a href="../asm/63059.html">F653</a></td>
+<td class="map-length">31</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63059.html">Movement table : The Park</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63090"></span><a href="../asm/63090.html">F672</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63090.html">Game status buffer entry at F672</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63091"></span><a href="../asm/63091.html">F673</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63091.html">Game status buffer entry at F673</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63196"></span><a href="../asm/63196.html">F6DC</a></td>
+<td class="map-length">16</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63196.html">Movement table : The Bank</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63290"></span><a href="../asm/63290.html">F73A</a></td>
+<td class="map-length">12</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63290.html">Movement table : Wally's House</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -693,11 +867,14 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </td>
 </tr>
 <tr>
-<td class="map-g"><span id="64768"></span><a href="../asm/64768.html">FD00</a></td>
-<td class="map-length">256</td>
+<td class="map-g"><span id="64512"></span><a href="../asm/64512.html">FC00</a></td>
+<td class="map-length">512</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64768.html">Copy of attribute buffer for additional graphics.</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64512.html">Copy of attribute buffer for sprites</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+The data is written to the screen by the routine at <a href="../asm/47611.html">B9FB</a>. It is initialised as a copy of the main screen at <a href="../asm/23296.html">5B00</a> by the routine at <a href="../asm/61090.html">EEA2</a>. Sprites are then drawn on top by the routine at <a href="../asm/43069.html">A83D</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -707,6 +884,9 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/65024.html">Copy of attribute buffer for main play area</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+The buffer is initialised by the routine at <a href="../asm/47532.html">B9AC</a> when all the background graphics are drawn.
+</div>
 </div>
 </td>
 </tr>

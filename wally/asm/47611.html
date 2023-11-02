@@ -38,77 +38,85 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="47574.html">B9D6
 <tr>
 <td class="address-2"><span id="47611"></span>B9FB</td>
 <td class="instruction">LD HL,$6B00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the sprite buffer. (<a href="27392.html">6B00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47614"></span>B9FE</td>
 <td class="instruction">LD IX,$8278</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the screen offset table. (<a href="33272.html#33400">8278</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47618"></span>BA02</td>
 <td class="instruction">LD BC,$1000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Initial length is 1000.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47621"></span>BA05</td>
 <td class="instruction">LD E,(IX+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the next screen offset in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47624"></span>BA08</td>
 <td class="instruction">LD D,(IX+$01)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47627"></span>BA0B</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next offset in the table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47629"></span>BA0D</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47631"></span>BA0F</td>
 <td class="instruction">CALL <a href="47653.html">$BA25</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the next row of the sprite buffer to screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47634"></span>BA12</td>
 <td class="instruction">JP PE,$BA05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47637"></span>
+<div class="comments">
+<div class="paragraph">
+Now put the attributes on screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47637"></span>BA15</td>
 <td class="instruction">LD BC,$0200</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Length is 0200.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47640"></span>BA18</td>
 <td class="instruction">LD HL,$FC00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the attribute buffer. (<a href="64512.html">FC00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47643"></span>BA1B</td>
 <td class="instruction">LD DE,$5900</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> to the middle third of the screen.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47646"></span>BA1E</td>
 <td class="instruction">CALL <a href="47653.html">$BA25</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy the next row of the attribute buffer to screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47649"></span>BA21</td>
 <td class="instruction">JP PE,$BA1E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47652"></span>BA24</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

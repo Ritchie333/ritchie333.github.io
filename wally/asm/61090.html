@@ -24,7 +24,7 @@ Next: <a href="61121.html">EEC1</a>
 </td>
 </tr>
 </table>
-<div class="description">EEA2: Update the sprite buffers at 6B00 and FE00</div>
+<div class="description">EEA2: Initialise the sprite buffers</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -36,59 +36,79 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="60714.html">ED2A
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="61090"></span>
+<div class="comments">
+<div class="paragraph">
+This routine takes a copy of the screen already in <a href="23296.html">5B00</a> (set by the routine in <a href="47532.html">B9AC</a>) ready to start overlaying sprites on top of it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="61090"></span>EEA2</td>
 <td class="instruction">LD DE,$6B00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61093"></span>EEA5</td>
 <td class="instruction">LD HL,$5B00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the screen buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61096"></span>EEA8</td>
 <td class="instruction">LD BC,$1000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Length is 1000.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61099"></span>EEAB</td>
 <td class="instruction">CALL <a href="47653.html">$BA25</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61102"></span>EEAE</td>
 <td class="instruction">JP PE,$EEAB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back while there is more to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61105"></span>
+<div class="comments">
+<div class="paragraph">
+Now copy the attributes.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61105"></span>EEB1</td>
 <td class="instruction">LD BC,$0200</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Length is 0200.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61108"></span>EEB4</td>
 <td class="instruction">LD HL,$FE00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the attribute buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61111"></span>EEB7</td>
 <td class="instruction">LD DE,$FC00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the sprite attribute buffer.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61114"></span>EEBA</td>
 <td class="instruction">CALL <a href="47653.html">$BA25</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61117"></span>EEBD</td>
 <td class="instruction">JP PE,$EEBA</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop back while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61120"></span>EEC0</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

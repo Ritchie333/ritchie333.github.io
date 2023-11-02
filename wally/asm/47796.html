@@ -24,7 +24,7 @@ Next: <a href="47822.html">BACE</a>
 </td>
 </tr>
 </table>
-<div class="description">BAB4: Move to a new room</div>
+<div class="description">BAB4: Update the tick counter for the "{character} is in {room}" display</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,67 +38,73 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="60919.html">E
 <tr>
 <td class="address-2"><span id="47796"></span>BAB4</td>
 <td class="instruction">LD HL,$BAB3</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Are we in the middle of printing a message?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47799"></span>BAB7</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47800"></span>BAB8</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47801"></span>BAB9</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47802"></span>BABA</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise decrement the tick count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47803"></span>BABB</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is not zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47804"></span>
+<div class="comments">
+<div class="paragraph">
+The tick count has reached 0, so get rid of the message.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47804"></span>BABC</td>
 <td class="instruction">LD C,$42</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47806"></span>BABE</td>
 <td class="instruction">LD HL,$DFDC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the drawing routine at <a href="47034.html">B7BA</a> to use the character set (<a href="57308.html">DFDC</a>) as a base address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47809"></span>BAC1</td>
 <td class="instruction">LD ($B7E9),HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47812"></span>BAC4</td>
 <td class="instruction">LD DE,$0400</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47815"></span>BAC7</td>
 <td class="instruction">LD HL,$7E68</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the status bar text (<a href="32319.html">7E3F</a>) that was overwritten by the message.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47818"></span>BACA</td>
 <td class="instruction">CALL <a href="47179.html">$B84B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Draw the graphic and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47821"></span>BACD</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

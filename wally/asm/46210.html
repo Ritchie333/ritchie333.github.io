@@ -81,7 +81,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 <span id="46228"></span>
 <div class="comments">
 <div class="paragraph">
-There is more of the tune to play, so do it.
+There is more of the tune to play, so do it. First, work out if the type of sound wave needs changing.
 </div>
 </div>
 </td>
@@ -89,172 +89,171 @@ There is more of the tune to play, so do it.
 <tr>
 <td class="address-2"><span id="46228"></span>B494</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next note.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46229"></span>B495</td>
 <td class="instruction">CP $FE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it a control character FE?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46231"></span>B497</td>
 <td class="instruction">JR NZ,$B4A2</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46233"></span>B499</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Switch to sawtooth wave.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46234"></span>B49A</td>
 <td class="instruction">LD ($B4EA),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46237"></span>B49D</td>
 <td class="instruction">LD ($B4E7),HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the next address of the tune to play. (<a href="46311.html">B4E7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46240"></span>B4A0</td>
 <td class="instruction">JR $B482</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward to play the note.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46242"></span>B4A2</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it a control character FF?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46244"></span>B4A4</td>
 <td class="instruction">JR NZ,$B4AA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46246"></span>B4A6</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Switch to square wave and jump back to set this.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46248"></span>B4A8</td>
 <td class="instruction">JR $B49A</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46250"></span>
+<div class="comments">
+<div class="paragraph">
+Now play the note.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46250"></span>B4AA</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46251"></span>B4AB</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current note.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46252"></span>B4AC</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the next note to play.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46253"></span>B4AD</td>
 <td class="instruction">LD ($B4E7),HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46256"></span>B4B0</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46257"></span>B4B1</td>
 <td class="instruction">JR Z,$B4DB</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, jump forward.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46259"></span>B4B3</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the note in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46260"></span>B4B4</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46262"></span>B4B6</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46263"></span>B4B7</td>
 <td class="instruction">LD DE,$B537</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address for the note frequencies. (<a href="46391.html">B537</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46266"></span>B4BA</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46267"></span>B4BB</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the frequency and put it in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46268"></span>B4BC</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46270"></span>B4BE</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Get the length and put it in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46271"></span>B4BF</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46272"></span>B4C0</td>
 <td class="instruction">LD D,B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46273"></span>B4C1</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46274"></span>B4C2</td>
 <td class="instruction">LD HL,$0000</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Multiply <span class="register">DE</span> with the note value to get the length.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46277"></span>B4C5</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46278"></span>B4C6</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46279"></span>B4C7</td>
 <td class="instruction">JR NZ,$B4C5</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46281"></span>B4C9</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46282"></span>B4CA</td>
 <td class="instruction">CALL <a href="46341.html">$B505</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play the note.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46285"></span>B4CD</td>
@@ -273,17 +272,16 @@ There is more of the tune to play, so do it.
 <tr>
 <td class="address-2"><span id="46291"></span>B4D3</td>
 <td class="instruction">LD BC,$0320</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Pause and get a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46294"></span>B4D6</td>
 <td class="instruction">CALL <a href="46315.html">$B4EB</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46297"></span>B4D9</td>
 <td class="instruction">JR $B482</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back and play more of the tune.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46299"></span>B4DB</td>
@@ -293,27 +291,26 @@ There is more of the tune to play, so do it.
 <tr>
 <td class="address-1"><span id="46302"></span>B4DE</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46303"></span>B4DF</td>
 <td class="instruction">CALL <a href="46315.html">$B4EB</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Pause and get a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46306"></span>B4E2</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Was a key pressed? Loop while there was.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46307"></span>B4E3</td>
 <td class="instruction">JR NZ,$B4DF</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46309"></span>B4E5</td>
 <td class="instruction">JR $B4D3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise jump back to play more of the tune.</td>
 </tr>
 </table>
 <table class="asm-navigation">

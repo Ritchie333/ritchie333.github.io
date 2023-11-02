@@ -38,7 +38,7 @@ Used by the routine at <a href="59291.html">E79B</a>.
 <tr>
 <td class="address-2"><span id="47726"></span>BA6E</td>
 <td class="instruction">LD A,($BAB3)</td>
-<td class="comment-1" rowspan="2">Are we in the middle of redrawing a room?</td>
+<td class="comment-1" rowspan="2">Are we in the middle of printing a message?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47729"></span>BA71</td>
@@ -62,12 +62,12 @@ Not redrawing the room, so the message can be printed.
 <tr>
 <td class="address-1"><span id="47731"></span>BA73</td>
 <td class="instruction">LD HL,$DFDC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the character set. (<a href="57308.html">DFDC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47734"></span>BA76</td>
 <td class="instruction">LD ($B7E9),HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the printing routine in <a href="47034.html">B7BA</a> to use this.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47737"></span>BA79</td>
@@ -87,132 +87,122 @@ Not redrawing the room, so the message can be printed.
 <tr>
 <td class="address-1"><span id="47746"></span>BA82</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47747"></span>BA83</td>
 <td class="instruction">CALL <a href="47822.html">$BACE</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the string's length in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47750"></span>BA86</td>
 <td class="instruction">LD C,B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47751"></span>BA87</td>
 <td class="instruction">LD H,$7C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">H</span> at the high byte for the character names. (<a href="31744.html">7C00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47753"></span>BA89</td>
 <td class="instruction">LD L,(IY-$23)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the low byte from the character. (<a href="48196.html">BC44</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47756"></span>BA8C</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the address for the character in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47757"></span>BA8D</td>
 <td class="instruction">CALL <a href="47822.html">$BACE</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the string's length in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47760"></span>BA90</td>
 <td class="instruction">LD A,$07</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="8">Given the total string length (character + room + extra), work out the position on screen that will put the display justified in the centre.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47762"></span>BA92</td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47763"></span>BA93</td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47764"></span>BA94</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47765"></span>BA95</td>
 <td class="instruction">LD A,$20</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47767"></span>BA97</td>
 <td class="instruction">SUB C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47768"></span>BA98</td>
 <td class="instruction">SRL A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47770"></span>BA9A</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47771"></span>BA9B</td>
 <td class="instruction">LD D,$04</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start drawing at row 4.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47773"></span>BA9D</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the character name in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47774"></span>BA9E</td>
 <td class="instruction">LD C,$4E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bright yellow on blue attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47776"></span>BAA0</td>
 <td class="instruction">CALL <a href="47179.html">$B84B</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47779"></span>BAA3</td>
 <td class="instruction">LD HL,$BA66</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at "{character} is in {room}" text. (<a href="47718.html">BA66</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47782"></span>BAA6</td>
 <td class="instruction">CALL <a href="47179.html">$B84B</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47785"></span>BAA9</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the room text in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47786"></span>BAAA</td>
 <td class="instruction">CALL <a href="47179.html">$B84B</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47789"></span>BAAD</td>
 <td class="instruction">LD A,$1E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set the tick count to 1E and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47791"></span>BAAF</td>
 <td class="instruction">LD ($BAB3),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47794"></span>BAB2</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

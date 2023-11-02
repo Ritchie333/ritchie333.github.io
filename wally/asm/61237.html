@@ -39,249 +39,365 @@ Used by the routines at <a href="60714.html">ED2A</a>, <a href="60810.html">ED8A
 </tr>
 <tr>
 <td class="register">IX</td>
-<td class="register-desc">= pointer to a buffer containing current x, current y, movement in x, movement in y</td>
+<td class="register-desc">pointer to a buffer containing current positions</td>
 </tr>
 <tr>
 <td class="register">BC</td>
-<td class="register-desc">= pointer to bounds (both x and y for bidirectional movement)</td>
+<td class="register-desc">Pointer to a buffer containing bounds</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="61237"></span>
+<div class="comments">
+<div class="paragraph">
+The buffer containing bounds is fixed at: <table class="map">
+<tr>
+<td class="" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Minimum x co-ordinate</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Maximum x co-ordinate</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Minimum y co-ordinate</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Maximum y co-ordinate</td>
+</tr>
+</table> The buffer containing the positions varies over time and contains: <table class="map">
+<tr>
+<td class="" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Current x co-ordinate</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Current y co-ordinate</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Distance to move in x</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Distance to move in y</td>
+</tr>
+</table> The distances to move are stored as a 2s complement value. When an object hits the minimum or maximum value, its distance to move is inverted between positive and negative and it starts travelling back in the other direction.
+</div>
+<div class="paragraph">
+The function updates <span class="register">IX</span> on each call to point at the next entries beyond the one it was called with, and can be called multiple times or in a loop for each moving object in the room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="61237"></span>EF35</td>
 <td class="instruction">LD E,(IX+$02)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the distance to move in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61240"></span>EF38</td>
 <td class="instruction">LD D,(IX+$03)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61243"></span>EF3B</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store <span class="register">BC</span> and <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61244"></span>EF3C</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61245"></span>EF3D</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61246"></span>EF3E</td>
 <td class="instruction">LD ($F673),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61249"></span>EF41</td>
 <td class="instruction">LD ($F672),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61252"></span>EF44</td>
 <td class="instruction">LD A,(IX+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current x co-ordinate in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61255"></span>EF47</td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the distance to move by.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61256"></span>EF48</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put this in <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61257"></span>
+<div class="comments">
+<div class="paragraph">
+Check the minimum x co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61257"></span>EF49</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the minimum x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61258"></span>EF4A</td>
 <td class="instruction">INC BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61259"></span>EF4B</td>
 <td class="instruction">CP L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is our current x co-ordinate the minimum?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61260"></span>EF4C</td>
 <td class="instruction">JR NZ,$EF59</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61262"></span>
+<div class="comments">
+<div class="paragraph">
+x co-ordinate has reached the minimum or maximum.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61262"></span>EF4E</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61264"></span>EF50</td>
 <td class="instruction">LD ($F672),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61267"></span>EF53</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Flip the distance to change between negative and positive.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61268"></span>EF54</td>
 <td class="instruction">NEG</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61270"></span>EF56</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61271"></span>EF57</td>
 <td class="instruction">JR $EF5D</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61273"></span>
+<div class="comments">
+<div class="paragraph">
+Check the maxmimum x co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61273"></span>EF59</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the maxmimum x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61274"></span>EF5A</td>
 <td class="instruction">CP L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is our current x co-ordinate the maximum?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61275"></span>EF5B</td>
 <td class="instruction">JR Z,$EF4E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back to flip direction if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61277"></span>
+<div class="comments">
+<div class="paragraph">
+x co-ordinate is in range, check the y co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61277"></span>EF5D</td>
 <td class="instruction">INC BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61278"></span>EF5E</td>
 <td class="instruction">LD A,(IX+$01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current y co-ordinate in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61281"></span>EF61</td>
 <td class="instruction">ADD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the distance to move by.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61282"></span>EF62</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put this in <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61283"></span>
+<div class="comments">
+<div class="paragraph">
+Check the minimum y co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61283"></span>EF63</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the minumum y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61284"></span>EF64</td>
 <td class="instruction">INC BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61285"></span>EF65</td>
 <td class="instruction">CP H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is our current y co-ordinate the minimum?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61286"></span>EF66</td>
 <td class="instruction">JR NZ,$EF73</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61288"></span>
+<div class="comments">
+<div class="paragraph">
+y co-ordinate has reached the minimum or maximum.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61288"></span>EF68</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61290"></span>EF6A</td>
 <td class="instruction">LD ($F673),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61293"></span>EF6D</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Flip the distance to change between negative and positive.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61294"></span>EF6E</td>
 <td class="instruction">NEG</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61296"></span>EF70</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61297"></span>EF71</td>
 <td class="instruction">JR $EF77</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61299"></span>
+<div class="comments">
+<div class="paragraph">
+Check the maximum y co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61299"></span>EF73</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the maximum y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61300"></span>EF74</td>
 <td class="instruction">CP H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is our current y co-ordinate the maxmimum?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61301"></span>EF75</td>
 <td class="instruction">JR Z,$EF68</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back to flip the direction if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61303"></span>
+<div class="comments">
+<div class="paragraph">
+The positions have all been updated, so write them out.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61303"></span>EF77</td>
 <td class="instruction">LD ($A838),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Write the position to update that will be used by the next call to the routine at <a href="43069.html">A83D</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61306"></span>EF7A</td>
 <td class="instruction">LD (IX+$00),L</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Write back the positions.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61309"></span>EF7D</td>
 <td class="instruction">LD (IX+$01),H</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61312"></span>EF80</td>
 <td class="instruction">LD (IX+$02),E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Write back the directions.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61315"></span>EF83</td>
 <td class="instruction">LD (IX+$03),D</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61318"></span>EF86</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">AF</span> and <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61319"></span>EF87</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -296,27 +412,23 @@ This entry point is used by the routines at <a href="63673.html">F8B9</a> and <a
 <tr>
 <td class="address-2"><span id="61320"></span>EF88</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Move to the next entry and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61322"></span>EF8A</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61324"></span>EF8C</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61326"></span>EF8E</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61328"></span>EF90</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -38,12 +38,12 @@ Used by the routine at <a href="46210.html">B482</a>.
 <th colspan="2">Input</th>
 </tr>
 <tr>
-<td class="register">C</td>
-<td class="register-desc">The pitch to play</td>
+<td class="register">BC</td>
+<td class="register-desc">The pitch</td>
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">The length note to play</td>
+<td class="register-desc">The length</td>
 </tr>
 </table>
 </td>
@@ -51,162 +51,177 @@ Used by the routine at <a href="46210.html">B482</a>.
 <tr>
 <td class="address-2"><span id="46341"></span>B505</td>
 <td class="instruction">LD A,($B4EA)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the sound type.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46344"></span>B508</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 0 (sawtooth)?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46345"></span>B509</td>
 <td class="instruction">JR Z,$B50F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46347"></span>
+<div class="comments">
+<div class="paragraph">
+Play a square wave.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46347"></span>B50B</td>
 <td class="instruction">LD H,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Copy the pitch from <span class="register">BC</span> to <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46348"></span>B50C</td>
 <td class="instruction">LD L,C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46349"></span>B50D</td>
 <td class="instruction">JR $B520</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward to play the note.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46351"></span>
+<div class="comments">
+<div class="paragraph">
+Play a sawtooth wave.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46351"></span>B50F</td>
 <td class="instruction">LD H,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Copy the pitch from <span class="register">BC</span> to <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46352"></span>B510</td>
 <td class="instruction">LD L,C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46353"></span>B511</td>
 <td class="instruction">SRA B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="9">Add three quarters of the pitch (?)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46355"></span>B513</td>
 <td class="instruction">RR C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46357"></span>B515</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46358"></span>B516</td>
 <td class="instruction">SRA B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46360"></span>B518</td>
 <td class="instruction">RR C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46362"></span>B51A</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46363"></span>B51B</td>
 <td class="instruction">SRA B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46365"></span>B51D</td>
 <td class="instruction">RR C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46367"></span>B51F</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46368"></span>
+<div class="comments">
+<div class="paragraph">
+Now play the note.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46368"></span>B520</td>
 <td class="instruction">LD A,$10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Switch the speaker on.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46370"></span>B522</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46372"></span>B524</td>
 <td class="instruction">CALL <a href="46315.html">$B4EB</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Pause and collect a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46375"></span>B527</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Switch the speaker off.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46376"></span>B528</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46378"></span>B52A</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46379"></span>B52B</td>
 <td class="instruction">LD B,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore the value that was previously copied to <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46380"></span>B52C</td>
 <td class="instruction">LD C,L</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46381"></span>B52D</td>
 <td class="instruction">CALL <a href="46315.html">$B4EB</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Pause and collect a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46384"></span>B530</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46385"></span>B531</td>
 <td class="instruction">DEC DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrease the length.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46386"></span>B532</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Loop while there is more to play.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46387"></span>B533</td>
 <td class="instruction">OR E</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46388"></span>B534</td>
 <td class="instruction">JR NZ,$B520</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46390"></span>B536</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

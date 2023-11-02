@@ -143,6 +143,14 @@
 </tr>
 <tr>
 <td class="map-page">127</td>
+<td class="map-byte">22</td>
+<td class="map-b"><span id="32534"></span><a href="../asm/32534.html">7F16</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/32534.html">Room block data : Hole opening for chase</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">127</td>
 <td class="map-byte">31</td>
 <td class="map-t"><span id="32543"></span><a href="../asm/32543.html">7F1F</a></td>
 <td class="map-t-desc">
@@ -234,23 +242,7 @@
 <td class="map-byte">248</td>
 <td class="map-w"><span id="33272"></span><a href="../asm/33272.html">81F8</a></td>
 <td class="map-w-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33272.html">Screen offsets for status bar</a></div>
-</td>
-</tr>
-<tr>
-<td class="map-page">130</td>
-<td class="map-byte">72</td>
-<td class="map-w"><span id="33352"></span><a href="../asm/33352.html">8248</a></td>
-<td class="map-w-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33352.html">Screen offset table : Separator bar between status and main screen</a></div>
-</td>
-</tr>
-<tr>
-<td class="map-page">130</td>
-<td class="map-byte">120</td>
-<td class="map-w"><span id="33400"></span><a href="../asm/33400.html">8278</a></td>
-<td class="map-w-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33400.html">Screen offset table : Main screen</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/33272.html">Screen offset table</a></div>
 </td>
 </tr>
 <tr>
@@ -994,7 +986,7 @@
 <td class="map-byte">160</td>
 <td class="map-c"><span id="43168"></span><a href="../asm/43168.html">A8A0</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43168.html">Update moving graphic buffers</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43168.html">Draw an object in the sprite buffer</a></div>
 </td>
 </tr>
 <tr>
@@ -1890,7 +1882,7 @@
 <td class="map-byte">55</td>
 <td class="map-b"><span id="46391"></span><a href="../asm/46391.html">B537</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46391.html">Theme tune timing constants</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/46391.html">Theme tune pitch / timing constants</a></div>
 </td>
 </tr>
 <tr>
@@ -1946,7 +1938,7 @@
 <td class="map-byte">43</td>
 <td class="map-c"><span id="47147"></span><a href="../asm/47147.html">B82B</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47147.html">Patch the display to do something different</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47147.html">Overwrite part of the screen buffer with a graphic</a></div>
 </td>
 </tr>
 <tr>
@@ -2010,7 +2002,7 @@
 <td class="map-byte">172</td>
 <td class="map-c"><span id="47532"></span><a href="../asm/47532.html">B9AC</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47532.html">Draw the screen</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47532.html">Copy the screen to the working buffer</a></div>
 </td>
 </tr>
 <tr>
@@ -2034,7 +2026,7 @@
 <td class="map-byte">37</td>
 <td class="map-c"><span id="47653"></span><a href="../asm/47653.html">BA25</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47653.html">Fast copy memory</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47653.html">Copy a row of screen or attribute data</a></div>
 </td>
 </tr>
 <tr>
@@ -2058,7 +2050,7 @@
 <td class="map-byte">179</td>
 <td class="map-g"><span id="47795"></span><a href="../asm/47795.html">BAB3</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47795.html">Set to 1 to signal a room redraw</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47795.html">Tick count for displaying "{character} is in {room}" message</a></div>
 </td>
 </tr>
 <tr>
@@ -2066,7 +2058,7 @@
 <td class="map-byte">180</td>
 <td class="map-c"><span id="47796"></span><a href="../asm/47796.html">BAB4</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47796.html">Move to a new room</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47796.html">Update the tick counter for the "{character} is in {room}" display</a></div>
 </td>
 </tr>
 <tr>
@@ -2074,7 +2066,7 @@
 <td class="map-byte">206</td>
 <td class="map-c"><span id="47822"></span><a href="../asm/47822.html">BACE</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47822.html">Skip forward a string</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47822.html">Get the length of a string</a></div>
 </td>
 </tr>
 <tr>
@@ -4234,7 +4226,7 @@
 <td class="map-byte">104</td>
 <td class="map-c"><span id="58472"></span><a href="../asm/58472.html">E468</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58472.html">Display an item's description.</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/58472.html">Display an item in the inventory.</a></div>
 </td>
 </tr>
 <tr>
@@ -5151,10 +5143,10 @@
 </tr>
 <tr>
 <td class="map-page">236</td>
-<td class="map-byte">250</td>
-<td class="map-b"><span id="60666"></span><a href="../asm/60666.html">ECFA</a></td>
+<td class="map-byte">246</td>
+<td class="map-b"><span id="60662"></span><a href="../asm/60662.html">ECF6</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60666.html"></a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60662.html">Table of amount of money needed to get morning, lunch and tea breaks</a></div>
 </td>
 </tr>
 <tr>
@@ -5184,9 +5176,9 @@
 <tr>
 <td class="map-page">237</td>
 <td class="map-byte">6</td>
-<td class="map-b"><span id="60678"></span><a href="../asm/60678.html">ED06</a></td>
-<td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60678.html">Movement table : Laboratory / Reward screens</a></div>
+<td class="map-g"><span id="60678"></span><a href="../asm/60678.html">ED06</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/60678.html">Movement table : Laboratory / Reward screens / Cave</a></div>
 </td>
 </tr>
 <tr>
@@ -5290,7 +5282,7 @@
 <td class="map-byte">162</td>
 <td class="map-c"><span id="61090"></span><a href="../asm/61090.html">EEA2</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61090.html">Update the sprite buffers at 6B00 and FE00</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61090.html">Initialise the sprite buffers</a></div>
 </td>
 </tr>
 <tr>
@@ -5335,10 +5327,18 @@
 </tr>
 <tr>
 <td class="map-page">240</td>
+<td class="map-byte">70</td>
+<td class="map-g"><span id="61510"></span><a href="../asm/61510.html">F046</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61510.html">Direction of the shark</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">240</td>
 <td class="map-byte">71</td>
 <td class="map-c"><span id="61511"></span><a href="../asm/61511.html">F047</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61511.html">Refresh a moving object into the graphics buffer</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61511.html">Flip the shark so it's the right way round.</a></div>
 </td>
 </tr>
 <tr>
@@ -5346,7 +5346,7 @@
 <td class="map-byte">87</td>
 <td class="map-c"><span id="61527"></span><a href="../asm/61527.html">F057</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61527.html">Chase : Drop the player down to ground level</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61527.html">Chase : Update the shark</a></div>
 </td>
 </tr>
 <tr>
@@ -5359,10 +5359,18 @@
 </tr>
 <tr>
 <td class="map-page">240</td>
+<td class="map-byte">189</td>
+<td class="map-g"><span id="61629"></span><a href="../asm/61629.html">F0BD</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61629.html">Chase : Current x co-ordinate of the shark</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">240</td>
 <td class="map-byte">190</td>
 <td class="map-b"><span id="61630"></span><a href="../asm/61630.html">F0BE</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61630.html">Chase : The amount of frames left to move the player on this control action</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61630.html">Chase : The amount of ticks left to move the player on this control action</a></div>
 </td>
 </tr>
 <tr>
@@ -5370,7 +5378,7 @@
 <td class="map-byte">191</td>
 <td class="map-b"><span id="61631"></span><a href="../asm/61631.html">F0BF</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61631.html">Chase : The next direction control the player should use to move (0 or 1)</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61631.html">Chase : The next direction control the player should use to move</a></div>
 </td>
 </tr>
 <tr>
@@ -5384,8 +5392,8 @@
 <tr>
 <td class="map-page">241</td>
 <td class="map-byte">4</td>
-<td class="map-b"><span id="61700"></span><a href="../asm/61700.html">F104</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="61700"></span><a href="../asm/61700.html">F104</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/61700.html">Movement table : Jumping jack</a></div>
 </td>
 </tr>
@@ -5472,9 +5480,17 @@
 <tr>
 <td class="map-page">242</td>
 <td class="map-byte">67</td>
-<td class="map-b"><span id="62019"></span><a href="../asm/62019.html">F243</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62019"></span><a href="../asm/62019.html">F243</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62019.html">Movement table : The Post Office</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">242</td>
+<td class="map-byte">71</td>
+<td class="map-b"><span id="62023"></span><a href="../asm/62023.html">F247</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62023.html">Bounds table : The Post Office</a></div>
 </td>
 </tr>
 <tr>
@@ -5504,8 +5520,8 @@
 <tr>
 <td class="map-page">242</td>
 <td class="map-byte">112</td>
-<td class="map-b"><span id="62064"></span><a href="../asm/62064.html">F270</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62064"></span><a href="../asm/62064.html">F270</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62064.html">Movement table : Herbert</a></div>
 </td>
 </tr>
@@ -5536,8 +5552,8 @@
 <tr>
 <td class="map-page">242</td>
 <td class="map-byte">253</td>
-<td class="map-b"><span id="62205"></span><a href="../asm/62205.html">F2FD</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62205"></span><a href="../asm/62205.html">F2FD</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62205.html">Movement table : The Pub</a></div>
 </td>
 </tr>
@@ -5552,8 +5568,8 @@
 <tr>
 <td class="map-page">243</td>
 <td class="map-byte">39</td>
-<td class="map-b"><span id="62247"></span><a href="../asm/62247.html">F327</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62247"></span><a href="../asm/62247.html">F327</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62247.html">Movement table : The Zoo</a></div>
 </td>
 </tr>
@@ -5576,8 +5592,8 @@
 <tr>
 <td class="map-page">243</td>
 <td class="map-byte">117</td>
-<td class="map-b"><span id="62325"></span><a href="../asm/62325.html">F375</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62325"></span><a href="../asm/62325.html">F375</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62325.html">Movement table : The Docks</a></div>
 </td>
 </tr>
@@ -5608,8 +5624,8 @@
 <tr>
 <td class="map-page">243</td>
 <td class="map-byte">163</td>
-<td class="map-b"><span id="62371"></span><a href="../asm/62371.html">F3A3</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62371"></span><a href="../asm/62371.html">F3A3</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62371.html">Movement table : The Sewer</a></div>
 </td>
 </tr>
@@ -5632,8 +5648,8 @@
 <tr>
 <td class="map-page">244</td>
 <td class="map-byte">1</td>
-<td class="map-b"><span id="62465"></span><a href="../asm/62465.html">F401</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62465"></span><a href="../asm/62465.html">F401</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62465.html">Movement table : The Bakers</a></div>
 </td>
 </tr>
@@ -5656,8 +5672,8 @@
 <tr>
 <td class="map-page">244</td>
 <td class="map-byte">145</td>
-<td class="map-b"><span id="62609"></span><a href="../asm/62609.html">F491</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62609"></span><a href="../asm/62609.html">F491</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62609.html">Movement table : The Work Shed</a></div>
 </td>
 </tr>
@@ -5728,8 +5744,8 @@
 <tr>
 <td class="map-page">245</td>
 <td class="map-byte">190</td>
-<td class="map-b"><span id="62910"></span><a href="../asm/62910.html">F5BE</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="62910"></span><a href="../asm/62910.html">F5BE</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/62910.html">Movement table : School Lane</a></div>
 </td>
 </tr>
@@ -5768,9 +5784,25 @@
 <tr>
 <td class="map-page">246</td>
 <td class="map-byte">83</td>
-<td class="map-b"><span id="63059"></span><a href="../asm/63059.html">F653</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="63059"></span><a href="../asm/63059.html">F653</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63059.html">Movement table : The Park</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">246</td>
+<td class="map-byte">114</td>
+<td class="map-g"><span id="63090"></span><a href="../asm/63090.html">F672</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63090.html">Game status buffer entry at F672</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">246</td>
+<td class="map-byte">115</td>
+<td class="map-g"><span id="63091"></span><a href="../asm/63091.html">F673</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63091.html">Game status buffer entry at F673</a></div>
 </td>
 </tr>
 <tr>
@@ -5800,8 +5832,8 @@
 <tr>
 <td class="map-page">246</td>
 <td class="map-byte">220</td>
-<td class="map-b"><span id="63196"></span><a href="../asm/63196.html">F6DC</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="63196"></span><a href="../asm/63196.html">F6DC</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63196.html">Movement table : The Bank</a></div>
 </td>
 </tr>
@@ -5816,8 +5848,8 @@
 <tr>
 <td class="map-page">247</td>
 <td class="map-byte">58</td>
-<td class="map-b"><span id="63290"></span><a href="../asm/63290.html">F73A</a></td>
-<td class="map-b-desc">
+<td class="map-g"><span id="63290"></span><a href="../asm/63290.html">F73A</a></td>
+<td class="map-g-desc">
 <div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63290.html">Movement table : Wally's House</a></div>
 </td>
 </tr>
@@ -6002,15 +6034,15 @@
 <td class="map-byte">42</td>
 <td class="map-s"><span id="64298"></span><a href="../asm/64298.html">FB2A</a></td>
 <td class="map-s-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64298.html">Unused</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64298.html">Spare space for the stack</a></div>
 </td>
 </tr>
 <tr>
-<td class="map-page">253</td>
+<td class="map-page">252</td>
 <td class="map-byte">0</td>
-<td class="map-g"><span id="64768"></span><a href="../asm/64768.html">FD00</a></td>
+<td class="map-g"><span id="64512"></span><a href="../asm/64512.html">FC00</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64768.html">Copy of attribute buffer for additional graphics.</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64512.html">Copy of attribute buffer for sprites</a></div>
 </td>
 </tr>
 <tr>

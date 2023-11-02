@@ -24,7 +24,7 @@ Next: <a href="61623.html">F0B7</a>
 </td>
 </tr>
 </table>
-<div class="description">F057: Chase : Drop the player down to ground level</div>
+<div class="description">F057: Chase : Update the shark</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,72 +38,70 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 <tr>
 <td class="address-2"><span id="61527"></span>F057</td>
 <td class="instruction">LD A,($F046)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the shark's direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61530"></span>F05A</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it facing left?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61531"></span>F05B</td>
 <td class="instruction">CALL NZ,<a href="61511.html">$F047</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If not, reverse the graphic so it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61534"></span>F05E</td>
 <td class="instruction">LD HL,($F0BD)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the x co-ordinate in <span class="register">L</span> and set the y co-ordinate to 98.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61537"></span>F061</td>
 <td class="instruction">LD H,$98</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61539"></span>F063</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the object ID to be the shark's head (88F8)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61541"></span>F065</td>
 <td class="instruction">LD ($A838),HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61544"></span>F068</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61547"></span>F06B</td>
 <td class="instruction">LD H,$A8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the y co-ordinate to A8.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61549"></span>F06D</td>
 <td class="instruction">LD ($A838),HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61552"></span>F070</td>
 <td class="instruction">LD A,($F3A0)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the object ID of the shark's body.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61555"></span>F073</td>
 <td class="instruction">XOR $02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Toggle bit 2, so it alternates between 2D and 2F.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61557"></span>F075</td>
 <td class="instruction">LD ($F3A0),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61560"></span>F078</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61563"></span>F07B</td>
@@ -117,32 +115,42 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 <tr>
 <td class="address-1"><span id="61568"></span>F080</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61571"></span>F083</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the player's Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61574"></span>F086</td>
 <td class="instruction">CP $98</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 98 ie: ground level.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61576"></span>F088</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is, chase hasn't started.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61577"></span>
+<div class="comments">
+<div class="paragraph">
+The chase is on.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61577"></span>F089</td>
 <td class="instruction">LD HL,$F0BD</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the shark's x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61580"></span>F08C</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the value in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61581"></span>F08D</td>

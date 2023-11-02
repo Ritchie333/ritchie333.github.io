@@ -14,10 +14,34 @@
 </tr>
 </table>
 <ul class="contents">
+<li><a href="#screen_updates">Screen updates</a></li>
 <li><a href="#miles_out_of_town">Miles out of town</a></li>
+<li><a href="#shark">Shark</a></li>
 </ul>
-<div><span id="miles_out_of_town"></span></div>
+<div><span id="screen_updates"></span></div>
 <div class="box box-1">
+<div class="box-title">Screen updates</div>
+<div class="paragraph">
+There are two copies of the screen, one with the background graphics (stored at <a href="../asm/23296.html">5B00</a>) and one
+with moving objects and characters overlaid (<a href="../asm/27392.html">6B00</a>).
+</div>
+<div class="paragraph">
+The background buffer is usually left untouched after entering a room (but it can occasionally
+be changed, see the routine in <a href="../asm/47147.html">B82B</a>), but the moving objects buffer is updated
+continuously as objects move around the screen, by copying the background layer and overlaying
+everything in its current position.
+</div>
+<div class="paragraph">
+Although this seems slow and redundant, it's not slow enough to make the game unplayable,
+and it does solve the requirement of having to write code
+that invalidates a specific part of the screen. The routine that puts sprites in the buffer
+at <a href="../asm/43069.html">A83D</a> also uses the stack for copying data. This is a
+<a href="https://chuntey.wordpress.com/2013/10/02/how-to-write-zx-spectrum-games-chapter-13/">well-known trick</a>
+to make graphics updating faster.
+</div>
+</div>
+<div><span id="miles_out_of_town"></span></div>
+<div class="box box-2">
 <div class="box-title">Miles out of town</div>
 <div class="paragraph">
 The "out of town" screen at <a href="../asm/61815.html">F177</a> uses a simple 16-bit word at <a href="../asm/61787.html">F15B</a> to store the number of miles walked.
@@ -26,6 +50,17 @@ to get back into town in a single move.
 </div>
 <div class="paragraph">
 (Note that 65,535 miles is approximately twice round the circumerence of the Earth.)
+</div>
+</div>
+<div><span id="shark"></span></div>
+<div class="box box-1">
+<div class="box-title">Shark</div>
+<div class="paragraph">
+The shark in the sewer is treated as two separate moving objects stacked on top of each other,
+with the movement and bounds tables set up to be contiguous.
+</div>
+<div class="paragraph">
+To see the shark appear to move while sawn in half, try POKE F3A9 , 3
 </div>
 </div>
 <footer>

@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="61383.html">EFC7</a>
+Prev: <a href="61510.html">F046</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#61511">Map</a></td>
 <td class="next">
@@ -24,7 +24,7 @@ Next: <a href="61527.html">F057</a>
 </td>
 </tr>
 </table>
-<div class="description">F047: Refresh a moving object into the graphics buffer</div>
+<div class="description">F047: Flip the shark so it's the right way round.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,43 +38,42 @@ Used by the routines at <a href="61527.html">F057</a> and <a href="62379.html">F
 <tr>
 <td class="address-2"><span id="61511"></span>F047</td>
 <td class="instruction">EXX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Exchange main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61512"></span>F048</td>
 <td class="instruction">XOR $01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Flip bit 1 in <a href="61510.html">F046</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61514"></span>F04A</td>
 <td class="instruction">LD ($F046),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61517"></span>F04D</td>
 <td class="instruction">LD DE,$88F8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the shark graphic. (<a href="35064.html">88F8</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61520"></span>F050</td>
 <td class="instruction">LD BC,$00C0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the size.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61523"></span>F053</td>
 <td class="instruction">CALL <a href="33251.html">$81E3</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Change the sprite to reverse direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61526"></span>F056</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="61383.html">EFC7</a>
+Prev: <a href="61510.html">F046</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#61511">Map</a></td>
 <td class="next">

@@ -38,7 +38,7 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 <tr>
 <td class="address-2"><span id="61121"></span>EEC1</td>
 <td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Initialize the sprite buffers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61124"></span>EEC4</td>
@@ -115,54 +115,59 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 <td class="instruction">JR $EECF</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="61155"></span>
+<div class="comments">
+<div class="paragraph">
+See if there is any custom routines for this room, and if so, execute them.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="61155"></span>EEE3</td>
 <td class="instruction">LD E,(IY+$0F)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the current room in <span class="register">E</span> and double it to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61158"></span>EEE6</td>
 <td class="instruction">SLA E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61160"></span>EEE8</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61162"></span>EEEA</td>
 <td class="instruction">LD HL,$EEF3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the room logic table (<a href="61171.html">EEF3</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61165"></span>EEED</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61166"></span>EEEE</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the address found in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61167"></span>EEEF</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61168"></span>EEF0</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61169"></span>EEF1</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> so <span class="register">HL</span> points to the logic routine.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61170"></span>EEF2</td>
 <td class="instruction">JP (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Execute it.</td>
 </tr>
 </table>
 <table class="asm-navigation">

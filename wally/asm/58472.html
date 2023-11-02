@@ -24,22 +24,13 @@ Next: <a href="58500.html">E484</a>
 </td>
 </tr>
 </table>
-<div class="description">E468: Display an item's description.</div>
+<div class="description">E468: Display an item in the inventory.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine in <a href="58397.html">E41D</a>.
-</div>
-<div class="paragraph">
-Print the description of an item. If the control code F4+flag
-</div>
-<div class="paragraph">
-is found, use the first or the second description depending on
-</div>
-<div class="paragraph">
-whether or not that flag is set.
 </div>
 </div>
 <table class="input">
@@ -48,90 +39,109 @@ whether or not that flag is set.
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">Pointer to the description</td>
+<td class="register-desc">Pointer to the item data</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Location to print</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="58472"></span>
+<div class="comments">
+<div class="paragraph">
+Print the description of an item. If the control code F4+flag is found, use the first or the second description depending on whether or not that flag is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="58472"></span>E468</td>
 <td class="instruction">CALL <a href="47179.html">$B84B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print the string up to the first FF marker.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58475"></span>E46B</td>
 <td class="instruction">LD C,$07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58477"></span>E46D</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58478"></span>E46E</td>
 <td class="instruction">CP $F4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it a flag specifier?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58480"></span>E470</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58481"></span>
+<div class="comments">
+<div class="paragraph">
+This item's description is dependent on a flag.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58481"></span>E471</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the flag in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58482"></span>E472</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58483"></span>E473</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58484"></span>E474</td>
 <td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the flag set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58487"></span>E477</td>
 <td class="instruction">JP NZ,<a href="47179.html">$B84B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is to use the first description.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58490"></span>E47A</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Otherwise search for the next instance of FF to point at the second description.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58491"></span>E47B</td>
 <td class="instruction">LD B,$FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58493"></span>E47D</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58494"></span>E47E</td>
 <td class="instruction">CPIR</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58496"></span>E480</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58497"></span>E481</td>
 <td class="instruction">JP <a href="47179.html">$B84B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump to print the flag-specific description.</td>
 </tr>
 </table>
 <table class="asm-navigation">

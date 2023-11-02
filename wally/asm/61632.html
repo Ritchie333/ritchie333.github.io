@@ -38,177 +38,207 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 <tr>
 <td class="address-2"><span id="61632"></span>F0C0</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61635"></span>F0C3</td>
 <td class="instruction">CP $98</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the player on the floor yet?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61637"></span>F0C5</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61638"></span>F0C6</td>
 <td class="instruction">CALL <a href="45116.html">$B03C</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Check for 'left' and put the result in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61641"></span>F0C9</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61642"></span>F0CA</td>
 <td class="instruction">CALL <a href="45067.html">$B00B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Check for 'right' and put the result in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61645"></span>F0CD</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61646"></span>F0CE</td>
 <td class="instruction">LD A,($F0BF)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next direction control. (<a href="61631.html">F0BF</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61649"></span>F0D1</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61650"></span>F0D2</td>
 <td class="instruction">JR NZ,$F0DB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61652"></span>
+<div class="comments">
+<div class="paragraph">
+Player should be moving left.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61652"></span>F0D4</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Did the player move right?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61653"></span>F0D5</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61654"></span>F0D6</td>
 <td class="instruction">JR NZ,$F0FB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward to reduce the tick count if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61656"></span>F0D8</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise test for moving left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61657"></span>F0D9</td>
 <td class="instruction">JR $F0E0</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61659"></span>
+<div class="comments">
+<div class="paragraph">
+Player should be moving right.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61659"></span>F0DB</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Did the player move left?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61660"></span>F0DC</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61661"></span>F0DD</td>
 <td class="instruction">JR NZ,$F0FB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward to reduce the tick count if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61663"></span>F0DF</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise test for moving right.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61664"></span>F0E0</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Did the player move in the correct direction?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61665"></span>F0E1</td>
 <td class="instruction">JR Z,$F0FB</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If not, skip forward to reducing the frame count.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61667"></span>
+<div class="comments">
+<div class="paragraph">
+The character moved in the right way, so move them forward.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61667"></span>F0E3</td>
 <td class="instruction">LD A,$05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the number of ticks left (<a href="61630.html">F0BE</a>) to 5.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61669"></span>F0E5</td>
 <td class="instruction">LD ($F0BE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61672"></span>F0E8</td>
 <td class="instruction">LD A,($F0BF)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Invert the direction flag.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61675"></span>F0EB</td>
 <td class="instruction">XOR $01</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61677"></span>F0ED</td>
 <td class="instruction">LD ($F0BF),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="61680"></span>F0F0</td>
 <td class="instruction">LD (IY+$3C),$FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the direction to left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61684"></span>F0F4</td>
 <td class="instruction">LD (IY+$41),$FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61688"></span>F0F8</td>
 <td class="instruction">JP <a href="45704.html">$B288</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the character.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61691"></span>
+<div class="comments">
+<div class="paragraph">
+Move forward one frame.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61691"></span>F0FB</td>
 <td class="instruction">LD HL,$F0BE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the tick count. (<a href="61630.html">F0BE</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61694"></span>F0FE</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the value in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61695"></span>F0FF</td>
 <td class="instruction">OR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61696"></span>F100</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61697"></span>F101</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise, reduce the tick count and move.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61698"></span>F102</td>
 <td class="instruction">JR $F0F0</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

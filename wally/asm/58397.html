@@ -38,7 +38,7 @@ Used by the routines at <a href="43568.html">AA30</a>, <a href="60175.html">EB0F
 <tr>
 <td class="address-2"><span id="58397"></span>E41D</td>
 <td class="instruction">CALL <a href="59258.html">$E77A</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -53,182 +53,173 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 <tr>
 <td class="address-2"><span id="58400"></span>E420</td>
 <td class="instruction">LD A,(IY+$50)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the ID of the first item held in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58403"></span>E423</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58404"></span>E424</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58405"></span>E425</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58407"></span>E427</td>
 <td class="instruction">LD HL,$E728</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the strings lookup table. (<a href="59176.html">E728</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58410"></span>E42A</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58411"></span>E42B</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the actual address of the string in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58412"></span>E42C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58413"></span>E42D</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58414"></span>E42E</td>
 <td class="instruction">LD A,(IY+$55)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the ID of the second item held in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58417"></span>E431</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double it to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58418"></span>E432</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58419"></span>E433</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58421"></span>E435</td>
 <td class="instruction">LD HL,$E728</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the strings lookup table. (<a href="59176.html">E728</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58424"></span>E438</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58425"></span>E439</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the actual address of the string in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58426"></span>E43A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58427"></span>E43B</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58428"></span>E43C</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember this value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58429"></span>E43D</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58430"></span>E43E</td>
 <td class="instruction">LD DE,$DFDC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the drawing routine at <a href="47034.html">B7BA</a> to use the character set (<a href="57308.html">DFDC</a>) as a base address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58433"></span>E441</td>
 <td class="instruction">LD ($B7E9),DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58437"></span>E445</td>
 <td class="instruction">LD DE,$0003</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start at position 3,0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58440"></span>E448</td>
 <td class="instruction">LD C,$43</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bright magenta on black attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58442"></span>E44A</td>
 <td class="instruction">CALL <a href="58472.html">$E468</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print the item description</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58445"></span>E44D</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the address of the second item's description in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58446"></span>E44E</td>
 <td class="instruction">LD DE,$0203</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start at position 3,2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58449"></span>E451</td>
 <td class="instruction">LD C,$45</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bright cyan on black attribute.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58451"></span>E453</td>
 <td class="instruction">CALL <a href="58472.html">$E468</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print the item description</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58454"></span>E456</td>
 <td class="instruction">LD A,(IY+$50)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the ID of the first item held in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58457"></span>E459</td>
 <td class="instruction">LD DE,$0000</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set position to 0,0</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58460"></span>E45C</td>
 <td class="instruction">CALL <a href="46971.html">$B77B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the item's graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58463"></span>E45F</td>
 <td class="instruction">LD A,(IY+$55)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the ID of the second item held in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58466"></span>E462</td>
 <td class="instruction">LD D,$02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set position to 0,2</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58468"></span>E464</td>
 <td class="instruction">CALL <a href="46971.html">$B77B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the item's graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58471"></span>E467</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

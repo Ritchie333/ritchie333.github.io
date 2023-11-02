@@ -24,7 +24,7 @@ Next: <a href="47832.html">BAD8</a>
 </td>
 </tr>
 </table>
-<div class="description">BACE: Skip forward a string</div>
+<div class="description">BACE: Get the length of a string</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -43,7 +43,7 @@ Used by the routine at <a href="47726.html">BA6E</a>.
 </tr>
 <tr>
 <td class="register">B</td>
-<td class="register-desc">The offset of the current string</td>
+<td class="register-desc">On exit, returns the length</td>
 </tr>
 </table>
 </td>
@@ -51,37 +51,36 @@ Used by the routine at <a href="47726.html">BA6E</a>.
 <tr>
 <td class="address-2"><span id="47822"></span>BACE</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to 0.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47824"></span>BAD0</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the byte pointed to by <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47825"></span>BAD1</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it FF?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47827"></span>BAD3</td>
 <td class="instruction">RET Z</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47828"></span>BAD4</td>
 <td class="instruction">INC B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise increase the count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47829"></span>BAD5</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward to the next part of the string and repeat.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47830"></span>BAD6</td>
 <td class="instruction">JR $BAD0</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

@@ -47,17 +47,17 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="61715"></span>F113</td>
 <td class="instruction">LD IX,$F104</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61719"></span>F117</td>
 <td class="instruction">LD BC,$F10A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61722"></span>F11A</td>
 <td class="instruction">CALL <a href="61237.html">$EF35</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the object positions.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61725"></span>F11D</td>
@@ -147,32 +147,31 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="61771"></span>F14B</td>
 <td class="instruction">LD A,$48</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set <span class="register">A</span> to the first jumping jack graphic</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61773"></span>F14D</td>
 <td class="instruction">JR NZ,$F151</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61775"></span>F14F</td>
 <td class="instruction">LD A,$4A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to the second jumping jack graphic</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61777"></span>F151</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61780"></span>F154</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61783"></span>F157</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

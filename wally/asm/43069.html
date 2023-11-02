@@ -189,67 +189,62 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 <tr>
 <td class="address-1"><span id="43111"></span>A867</td>
 <td class="instruction">LD A,($A839)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43114"></span>A86A</td>
 <td class="instruction">SUB $40</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Subtract 40 to get an offset on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43116"></span>A86C</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43117"></span>A86D</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43119"></span>A86F</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Multiply by 32 so it points at the start of a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43120"></span>A870</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43121"></span>A871</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43122"></span>A872</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43123"></span>A873</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43124"></span>A874</td>
 <td class="instruction">LD D,$6B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point the high byte of <span class="register">DE</span> at the sprite buffer. (<a href="27392.html">6B00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43126"></span>A876</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add this to the offset so <span class="register">HL</span> points to the correct row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43127"></span>A877</td>
 <td class="instruction">LD C,$10</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">16 rows to copy.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43129"></span>A879</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the next graphic data in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43130"></span>A87A</td>
@@ -344,22 +339,21 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 <tr>
 <td class="address-1"><span id="43153"></span>A891</td>
 <td class="instruction">LD DE,$0022</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next row (?)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43156"></span>A894</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43157"></span>A895</td>
 <td class="instruction">DEC C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement the number of rows to copy.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43158"></span>A896</td>
 <td class="instruction">JP NZ,$A879</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43161"></span>A899</td>

@@ -24,7 +24,7 @@ Next: <a href="47179.html">B84B</a>
 </td>
 </tr>
 </table>
-<div class="description">B82B: Patch the display to do something different</div>
+<div class="description">B82B: Overwrite part of the screen buffer with a graphic</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -33,6 +33,23 @@ Next: <a href="47179.html">B84B</a>
 Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79</a> and <a href="61383.html">EFC7</a>.
 </div>
 </div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">The address of the graphic to draw</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">The y co-ordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">The x co-ordinate</td>
+</tr>
+</table>
 </td>
 </tr>
 <tr>
@@ -43,7 +60,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79
 <tr>
 <td class="address-1"><span id="47148"></span>B82C</td>
 <td class="instruction">LD HL,$B7F9</td>
-<td class="comment-1" rowspan="4">Replace the "CALL $B7BA" instructions in the routine at <a href="47179.html">B84B</a> to call <a href="47097.html">B7F9</a> instead.</td>
+<td class="comment-1" rowspan="4">Replace the "CALL B7BA" instructions in the routine at <a href="47179.html">B84B</a> to call <a href="47097.html">B7F9</a> instead.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47151"></span>B82F</td>

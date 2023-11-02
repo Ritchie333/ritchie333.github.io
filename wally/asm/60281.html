@@ -47,107 +47,101 @@ Next: <a href="60309.html">EB95</a>
 <tr>
 <td class="address-2"><span id="60281"></span>EB79</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the graphic ID in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60282"></span>EB7A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the x co-ordinate in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60283"></span>EB7B</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60284"></span>EB7C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the y co-ordinate in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60285"></span>EB7D</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60286"></span>EB7E</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point to the next action in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60287"></span>EB7F</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60288"></span>EB80</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the position that is in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60289"></span>EB81</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the graphic ID to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60290"></span>EB82</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60291"></span>EB83</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60293"></span>EB85</td>
 <td class="instruction">LD HL,$BD86</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the offset for the basic room block components. (<a href="48518.html">BD86</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60296"></span>EB88</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60297"></span>EB89</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the actual address in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60298"></span>EB8A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60299"></span>EB8B</td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60300"></span>EB8C</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>, so <span class="register">HL</span> has the graphic address.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60301"></span>EB8D</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span> with the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60302"></span>EB8E</td>
 <td class="instruction">CALL <a href="47147.html">$B82B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60305"></span>EB91</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60306"></span>EB92</td>
 <td class="instruction">JP <a href="60139.html">$EAEB</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump to handle any other actions.</td>
 </tr>
 </table>
 <table class="asm-navigation">

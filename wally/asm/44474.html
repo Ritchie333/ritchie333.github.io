@@ -43,22 +43,31 @@ Used by the routines at <a href="43308.html">A92C</a> and <a href="44637.html">A
 <tr>
 <td class="address-1"><span id="44477"></span>ADBD</td>
 <td class="instruction">CP (IY+$5A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the target room? (?)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44480"></span>ADC0</td>
 <td class="instruction">JR NZ,$ADC7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44482"></span>ADC2</td>
 <td class="instruction">LD (IY-$14),$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise signal an update needed and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44486"></span>ADC6</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44487"></span>
+<div class="comments">
+<div class="paragraph">
+Move the character towards the target room.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="44487"></span>ADC7</td>
