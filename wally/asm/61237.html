@@ -116,17 +116,15 @@ The function updates <span class="register">IX</span> on each call to point at t
 <tr>
 <td class="address-1"><span id="61245"></span>EF3D</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Reset flags used in this routine.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61246"></span>EF3E</td>
 <td class="instruction">LD ($F673),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61249"></span>EF41</td>
 <td class="instruction">LD ($F672),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61252"></span>EF44</td>
@@ -186,12 +184,11 @@ x co-ordinate has reached the minimum or maximum.
 <tr>
 <td class="address-2"><span id="61262"></span>EF4E</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Flag x boundary reached.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61264"></span>EF50</td>
 <td class="instruction">LD ($F672),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61267"></span>EF53</td>

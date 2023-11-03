@@ -978,7 +978,7 @@
 <td class="map-byte">61</td>
 <td class="map-c"><span id="43069"></span><a href="../asm/43069.html">A83D</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43069.html">Put a static object on screen</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43069.html">Put a static object in the sprite buffer, without a mask</a></div>
 </td>
 </tr>
 <tr>
@@ -986,7 +986,7 @@
 <td class="map-byte">160</td>
 <td class="map-c"><span id="43168"></span><a href="../asm/43168.html">A8A0</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43168.html">Draw an object in the sprite buffer</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/43168.html">Draw a masked object in the sprite buffer</a></div>
 </td>
 </tr>
 <tr>
@@ -1402,7 +1402,7 @@
 <td class="map-byte">120</td>
 <td class="map-b"><span id="44408"></span><a href="../asm/44408.html">AD78</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44408.html">Table for next room to visi by a computer player</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/44408.html">Table for next room to visit by a computer player</a></div>
 </td>
 </tr>
 <tr>
@@ -1994,7 +1994,7 @@
 <td class="map-byte">82</td>
 <td class="map-c"><span id="47442"></span><a href="../asm/47442.html">B952</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47442.html">Draw a room's graphics</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/47442.html">Draw a room's background graphics</a></div>
 </td>
 </tr>
 <tr>
@@ -2234,7 +2234,7 @@
 <td class="map-byte">128</td>
 <td class="map-g"><span id="48256"></span><a href="../asm/48256.html">BC80</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48256.html">Game status buffer at BC80</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48256.html">ID of the favourite food item that restores endurance to maximum.</a></div>
 </td>
 </tr>
 <tr>
@@ -2242,7 +2242,7 @@
 <td class="map-byte">133</td>
 <td class="map-g"><span id="48261"></span><a href="../asm/48261.html">BC85</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48261.html">Mask offset for a character</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48261.html">Attribute to draw the character</a></div>
 </td>
 </tr>
 <tr>
@@ -2274,7 +2274,7 @@
 <td class="map-byte">153</td>
 <td class="map-g"><span id="48281"></span><a href="../asm/48281.html">BC99</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48281.html">Game status buffer at BC99</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48281.html">Unused</a></div>
 </td>
 </tr>
 <tr>
@@ -2282,7 +2282,7 @@
 <td class="map-byte">158</td>
 <td class="map-g"><span id="48286"></span><a href="../asm/48286.html">BC9E</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48286.html">Game status buffer at BC9E</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/48286.html">Set to 1 if a character is in mid-air</a></div>
 </td>
 </tr>
 <tr>
@@ -5794,7 +5794,7 @@
 <td class="map-byte">114</td>
 <td class="map-g"><span id="63090"></span><a href="../asm/63090.html">F672</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63090.html">Game status buffer entry at F672</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63090.html">Set to 1 if a moving object hits its boundary in X and needs to move in the other direction.</a></div>
 </td>
 </tr>
 <tr>
@@ -5802,7 +5802,7 @@
 <td class="map-byte">115</td>
 <td class="map-g"><span id="63091"></span><a href="../asm/63091.html">F673</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63091.html">Game status buffer entry at F673</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63091.html">Set to 1 if a moving object hits its boundary in Y and needs to move in the other direction.</a></div>
 </td>
 </tr>
 <tr>
@@ -5898,23 +5898,15 @@
 <td class="map-byte">233</td>
 <td class="map-b"><span id="63465"></span><a href="../asm/63465.html">F7E9</a></td>
 <td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63465.html">The food table (not current room). Format is room, x co-ord, y co-ord, object number</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63465.html">The food table.</a></div>
 </td>
 </tr>
 <tr>
 <td class="map-page">247</td>
 <td class="map-byte">254</td>
-<td class="map-b"><span id="63486"></span><a href="../asm/63486.html">F7FE</a></td>
-<td class="map-b-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63486.html">The food table (current room). Format is room, x co-ord, y co-ord, object number</a></div>
-</td>
-</tr>
-<tr>
-<td class="map-page">248</td>
-<td class="map-byte">16</td>
-<td class="map-g"><span id="63504"></span><a href="../asm/63504.html">F810</a></td>
-<td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63504.html">Game status buffer entry at F810</a></div>
+<td class="map-u"><span id="63486"></span><a href="../asm/63486.html">F7FE</a></td>
+<td class="map-u-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63486.html">Copy of the food table (not used)</a></div>
 </td>
 </tr>
 <tr>
@@ -6026,7 +6018,7 @@
 <td class="map-byte">239</td>
 <td class="map-g"><span id="64239"></span><a href="../asm/64239.html">FAEF</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64239.html">Game status entry at FAEF</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/64239.html">Asteroids : flag</a></div>
 </td>
 </tr>
 <tr>

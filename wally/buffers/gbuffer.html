@@ -333,7 +333,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48256"></span><a href="../asm/48256.html">BC80</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48256.html">Game status buffer at BC80</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48256.html">ID of the favourite food item that restores endurance to maximum.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -342,7 +342,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48261"></span><a href="../asm/48261.html">BC85</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48261.html">Mask offset for a character</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48261.html">Attribute to draw the character</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -378,7 +378,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48281"></span><a href="../asm/48281.html">BC99</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48281.html">Game status buffer at BC99</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48281.html">Unused</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -387,7 +387,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48286"></span><a href="../asm/48286.html">BC9E</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48286.html">Game status buffer at BC9E</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48286.html">Set to 1 if a character is in mid-air</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -807,8 +807,11 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="63090"></span><a href="../asm/63090.html">F672</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63090.html">Game status buffer entry at F672</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63090.html">Set to 1 if a moving object hits its boundary in X and needs to move in the other direction.</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/61237.html">EF35</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -816,8 +819,11 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="63091"></span><a href="../asm/63091.html">F673</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63091.html">Game status buffer entry at F673</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63091.html">Set to 1 if a moving object hits its boundary in Y and needs to move in the other direction.</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/61237.html">EF35</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -858,15 +864,6 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </td>
 </tr>
 <tr>
-<td class="map-g"><span id="63504"></span><a href="../asm/63504.html">F810</a></td>
-<td class="map-length">2</td>
-<td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63504.html">Game status buffer entry at F810</a></div>
-<div class="map-entry-desc">
-</div>
-</td>
-</tr>
-<tr>
 <td class="map-g"><span id="63506"></span><a href="../asm/63506.html">F812</a></td>
 <td class="map-length">2</td>
 <td class="map-g-desc">
@@ -879,8 +876,11 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="64239"></span><a href="../asm/64239.html">FAEF</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64239.html">Game status entry at FAEF</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64239.html">Asteroids : flag</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Alternates between 0 and 1.
+</div>
 </div>
 </td>
 </tr>

@@ -133,172 +133,166 @@ There's food in the room, so draw it.
 <tr>
 <td class="address-1"><span id="63540"></span>F834</td>
 <td class="instruction">SUB E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Is it near enough the food?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63541"></span>F835</td>
 <td class="instruction">SUB $04</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63543"></span>F837</td>
 <td class="instruction">CP $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63545"></span>F839</td>
 <td class="instruction">RET C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63546"></span>F83A</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63549"></span>F83D</td>
 <td class="instruction">SUB D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Is it near enough the food?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63550"></span>F83E</td>
 <td class="instruction">ADD A,$0C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63552"></span>F840</td>
 <td class="instruction">CP $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63554"></span>F842</td>
 <td class="instruction">RET C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63555"></span>
+<div class="comments">
+<div class="paragraph">
+There's food here, and the player has picked it up.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63555"></span>F843</td>
 <td class="instruction">LD HL,($F812)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Move <span class="register">HL</span> to the next food entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63558"></span>F846</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63559"></span>F847</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63560"></span>F848</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63561"></span>F849</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63562"></span>F84A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this the end of the list?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63563"></span>F84B</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">If so, set it back to the beginning. (<a href="63465.html">F7E9</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63565"></span>F84D</td>
 <td class="instruction">JR NZ,$F852</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63567"></span>F84F</td>
 <td class="instruction">LD HL,$F7E9</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63570"></span>F852</td>
 <td class="instruction">LD ($F812),HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the next location of food back in memory.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63573"></span>F855</td>
 <td class="instruction">LD A,(IY+$19)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the ID of favourite food for this player. (<a href="48256.html">BC80</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63576"></span>F858</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Does it match the ID of this food?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63577"></span>F859</td>
 <td class="instruction">JR Z,$F864</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, jump forward to restore endurance to full strength.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63579"></span>F85B</td>
 <td class="instruction">LD A,(IY+$14)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the endurance.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63582"></span>F85E</td>
 <td class="instruction">ADD A,$20</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Add 20 to a maximum of 80.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63584"></span>F860</td>
 <td class="instruction">CP $80</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63586"></span>F862</td>
 <td class="instruction">JR C,$F866</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63588"></span>F864</td>
 <td class="instruction">LD A,$80</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63590"></span>F866</td>
 <td class="instruction">LD (IY+$14),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store this new endurance value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63593"></span>F869</td>
 <td class="instruction">CALL <a href="58221.html">$E36D</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the endurance and lives display.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63596"></span>F86C</td>
 <td class="instruction">LD BC,$643C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Play a "picked up food" sound effect.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63599"></span>F86F</td>
 <td class="instruction">LD DE,$0128</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63602"></span>F872</td>
 <td class="instruction">LD HL,$0103</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63605"></span>F875</td>
 <td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63608"></span>F878</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

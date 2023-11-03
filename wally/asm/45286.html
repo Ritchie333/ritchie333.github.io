@@ -114,7 +114,7 @@ This routine was copied from a similar one in Pyjamarama.
 <tr>
 <td class="address-1"><span id="45312"></span>B100</td>
 <td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="2">Put the bottom 3 bits in B189 which modifies later code.</td>
+<td class="comment-1" rowspan="2">Put the bottom 3 bits (as the frame number) in B189 which modifies later code.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45314"></span>B102</td>
@@ -123,22 +123,20 @@ This routine was copied from a similar one in Pyjamarama.
 <tr>
 <td class="address-1"><span id="45317"></span>B105</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Add 1 and store in B129 and B145 which modifies later code.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45318"></span>B106</td>
 <td class="instruction">LD ($B129),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45321"></span>B109</td>
 <td class="instruction">LD ($B145),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45324"></span>B10C</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="6">Put the top 5 bits as a value in B17B which modifies later code.</td>
+<td class="comment-1" rowspan="6">Put the top 5 bits (as the byte) as a value in B17B which modifies later code.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45325"></span>B10D</td>
@@ -172,7 +170,7 @@ This routine was copied from a similar one in Pyjamarama.
 <tr>
 <td class="address-1"><span id="45336"></span>B118</td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-1" rowspan="1">14 columns to draw.</td>
+<td class="comment-1" rowspan="1">14 rows to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45338"></span>B11A</td>
@@ -217,46 +215,55 @@ This routine was copied from a similar one in Pyjamarama.
 <tr>
 <td class="address-2"><span id="45351"></span>B127</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1">Move forward a column.</td>
+<td class="comment-1" rowspan="1">Put the next byte (mask) in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45352"></span>B128</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of times to rotate bits. (was modified earlier in the code)</td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of times to loop. (was modified earlier in the code)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45354"></span>B12A</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="2">Loop while there is more to draw.</td>
+<td class="comment-1" rowspan="2">If this is frame 0, nothing else is needed here, and only two bytes need updating instead of three.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45355"></span>B12B</td>
 <td class="instruction">JR Z,$B139</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="45357"></span>
+<div class="comments">
+<div class="paragraph">
+If this isn't frame 0, everything needs shifting to the right to be in sync.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-1"><span id="45357"></span>B12D</td>
 <td class="instruction">SCF</td>
-<td class="comment-1" rowspan="1">Set the carry flag.</td>
+<td class="comment-1" rowspan="1">Set the carry flag, so the following RR instructions put it in bit 7.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45358"></span>B12E</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the initial mask as FF (all bits).</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45360"></span>B130</td>
 <td class="instruction">RR E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Rotate the mask in <span class="register">E</span>, then through <span class="register">D</span>, taking the carry flag through each time.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45362"></span>B132</td>
 <td class="instruction">RR D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45364"></span>B134</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Shift the mask by one pixel.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45365"></span>B135</td>
@@ -276,307 +283,293 @@ At this point, <span class="register">HL</span> points to the address in the spr
 <tr>
 <td class="address-1"><span id="45367"></span>B137</td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Do a logical AND of the byte against the mask in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45368"></span>B138</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45369"></span>B139</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back an entry in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45370"></span>B13A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical AND of the byte against the mask in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45371"></span>B13B</td>
 <td class="instruction">AND D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45372"></span>B13C</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45373"></span>B13D</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back an entry in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45374"></span>B13E</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical AND of the byte against the mask in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45375"></span>B13F</td>
 <td class="instruction">AND E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45376"></span>B140</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45377"></span>B141</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45378"></span>B142</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45379"></span>B143</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the next byte (data) in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45380"></span>B144</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of times to loop. (Was modified in earlier code)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45382"></span>B146</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If this is frame 0, nothing else is needed here, and two bytes need updating instead of three. } If this isn't frame 0, everything needs shifting to the right to be in sync.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45383"></span>B147</td>
 <td class="instruction">JR Z,$B153</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45385"></span>B149</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the initial data as 0 (no bits).</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45386"></span>B14A</td>
 <td class="instruction">SRL E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate the byte in <span class="register">E</span>, putting 0 in bit 7.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45388"></span>B14C</td>
 <td class="instruction">RR D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate the byte in <span class="register">D</span>, using the carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45390"></span>B14E</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Shift the data by one pixel.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45391"></span>B14F</td>
 <td class="instruction">DJNZ $B14A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to do.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45393"></span>B151</td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Do a logical OR of the byte against the data in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45394"></span>B152</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45395"></span>B153</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back an entry in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45396"></span>B154</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the byte against the data in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45397"></span>B155</td>
 <td class="instruction">OR D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45398"></span>B156</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45399"></span>B157</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back an entry in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45400"></span>B158</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the byte against the data in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45401"></span>B159</td>
 <td class="instruction">OR E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45402"></span>B15A</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45403"></span>B15B</td>
 <td class="instruction">LD DE,$0022</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45406"></span>B15E</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45407"></span>B15F</td>
 <td class="instruction">DEC C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement the number of rows left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45408"></span>B160</td>
 <td class="instruction">JP NZ,$B127</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back if there are more rows to draw.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45411"></span>
+<div class="comments">
+<div class="paragraph">
+Now handle the attributes.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45411"></span>B163</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the bottom 3 bits of the Y co-ordinate, as the sub-component.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45414"></span>B166</td>
 <td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45416"></span>B168</td>
 <td class="instruction">JR Z,$B16E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">If this equals 0, set 4 rows to draw, otherwise 45.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45418"></span>B16A</td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45420"></span>B16C</td>
 <td class="instruction">JR $B170</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45422"></span>B16E</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45424"></span>B170</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the top 5 bits of the Y co-ordinate, as the byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45427"></span>B173</td>
 <td class="instruction">AND $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45429"></span>B175</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45431"></span>B177</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45432"></span>B178</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Multiply by 4.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45433"></span>B179</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45434"></span>B17A</td>
 <td class="instruction">LD DE,$FB00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address to get a location in the attribute buffer. (<a href="64512.html">FC00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45437"></span>B17D</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45438"></span>B17E</td>
 <td class="instruction">LD DE,$001E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> as the offset to move between rows.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45441"></span>B181</td>
 <td class="instruction">LD C,(IY+$1E)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the attribute to use in <span class="register">C</span>. (<a href="48261.html">BC85</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45444"></span>B184</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Set the attribute for the next two bytes.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45445"></span>B185</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45446"></span>B186</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45447"></span>B187</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45448"></span>B188</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the X offset in <span class="register">A</span>. (This is modified by earlier code)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45450"></span>B18A</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the offset zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45451"></span>B18B</td>
 <td class="instruction">JR Z,$B18E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If it is, jump forward, no more calculations needed.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45453"></span>B18D</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise set the attribute for the third byte. which is needed on frames other than 0 that span a byte boundary.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45454"></span>B18E</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a row and back two columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45455"></span>B18F</td>
 <td class="instruction">DJNZ $B184</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45457"></span>B191</td>

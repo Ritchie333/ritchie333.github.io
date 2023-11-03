@@ -38,12 +38,12 @@ Used by the routines at <a href="45900.html">B34C</a> and <a href="47300.html">B
 <th colspan="2">Input</th>
 </tr>
 <tr>
-<td class="register">C</td>
-<td class="register-desc">The attribute to display</td>
+<td class="register">A</td>
+<td class="register-desc">The ID of the object</td>
 </tr>
 <tr>
-<td class="register">HL</td>
-<td class="register-desc">The address of the character to print</td>
+<td class="register">C</td>
+<td class="register-desc">The attribute to display</td>
 </tr>
 <tr>
 <td class="register">D</td>
@@ -247,27 +247,24 @@ Now, set the graphic data.
 <tr>
 <td class="address-1"><span id="46915"></span>B743</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the object ID in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46916"></span>B744</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46918"></span>B746</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Multiply it by 8 to get a suitable offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46919"></span>B747</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46920"></span>B748</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46921"></span>B749</td>
@@ -281,117 +278,112 @@ Now, set the graphic data.
 <tr>
 <td class="address-1"><span id="46925"></span>B74D</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46926"></span>B74E</td>
 <td class="instruction">LD A,$08</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">8 rows to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="46928"></span>B750</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the screen offset for the start of the row in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46931"></span>B753</td>
 <td class="instruction">LD H,(IX+$01)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46934"></span>B756</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the offset for the current column and row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46935"></span>B757</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point to the next entry in the screen offsets table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46937"></span>B759</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46939"></span>B75B</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">HL</span> and <span class="register">DE</span>, as the copying is done that way round.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46940"></span>B75C</td>
 <td class="instruction">LDI</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy from <span class="register">HL</span> (buffer) to <span class="register">DE</span> (screen).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46942"></span>B75E</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">HL</span> and <span class="register">DE</span> back again.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46943"></span>B75F</td>
 <td class="instruction">INC BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a column .</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46944"></span>B760</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the screen offset for the start of the row in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46947"></span>B763</td>
 <td class="instruction">LD H,(IX+$01)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46950"></span>B766</td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the offset for the current column and row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46951"></span>B767</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Point to the next entry in the screen offsets table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46953"></span>B769</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46955"></span>B76B</td>
 <td class="instruction">DEC DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46956"></span>B76C</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">HL</span> and <span class="register">DE</span>, as the copying is done that way round.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46957"></span>B76D</td>
 <td class="instruction">LDI</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy from <span class="register">HL</span> (buffer) to <span class="register">DE</span> (screen).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46959"></span>B76F</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap <span class="register">HL</span> and <span class="register">DE</span> back again.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46960"></span>B770</td>
 <td class="instruction">INC BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward a column .</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46961"></span>B771</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop while there are more rows to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46962"></span>B772</td>
 <td class="instruction">JR NZ,$B750</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46964"></span>B774</td>

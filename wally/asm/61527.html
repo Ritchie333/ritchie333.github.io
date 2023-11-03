@@ -150,122 +150,132 @@ The chase is on.
 <tr>
 <td class="address-1"><span id="61580"></span>F08C</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1">Get the value in <span class="register">A</span>.</td>
+<td class="comment-1" rowspan="4">Has the shark caught up with the player?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61581"></span>F08D</td>
 <td class="instruction">SUB (IY+$05)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61584"></span>F090</td>
 <td class="instruction">SUB $01</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61586"></span>F092</td>
 <td class="instruction">CP $FE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61588"></span>F094</td>
 <td class="instruction">JR NC,$F09A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it has, it doesn't need to chase any more.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61590"></span>F096</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Otherwise decrement the X co-ordinate by 2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61591"></span>F097</td>
 <td class="instruction">SUB $02</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61593"></span>F099</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="61594"></span>F09A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Is the shark close enough to the player to attack?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61595"></span>F09B</td>
 <td class="instruction">SUB (IY+$05)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61598"></span>F09E</td>
 <td class="instruction">SUB $0C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61600"></span>F0A0</td>
 <td class="instruction">CP $E0</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61602"></span>F0A2</td>
 <td class="instruction">JR C,$F0AE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61604"></span>
+<div class="comments">
+<div class="paragraph">
+The shark is close enough to attack the player, so don't make them advance otherwise they'll overtake and not attack anymore.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61604"></span>F0A4</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61605"></span>F0A5</td>
 <td class="instruction">LD A,($F0E4)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of ticks in this run.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61608"></span>F0A8</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61609"></span>F0A9</td>
 <td class="instruction">CP $05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Return if it doesn't equal 5 yet.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61611"></span>F0AB</td>
 <td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61612"></span>F0AC</td>
 <td class="instruction">JR $F0B3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise set it to that value.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61614"></span>
+<div class="comments">
+<div class="paragraph">
+The shark isn't close enough yet.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61614"></span>F0AE</td>
 <td class="instruction">LD A,($F0E4)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of ticks in this run.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61617"></span>F0B1</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61618"></span>F0B2</td>
 <td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it doesn't equal 0 yet.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61619"></span>F0B3</td>
 <td class="instruction">LD ($F0E4),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise set it to that value and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61622"></span>F0B6</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

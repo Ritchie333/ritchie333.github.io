@@ -178,17 +178,16 @@ The player has fallen into the hole, so update for the chase sequence.
 <tr>
 <td class="address-1"><span id="61444"></span>F004</td>
 <td class="instruction">LD A,$F0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the shark's X co-ordinate to F0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61446"></span>F006</td>
 <td class="instruction">LD ($F0BD),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61449"></span>F009</td>
 <td class="instruction">LD HL,$F0B7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> directly at the background graphics. (<a href="61623.html">F0B7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61452"></span>F00C</td>
@@ -198,7 +197,7 @@ The player has fallen into the hole, so update for the chase sequence.
 <tr>
 <td class="address-1"><span id="61455"></span>F00F</td>
 <td class="instruction">CALL <a href="47442.html#47465">$B969</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the background graphics.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61458"></span>F012</td>

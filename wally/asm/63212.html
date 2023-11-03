@@ -35,117 +35,135 @@ Next: <a href="63290.html">F73A</a>
 <tr>
 <td class="address-2"><span id="63212"></span>F6EC</td>
 <td class="instruction">LD A,($EDC5)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of letters put in the safe + 1</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63215"></span>F6EF</td>
 <td class="instruction">CP $06</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Are all letters there?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63217"></span>F6F1</td>
 <td class="instruction">JR NZ,$F6FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63219"></span>
+<div class="comments">
+<div class="paragraph">
+If we've got all 5 letters, flash them.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63219"></span>F6F3</td>
 <td class="instruction">LD A,($F6DB)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Toggle the display state between 0 and 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63222"></span>F6F6</td>
 <td class="instruction">XOR $01</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63224"></span>F6F8</td>
 <td class="instruction">LD ($F6DB),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63227"></span>F6FB</td>
 <td class="instruction">JR Z,$F716</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If the display state is 0, there's nothing to do here.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63229"></span>F6FD</td>
 <td class="instruction">LD A,$06</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the number of letters + 1 back to 6.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63231"></span>F6FF</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement by 1 to get the actual number of letters.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63232"></span>F700</td>
 <td class="instruction">JR Z,$F716</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If there are no letters to draw, then there's nothing to do here.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63234"></span>F702</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the number of letters to draw in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63235"></span>F703</td>
 <td class="instruction">LD HL,$F6D1</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first letter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63238"></span>F706</td>
 <td class="instruction">LD DE,$4800</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the initial position on row 48.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63241"></span>F709</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the column from the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63242"></span>F70A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63243"></span>F70B</td>
 <td class="instruction">LD ($A838),DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the position for the drawing routine.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63247"></span>F70F</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the object ID to print.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63248"></span>F710</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63249"></span>F711</td>
 <td class="instruction">CALL <a href="43069.html">$A83D</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63252"></span>F714</td>
 <td class="instruction">DJNZ $F709</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more letters.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63254"></span>F716</td>
 <td class="instruction">LD A,($EDC5)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the number of letters + 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63257"></span>F719</td>
 <td class="instruction">CP $06</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Have we got all six.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63259"></span>F71B</td>
 <td class="instruction">RET Z</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, there's nothing to do here.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63260"></span>
+<div class="comments">
+<div class="paragraph">
+As long as the safe isn't cracked yet, put the moving objects on screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63260"></span>F71C</td>
@@ -159,57 +177,57 @@ Next: <a href="63290.html">F73A</a>
 <tr>
 <td class="address-1"><span id="63265"></span>F721</td>
 <td class="instruction">LD IX,$F6DC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table. (<a href="63196.html">F6DC</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63269"></span>F725</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">4 objects to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63271"></span>F727</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the object count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63272"></span>F728</td>
 <td class="instruction">LD BC,$F2F7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the bounds table. (<a href="62199.html">F2F7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63275"></span>F72B</td>
 <td class="instruction">CALL <a href="61237.html">$EF35</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the next moving object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63278"></span>F72E</td>
 <td class="instruction">LD A,$76</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the object ID to the pound symbol.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63280"></span>F730</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63283"></span>F733</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63286"></span>F736</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the object count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63287"></span>F737</td>
 <td class="instruction">DJNZ $F727</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63289"></span>F739</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

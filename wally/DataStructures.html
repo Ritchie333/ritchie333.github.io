@@ -20,6 +20,7 @@
 <li><a href="#movement_tables">Movement tables</a></li>
 <li><a href="#next_rooms">Next rooms</a></li>
 <li><a href="#above-floor_platforms">Above-floor platforms</a></li>
+<li><a href="#food">Food</a></li>
 </ul>
 <div><span id="room_data"></span></div>
 <div class="box box-1">
@@ -267,6 +268,80 @@ stairs in the sewer are the most complex definition.
 <div class="paragraph">
 The specific table used by each room is defined as a table in <a href="asm/44963.html">AFA3</a>. Most rooms use ID 0,
 which has no additional platforms.
+</div>
+</div>
+<div><span id="food"></span></div>
+<div class="box box-1">
+<div class="box-title">Food</div>
+<div class="paragraph">
+Food is stored in a table at <a href="asm/63465.html">F7E9</a>. The structure is:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ID of the room the food appears in</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">X co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Y co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">ID of the graphic for the food (5B - 5F)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The last entry holds FF instead.
+</div>
+<div class="paragraph">
+When an item of food is picked up, the game switches to the next entry in the table,
+then cycles back round to the start.
+</div>
+<div class="paragraph">
+Each character has a favourite food defined in <a href="asm/48256.html">BC80</a>. If they pick up this,
+their endurance will be restored to the full value, otherwise other foods
+just increment it slightly.
+</div>
+<div class="paragraph">
+The favourite foods are:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Character</th>
+<th colspan="1" rowspan="1">Food</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">Wally</td>
+<td class="" colspan="1" rowspan="1">Burger</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">Wilma</td>
+<td class="" colspan="1" rowspan="1">Iced bun</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">Tom</td>
+<td class="" colspan="1" rowspan="1">Fiz</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">Dick</td>
+<td class="" colspan="1" rowspan="1">Bottle</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">Harry</td>
+<td class="" colspan="1" rowspan="1">Pear</td>
+</tr>
+</table>
 </div>
 </div>
 <footer>

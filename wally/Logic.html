@@ -233,11 +233,10 @@ Each entry in the table contains three bytes:
 Money is always given in multiples of £10.
 </div>
 <div class="paragraph">
-The high byte is the hundreds part of the money.
+The high byte is the hundreds part of the money. The low byte is the tens part of the money.
 </div>
 <div class="paragraph">
-The low byte is the tens part of the money, but only the top nybble is used (as a
-decimal digit can be represented as four bytes).
+In both cases, only the top nybble is used (as a decimal digit can be represented as four bytes).
 </div>
 <div class="paragraph">
 Example : $00, $50, $01 = Entry 1, £150.
@@ -258,11 +257,11 @@ of money has been earned, defined in entries at <a href="asm/60662.html">ECF6</a
 <td class="" colspan="1" rowspan="1">Morning tea break</td>
 </tr>
 <tr>
-<td class="center" colspan="1" rowspan="1">£1,700</td>
+<td class="center" colspan="1" rowspan="1">£1,300</td>
 <td class="" colspan="1" rowspan="1">Lunch time</td>
 </tr>
 <tr>
-<td class="center" colspan="1" rowspan="1">£3,300</td>
+<td class="center" colspan="1" rowspan="1">£2,100</td>
 <td class="" colspan="1" rowspan="1">Tea time</td>
 </tr>
 <tr>

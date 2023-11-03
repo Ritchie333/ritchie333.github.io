@@ -15,6 +15,7 @@
 </table>
 <ul class="contents">
 <li><a href="#screen_updates">Screen updates</a></li>
+<li><a href="#colours">Colours</a></li>
 <li><a href="#miles_out_of_town">Miles out of town</a></li>
 <li><a href="#shark">Shark</a></li>
 </ul>
@@ -40,8 +41,18 @@ at <a href="../asm/43069.html">A83D</a> also uses the stack for copying data. Th
 to make graphics updating faster.
 </div>
 </div>
-<div><span id="miles_out_of_town"></span></div>
+<div><span id="colours"></span></div>
 <div class="box box-2">
+<div class="box-title">Colours</div>
+<div class="paragraph">
+The attributes for each playable character are stored in <a href="../asm/48261.html">BC85</a>.
+</div>
+<div class="paragraph">
+If you fancy drawing Wally in flashing cyan on mangenta, now you can!
+</div>
+</div>
+<div><span id="miles_out_of_town"></span></div>
+<div class="box box-1">
 <div class="box-title">Miles out of town</div>
 <div class="paragraph">
 The "out of town" screen at <a href="../asm/61815.html">F177</a> uses a simple 16-bit word at <a href="../asm/61787.html">F15B</a> to store the number of miles walked.
@@ -53,7 +64,7 @@ to get back into town in a single move.
 </div>
 </div>
 <div><span id="shark"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Shark</div>
 <div class="paragraph">
 The shark in the sewer is treated as two separate moving objects stacked on top of each other,

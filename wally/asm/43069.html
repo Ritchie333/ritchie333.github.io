@@ -24,7 +24,7 @@ Next: <a href="43168.html">A8A0</a>
 </td>
 </tr>
 </table>
-<div class="description">A83D: Put a static object on screen</div>
+<div class="description">A83D: Put a static object in the sprite buffer, without a mask</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -134,42 +134,37 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 <tr>
 <td class="address-1"><span id="43093"></span>A855</td>
 <td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the bottom 3 bits, which are the frame ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43095"></span>A857</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add 1 to this and modifiy A87B which is executed later.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43096"></span>A858</td>
 <td class="instruction">LD ($A87B),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43099"></span>A85B</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Get the top 5 bits of the x co-ordinate, which are the byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43100"></span>A85C</td>
 <td class="instruction">AND $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43102"></span>A85E</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43103"></span>A85F</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43104"></span>A860</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43105"></span>A861</td>
@@ -179,12 +174,11 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 <tr>
 <td class="address-1"><span id="43108"></span>A864</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward two columns and store this in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43110"></span>A866</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43111"></span>A867</td>
@@ -249,97 +243,91 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 <tr>
 <td class="address-1"><span id="43130"></span>A87A</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip a number of frames. (This code was modified earlier in the routine)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43132"></span>A87C</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If this is frame 0, it sits on a byte boundary and there is one less byte to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43133"></span>A87D</td>
 <td class="instruction">JR Z,$A889</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43135"></span>A87F</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start with a value of 0 ie: all bits off.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43136"></span>A880</td>
 <td class="instruction">SRL E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Shift <span class="register">E</span>, putting 0 in bit 7.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43138"></span>A882</td>
 <td class="instruction">RR D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">D</span>, respecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43140"></span>A884</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">A</span>, respecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43141"></span>A885</td>
 <td class="instruction">DJNZ $A880</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until we get the right frame.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43143"></span>A887</td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Do a logical OR of the byte with the data in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43144"></span>A888</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43145"></span>A889</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43146"></span>A88A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the byte with the data in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43147"></span>A88B</td>
 <td class="instruction">OR D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43148"></span>A88C</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43149"></span>A88D</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43150"></span>A88E</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the byte with the data in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43151"></span>A88F</td>
 <td class="instruction">OR E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43152"></span>A890</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43153"></span>A891</td>
 <td class="instruction">LD DE,$0022</td>
-<td class="comment-1" rowspan="2">Move to the next row (?)</td>
+<td class="comment-1" rowspan="2">Move to the next row</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43156"></span>A894</td>

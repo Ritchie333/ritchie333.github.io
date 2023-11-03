@@ -24,7 +24,7 @@ Next: <a href="43297.html">A921</a>
 </td>
 </tr>
 </table>
-<div class="description">A8A0: Draw an object in the sprite buffer</div>
+<div class="description">A8A0: Draw a masked object in the sprite buffer</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -125,67 +125,59 @@ The co-ordinates to update are stored in <a href="43064.html">A838</a>.
 <tr>
 <td class="address-1"><span id="43191"></span>A8B7</td>
 <td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the bottom 3 bytes, which represents the frame number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43193"></span>A8B9</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Add 1, and set this in A8E0 and A8FC which modifies later routines.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43194"></span>A8BA</td>
 <td class="instruction">LD ($A8E0),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43197"></span>A8BD</td>
 <td class="instruction">LD ($A8FC),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43200"></span>A8C0</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="6">Put the bottom 5 bits, which represents the byte, in EFAF. This changes the logic in the routine to draw the fountain in the town square at <a href="61329.html">EF91</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43201"></span>A8C1</td>
 <td class="instruction">AND $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43203"></span>A8C3</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43204"></span>A8C4</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43205"></span>A8C5</td>
 <td class="instruction">RRCA</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43206"></span>A8C6</td>
 <td class="instruction">LD ($EFAF),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43209"></span>A8C9</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add 2 to the byte and store it in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43211"></span>A8CB</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43212"></span>A8CC</td>
 <td class="instruction">LD C,$10</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">10 rows to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43214"></span>A8CE</td>
@@ -240,227 +232,222 @@ The co-ordinates to update are stored in <a href="43064.html">A838</a>.
 <tr>
 <td class="address-2"><span id="43230"></span>A8DE</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1">Restore <span class="register">DE</span>.</td>
+<td class="comment-1" rowspan="1">Get the next value (the mask) in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43231"></span>
+<div class="comments">
+<div class="paragraph">
+If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting forwards.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43231"></span>A8DF</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of frames to loop around. (This code is modified earlier)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43233"></span>A8E1</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If this is frame 0, there is one less byte to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43234"></span>A8E2</td>
 <td class="instruction">JR Z,$A8F0</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43236"></span>A8E4</td>
 <td class="instruction">SCF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the carry flag, to use in rotating bits.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43237"></span>A8E5</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start with a mask of FF ie: all bits on.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43239"></span>A8E7</td>
 <td class="instruction">RR E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Rotate <span class="register">E</span> and <span class="register">D</span>, respecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43241"></span>A8E9</td>
 <td class="instruction">RR D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43243"></span>A8EB</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">A</span>, respecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43244"></span>A8EC</td>
 <td class="instruction">DJNZ $A8E7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until we get to the right frame number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43246"></span>A8EE</td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Do a logical AND of the mask in <span class="register">A</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43247"></span>A8EF</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43248"></span>A8F0</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43249"></span>A8F1</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical AND of the mask in <span class="register">D</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43250"></span>A8F2</td>
 <td class="instruction">AND D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43251"></span>A8F3</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43252"></span>A8F4</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43253"></span>A8F5</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical AND of the mask in <span class="register">E</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43254"></span>A8F6</td>
 <td class="instruction">AND E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43255"></span>A8F7</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43256"></span>A8F8</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward to the next byte in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43257"></span>A8F9</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43258"></span>A8FA</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next value (the data) in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43259"></span>A8FB</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">B</span> to the number of frames to loop around. (This code is modified earlier)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43261"></span>A8FD</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If this is frame 0, there is one less byte to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43262"></span>A8FE</td>
 <td class="instruction">JR Z,$A90A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43264"></span>A900</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Start with data of 0 ie: all bits off</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43265"></span>A901</td>
 <td class="instruction">SRL E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Shift <span class="register">E</span> to the right, putting 0 on bit 7.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43267"></span>A903</td>
 <td class="instruction">RR D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">D</span> respecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43269"></span>A905</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">A</span> repsecting carry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43270"></span>A906</td>
 <td class="instruction">DJNZ $A901</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until we get to the right frame number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43272"></span>A908</td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Do a logical OR of the data in <span class="register">A</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43273"></span>A909</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43274"></span>A90A</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43275"></span>A90B</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the data in <span class="register">D</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43276"></span>A90C</td>
 <td class="instruction">OR D</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43277"></span>A90D</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43278"></span>A90E</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back a byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43279"></span>A90F</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Do a logical OR of the data in <span class="register">D</span> against the byte in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43280"></span>A910</td>
 <td class="instruction">OR E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43281"></span>A911</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43282"></span>A912</td>
 <td class="instruction">LD DE,$0022</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move forward a row and two columns.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43285"></span>A915</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43286"></span>A916</td>
 <td class="instruction">DEC C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement the row count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43287"></span>A917</td>
 <td class="instruction">JP NZ,$A8DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more rows to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43290"></span>A91A</td>
