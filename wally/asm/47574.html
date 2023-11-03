@@ -24,7 +24,7 @@ Next: <a href="47611.html">B9FB</a>
 </td>
 </tr>
 </table>
-<div class="description">B9D6: Update the characters' positions and draw if it's in range</div>
+<div class="description">B9D6: Draw any characters that are in this room</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -39,7 +39,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 </tr>
 <tr>
 <td class="register">IY</td>
-<td class="register-desc">The buffer containing the current character's data</td>
+<td class="register-desc">The buffer containing the current character's data (#$RBC67 - BC6B)</td>
 </tr>
 </table>
 </td>
@@ -52,77 +52,75 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 <tr>
 <td class="address-1"><span id="47577"></span>B9D9</td>
 <td class="instruction">LD ($B951),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store this temporarily so all characters can use it. (<a href="47441.html">B951</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47580"></span>B9DC</td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update 5 character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47582"></span>B9DE</td>
 <td class="instruction">PUSH IY</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the pointer to the current character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47584"></span>B9E0</td>
 <td class="instruction">LD IY,$BC6B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the last character. (Harry)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47588"></span>B9E4</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the character count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47589"></span>B9E5</td>
 <td class="instruction">LD A,($B951)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the current room in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47592"></span>B9E8</td>
 <td class="instruction">CP (IY+$0F)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the character in this room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47595"></span>B9EB</td>
 <td class="instruction">JR NZ,$B9F0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If they are, copy their data to the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47597"></span>B9ED</td>
 <td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="47600"></span>B9F0</td>
 <td class="instruction">DEC IY</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> to the next character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47602"></span>B9F2</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the character count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47603"></span>B9F3</td>
 <td class="instruction">DJNZ $B9E4</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more characters to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47605"></span>B9F5</td>
 <td class="instruction">POP IY</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the pointer to the current character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47607"></span>B9F7</td>
 <td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the sprite buffer on screen and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47610"></span>B9FA</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

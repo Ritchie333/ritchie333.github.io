@@ -24,7 +24,7 @@ Next: <a href="44682.html">AE8A</a>
 </td>
 </tr>
 </table>
-<div class="description">AE5D: This routine is called when a character reaches the edge of a room</div>
+<div class="description">AE5D: Get the new room and co-ordinates for a computer controlled player.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,97 +38,91 @@ Used by the routines at <a href="43698.html">AAB2</a>, <a href="43741.html">AADD
 <tr>
 <td class="address-2"><span id="44637"></span>AE5D</td>
 <td class="instruction">LD A,(IY+$0F)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the current room to the most recently visited room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44640"></span>AE60</td>
 <td class="instruction">LD (IY+$6E),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44643"></span>AE63</td>
 <td class="instruction">LD A,(IY+$69)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the target room as the current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44646"></span>AE66</td>
 <td class="instruction">LD (IY+$0F),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44649"></span>AE69</td>
 <td class="instruction">LD A,(IY+$73)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the index of next co-ordinates to use. (<a href="48346.html">BCDA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44652"></span>AE6C</td>
 <td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the co-ordinate table to use.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44655"></span>AE6F</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the new x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44656"></span>AE70</td>
 <td class="instruction">LD (IY+$05),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44659"></span>AE73</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set the new y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44660"></span>AE74</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44661"></span>AE75</td>
 <td class="instruction">LD (IY+$0A),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44664"></span>AE78</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the current frame to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44665"></span>AE79</td>
 <td class="instruction">LD (IY+$00),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44668"></span>AE7C</td>
 <td class="instruction">CALL <a href="44474.html">$ADBA</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update the character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44671"></span>AE7F</td>
 <td class="instruction">XOR A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44672"></span>AE80</td>
 <td class="instruction">LD (IY+$37),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44675"></span>AE83</td>
 <td class="instruction">LD (IY+$3C),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44678"></span>AE86</td>
 <td class="instruction">LD (IY+$46),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44681"></span>AE89</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

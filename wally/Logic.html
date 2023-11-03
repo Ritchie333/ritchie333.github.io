@@ -18,6 +18,7 @@
 <li><a href="#patterns">Patterns</a></li>
 <li><a href="#actions">Actions</a></li>
 <li><a href="#money">Money</a></li>
+<li><a href="#computer_characters">Computer characters</a></li>
 </ul>
 <div><span id="introduction"></span></div>
 <div class="box box-1">
@@ -272,6 +273,29 @@ of money has been earned, defined in entries at <a href="asm/60662.html">ECF6</a
 </div>
 <div class="paragraph">
 The index of the next index into the buffer is stored in <a href="asm/60661.html">ECF5</a>.
+</div>
+</div>
+<div><span id="computer_characters"></span></div>
+<div class="box box-1">
+<div class="box-title">Computer characters</div>
+<div class="paragraph">
+The computer character run off a list defined at <a href="asm/44778.html">AEEA</a>, which contains a target room for
+them to move to, where they will swap with the first item in the room. The list is terminated
+by FF.
+</div>
+<div class="paragraph">
+Whenever a computer character has swapped with an item, it picks the next entry off the table
+to decide where it's going to move to. As different characters swap at different times,
+always taking the next room ID in the table, it looks pseudo-random to the end user.
+</div>
+<div class="paragraph">
+The table at <a href="asm/44408.html">AD78</a> explains how the computer character needs to move between the current
+and the target room. Each entry contains a pair of bytes. The routine at <a href="asm/44474.html">ADBA</a>, called
+when a character enters a new room, takes
+the cumulative difference between the two pairs of bytes (in the next room and the
+target room) and assigns it a "score". It compares it against a running "best score"
+(initialised to FF so the first entry will always return a better result), and picks
+the room with the lowest score, which moves the character towards the intended room.
 </div>
 </div>
 <footer>

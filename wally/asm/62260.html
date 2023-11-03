@@ -119,42 +119,51 @@ Next: <a href="62325.html">F375</a>
 <tr>
 <td class="address-1"><span id="62304"></span>F360</td>
 <td class="instruction">LD A,(IX-$01)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y direction change.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62307"></span>F363</td>
 <td class="instruction">CP $FE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it now trying to move upwards?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62309"></span>F365</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if so.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62310"></span>
+<div class="comments">
+<div class="paragraph">
+The banana has hit the boundary, instead of reversing direction, draw it again from the start.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62310"></span>F366</td>
 <td class="instruction">LD (IX-$03),$6E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the Y co-ordinate back to 6E.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62314"></span>F36A</td>
 <td class="instruction">LD (IX-$01),$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the direction change back to 2 downwards.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62318"></span>F36E</td>
 <td class="instruction">LD A,(IX-$09)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the X co-ordinate to the same as the monkey, so it looks like the monkey has directly thrown the banana.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62321"></span>F371</td>
 <td class="instruction">LD (IX-$04),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62324"></span>F374</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

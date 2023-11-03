@@ -246,7 +246,7 @@ Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45
 <td class="map-g"><span id="48216"></span><a href="../asm/48216.html">BC58</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48216.html">Game status buffer at BC58</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48216.html">ID of the next object in a room that a computer player can swap with.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -264,7 +264,7 @@ Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45
 <td class="map-g"><span id="48226"></span><a href="../asm/48226.html">BC62</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48226.html">Game status buffer at BC62</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48226.html">Next index in the player's swap list to use.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -417,7 +417,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48301"></span><a href="../asm/48301.html">BCAD</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48301.html">If jumping, holds the frame number in the animation sequence</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48301.html">Character jump direction (01 = right, FF = left)</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -426,7 +426,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48306"></span><a href="../asm/48306.html">BCB2</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48306.html">Game status buffer at BCB2</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48306.html">If jumping, holds the frame number in the animation sequence</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -453,7 +453,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48321"></span><a href="../asm/48321.html">BCC1</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48321.html">Target room for a computer character (?)</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48321.html">Target room to send a computer player</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -471,7 +471,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48331"></span><a href="../asm/48331.html">BCCB</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48331.html">Next movement for a computer character</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48331.html">Copy of the second entry in the current "next rooms" table (trigger co-ordinates)</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -480,7 +480,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48336"></span><a href="../asm/48336.html">BCD0</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48336.html">Game status buffer at BCD0</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48336.html">Copy of the first entry in the current "next rooms" table (room to move to)</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -489,7 +489,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48341"></span><a href="../asm/48341.html">BCD5</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48341.html">Game status buffer at BCD5</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48341.html">The room the computer player was previously in.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -498,7 +498,7 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-g"><span id="48346"></span><a href="../asm/48346.html">BCDA</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48346.html">Game status buffer at BCDA</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48346.html">Copy of the third entry in the current "next rooms" table (new co-ordinates)</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -777,6 +777,15 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="62719"></span><a href="../asm/62719.html">F4FF</a></td>
+<td class="map-length">4</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62719.html">Movement table : The Super Market</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="62910"></span><a href="../asm/62910.html">F5BE</a></td>
 <td class="map-length">12</td>
 <td class="map-g-desc">
@@ -862,6 +871,15 @@ Runs from BC7B (Wally) to BC7F (Harry).
 <td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63506.html">Pointer to the next food table entry</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="64239"></span><a href="../asm/64239.html">FAEF</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64239.html">Game status entry at FAEF</a></div>
 <div class="map-entry-desc">
 </div>
 </td>

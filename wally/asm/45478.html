@@ -38,7 +38,7 @@ Used by the routines at <a href="43872.html">AB60</a>, <a href="43931.html">AB9B
 <tr>
 <td class="address-2"><span id="45478"></span>B1A6</td>
 <td class="instruction">LD A,(IY+$3C)</td>
-<td class="comment-1" rowspan="2">Is the character jumping? (<a href="48291.html">BCA3</a>)</td>
+<td class="comment-1" rowspan="2">Is the character moving? (<a href="48291.html">BCA3</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45481"></span>B1A9</td>
@@ -52,7 +52,7 @@ Used by the routines at <a href="43872.html">AB60</a>, <a href="43931.html">AB9B
 <tr>
 <td class="address-1"><span id="45484"></span>B1AC</td>
 <td class="instruction">LD A,(IY+$41)</td>
-<td class="comment-1" rowspan="2">Copy the current direction (<a href="48296.html">BCA8</a>) to the jump flag.</td>
+<td class="comment-1" rowspan="2">Copy the current direction (<a href="48296.html">BCA8</a>) to the movement flag.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45487"></span>B1AF</td>
@@ -61,7 +61,7 @@ Used by the routines at <a href="43872.html">AB60</a>, <a href="43931.html">AB9B
 <tr>
 <td class="address-2"><span id="45490"></span>B1B2</td>
 <td class="instruction">LD (IY+$46),A</td>
-<td class="comment-1" rowspan="1">Copy this to (?) <a href="48301.html">BCAD</a></td>
+<td class="comment-1" rowspan="1">Copy this to the jump flag. <a href="48301.html">BCAD</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45493"></span>B1B5</td>
@@ -81,12 +81,12 @@ This entry point is used by the routines at <a href="43308.html">A92C</a> and <a
 <tr>
 <td class="address-2"><span id="45497"></span>B1B9</td>
 <td class="instruction">LD A,(IY+$3C)</td>
-<td class="comment-1" rowspan="1">Get the jump flag.</td>
+<td class="comment-1" rowspan="1">Get the direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45500"></span>B1BC</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1">Is the character jumping right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45502"></span>B1BE</td>

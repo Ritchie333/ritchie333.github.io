@@ -35,27 +35,25 @@ Next: <a href="62799.html">F54F</a>
 <tr>
 <td class="address-2"><span id="62723"></span>F503</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Turn off the second platform, active when the trolley is moving. (<a href="44924.html">AF7C</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62725"></span>F505</td>
 <td class="instruction">LD ($AF80),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62728"></span>F508</td>
 <td class="instruction">LD A,$0C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is flag 0C (trolley oiled) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62730"></span>F50A</td>
 <td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62733"></span>F50D</td>
 <td class="instruction">JR Z,$F543</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62735"></span>F50F</td>
@@ -67,124 +65,168 @@ Next: <a href="62799.html">F54F</a>
 <td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="62740"></span>
+<div class="comments">
+<div class="paragraph">
+If the trolley is oiled, it needs moving.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-1"><span id="62740"></span>F514</td>
 <td class="instruction">LD IX,$F4FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62744"></span>F518</td>
 <td class="instruction">LD BC,$F2F7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the bounds table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62747"></span>F51B</td>
 <td class="instruction">CALL <a href="61237.html">$EF35</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62750"></span>F51E</td>
 <td class="instruction">LD A,$36</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the ID to the trolley graphic. (<a href="35384.html">8A38</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62752"></span>F520</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62755"></span>F523</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62758"></span>
+<div class="comments">
+<div class="paragraph">
+See if we have jumped onto the trolley.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62758"></span>F526</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62761"></span>F529</td>
 <td class="instruction">CP $88</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 88 ie: jumped to the height of the trolley?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62763"></span>F52B</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it hasn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62764"></span>
+<div class="comments">
+<div class="paragraph">
+The Y co-ordinate is correct, check the X co-ordinate.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62764"></span>F52C</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62767"></span>F52F</td>
 <td class="instruction">SUB (IX-$04)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Is it close enough to the X co-ordinate of the trolley?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62770"></span>F532</td>
 <td class="instruction">SUB $04</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62772"></span>F534</td>
 <td class="instruction">CP $F8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62774"></span>F536</td>
 <td class="instruction">RET C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62775"></span>
+<div class="comments">
+<div class="paragraph">
+The character has landed on top of a moving trolley. Switch on a byte in the platform table (<a href="44924.html">AF7C</a>) that will treat this as a temporary platform and allow them to jump higher.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62775"></span>F537</td>
 <td class="instruction">LD A,(IX-$04)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the X co-ordinate to match that of the trolley.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62778"></span>F53A</td>
 <td class="instruction">LD (IY+$05),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62781"></span>F53D</td>
 <td class="instruction">LD A,$A8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the top of the trolley as an active platform.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62783"></span>F53F</td>
 <td class="instruction">LD ($AF80),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62786"></span>F542</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62787"></span>
+<div class="comments">
+<div class="paragraph">
+The trolley's not oiled, so just draw it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62787"></span>F543</td>
 <td class="instruction">LD HL,$A8F0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62790"></span>F546</td>
 <td class="instruction">LD ($A838),HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62793"></span>F549</td>
 <td class="instruction">LD A,$36</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the ID to the trolley graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62795"></span>F54B</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Draw it and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62798"></span>F54E</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

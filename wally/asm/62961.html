@@ -169,47 +169,46 @@ Next: <a href="63051.html">F64B</a>
 <tr>
 <td class="address-1"><span id="63010"></span>F622</td>
 <td class="instruction">LD IX,$F5BE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63014"></span>F626</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 lightning bolts to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63016"></span>F628</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63017"></span>F629</td>
 <td class="instruction">LD A,$0D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is flag 0D (Asteroids game won) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63019"></span>F62B</td>
 <td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63022"></span>F62E</td>
 <td class="instruction">LD BC,$F5CA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the first bounds table. (<a href="62922.html">F5CA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63025"></span>F631</td>
 <td class="instruction">JR NZ,$F636</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If the flag is set, skip the next bit.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63027"></span>F633</td>
 <td class="instruction">LD BC,$F5CE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise point <span class="register">BC</span> at the second bounds table. (<a href="62926.html">F5CE</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63030"></span>F636</td>
 <td class="instruction">CALL <a href="61237.html">$EF35</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63033"></span>F639</td>
@@ -229,27 +228,27 @@ Next: <a href="63051.html">F64B</a>
 <tr>
 <td class="address-1"><span id="63041"></span>F641</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63044"></span>F644</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63047"></span>F647</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63048"></span>F648</td>
 <td class="instruction">DJNZ $F628</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more lighting bolts to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63050"></span>F64A</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

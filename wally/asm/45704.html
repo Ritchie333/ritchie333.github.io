@@ -92,7 +92,7 @@ Used by the routines at <a href="43308.html">A92C</a>, <a href="43698.html">AAB2
 <span id="45726"></span>
 <div class="comments">
 <div class="paragraph">
-Do the update.
+Update the frame number.
 </div>
 </div>
 </td>
@@ -100,57 +100,74 @@ Do the update.
 <tr>
 <td class="address-2"><span id="45726"></span>B29E</td>
 <td class="instruction">LD A,(IY+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the frame number and increment it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45729"></span>B2A1</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45730"></span>B2A2</td>
 <td class="instruction">CP $06</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">If the frame is greater than 5, reset it to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45732"></span>B2A4</td>
 <td class="instruction">JR C,$B2A7</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45734"></span>B2A6</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45735"></span>B2A7</td>
 <td class="instruction">LD (IY+$00),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the new frame number.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45738"></span>
+<div class="comments">
+<div class="paragraph">
+Check for any movement.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45738"></span>B2AA</td>
 <td class="instruction">LD A,(IY+$3C)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the movement flag. (<a href="48291.html">BCA3</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45741"></span>B2AD</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45743"></span>B2AF</td>
 <td class="instruction">JR NZ,$B2C6</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45745"></span>
+<div class="comments">
+<div class="paragraph">
+Move right.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45745"></span>B2B1</td>
 <td class="instruction">LD A,(IY-$3C)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current direction of the sprite.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45748"></span>B2B4</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 0 (left)?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45749"></span>B2B5</td>
@@ -165,42 +182,49 @@ Do the update.
 <tr>
 <td class="address-1"><span id="45755"></span>B2BB</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add 2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45757"></span>B2BD</td>
 <td class="instruction">CP $F0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">If it's greater than F0 set it to that.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45759"></span>B2BF</td>
 <td class="instruction">JR C,$B2D5</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45761"></span>B2C1</td>
 <td class="instruction">LD A,$F0</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45763"></span>B2C3</td>
 <td class="instruction">JP $B2D5</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45766"></span>
+<div class="comments">
+<div class="paragraph">
+Move left.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45766"></span>B2C6</td>
 <td class="instruction">LD A,(IY-$3C)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the direction flag. (<a href="48291.html">BCA3</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45769"></span>B2C9</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 0?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45770"></span>B2CA</td>
 <td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If it isn't, it must be facing left, so change direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45773"></span>B2CD</td>
@@ -210,27 +234,26 @@ Do the update.
 <tr>
 <td class="address-1"><span id="45776"></span>B2D0</td>
 <td class="instruction">SUB $02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Subtract 2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45778"></span>B2D2</td>
 <td class="instruction">JR NC,$B2D5</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If it's less than 0, set it to that.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45780"></span>B2D4</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45781"></span>B2D5</td>
 <td class="instruction">LD (IY+$05),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new X co-ordinate</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45784"></span>B2D8</td>
 <td class="instruction">JP <a href="58108.html">$E2FC</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Play a footstep and return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

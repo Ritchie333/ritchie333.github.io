@@ -143,7 +143,7 @@ An object was found. Copy the template data.
 <span id="47866"></span>
 <div class="comments">
 <div class="paragraph">
-Copy the initial flags
+Copy the initial data for the characters.
 </div>
 </div>
 </td>
@@ -169,139 +169,159 @@ Copy the initial flags
 <td class="comment-1" rowspan="1">Do the copy.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="47877"></span>
+<div class="comments">
+<div class="paragraph">
+Set initial flags;
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-1"><span id="47877"></span>BB05</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to zero, which will be set for some flags.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47878"></span>BB06</td>
 <td class="instruction">LD ($ECF5),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the next reward screen (<a href="60661.html">ECF5</a>) to 0 (morning).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47881"></span>BB09</td>
 <td class="instruction">LD ($ECFE),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set the money earned (<a href="60670.html">ECFE</a>) to £0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47884"></span>BB0C</td>
 <td class="instruction">LD ($ECFF),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47887"></span>BB0F</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set 0 letters brought to the safe. (<a href="60869.html">EDC5</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47888"></span>BB10</td>
 <td class="instruction">LD ($EDC5),A</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47891"></span>
+<div class="comments">
+<div class="paragraph">
+Set up initial data on School Lane.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47891"></span>BB13</td>
 <td class="instruction">LD A,$14</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set 14 asteroids left to hit. (<a href="63988.html">F9F4</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47893"></span>BB15</td>
 <td class="instruction">LD ($F9F4),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47896"></span>BB18</td>
 <td class="instruction">LD A,$28</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="6">Set the lightning bolts in School Lane to cover just the pylon area, making it inaccessible.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47898"></span>BB1A</td>
 <td class="instruction">LD ($F5BE),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47901"></span>BB1D</td>
 <td class="instruction">LD A,$3C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47903"></span>BB1F</td>
 <td class="instruction">LD ($F5C2),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47906"></span>BB22</td>
 <td class="instruction">LD A,$20</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47908"></span>BB24</td>
 <td class="instruction">LD ($F5C6),A</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47911"></span>
+<div class="comments">
+<div class="paragraph">
+Reset the money table.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47911"></span>BB27</td>
 <td class="instruction">LD HL,$EC5C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the earnings buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47914"></span>BB2A</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">20 entries to look at.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47916"></span>BB2C</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the ID to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47918"></span>BB2E</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Point <span class="register">HL</span> at the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47919"></span>BB2F</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47920"></span>BB30</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="47921"></span>BB31</td>
 <td class="instruction">DJNZ $BB2C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more entries to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47923"></span>BB33</td>
 <td class="instruction">LD HL,$EC0F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game flags. (<a href="60431.html">EC0F</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47926"></span>BB36</td>
 <td class="instruction">LD B,$0E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">0E entries to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47928"></span>BB38</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset the flag.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47930"></span>BB3A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next one.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47931"></span>BB3B</td>
 <td class="instruction">DJNZ $BB38</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more flags to reset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47933"></span>BB3D</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

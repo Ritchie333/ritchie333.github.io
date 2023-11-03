@@ -35,192 +35,189 @@ Next: <a href="62609.html">F491</a>
 <tr>
 <td class="address-2"><span id="62524"></span>F43C</td>
 <td class="instruction">LD A,$09</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is flag 9 (wall built) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62526"></span>F43E</td>
 <td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62529"></span>F441</td>
 <td class="instruction">JR Z,$F479</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62531"></span>F443</td>
 <td class="instruction">LD A,$06</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is flag 6 (battery charged) set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62533"></span>F445</td>
 <td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62536"></span>F448</td>
 <td class="instruction">JR Z,$F479</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62538"></span>F44A</td>
 <td class="instruction">LD A,($BD01)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the battery the first item in the room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62541"></span>F44D</td>
 <td class="instruction">CP $04</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62543"></span>F44F</td>
 <td class="instruction">JR NZ,$F479</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62545"></span>F451</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62548"></span>F454</td>
 <td class="instruction">SUB $42</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62550"></span>F456</td>
 <td class="instruction">CP $FC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62552"></span>F458</td>
 <td class="instruction">JR C,$F479</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62554"></span>F45A</td>
 <td class="instruction">LD A,($AF88)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62557"></span>F45D</td>
 <td class="instruction">SUB (IY+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62560"></span>F460</td>
 <td class="instruction">SUB $22</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62562"></span>F462</td>
 <td class="instruction">CP $FC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62564"></span>F464</td>
 <td class="instruction">JR C,$F479</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62566"></span>F466</td>
 <td class="instruction">LD A,($AF88)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62569"></span>F469</td>
 <td class="instruction">SUB $02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62571"></span>F46B</td>
 <td class="instruction">CP $78</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62573"></span>F46D</td>
 <td class="instruction">JR NC,$F471</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62575"></span>F46F</td>
 <td class="instruction">LD A,$78</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62577"></span>F471</td>
 <td class="instruction">LD ($AF88),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62580"></span>F474</td>
 <td class="instruction">SUB $20</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62582"></span>F476</td>
 <td class="instruction">LD (IY+$0A),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62585"></span>F479</td>
 <td class="instruction">LD A,($AF88)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62588"></span>F47C</td>
 <td class="instruction">LD B,$10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62590"></span>F47E</td>
 <td class="instruction">CP $B8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62592"></span>F480</td>
 <td class="instruction">JR Z,$F484</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62594"></span>F482</td>
 <td class="instruction">LD B,$0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62596"></span>F484</td>
 <td class="instruction">SUB B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62597"></span>F485</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62598"></span>F486</td>
 <td class="instruction">LD L,$40</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62600"></span>F488</td>
 <td class="instruction">LD ($A838),HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62603"></span>F48B</td>
 <td class="instruction">LD A,$2B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62605"></span>F48D</td>
 <td class="instruction">CALL <a href="43069.html">$A83D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62608"></span>F490</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

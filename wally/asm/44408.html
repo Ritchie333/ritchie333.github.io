@@ -24,58 +24,181 @@ Next: <a href="44474.html">ADBA</a>
 </td>
 </tr>
 </table>
-<div class="description">AD78: Table for next action to perform by a computer player</div>
+<div class="description">AD78: Table for next room to visi by a computer player</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
+<div class="paragraph">
+Used by the routine in <a href="44474.html">ADBA</a>.
+</div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="address-1"><span id="44408"></span>AD78</td>
-<td class="instruction">DEFB $0C,$10,$0E,$10,$0E,$11,$10,$10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $0C,$10</td>
+<td class="comment-1" rowspan="1">00 : The Town Square</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44410"></span>AD7A</td>
+<td class="instruction">DEFB $0E,$10</td>
+<td class="comment-1" rowspan="1">01 : Stamp Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44412"></span>AD7C</td>
+<td class="instruction">DEFB $0E,$11</td>
+<td class="comment-1" rowspan="1">02 : Post Office</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44414"></span>AD7E</td>
+<td class="instruction">DEFB $10,$10</td>
+<td class="comment-1" rowspan="1">03 : Market Street</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44416"></span>AD80</td>
-<td class="instruction">DEFB $11,$10,$12,$0F,$13,$0D,$14,$0B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $11,$10</td>
+<td class="comment-1" rowspan="1">04 : The Super Market</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44418"></span>AD82</td>
+<td class="instruction">DEFB $12,$0F</td>
+<td class="comment-1" rowspan="1">05 : The Park</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44420"></span>AD84</td>
+<td class="instruction">DEFB $13,$0D</td>
+<td class="comment-1" rowspan="1">06 : Wobbly Walk</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44422"></span>AD86</td>
+<td class="instruction">DEFB $14,$0B</td>
+<td class="comment-1" rowspan="1">07 : Rubble Road</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44424"></span>AD88</td>
-<td class="instruction">DEFB $15,$09,$17,$09,$16,$0B,$14,$0E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $15,$09</td>
+<td class="comment-1" rowspan="1">08 : Wall Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44426"></span>AD8A</td>
+<td class="instruction">DEFB $17,$09</td>
+<td class="comment-1" rowspan="1">09 : Pete Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44428"></span>AD8C</td>
+<td class="instruction">DEFB $16,$0B</td>
+<td class="comment-1" rowspan="1">0A : The Work Shed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44430"></span>AD8E</td>
+<td class="instruction">DEFB $14,$0E</td>
+<td class="comment-1" rowspan="1">0B : School Lane</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44432"></span>AD90</td>
-<td class="instruction">DEFB $15,$0F,$10,$11,$10,$12,$14,$0D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $15,$0F</td>
+<td class="comment-1" rowspan="1">0C : The School</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44434"></span>AD92</td>
+<td class="instruction">DEFB $10,$11</td>
+<td class="comment-1" rowspan="1">0D : Baker Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44436"></span>AD94</td>
+<td class="instruction">DEFB $10,$12</td>
+<td class="comment-1" rowspan="1">0E : The Bakers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44438"></span>AD96</td>
+<td class="instruction">DEFB $14,$0D</td>
+<td class="comment-1" rowspan="1">0F : The Pub</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44440"></span>AD98</td>
-<td class="instruction">DEFB $11,$0C,$12,$0C,$11,$0B,$0F,$0C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $11,$0C</td>
+<td class="comment-1" rowspan="1">10 : Motor Way</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44442"></span>AD9A</td>
+<td class="instruction">DEFB $12,$0C</td>
+<td class="comment-1" rowspan="1">11 : The Laboratory</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44444"></span>AD9C</td>
+<td class="instruction">DEFB $11,$0B</td>
+<td class="comment-1" rowspan="1">12 : The Garage</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44446"></span>AD9E</td>
+<td class="instruction">DEFB $0F,$0C</td>
+<td class="comment-1" rowspan="1">13 : Reference Road</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44448"></span>ADA0</td>
-<td class="instruction">DEFB $0F,$0B,$0D,$0D,$0C,$0D,$0D,$0C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $0F,$0B</td>
+<td class="comment-1" rowspan="1">14 : The Library</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44450"></span>ADA2</td>
+<td class="instruction">DEFB $0D,$0D</td>
+<td class="comment-1" rowspan="1">15 : Penny Lane</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44452"></span>ADA4</td>
+<td class="instruction">DEFB $0C,$0D</td>
+<td class="comment-1" rowspan="1">16 : The Bank</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44454"></span>ADA6</td>
+<td class="instruction">DEFB $0D,$0C</td>
+<td class="comment-1" rowspan="1">17 : Wally's House</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44456"></span>ADA8</td>
-<td class="instruction">DEFB $0C,$0F,$0B,$0F,$0A,$10,$0A,$11</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $0C,$0F</td>
+<td class="comment-1" rowspan="1">18 : Meat Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44458"></span>ADAA</td>
+<td class="instruction">DEFB $0B,$0F</td>
+<td class="comment-1" rowspan="1">19 : The Butcher's</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44460"></span>ADAC</td>
+<td class="instruction">DEFB $0A,$10</td>
+<td class="comment-1" rowspan="1">1A : Trunk Road</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44462"></span>ADAE</td>
+<td class="instruction">DEFB $0A,$11</td>
+<td class="comment-1" rowspan="1">1B : The Zoo</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44464"></span>ADB0</td>
-<td class="instruction">DEFB $08,$11,$08,$12,$06,$12,$04,$13</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $08,$11</td>
+<td class="comment-1" rowspan="1">1C : Rail Road</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44466"></span>ADB2</td>
+<td class="instruction">DEFB $08,$12</td>
+<td class="comment-1" rowspan="1">1D : The Station</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44468"></span>ADB4</td>
+<td class="instruction">DEFB $06,$12</td>
+<td class="comment-1" rowspan="1">1E : The Docks</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44470"></span>ADB6</td>
+<td class="instruction">DEFB $04,$13</td>
+<td class="comment-1" rowspan="1">1F : The Sewer</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44472"></span>ADB8</td>
 <td class="instruction">DEFB $05,$14</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">20 : The Cave</td>
 </tr>
 </table>
 <table class="asm-navigation">

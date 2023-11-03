@@ -24,38 +24,194 @@ Next: <a href="44637.html">AE5D</a>
 </td>
 </tr>
 </table>
-<div class="description">AE3C: Table of room flags. Set to 1 to mean a computer player will walk the entire length of it</div>
+<div class="description">AE3C: Table of room flags.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
+<div class="paragraph">
+Used by the routine at <a href="44592.html">AE30</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44604"></span>
+<div class="comments">
+<div class="paragraph">
+If the value is 1, the room can be accessed by moving of the edge of another room.
+</div>
+<div class="paragraph">
+If the value is 0, the room can only be accessed using the 'in' key, or will not be visited by computer players.
+</div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="address-1"><span id="44604"></span>AE3C</td>
-<td class="instruction">DEFB $01,$01,$00,$01,$00,$01,$01,$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">The Town Square</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44605"></span>AE3D</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Stamp Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44606"></span>AE3E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Post Office</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44607"></span>AE3F</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Market Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44608"></span>AE40</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Super Market</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44609"></span>AE41</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">The Park</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44610"></span>AE42</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Wobbly Walk</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44611"></span>AE43</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Rubble Road</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44612"></span>AE44</td>
-<td class="instruction">DEFB $01,$01,$01,$01,$00,$01,$00,$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Wall Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44613"></span>AE45</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Pete Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44614"></span>AE46</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">The Work Shed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44615"></span>AE47</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">School Lane</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44616"></span>AE48</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The School</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44617"></span>AE49</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Baker Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44618"></span>AE4A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Bakers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44619"></span>AE4B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Pub</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44620"></span>AE4C</td>
-<td class="instruction">DEFB $01,$00,$00,$01,$00,$01,$00,$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Motor Way</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44621"></span>AE4D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Laboratory</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44622"></span>AE4E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Garage</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44623"></span>AE4F</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Reference Road</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44624"></span>AE50</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Library</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44625"></span>AE51</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Penny Lane</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44626"></span>AE52</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Bank</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44627"></span>AE53</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Wally's House</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44628"></span>AE54</td>
-<td class="instruction">DEFB $01,$00,$01,$00,$01,$00,$01,$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Meat Street</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44629"></span>AE55</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Butchers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44630"></span>AE56</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Trunk Road</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44631"></span>AE57</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Zoo</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44632"></span>AE58</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Rail Road</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44633"></span>AE59</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">The Station</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44634"></span>AE5A</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">The Docks</td>
+</tr>
+<tr>
+<td class="address-1"><span id="44635"></span>AE5B</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">The Sewer</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44636"></span>AE5C</td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">The Cave</td>
 </tr>
 </table>
 <table class="asm-navigation">

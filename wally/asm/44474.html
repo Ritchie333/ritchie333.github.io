@@ -24,7 +24,7 @@ Next: <a href="44592.html">AE30</a>
 </td>
 </tr>
 </table>
-<div class="description">ADBA: Update a computer-controlled character</div>
+<div class="description">ADBA: Move a computer-controlled character between rooms.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -43,7 +43,7 @@ Used by the routines at <a href="43308.html">A92C</a> and <a href="44637.html">A
 <tr>
 <td class="address-1"><span id="44477"></span>ADBD</td>
 <td class="instruction">CP (IY+$5A)</td>
-<td class="comment-1" rowspan="1">Is it the target room? (?)</td>
+<td class="comment-1" rowspan="1">Does it equal the target room? (<a href="48321.html">BCC1</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44480"></span>ADC0</td>
@@ -72,317 +72,356 @@ Move the character towards the target room.
 <tr>
 <td class="address-2"><span id="44487"></span>ADC7</td>
 <td class="instruction">LD D,$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set D as "no match".</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44489"></span>ADC9</td>
 <td class="instruction">CALL <a href="44137.html">$AC69</a></td>
-<td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
+<td class="comment-1" rowspan="1">Get the "next rooms" table for this room in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44492"></span>ADCC</td>
 <td class="instruction">LD A,(IY+$0F)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the character's current room in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44495"></span>ADCF</td>
 <td class="instruction">CALL <a href="44592.html">$AE30</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Can the room only be accessed via the 'in' key?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44498"></span>ADD2</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44499"></span>ADD3</td>
 <td class="instruction">JR Z,$AE18</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44501"></span>
+<div class="comments">
+<div class="paragraph">
+Process a "next rooms" entry.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="44501"></span>ADD5</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next room to move to.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44502"></span>ADD6</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it a terminating character (FF) instead?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44504"></span>ADD8</td>
 <td class="instruction">JR Z,$AE26</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so, the <span class="register">B</span>, <span class="register">C</span> and <span class="register">D</span> registers contain the best target room and co-ordinates.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44506"></span>
+<div class="comments">
+<div class="paragraph">
+Look at the "next rooms" entry to work out how to get there.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44506"></span>ADDA</td>
 <td class="instruction">CALL <a href="44592.html">$AE30</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Can the room only be accessed via the 'in' key?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44509"></span>ADDD</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44511"></span>ADDF</td>
 <td class="instruction">JR Z,$ADEA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44513"></span>ADE1</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the room ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44514"></span>ADE2</td>
 <td class="instruction">CP (IY+$5A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the target room?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44517"></span>ADE5</td>
 <td class="instruction">JR NZ,$AE20</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not to look at the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44519"></span>ADE7</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Signal 0 (character will walk the whole room) and jump forward to set it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44520"></span>ADE8</td>
 <td class="instruction">JR $AE18</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="44522"></span>ADEA</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the target room ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44523"></span>ADEB</td>
 <td class="instruction">CP (IY+$6E)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the previously visited room? (<a href="48341.html">BCD5</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44526"></span>ADEE</td>
 <td class="instruction">JR Z,$AE20</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is, we've just been here.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44528"></span>
+<div class="comments">
+<div class="paragraph">
+Work out where to move the character.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44528"></span>ADF0</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44529"></span>ADF1</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the ID to get a two byte offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44530"></span>ADF2</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44532"></span>ADF4</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44533"></span>ADF5</td>
 <td class="instruction">LD HL,$AD78</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base offset for the movement table. (<a href="44408.html">AD78</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44536"></span>ADF8</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44537"></span>ADF9</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the first value in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44538"></span>ADFA</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the second value in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44539"></span>ADFB</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44540"></span>ADFC</td>
 <td class="instruction">LD A,(IY+$5A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the movement ID of the target room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44543"></span>ADFF</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the ID to get a two byte offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44544"></span>AE00</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44545"></span>AE01</td>
 <td class="instruction">LD HL,$AD78</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base offset for the movement table. (<a href="44408.html">AD78</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44548"></span>AE04</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44549"></span>AE05</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Make <span class="register">C</span> the difference between the two values.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44550"></span>AE06</td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44551"></span>AE07</td>
 <td class="instruction">JR NC,$AE0B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44553"></span>AE09</td>
 <td class="instruction">NEG</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="44555"></span>AE0B</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44556"></span>AE0C</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="6">Add the difference in the two values in <span class="register">B</span> to <span class="register">A</span> to give us a "score" for this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44557"></span>AE0D</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44558"></span>AE0E</td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44559"></span>AE0F</td>
 <td class="instruction">JR NC,$AE13</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44561"></span>AE11</td>
 <td class="instruction">NEG</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="44563"></span>AE13</td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44564"></span>AE14</td>
 <td class="instruction">EXX</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Swap main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44565"></span>AE15</td>
 <td class="instruction">CP D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Compare with the current match.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44566"></span>AE16</td>
 <td class="instruction">JR NC,$AE20</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If this difference is greater, don't use the entry and skip forward.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44568"></span>
+<div class="comments">
+<div class="paragraph">
+A room to move to has been found that's better than any others yet looked at, so use it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="44568"></span>AE18</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">D</span> to the current best "score" for the next room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44569"></span>AE19</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the desination room in <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44570"></span>AE1A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the target co-ordinate to move to that room in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44571"></span>AE1B</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44572"></span>AE1C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the new co-ordinate in the destination room in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44573"></span>AE1D</td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44574"></span>AE1E</td>
 <td class="instruction">JR $AE22</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Skip the next bit of code.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44576"></span>
+<div class="comments">
+<div class="paragraph">
+Didn't find the target to move to, so skip to the next one.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="44576"></span>AE20</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44577"></span>AE21</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="44578"></span>AE22</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Ensure <span class="register">HL</span> is pointing to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44579"></span>AE23</td>
 <td class="instruction">JP $ADD5</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back to handle movement.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44582"></span>
+<div class="comments">
+<div class="paragraph">
+Found the target room and co-ordinates to use for the next room, so set them.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="44582"></span>AE26</td>
 <td class="instruction">LD (IY+$64),C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set the next room, target co-ordinates and new co-ordinates for this character. (<a href="48331.html">BCCB</a> / <a href="48336.html">BCD0</a>) / <a href="48346.html">BCDA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44585"></span>AE29</td>
 <td class="instruction">LD (IY+$69),B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44588"></span>AE2C</td>
 <td class="instruction">LD (IY+$73),E</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="44591"></span>AE2F</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

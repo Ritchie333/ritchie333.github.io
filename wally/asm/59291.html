@@ -155,27 +155,37 @@ The character is in the same room, so the switch can be made.
 <tr>
 <td class="address-2"><span id="59328"></span>E7C0</td>
 <td class="instruction">CALL <a href="43297.html">$A921</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this character the current one.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59331"></span>E7C3</td>
 <td class="instruction">JR Z,$E7BD</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, clear up the stack and return - there's nothing to do.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59333"></span>
+<div class="comments">
+<div class="paragraph">
+The character is in the room and it's not the current one, so switch.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59333"></span>E7C5</td>
 <td class="instruction">LD ($B09D),IY</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the current character pointer (<a href="45213.html">B09D</a>) to this one.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59337"></span>E7C9</td>
 <td class="instruction">POP IY</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear up the stack.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59339"></span>E7CB</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the room in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59340"></span>E7CC</td>
@@ -190,7 +200,7 @@ The character is in the same room, so the switch can be made.
 <tr>
 <td class="address-1"><span id="59344"></span>E7D0</td>
 <td class="instruction">LD (IY+$69),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">(<a href="48336.html">BCD0</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59347"></span>E7D3</td>
@@ -205,7 +215,7 @@ The character is in the same room, so the switch can be made.
 <tr>
 <td class="address-1"><span id="59349"></span>E7D5</td>
 <td class="instruction">LD (IY+$64),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">(<a href="48331.html">BCCB</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59352"></span>E7D8</td>
@@ -220,7 +230,7 @@ The character is in the same room, so the switch can be made.
 <tr>
 <td class="address-1"><span id="59354"></span>E7DA</td>
 <td class="instruction">LD (IY+$73),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">(<a href="48346.html">BCDA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59357"></span>E7DD</td>
@@ -230,17 +240,17 @@ The character is in the same room, so the switch can be made.
 <tr>
 <td class="address-1"><span id="59361"></span>E7E1</td>
 <td class="instruction">LD IY,($B09D)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> to the selected character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59365"></span>E7E5</td>
 <td class="instruction">CALL <a href="58365.html">$E3FD</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Refresh the status bar to reflect the new current character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59368"></span>E7E8</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">
