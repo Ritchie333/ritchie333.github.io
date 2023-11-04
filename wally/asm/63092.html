@@ -44,7 +44,7 @@ Next: <a href="63185.html">F6D1</a>
 <tr>
 <td class="address-1"><span id="63097"></span>F679</td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">5 objects to update.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63099"></span>F67B</td>
@@ -54,7 +54,7 @@ Next: <a href="63185.html">F6D1</a>
 <tr>
 <td class="address-2"><span id="63103"></span>F67F</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63104"></span>F680</td>
@@ -69,157 +69,161 @@ Next: <a href="63185.html">F6D1</a>
 <tr>
 <td class="address-1"><span id="63110"></span>F686</td>
 <td class="instruction">DEC (IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement the X position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63113"></span>F689</td>
 <td class="instruction">JR NZ,$F6BB</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it's not zero.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63115"></span>F68B</td>
 <td class="instruction">LD A,($F673)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Has a bird hit a boundary in X or Y?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63118"></span>F68E</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63119"></span>F68F</td>
 <td class="instruction">LD A,($F672)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63122"></span>F692</td>
 <td class="instruction">OR B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63123"></span>F693</td>
 <td class="instruction">JR NZ,$F6BB</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if they haven't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63125"></span>
+<div class="comments">
+<div class="paragraph">
+A bird has hit the edge of the screen, move them off in some random direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63125"></span>F695</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Get a random number between 14 and 53.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63127"></span>F697</td>
 <td class="instruction">AND $3F</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63129"></span>F699</td>
 <td class="instruction">ADD A,$14</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63131"></span>F69B</td>
 <td class="instruction">LD (IX+$00),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set this as the new x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63134"></span>F69E</td>
 <td class="instruction">LD A,(IX+$01)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Cycle the y co-ordinate between 0 and 6 in multiples of 2, to give an offset into the table at <a href="63059.html">F653</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63137"></span>F6A1</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63139"></span>F6A3</td>
 <td class="instruction">CP $08</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63141"></span>F6A5</td>
 <td class="instruction">JR NZ,$F6A8</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63143"></span>F6A7</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63144"></span>F6A8</td>
 <td class="instruction">LD (IX+$01),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63147"></span>F6AB</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the y co-ordinate in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63148"></span>F6AC</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63150"></span>F6AE</td>
 <td class="instruction">LD HL,$F64B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Add the base address of the direction table. (<a href="63051.html">F64B</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63153"></span>F6B1</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63154"></span>F6B2</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Set the new x and y direction changes based on the data found.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63155"></span>F6B3</td>
 <td class="instruction">LD (IX-$02),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63158"></span>F6B6</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63159"></span>F6B7</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63160"></span>F6B8</td>
 <td class="instruction">LD (IX-$01),A</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63163"></span>
+<div class="comments">
+<div class="paragraph">
+Now draw the bird.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63163"></span>F6BB</td>
 <td class="instruction">LD A,($F671)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the object ID to use.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63166"></span>F6BE</td>
 <td class="instruction">XOR $02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Alternate between 3C and 3E (<a href="35576.html">8AF8</a>). for the next iteration.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63168"></span>F6C0</td>
 <td class="instruction">LD ($F671),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63171"></span>F6C3</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63174"></span>F6C6</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63177"></span>F6C9</td>
@@ -234,17 +238,17 @@ Next: <a href="63185.html">F6D1</a>
 <tr>
 <td class="address-1"><span id="63181"></span>F6CD</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63182"></span>F6CE</td>
 <td class="instruction">DJNZ $F67F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63184"></span>F6D0</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

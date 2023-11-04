@@ -49,17 +49,17 @@ Next: <a href="62247.html">F327</a>
 <tr>
 <td class="address-1"><span id="62226"></span>F312</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 objects to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62228"></span>F314</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62229"></span>F315</td>
 <td class="instruction">LD A,$29</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Use object ID 29 (pint glass) (<a href="34968.html">8898</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62231"></span>F317</td>
@@ -74,27 +74,27 @@ Next: <a href="62247.html">F327</a>
 <tr>
 <td class="address-1"><span id="62237"></span>F31D</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62240"></span>F320</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62243"></span>F323</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62244"></span>F324</td>
 <td class="instruction">DJNZ $F314</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62246"></span>F326</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

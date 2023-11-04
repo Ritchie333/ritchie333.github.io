@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="62926.html">F5CE</a>
+Prev: <a href="62931.html">F5D3</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#62961">Map</a></td>
 <td class="next">
@@ -29,133 +29,141 @@ Next: <a href="63051.html">F64B</a>
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
+<div class="paragraph">
+First, draw the electricity wire.
+</div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="62961"></span>F5F1</td>
 <td class="instruction">LD HL,$5DE7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the screen buffer. (<a href="23296.html">5B00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62964"></span>F5F4</td>
 <td class="instruction">LD DE,$0020</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> to the amount to move forward by for each row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62967"></span>F5F7</td>
 <td class="instruction">LD BC,$F5D3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set <span class="register">BC</span> to the data table. (<a href="62931.html">F5D3</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62970"></span>F5FA</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Reset all pixels on the first row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62972"></span>F5FC</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62973"></span>F5FD</td>
 <td class="instruction">LD (HL),$FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set all pixels.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62975"></span>F5FF</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62976"></span>F600</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set all pixels.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62978"></span>F602</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Move back up to the initial row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62979"></span>F603</td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62981"></span>F605</td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62983"></span>F607</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next byte.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62984"></span>F608</td>
 <td class="instruction">INC BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62985"></span>F609</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it an end marker?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62987"></span>F60B</td>
 <td class="instruction">JR Z,$F61D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump foward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62989"></span>F60D</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the data 0?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62990"></span>F60E</td>
 <td class="instruction">JR Z,$F61A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62992"></span>F610</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the data 1?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62994"></span>F612</td>
 <td class="instruction">JR NZ,$F617</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62996"></span>F614</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Otherwise move to the next row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62997"></span>F615</td>
 <td class="instruction">JR $F61A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62999"></span>F617</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move up a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63000"></span>F618</td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63002"></span>F61A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next column and repeat.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63003"></span>F61B</td>
 <td class="instruction">JR $F5FA</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63005"></span>
+<div class="comments">
+<div class="paragraph">
+Now set the main data for the room.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63005"></span>F61D</td>
@@ -213,17 +221,17 @@ Next: <a href="63051.html">F64B</a>
 <tr>
 <td class="address-1"><span id="63033"></span>F639</td>
 <td class="instruction">LD A,($F5D2)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next object ID to print.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63036"></span>F63C</td>
 <td class="instruction">XOR $02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Invert bit 2, so the ID alternates between 38 and 3A.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63038"></span>F63E</td>
 <td class="instruction">LD ($F5D2),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set this for the next object ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63041"></span>F641</td>
@@ -254,7 +262,7 @@ Next: <a href="63051.html">F64B</a>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="62926.html">F5CE</a>
+Prev: <a href="62931.html">F5D3</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#62961">Map</a></td>
 <td class="next">

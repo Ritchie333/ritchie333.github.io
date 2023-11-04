@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Everyone's A Wally: Game status buffer entry at F5D3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62930.html">F5D2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62931">Map</a></td>
+<td class="next">
+Next: <a href="62961.html">F5F1</a>
+</td>
+</tr>
+</table>
+<div class="description">F5D3: School Lane electricity wire data</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The buffer is defined as the direction in which to move after drawing one 8-bit cell of data. A 1 moves drawing up one row, a 0 moves it down one row, a 2 leaves it unchanged. FF marks the end of the data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="62931"></span>F5D3</td>
+<td class="instruction">DEFB $01,$01,$01,$01,$00,$01,$00,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62939"></span>F5DB</td>
+<td class="instruction">DEFB $00,$01,$00,$01,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62947"></span>F5E3</td>
+<td class="instruction">DEFB $00,$02,$00,$02,$00,$02,$00,$02</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="62955"></span>F5EB</td>
+<td class="instruction">DEFB $00,$02,$02,$02,$02,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62930.html">F5D2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62931">Map</a></td>
+<td class="next">
+Next: <a href="62961.html">F5F1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann (this disassembly)</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+</footer>
+</body>
+</html>

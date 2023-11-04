@@ -38,97 +38,89 @@ Used by the routine at <a href="58397.html">E41D</a>.
 <tr>
 <td class="address-2"><span id="59258"></span>E77A</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Store main registers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59259"></span>E77B</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59260"></span>E77C</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59261"></span>E77D</td>
 <td class="instruction">LD IX,$81F8</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the screen offset table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59265"></span>E781</td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">20 rows to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59267"></span>E783</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Get the next screen address in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59270"></span>E786</td>
 <td class="instruction">LD H,(IX+$01)</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59273"></span>E789</td>
 <td class="instruction">LD B,$0F</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">0F columns per row to update.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="59275"></span>E78B</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Clear all bits.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59277"></span>E78D</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59278"></span>E78E</td>
 <td class="instruction">DJNZ $E78B</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all columns are done.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59280"></span>E790</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move to the next position in the offset table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59282"></span>E792</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59284"></span>E794</td>
 <td class="instruction">DEC C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Loop until all rows are updated.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59285"></span>E795</td>
 <td class="instruction">JR NZ,$E783</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59287"></span>E797</td>
 <td class="instruction">POP DE</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Restore main registers and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59288"></span>E798</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59289"></span>E799</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59290"></span>E79A</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

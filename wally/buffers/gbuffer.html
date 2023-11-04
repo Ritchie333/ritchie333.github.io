@@ -700,9 +700,27 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </tr>
 <tr>
 <td class="map-g"><span id="61700"></span><a href="../asm/61700.html">F104</a></td>
-<td class="map-length">6</td>
+<td class="map-length">4</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61700.html">Movement table : Jumping jack</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61704"></span><a href="../asm/61704.html">F108</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61704.html">Next room for the jumping jack to appear in.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="61705"></span><a href="../asm/61705.html">F109</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/61705.html">Tick counter until the jumping jack updates</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -727,9 +745,36 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </tr>
 <tr>
 <td class="map-g"><span id="62064"></span><a href="../asm/62064.html">F270</a></td>
-<td class="map-length">7</td>
+<td class="map-length">4</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62064.html">Movement table : Herbert</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62068"></span><a href="../asm/62068.html">F274</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62068.html">Current room Herbert is in</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62069"></span><a href="../asm/62069.html">F275</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62069.html">Current tick count until Herbert moves</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62069"></span><a href="../asm/62069.html">F275</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62069.html">Current tick count until Herbert moves</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -807,11 +852,47 @@ Runs from BC7B (Wally) to BC7F (Harry).
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="62930"></span><a href="../asm/62930.html">F5D2</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62930.html">Next object ID for the lighting bolts in School Lane</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Alternates between 38 and 3A (<a href="../asm/35448.html">8A78</a>)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62931"></span><a href="../asm/62931.html">F5D3</a></td>
+<td class="map-length">30</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62931.html">School Lane electricity wire data</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+The buffer is defined as the direction in which to move after drawing one 8-bit cell of data. A 1 moves drawing up one row, a 0 moves it down one row, a 2 leaves it unchanged. FF marks the end of the data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="63059"></span><a href="../asm/63059.html">F653</a></td>
-<td class="map-length">31</td>
+<td class="map-length">80</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63059.html">Movement table : The Park</a></div>
 <div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63089"></span><a href="../asm/63089.html">F671</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63089.html">Next ID to use for moving objects in the park</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Alternates between 3C and 3E (<a href="../asm/35576.html">8AF8</a>).
+</div>
 </div>
 </td>
 </tr>
@@ -861,8 +942,11 @@ Used by the routine in <a href="../asm/61237.html">EF35</a>.
 <td class="map-g"><span id="63454"></span><a href="../asm/63454.html">F7DE</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63454.html">Location of moving desk in the school (57-5B)</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63454.html">Frame ID of the next moving desk in the school (57 - 5A)</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
 </div>
 </td>
 </tr>
@@ -870,8 +954,59 @@ Used by the routine in <a href="../asm/61237.html">EF35</a>.
 <td class="map-g"><span id="63455"></span><a href="../asm/63455.html">F7DF</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63455.html">Time until the moving school desk switches</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63455.html">X co-ordinate to draw the first school desk</a></div>
 <div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63457"></span><a href="../asm/63457.html">F7E1</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63457.html">X co-ordinate to draw the second school desk</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63459"></span><a href="../asm/63459.html">F7E3</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63459.html">X co-ordinate to draw the third school desk</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63461"></span><a href="../asm/63461.html">F7E5</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63461.html">X co-ordinate to draw the fourth school desk</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63463"></span><a href="../asm/63463.html">F7E7</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63463.html">X co-ordinate to draw the fifth school desk</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine in <a href="../asm/63347.html">F773</a>.
+</div>
 </div>
 </td>
 </tr>

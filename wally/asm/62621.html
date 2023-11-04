@@ -49,12 +49,12 @@ Next: <a href="62674.html">F4D2</a>
 <tr>
 <td class="address-1"><span id="62630"></span>F4A6</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">3 objects to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62632"></span>F4A8</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62633"></span>F4A9</td>
@@ -69,82 +69,88 @@ Next: <a href="62674.html">F4D2</a>
 <tr>
 <td class="address-1"><span id="62639"></span>F4AF</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62640"></span>F4B0</td>
 <td class="instruction">CP $FE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it FE ie: off screen?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62642"></span>F4B2</td>
 <td class="instruction">JR NZ,$F4C6</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62644"></span>
+<div class="comments">
+<div class="paragraph">
+A hammer has moved off screen, so recreate it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62644"></span>F4B4</td>
 <td class="instruction">LD (IX-$01),$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the direction in y to +2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62648"></span>F4B8</td>
 <td class="instruction">LD (IX-$03),$40</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the y co-ordinate to 40 ie: top of screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62652"></span>F4BC</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="5">Set the x co-ordinate to a random location between 38 and B6 rounded to the nearest even number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62654"></span>F4BE</td>
 <td class="instruction">AND $3F</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62656"></span>F4C0</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62657"></span>F4C1</td>
 <td class="instruction">ADD A,$38</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62659"></span>F4C3</td>
 <td class="instruction">LD (IX-$04),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62662"></span>F4C6</td>
 <td class="instruction">LD A,$34</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Use object ID #$34 (hammer) (<a href="35320.html">89F8</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62664"></span>F4C8</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62667"></span>F4CB</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62670"></span>F4CE</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62671"></span>F4CF</td>
 <td class="instruction">DJNZ $F4A8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62673"></span>F4D1</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

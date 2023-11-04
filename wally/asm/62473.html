@@ -69,37 +69,57 @@ Next: <a href="62524.html">F43C</a>
 <tr>
 <td class="address-1"><span id="62491"></span>F41B</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62492"></span>F41C</td>
 <td class="instruction">CP $FE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it FE?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62494"></span>F41E</td>
 <td class="instruction">JR NZ,$F430</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62496"></span>
+<div class="comments">
+<div class="paragraph">
+The toast is off-screen, so redraw it back at the other end.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62496"></span>F420</td>
 <td class="instruction">LD (IX-$01),$FC</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the y difference as -4.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62500"></span>F424</td>
 <td class="instruction">LD (IX-$02),$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the x difference at +2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62504"></span>F428</td>
 <td class="instruction">LD (IX-$03),$80</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the y co-ordinate as 80.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62508"></span>F42C</td>
 <td class="instruction">LD (IX-$04),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the x co-ordinate as 00.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62512"></span>
+<div class="comments">
+<div class="paragraph">
+Now draw the toast.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62512"></span>F430</td>

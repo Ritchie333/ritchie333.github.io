@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="62064.html">F270</a>
+Prev: <a href="62069.html">F275</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#62071">Map</a></td>
 <td class="next">
@@ -57,12 +57,12 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="62083"></span>F283</td>
 <td class="instruction">CALL <a href="61237.html">$EF35</a></td>
-<td class="comment-1" rowspan="1">Update object position.</td>
+<td class="comment-1" rowspan="1">Update object positions.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62086"></span>F286</td>
 <td class="instruction">LD A,(IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Herbert's current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62089"></span>F289</td>
@@ -72,82 +72,79 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="62092"></span>F28C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the second byte in the table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62093"></span>F28D</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the target co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62094"></span>F28E</td>
 <td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the address of the co-ordinate table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62097"></span>F291</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the target co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62098"></span>F292</td>
 <td class="instruction">CP (IX-$04)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it Herbert's current x co-ordinate?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62101"></span>F295</td>
 <td class="instruction">JR NZ,$F2C3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62103"></span>F297</td>
 <td class="instruction">DEC (IX+$01)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decerement Herbert's tick count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62106"></span>F29A</td>
 <td class="instruction">JR NZ,$F2C3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward while it is 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62108"></span>F29C</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Get a random number between 3 and 6.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62110"></span>F29E</td>
 <td class="instruction">AND $03</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62112"></span>F2A0</td>
 <td class="instruction">ADD A,$03</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62114"></span>F2A2</td>
 <td class="instruction">LD (IX+$01),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set this as the new tick count.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62117"></span>F2A5</td>
 <td class="instruction">CALL <a href="44801.html">$AF01</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the next room for Herbert to appear in.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62120"></span>F2A8</td>
 <td class="instruction">CP $1F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If this is the Sewer, jump back and choose again.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62122"></span>F2AA</td>
 <td class="instruction">JR Z,$F2A5</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62124"></span>F2AC</td>
 <td class="instruction">LD (IX+$00),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62127"></span>F2AF</td>
@@ -157,137 +154,146 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="62130"></span>F2B2</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the second byte in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62131"></span>F2B3</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the target co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62132"></span>F2B4</td>
 <td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the address of the co-ordinate table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62135"></span>F2B7</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62136"></span>F2B8</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add 2 to it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62138"></span>F2BA</td>
 <td class="instruction">CP $EE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set a ceiling of EE.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62140"></span>F2BC</td>
 <td class="instruction">JR C,$F2C0</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62142"></span>F2BE</td>
 <td class="instruction">LD A,$EE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62144"></span>F2C0</td>
 <td class="instruction">LD (IX-$04),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new x co-ordinate.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62147"></span>
+<div class="comments">
+<div class="paragraph">
+Draw Herbert if he's visible.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62147"></span>F2C3</td>
 <td class="instruction">LD A,(IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Herbert's current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62150"></span>F2C6</td>
 <td class="instruction">CP (IY+$0F)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is this the room the player is in?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62153"></span>F2C9</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62154"></span>
+<div class="comments">
+<div class="paragraph">
+Herbert is in the same room as the player, so draw him.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62154"></span>F2CA</td>
 <td class="instruction">LD A,(IX-$02)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the x direction difference.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62157"></span>F2CD</td>
 <td class="instruction">LD BC,$4440</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Set Herbert to use object IDs 40 - 42 if he's moving right, or 44 - 46 if he is moving left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62160"></span>F2D0</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62162"></span>F2D2</td>
 <td class="instruction">JR Z,$F2D7</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62164"></span>F2D4</td>
 <td class="instruction">LD BC,$4844</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62167"></span>F2D7</td>
 <td class="instruction">LD A,(IX+$02)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get Herbert's current object ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62170"></span>F2DA</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="7">Ensure the object ID cycles between the two set values.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62172"></span>F2DC</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62173"></span>F2DD</td>
 <td class="instruction">JR C,$F2E2</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62175"></span>F2DF</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62176"></span>F2E0</td>
 <td class="instruction">JR $F2E5</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62178"></span>F2E2</td>
 <td class="instruction">CP C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62179"></span>F2E3</td>
 <td class="instruction">JR C,$F2DF</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="62181"></span>F2E5</td>
 <td class="instruction">LD (IX+$02),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new object ID for Herbert.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62184"></span>F2E8</td>
 <td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Draw Herbert.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62187"></span>F2EB</td>
@@ -301,23 +307,23 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="62192"></span>F2F0</td>
 <td class="instruction">CALL <a href="61329.html">$EF91</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the attributes for the fountain in the Town Square.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62195"></span>F2F3</td>
 <td class="instruction">CALL <a href="58153.html">$E329</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62198"></span>F2F6</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="62064.html">F270</a>
+Prev: <a href="62069.html">F275</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#62071">Map</a></td>
 <td class="next">

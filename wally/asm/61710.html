@@ -62,92 +62,119 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="61725"></span>F11D</td>
 <td class="instruction">LD A,(IX-$04)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61728"></span>F120</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61729"></span>F121</td>
 <td class="instruction">JR NZ,$F13F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61731"></span>F123</td>
 <td class="instruction">DEC (IX+$01)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Decrement the tick counter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61734"></span>F126</td>
 <td class="instruction">JR NZ,$F13F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it's not zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61736"></span>
+<div class="comments">
+<div class="paragraph">
+The tick counter has reached 0, need to update.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61736"></span>F128</td>
 <td class="instruction">LD (IX+$01),$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the tick counter back to 2.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61740"></span>F12C</td>
 <td class="instruction">LD (IX-$04),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the x co-ordinate to 0.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61744"></span>F130</td>
 <td class="instruction">LD (IX-$03),$A8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the y co-ordinate to A8.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61748"></span>F134</td>
 <td class="instruction">LD (IX-$01),$FE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the direction to -2. (ie: 2 updwards)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61752"></span>F138</td>
 <td class="instruction">CALL <a href="44801.html">$AF01</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Set the next room for the jumping jack to appear in. and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61755"></span>F13B</td>
 <td class="instruction">LD (IX+$00),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="61758"></span>F13E</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61759"></span>
+<div class="comments">
+<div class="paragraph">
+Now draw the jumping jack if it's visible.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61759"></span>F13F</td>
 <td class="instruction">LD A,(IX+$00)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the jumping jack's current room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61762"></span>F142</td>
 <td class="instruction">CP (IY+$0F)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it the same room the player is in?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61765"></span>F145</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if not.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61766"></span>
+<div class="comments">
+<div class="paragraph">
+The jumping jack is in the same room as the player, so draw it.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61766"></span>F146</td>
 <td class="instruction">LD A,(IX-$03)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61769"></span>F149</td>
 <td class="instruction">CP $A8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">If it's A8 set <span class="register">A</span> to the first jumping jack graphic. (<a href="35960.html">8C78</a>) Otherwise, set <span class="register">A</span> to the second jumping jack graphic</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61771"></span>F14B</td>
 <td class="instruction">LD A,$48</td>
-<td class="comment-1" rowspan="2">Set <span class="register">A</span> to the first jumping jack graphic</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61773"></span>F14D</td>
@@ -156,7 +183,6 @@ Used by the routine at <a href="33198.html">81AE</a>.
 <tr>
 <td class="address-1"><span id="61775"></span>F14F</td>
 <td class="instruction">LD A,$4A</td>
-<td class="comment-1" rowspan="1">Set <span class="register">A</span> to the second jumping jack graphic</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61777"></span>F151</td>
