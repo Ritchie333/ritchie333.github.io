@@ -24,7 +24,7 @@ Next: <a href="63922.html">F9B2</a>
 </td>
 </tr>
 </table>
-<div class="description">F9A4: Asteroids : Calculate player's position on screen</div>
+<div class="description">F9A4: Asteroids : Get the change values for the current direction.</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -39,7 +39,7 @@ Used by the routines at <a href="63802.html">F93A</a> and <a href="63989.html">F
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">On exit, holds the address for the player's position</td>
+<td class="register-desc">On exit, points to data containing a change in x and y co-ordinates</td>
 </tr>
 </table>
 </td>
@@ -47,42 +47,39 @@ Used by the routines at <a href="63802.html">F93A</a> and <a href="63989.html">F
 <tr>
 <td class="address-2"><span id="63908"></span>F9A4</td>
 <td class="instruction">LD A,(IY+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current sprite.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63911"></span>F9A7</td>
 <td class="instruction">SUB $6E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Subtract 6E to get an offset between 0 and 8.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63913"></span>F9A9</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double this to get a word offset.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63914"></span>F9AA</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put this in <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63915"></span>F9AB</td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63917"></span>F9AD</td>
 <td class="instruction">LD HL,$F9B2</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Add the base address of the direction table. (<a href="63922.html">F9B2</a>) and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63920"></span>F9B0</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63921"></span>F9B1</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">

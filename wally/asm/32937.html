@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Everyone's A Wally: Data at 80A9</title>
+<title>Everyone's A Wally: Game status buffer entry at 80A9</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 </head>
-<body class="Asm-b">
+<body class="Asm-g">
 <table class="header">
 <tr>
 <td class="logo"><a href="../index.html">Everyone's A Wally</a></td>
-<td class="page-header">Data</td>
+<td class="page-header">Game status buffer</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -29,47 +29,105 @@ Next: <a href="32997.html">80E5</a>
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
+<div class="paragraph">
+Used by the routines at <a href="60919.html">EDF7</a>, <a href="63673.html">F8B9</a>, <a href="63989.html">F9F5</a> and <a href="64240.html">FAF0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32937"></span>
+<div class="comments">
+<div class="paragraph">
+The format is: <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Byte</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">x co-ordinate, or FF for no lightning here</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">y co-ordinate</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">change in X (may be negative)</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">change in Y (may be negative)</td>
+</tr>
+<tr>
+<td class="center" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">object ID to draw with</td>
+</tr>
+</table>
+</div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="address-1"><span id="32937"></span>80A9</td>
-<td class="instruction">DEFB $FF,$00,$00,$00,$00,$FF,$00,$00</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32945"></span>80B1</td>
-<td class="instruction">DEFB $00,$00,$FF,$00,$00,$00,$00,$FF</td>
+<td class="address-1"><span id="32942"></span>80AE</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32953"></span>80B9</td>
-<td class="instruction">DEFB $00,$00,$00,$00,$FF,$00,$00,$00</td>
+<td class="address-1"><span id="32947"></span>80B3</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32961"></span>80C1</td>
-<td class="instruction">DEFB $00,$FF,$00,$00,$00,$00,$FF,$00</td>
+<td class="address-1"><span id="32952"></span>80B8</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32969"></span>80C9</td>
-<td class="instruction">DEFB $00,$00,$00,$FF,$00,$00,$00,$00</td>
+<td class="address-1"><span id="32957"></span>80BD</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32962"></span>80C2</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32967"></span>80C7</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32972"></span>80CC</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="32977"></span>80D1</td>
-<td class="instruction">DEFB $FF,$00,$00,$00,$00,$FF,$00,$00</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32985"></span>80D9</td>
-<td class="instruction">DEFB $00,$00,$FF,$00,$00,$00,$00,$FF</td>
+<td class="address-1"><span id="32982"></span>80D6</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1"><span id="32993"></span>80E1</td>
-<td class="instruction">DEFB $00,$00,$00,$00</td>
+<td class="address-1"><span id="32987"></span>80DB</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="32992"></span>80E0</td>
+<td class="instruction">DEFB $FF,$00,$00,$00,$00</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 </table>

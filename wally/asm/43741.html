@@ -63,7 +63,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-1"><span id="43753"></span>AAE9</td>
 <td class="instruction">JR NZ,$AAF9</td>
-<td class="comment-1" rowspan="1">Jump forward if not. The sewer requires computer characters to jump to get out of it.</td>
+<td class="comment-1" rowspan="1">Jump forward if not. The sewer requires additional logic with computer characters.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43755"></span>AAEB</td>
@@ -78,12 +78,12 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-1"><span id="43760"></span>AAF0</td>
 <td class="instruction">JR C,$AAF9</td>
-<td class="comment-1" rowspan="1">Jump forward if not.</td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43762"></span>AAF2</td>
 <td class="instruction">LD (IY+$3C),$FF</td>
-<td class="comment-1" rowspan="1">Set to jump left.</td>
+<td class="comment-1" rowspan="1">Set to move left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43766"></span>AAF6</td>
@@ -93,7 +93,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-2"><span id="43769"></span>AAF9</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-1" rowspan="1">Set to jump right.</td>
+<td class="comment-1" rowspan="1">Set to move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43773"></span>AAFD</td>
@@ -113,7 +113,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-1"><span id="43781"></span>AB05</td>
 <td class="instruction">JP Z,<a href="44637.html">$AE5D</a></td>
-<td class="comment-1" rowspan="1">If so,signal this is the end of the room.</td>
+<td class="comment-1" rowspan="1">If so, signal this is the end of the room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43784"></span>AB08</td>

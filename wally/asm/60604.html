@@ -24,7 +24,7 @@ Next: <a href="60661.html">ECF5</a>
 </td>
 </tr>
 </table>
-<div class="description">ECBC: Action 5 EARN(x). Pay the current character amount in offset xx</div>
+<div class="description">ECBC: Action 5 EARN(x). Pay the current character amount in offset x</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -79,7 +79,7 @@ HL Pointer to the data for this action.
 <tr>
 <td class="address-1"><span id="60616"></span>ECC8</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1">Is it zero?</td>
+<td class="comment-1" rowspan="1">Is it zero? ie: money not collected</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60617"></span>ECC9</td>
@@ -99,107 +99,117 @@ Allocate the money to the current character.
 <tr>
 <td class="address-1"><span id="60619"></span>ECCB</td>
 <td class="instruction">LD (HL),$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the money as collected.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60621"></span>ECCD</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60622"></span>ECCE</td>
 <td class="instruction">LD A,(IY-$0A)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current player's earnings (tens portion).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60625"></span>ECD1</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the next tens value to the current player's total.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60626"></span>ECD2</td>
 <td class="instruction">DAA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Adjust to give an appropriate value in decimal.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60627"></span>ECD3</td>
 <td class="instruction">LD (IY-$0A),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set that as the new tens value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60630"></span>ECD6</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60631"></span>ECD7</td>
 <td class="instruction">LD A,(IY-$1E)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current player's earnings (hundreds portion).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60634"></span>ECDA</td>
 <td class="instruction">ADC A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the next hundreds value to the current player's total, including any overflow from the tens portion.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60635"></span>ECDB</td>
 <td class="instruction">DAA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Adjust to give an appropriate value in decimal.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60636"></span>ECDC</td>
 <td class="instruction">LD (IY-$1E),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set that as the new hundreds value.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60639"></span>
+<div class="comments">
+<div class="paragraph">
+Now update the grand total for all players.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60639"></span>ECDF</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back to point at the tens portion.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60640"></span>ECE0</td>
 <td class="instruction">LD A,($ECFF)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the tens portion for the current total.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60643"></span>ECE3</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the next tens value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60644"></span>ECE4</td>
 <td class="instruction">DAA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Adjust for decimal.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60645"></span>ECE5</td>
 <td class="instruction">LD ($ECFF),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new tens portion.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60648"></span>ECE8</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to point at the hundreds portion.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60649"></span>ECE9</td>
 <td class="instruction">LD A,($ECFE)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the hundreds portion for the current total.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60652"></span>ECEC</td>
 <td class="instruction">ADC A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add the next hundreds total.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60653"></span>ECED</td>
 <td class="instruction">DAA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Adjust for decimal.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60654"></span>ECEE</td>
 <td class="instruction">LD ($ECFE),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the new hunderds portion.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60657"></span>ECF1</td>

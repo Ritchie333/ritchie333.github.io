@@ -24,7 +24,7 @@ Next: <a href="43872.html">AB60</a>
 </td>
 </tr>
 </table>
-<div class="description">AB43: Movement routine 4.</div>
+<div class="description">AB43: Movement routine 4. Move to C0 , 98</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,57 +38,53 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-2"><span id="43843"></span>AB43</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43846"></span>AB46</td>
 <td class="instruction">CP $C0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">If it less than C0 move left, otherwise move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43848"></span>AB48</td>
 <td class="instruction">JR NC,$AB50</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43850"></span>AB4A</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43854"></span>AB4E</td>
 <td class="instruction">JR $AB54</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43856"></span>AB50</td>
 <td class="instruction">LD (IY+$3C),$FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43860"></span>AB54</td>
 <td class="instruction">CALL <a href="45704.html">$B288</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43863"></span>AB57</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43866"></span>AB5A</td>
 <td class="instruction">CP $C0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it now C0?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43868"></span>AB5C</td>
 <td class="instruction">JP Z,<a href="44637.html">$AE5D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If so, move to the next room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43871"></span>AB5F</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

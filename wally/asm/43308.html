@@ -151,17 +151,16 @@ This is a computer controlled character, so move them.
 <tr>
 <td class="address-1"><span id="43348"></span>A954</td>
 <td class="instruction">LD A,(IY-$14)</td>
-<td class="comment-1" rowspan="1">Get <a href="48211.html">BC53</a> (?)</td>
+<td class="comment-1" rowspan="2">Is the character in the room it wants to get to? (<a href="48211.html">BC53</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43351"></span>A957</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43352"></span>A958</td>
 <td class="instruction">JP NZ,$A991</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43355"></span>A95B</td>
@@ -541,7 +540,7 @@ The character is standing in a room with an item, move them towards sawpping it.
 <tr>
 <td class="address-1"><span id="43507"></span>A9F3</td>
 <td class="instruction">LD (IY-$14),$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Mark the character as not in the target room. (<a href="48211.html">BC53</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43511"></span>A9F7</td>

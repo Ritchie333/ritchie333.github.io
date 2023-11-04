@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="63922.html">F9B2</a>
+Prev: <a href="63938.html">F9C2</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#63940">Map</a></td>
 <td class="next">
@@ -36,155 +36,154 @@ Used by the routine at <a href="63989.html">F9F5</a>.
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="63940"></span>
+<div class="comments">
+<div class="paragraph">
+The routine takes random bytes from 8000 - 9BFF and uses them as pairs of lengths to keep the speaker on or off, effectively determine the frequency and wave type.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="address-2"><span id="63940"></span>F9C4</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Store <span class="register">AF</span>, <span class="register">BC</span> and <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63941"></span>F9C5</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63942"></span>F9C6</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63943"></span>F9C7</td>
 <td class="instruction">LD HL,($F9C2)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current pointer to sound data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63946"></span>F9CA</td>
 <td class="instruction">LD B,$19</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop 19 times.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63948"></span>F9CC</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63949"></span>F9CD</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the current frequency.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63950"></span>F9CE</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63951"></span>F9CF</td>
 <td class="instruction">LD A,$10</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Turn the speaker on.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63953"></span>F9D1</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63955"></span>F9D3</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Remember the frequency count.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63956"></span>F9D4</td>
 <td class="instruction">DJNZ $F9D4</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop to keep the speaker on for this time.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63958"></span>F9D6</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63959"></span>F9D7</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the next frequency count.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63960"></span>F9D8</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next place in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63961"></span>F9D9</td>
 <td class="instruction">LD A,$00</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Turn the speaker off.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63963"></span>F9DB</td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63965"></span>F9DD</td>
 <td class="instruction">DJNZ $F9DD</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop to keep the speaker off for this time.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63967"></span>F9DF</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore the count in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63968"></span>F9E0</td>
 <td class="instruction">DJNZ $F9CC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop while there is more to do.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63970"></span>F9E2</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">If <span class="register">HL</span> reaches 9C set it back to 80.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63971"></span>F9E3</td>
 <td class="instruction">CP $9C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63973"></span>F9E5</td>
 <td class="instruction">JR NZ,$F9E9</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63975"></span>F9E7</td>
 <td class="instruction">LD H,$80</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="63977"></span>F9E9</td>
 <td class="instruction">LD ($F9C2),HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63980"></span>F9EC</td>
 <td class="instruction">POP HL</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Restore registers pushed earlier and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63981"></span>F9ED</td>
 <td class="instruction">POP BC</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63982"></span>F9EE</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63983"></span>F9EF</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="63922.html">F9B2</a>
+Prev: <a href="63938.html">F9C2</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#63940">Map</a></td>
 <td class="next">

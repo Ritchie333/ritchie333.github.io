@@ -24,7 +24,7 @@ Next: <a href="43991.html">ABD7</a>
 </td>
 </tr>
 </table>
-<div class="description">AB9B: Movement routine 6.</div>
+<div class="description">AB9B: Movement routine 6. Move to F0 , 58 (Sewer right)</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -38,117 +38,123 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-2"><span id="43931"></span>AB9B</td>
 <td class="instruction">LD A,(IY+$0A)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43934"></span>AB9E</td>
 <td class="instruction">CP $98</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it 98 (ie: floor level).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43936"></span>ABA0</td>
 <td class="instruction">JR NZ,$ABC3</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43938"></span>ABA2</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43941"></span>ABA5</td>
 <td class="instruction">CP $8A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="5">If it less than 8A move left, otherwise move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43943"></span>ABA7</td>
 <td class="instruction">JR NC,$ABAF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43945"></span>ABA9</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43949"></span>ABAD</td>
 <td class="instruction">JR $ABB3</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43951"></span>ABAF</td>
 <td class="instruction">LD (IY+$3C),$FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="43955"></span>ABB3</td>
 <td class="instruction">CALL <a href="45704.html">$B288</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the charcter.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43958"></span>ABB6</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43961"></span>ABB9</td>
 <td class="instruction">CP $8A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it now 8A?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43963"></span>ABBB</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return if it isn't.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43964"></span>ABBC</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise set to move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43968"></span>ABC0</td>
 <td class="instruction">JP <a href="45478.html">$B1A6</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Make the character jump.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43971"></span>
+<div class="comments">
+<div class="paragraph">
+The character is not at ground level.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43971"></span>ABC3</td>
 <td class="instruction">CP $58</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is the Y co-ordinate now 58?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43973"></span>ABC5</td>
 <td class="instruction">JR NZ,$ABBC</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move back if it isn't, to jump.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43975"></span>ABC7</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise set to move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43979"></span>ABCB</td>
 <td class="instruction">CALL <a href="45704.html">$B288</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move the character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43982"></span>ABCE</td>
 <td class="instruction">LD A,(IY+$05)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the X co-ordinate.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43985"></span>ABD1</td>
 <td class="instruction">CP $F0</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it F0?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43987"></span>ABD3</td>
 <td class="instruction">JP Z,<a href="44637.html">$AE5D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">If it is, move to a new room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43990"></span>ABD6</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Otherwise return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

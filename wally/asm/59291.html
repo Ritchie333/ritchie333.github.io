@@ -195,47 +195,42 @@ The character is in the room and it's not the current one, so switch.
 <tr>
 <td class="address-1"><span id="59343"></span>E7CF</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Put the first byte (room) in the buffer at <a href="48336.html">BCD0</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59344"></span>E7D0</td>
 <td class="instruction">LD (IY+$69),A</td>
-<td class="comment-1" rowspan="1">(<a href="48336.html">BCD0</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59347"></span>E7D3</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the second byte (destination co-ordinate) at <a href="48331.html">BCCB</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59348"></span>E7D4</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59349"></span>E7D5</td>
 <td class="instruction">LD (IY+$64),A</td>
-<td class="comment-1" rowspan="1">(<a href="48331.html">BCCB</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59352"></span>E7D8</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Put the third byte (target co-ordinate) at <a href="48346.html">BCDA</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59353"></span>E7D9</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="59354"></span>E7DA</td>
 <td class="instruction">LD (IY+$73),A</td>
-<td class="comment-1" rowspan="1">(<a href="48346.html">BCDA</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59357"></span>E7DD</td>
 <td class="instruction">LD (IY+$6E),$05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the previous room to 5 (?)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59361"></span>E7E1</td>

@@ -63,17 +63,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 <tr>
 <td class="address-1"><span id="43710"></span>AABE</td>
 <td class="instruction">JR NZ,$AACE</td>
-<td class="comment-1" rowspan="1">Jump forward if not.</td>
-</tr>
-<tr>
-<td class="routine-comment" colspan="5">
-<span id="43712"></span>
-<div class="comments">
-<div class="paragraph">
-The sewer requires computer characters to jump to get out of it.
-</div>
-</div>
-</td>
+<td class="comment-1" rowspan="1">Jump forward if not. The sewer requires additional logic with computer characters.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43712"></span>AAC0</td>
@@ -83,7 +73,7 @@ The sewer requires computer characters to jump to get out of it.
 <tr>
 <td class="address-1"><span id="43715"></span>AAC3</td>
 <td class="instruction">CP $78</td>
-<td class="comment-1" rowspan="1">Is it greater than 78?</td>
+<td class="comment-1" rowspan="1">Is it less than 78?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43717"></span>AAC5</td>
@@ -93,7 +83,7 @@ The sewer requires computer characters to jump to get out of it.
 <tr>
 <td class="address-1"><span id="43719"></span>AAC7</td>
 <td class="instruction">LD (IY+$3C),$01</td>
-<td class="comment-1" rowspan="1">Set to jump right.</td>
+<td class="comment-1" rowspan="1">Set to move right.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43723"></span>AACB</td>
@@ -103,7 +93,7 @@ The sewer requires computer characters to jump to get out of it.
 <tr>
 <td class="address-2"><span id="43726"></span>AACE</td>
 <td class="instruction">LD (IY+$3C),$FF</td>
-<td class="comment-1" rowspan="1">Set to jump left.</td>
+<td class="comment-1" rowspan="1">Set to move left.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43730"></span>AAD2</td>

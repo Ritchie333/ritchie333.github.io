@@ -45,6 +45,18 @@ The buffer contains a copy of the lower two thirds of the screen, sorted sequent
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="32937"></span><a href="../asm/32937.html">80A9</a></td>
+<td class="map-length">60</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32937.html">Positions of the lightning bolts in the "asteroids" game</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routines at <a href="../asm/60919.html">EDF7</a>, <a href="../asm/63673.html">F8B9</a>, <a href="../asm/63989.html">F9F5</a> and <a href="../asm/64240.html">FAF0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="33082"></span><a href="../asm/33082.html">813A</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
@@ -192,7 +204,7 @@ Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45
 <td class="map-g"><span id="48186"></span><a href="../asm/48186.html">BC3A</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48186.html">ID of the object a player is standing near and could potentially pick up.</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48186.html">ID of the object a player is standing near and could potentially pick up</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -237,7 +249,7 @@ Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45
 <td class="map-g"><span id="48211"></span><a href="../asm/48211.html">BC53</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48211.html">Set to 1 if a computer controlled character needs updating</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48211.html">Set to 1 if a computer controlled character is in the room it wanted to get to</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -246,7 +258,7 @@ Used by the routines in <a href="../asm/45478.html">B1A6</a>, <a href="../asm/45
 <td class="map-g"><span id="48216"></span><a href="../asm/48216.html">BC58</a></td>
 <td class="map-length">5</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48216.html">ID of the next object in a room that a computer player can swap with.</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/48216.html">ID of the next object in a room that a computer player can swap with</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -873,13 +885,61 @@ Used by the routine in <a href="../asm/61237.html">EF35</a>.
 </td>
 </tr>
 <tr>
+<td class="map-g"><span id="63938"></span><a href="../asm/63938.html">F9C2</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63938.html">Asteroids : Current pointer to data for "hit lightning" sound</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Used by the routine at <a href="../asm/63940.html">F9C4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63984"></span><a href="../asm/63984.html">F9F0</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63984.html">Asteroids : X co-ordinate of missile, or FF in inactive.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63985"></span><a href="../asm/63985.html">F9F1</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63985.html">Asteroids : Y co-ordinate of missile.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63986"></span><a href="../asm/63986.html">F9F2</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63986.html">Asteroids : Change in X for the missile</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="63987"></span><a href="../asm/63987.html">F9F3</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/63987.html">Asteroids : Change in Y for the missile</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
 <td class="map-g"><span id="64239"></span><a href="../asm/64239.html">FAEF</a></td>
 <td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64239.html">Asteroids : flag</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/64239.html">Asteroids : Flag to indicate new lightning bolts should be created</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Alternates between 0 and 1.
+Alternates between 0 and 1. If reset, a new lightning bolt can be created if a small bolt is destroyed.
 </div>
 </div>
 </td>

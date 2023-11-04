@@ -33,152 +33,165 @@ Next: <a href="64298.html">FB2A</a>
 Used by the routine at <a href="63989.html">F9F5</a>.
 </div>
 </div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Object ID to use</td>
+</tr>
+</table>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="64240"></span>FAF0</td>
 <td class="instruction">PUSH IX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">IX</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64242"></span>FAF2</td>
 <td class="instruction">LD IX,$80A9</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the lightning bolts table. (<a href="32937.html">80A9</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64246"></span>FAF6</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="64247"></span>FAF7</td>
 <td class="instruction">LD A,(IX+$00)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is the lightning bolt here active?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64250"></span>FAFA</td>
 <td class="instruction">CP $FF</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64252"></span>FAFC</td>
 <td class="instruction">JR Z,$FB05</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64254"></span>FAFE</td>
 <td class="instruction">CALL <a href="61237.html#61320">$EF88</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Otherwise move to the next entry.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64257"></span>FB01</td>
 <td class="instruction">INC IX</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64259"></span>FB03</td>
 <td class="instruction">JR $FAF7</td>
-<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="64261"></span>
+<div class="comments">
+<div class="paragraph">
+Create a lightning bolt here and set it moving in a random direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="address-2"><span id="64261"></span>FB05</td>
 <td class="instruction">LD (IX+$00),E</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the x co-ordinate in <span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64264"></span>FB08</td>
 <td class="instruction">LD (IX+$01),D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Put the y co-ordinate in <span class="register">D</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64267"></span>FB0B</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy <span class="register">R</span> to <span class="register">A</span> to get a pseudo-random number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64269"></span>FB0D</td>
 <td class="instruction">AND $02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Select bit 2 and subtract that value, giving a random number that's 0 or FE.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64271"></span>FB0F</td>
 <td class="instruction">DEC A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64272"></span>FB10</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double the value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64273"></span>FB11</td>
 <td class="instruction">LD (IX+$02),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set that as the next change in direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64276"></span>FB14</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy <span class="register">R</span> to <span class="register">A</span> to get a pseudo-random number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64278"></span>FB16</td>
 <td class="instruction">AND $02</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Select bit 2 and shift right, giving a random number that's 0 or 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64280"></span>FB18</td>
 <td class="instruction">RRA</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64281"></span>FB19</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Store this value in <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64282"></span>FB1A</td>
 <td class="instruction">LD A,R</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copy <span class="register">R</span> to <span class="register">A</span> to get a pseudo-random number.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64284"></span>FB1C</td>
 <td class="instruction">AND $01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Select bit 1.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64286"></span>FB1E</td>
 <td class="instruction">SUB C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">C</span>, giving a random number that's 1, 0 or FF.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64287"></span>FB1F</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Double this (giving 2, 0 or FE).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64288"></span>FB20</td>
 <td class="instruction">LD (IX+$03),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set this as the Y offset</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64291"></span>FB23</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64292"></span>FB24</td>
 <td class="instruction">LD (IX+$04),A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set the object ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64295"></span>FB27</td>
 <td class="instruction">POP IX</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Restore <span class="register">IX</span> and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64297"></span>FB29</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
