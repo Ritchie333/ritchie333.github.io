@@ -64,227 +64,215 @@ Used by the routines at <a href="45809.html">B2F1</a> and <a href="46161.html">B
 <tr>
 <td class="address-1"><span id="45903"></span>B34F</td>
 <td class="instruction">LD A,$3D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print an equals sign.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45905"></span>B351</td>
 <td class="instruction">CALL <a href="46869.html">$B715</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45908"></span>B354</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45909"></span>B355</td>
 <td class="instruction">LD C,$42</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Set bright red on black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45911"></span>B357</td>
 <td class="instruction">LD A,$26</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print a pound symbol.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45913"></span>B359</td>
 <td class="instruction">CALL <a href="46869.html">$B715</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45916"></span>B35C</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next column.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45917"></span>B35D</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Set to drawing the hundreds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45918"></span>B35E</td>
 <td class="instruction">LD ($B34B),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45921"></span>B361</td>
 <td class="instruction">LD C,$45</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get bright cyan on black.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45923"></span>B363</td>
 <td class="instruction">LD B,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">2 digits to draw.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45925"></span>B365</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45926"></span>B366</td>
 <td class="instruction">SRL A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Use the top four bits only.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45928"></span>B368</td>
 <td class="instruction">SRL A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45930"></span>B36A</td>
 <td class="instruction">SRL A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45932"></span>B36C</td>
 <td class="instruction">SRL A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45934"></span>B36E</td>
 <td class="instruction">ADD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add to ASCII '0' to get the appropriate number graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45936"></span>B370</td>
 <td class="instruction">CP $30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45938"></span>B372</td>
 <td class="instruction">JR NZ,$B37C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45940"></span>B374</td>
 <td class="instruction">LD A,($B34B)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Are the hundreds being drawn?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45943"></span>B377</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45944"></span>B378</td>
 <td class="instruction">JR Z,$B384</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45946"></span>B37A</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Print '0'.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45948"></span>B37C</td>
 <td class="instruction">CALL <a href="46869.html">$B715</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45951"></span>B37F</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Signal that the tens should be drawn next.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45953"></span>B381</td>
 <td class="instruction">LD ($B34B),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45956"></span>B384</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45957"></span>B385</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the value.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45958"></span>B386</td>
 <td class="instruction">AND $0F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the bottom four bits only.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45960"></span>B388</td>
 <td class="instruction">ADD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add to ASCII '0' to get the appropriate number graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45962"></span>B38A</td>
 <td class="instruction">CP $30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is it zero?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45964"></span>B38C</td>
 <td class="instruction">JR NZ,$B39B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45966"></span>B38E</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Is this the "tens" digit?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45967"></span>B38F</td>
 <td class="instruction">CP $01</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45969"></span>B391</td>
 <td class="instruction">JR Z,$B399</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45971"></span>B393</td>
 <td class="instruction">LD A,($B34B)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Are the hunderds being drawn?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45974"></span>B396</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="45975"></span>B397</td>
 <td class="instruction">JR Z,$B3A3</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45977"></span>B399</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Add to ASCII '0' to get the appropriate number graphic.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45979"></span>B39B</td>
 <td class="instruction">CALL <a href="46869.html">$B715</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Print the digit.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45982"></span>B39E</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Move from tens to hundreds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45984"></span>B3A0</td>
 <td class="instruction">LD ($B34B),A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="45987"></span>B3A3</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45988"></span>B3A4</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next position in the buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45989"></span>B3A5</td>
 <td class="instruction">DJNZ $B365</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Loop until all digits are accounted for.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45991"></span>B3A7</td>
