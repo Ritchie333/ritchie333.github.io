@@ -18,6 +18,7 @@
 <li><a href="#colours">Colours</a></li>
 <li><a href="#miles_out_of_town">Miles out of town</a></li>
 <li><a href="#shark">Shark</a></li>
+<li><a href="#hidden_food">Hidden food</a></li>
 </ul>
 <div><span id="screen_updates"></span></div>
 <div class="box box-1">
@@ -72,6 +73,19 @@ with the movement and bounds tables set up to be contiguous.
 </div>
 <div class="paragraph">
 To see the shark appear to move while sawn in half, try POKE F3A9 , 3
+</div>
+</div>
+<div><span id="hidden_food"></span></div>
+<div class="box box-1">
+<div class="box-title">Hidden food</div>
+<div class="paragraph">
+There's five hidden definitions of food in <a href="../asm/63486.html">F7FE</a> that are not used because the terminating
+symbol in the previous byte. (See <a href="../asm/63465.html">F7E9</a>). They are the same as the regular definitions, but
+in a different order.
+</div>
+<div class="paragraph">
+To bring the extra food into play, copy everything from <a href="../asm/63486.html">F7FE</a> - F811 down by one address
+to F7FD then set F811 to FF to terminate the list.
 </div>
 </div>
 <footer>
