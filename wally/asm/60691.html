@@ -16,7 +16,7 @@
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="60678.html">ED06</a>
+Prev: <a href="60690.html">ED12</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#60691">Map</a></td>
 <td class="next">
@@ -47,7 +47,7 @@ Used by the routine at <a href="62799.html">F54F</a>.
 <tr>
 <td class="address-1"><span id="60696"></span>ED18</td>
 <td class="instruction">LD A,($ED12)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the object ID to use for the gas. (<a href="60690.html">ED12</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60699"></span>ED1B</td>
@@ -57,38 +57,35 @@ Used by the routine at <a href="62799.html">F54F</a>.
 <tr>
 <td class="address-1"><span id="60702"></span>ED1E</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Move to the next object ID (a masked object is double size).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60704"></span>ED20</td>
 <td class="instruction">CP $82</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">If the ID is greater than 80 set it back to 7C.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60706"></span>ED22</td>
 <td class="instruction">JR NZ,$ED26</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="60708"></span>ED24</td>
 <td class="instruction">LD A,$7C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="60710"></span>ED26</td>
 <td class="instruction">LD ($ED12),A</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Store the new object ID and return.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60713"></span>ED29</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="60678.html">ED06</a>
+Prev: <a href="60690.html">ED12</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#60691">Map</a></td>
 <td class="next">
