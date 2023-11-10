@@ -39,21 +39,21 @@ Next: <a href="62325.html">F375</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62262"></span>F336</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62265"></span>F339</td>
-<td class="instruction">LD IX,$F327</td>
+<td class="instruction">LD IX,Zoo_Movement</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the data for this room.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62269"></span>F33D</td>
-<td class="instruction">LD BC,$F330</td>
+<td class="instruction">LD BC,Zoo_Bounds</td>
 <td class="comment-1" rowspan="1">Set the bounds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62272"></span>F340</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -73,7 +73,7 @@ Next: <a href="62325.html">F375</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62281"></span>F349</td>
-<td class="instruction">JR NZ,$F34D</td>
+<td class="instruction">JR NZ,Docks_Movement</td>
 <td class="comment-1" rowspan="1">Skip the next bit if not.</td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@ Next: <a href="62325.html">F375</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62288"></span>F350</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ Next: <a href="62325.html">F375</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62293"></span>F355</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -108,12 +108,12 @@ Next: <a href="62325.html">F375</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62298"></span>F35A</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62301"></span>F35D</td>
-<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="instruction">CALL Detect_Collision</td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -180,7 +180,7 @@ Next: <a href="62325.html">F375</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

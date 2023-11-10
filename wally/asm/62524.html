@@ -39,11 +39,11 @@ Next: <a href="62609.html">F491</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62526"></span>F43E</td>
-<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="instruction">CALL Get_Flag</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62529"></span>F441</td>
-<td class="instruction">JR Z,$F479</td>
+<td class="instruction">JR Z,Logic_Wall_Street_2</td>
 <td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
@@ -53,16 +53,16 @@ Next: <a href="62609.html">F491</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62533"></span>F445</td>
-<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="instruction">CALL Get_Flag</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62536"></span>F448</td>
-<td class="instruction">JR Z,$F479</td>
+<td class="instruction">JR Z,Logic_Wall_Street_2</td>
 <td class="comment-1" rowspan="1">Jump forward if it is.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62538"></span>F44A</td>
-<td class="instruction">LD A,($BD01)</td>
+<td class="instruction">LD A,(Wall_Street_items)</td>
 <td class="comment-1" rowspan="2">Is the battery the first item in the room?</td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@ Next: <a href="62609.html">F491</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62543"></span>F44F</td>
-<td class="instruction">JR NZ,$F479</td>
+<td class="instruction">JR NZ,Logic_Wall_Street_2</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@ Next: <a href="62609.html">F491</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62552"></span>F458</td>
-<td class="instruction">JR C,$F479</td>
+<td class="instruction">JR C,Logic_Wall_Street_2</td>
 <td class="comment-1" rowspan="1">Jump foward if it isn't.</td>
 </tr>
 <tr>
@@ -123,7 +123,7 @@ The fork lift truck has a charged battery and the player is standing by the lift
 </tr>
 <tr>
 <td class="address-1"><span id="62564"></span>F464</td>
-<td class="instruction">JR C,$F479</td>
+<td class="instruction">JR C,Logic_Wall_Street_2</td>
 <td class="comment-1" rowspan="1">Jump forward if they aren't.</td>
 </tr>
 <tr>
@@ -153,7 +153,7 @@ The player is standing on the fork lift, so move it.
 </tr>
 <tr>
 <td class="address-1"><span id="62573"></span>F46D</td>
-<td class="instruction">JR NC,$F471</td>
+<td class="instruction">JR NC,Logic_Wall_Street_1</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62575"></span>F46F</td>
@@ -189,7 +189,7 @@ The player is standing on the fork lift, so move it.
 </tr>
 <tr>
 <td class="address-1"><span id="62592"></span>F480</td>
-<td class="instruction">JR Z,$F484</td>
+<td class="instruction">JR Z,Logic_Wall_Street_3</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62594"></span>F482</td>
@@ -211,7 +211,7 @@ The player is standing on the fork lift, so move it.
 </tr>
 <tr>
 <td class="address-1"><span id="62600"></span>F488</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 <td class="comment-1" rowspan="1">Set the position of the fork lift.</td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ The player is standing on the fork lift, so move it.
 </tr>
 <tr>
 <td class="address-1"><span id="62605"></span>F48D</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="2">Draw the object and return.</td>
 </tr>
 <tr>
@@ -243,7 +243,7 @@ Next: <a href="62609.html">F491</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

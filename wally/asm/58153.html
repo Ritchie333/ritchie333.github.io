@@ -46,7 +46,7 @@ Used by the routines at <a href="60810.html">ED8A</a>, <a href="61527.html">F057
 </tr>
 <tr>
 <td class="address-2"><span id="58153"></span>E329</td>
-<td class="instruction">LD A,($A838)</td>
+<td class="instruction">LD A,(Draw_XPos)</td>
 <td class="comment-1" rowspan="1">Get the x co-ordinate in the scratch buffer. (<a href="43064.html">A838</a>)</td>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ Used by the routines at <a href="60810.html">ED8A</a>, <a href="61527.html">F057
 </tr>
 <tr>
 <td class="address-1"><span id="58164"></span>E334</td>
-<td class="instruction">LD A,($A839)</td>
+<td class="instruction">LD A,(Draw_YPos)</td>
 <td class="comment-1" rowspan="1">Get the y co-ordinate in the scratch buffer.</td>
 </tr>
 <tr>
@@ -95,14 +95,14 @@ Used by the routines at <a href="60810.html">ED8A</a>, <a href="61527.html">F057
 <span id="58175"></span>
 <div class="comments">
 <div class="paragraph">
-The character has collided with something. Decrease endurance. The amount to decrease by is set in <a href="62062.html">F26E</a>, set up by the various room specific routines. (Herbert is 2. The shark in the sewer is 64!) This entry point is used by the routines at <a href="63347.html">F773</a> and <a href="63673.html">F8B9</a>, which reduce endurance by other means.
+The character has collided with something. Decrease endurance. The amount to decrease by is set in <a href="62062.html">F26E</a>, set up by the various room specific routines. (Herbert is 2. The shark in the sewer is 64!) This entry point is used by the routines at <a href="62799.html">F54F</a>, <a href="63347.html">F773</a> and <a href="63673.html">F8B9</a>, which reduce endurance by other means.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="58175"></span>E33F</td>
-<td class="instruction">LD A,($B55F)</td>
+<td class="instruction">LD A,(Is_Character_Computer)</td>
 <td class="comment-1" rowspan="2">Is the current player computer controlled?</td>
 </tr>
 <tr>
@@ -144,11 +144,11 @@ The current character is human controlled, so decrease endurance.
 </tr>
 <tr>
 <td class="address-1"><span id="58190"></span>E34E</td>
-<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
+<td class="instruction">CALL Play_Sound</td>
 </tr>
 <tr>
 <td class="address-1"><span id="58193"></span>E351</td>
-<td class="instruction">LD A,($F26E)</td>
+<td class="instruction">LD A,(Endurance_Penalty)</td>
 <td class="comment-1" rowspan="1">Get the amount of endurance to decrease by.</td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@ The character has run out of endurance, so lose a life.
 </tr>
 <tr>
 <td class="address-1"><span id="58217"></span>E369</td>
-<td class="instruction">JP Z,<a href="46161.html">$B451</a></td>
+<td class="instruction">JP Z,Final_Score</td>
 <td class="comment-1" rowspan="1">If no lives are left, signal the game is over.</td>
 </tr>
 <tr>
@@ -228,7 +228,7 @@ Next: <a href="58221.html">E36D</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

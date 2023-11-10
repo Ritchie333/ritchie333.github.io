@@ -131,7 +131,7 @@ Character is jumping left.
 </tr>
 <tr>
 <td class="address-1"><span id="45513"></span>B1C9</td>
-<td class="instruction">LD HL,$B264</td>
+<td class="instruction">LD HL,Jump_Table</td>
 <td class="comment-1" rowspan="2">Add the base address of the jump table (<a href="45668.html">B264</a>) to get an offset.</td>
 </tr>
 <tr>
@@ -238,7 +238,7 @@ Character is jumping left.
 </tr>
 <tr>
 <td class="address-1"><span id="45553"></span>B1F1</td>
-<td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
+<td class="instruction">CALL NZ,Change_Direction</td>
 <td class="comment-1" rowspan="1">If not, need to change direction.</td>
 </tr>
 <tr>
@@ -367,7 +367,7 @@ Character is jumping right.
 </tr>
 <tr>
 <td class="address-1"><span id="45605"></span>B225</td>
-<td class="instruction">LD HL,$B264</td>
+<td class="instruction">LD HL,Jump_Table</td>
 <td class="comment-1" rowspan="2">Add the base address of the jump table (<a href="45668.html">B264</a>) to get an offset.</td>
 </tr>
 <tr>
@@ -474,7 +474,7 @@ Character is jumping right.
 </tr>
 <tr>
 <td class="address-1"><span id="45645"></span>B24D</td>
-<td class="instruction">CALL Z,<a href="33236.html">$81D4</a></td>
+<td class="instruction">CALL Z,Change_Direction</td>
 <td class="comment-1" rowspan="1">If so, need to change direction.</td>
 </tr>
 <tr>
@@ -537,7 +537,7 @@ Next: <a href="45668.html">B264</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

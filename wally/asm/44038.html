@@ -81,7 +81,7 @@ This routine sees if the character is at the left or right of the screen, or 'in
 </tr>
 <tr>
 <td class="address-1"><span id="44048"></span>AC10</td>
-<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="instruction">CALL Detect_In</td>
 <td class="comment-1" rowspan="2">Was the 'in' key pressed?</td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ Player has moved off screen, so do something.
 </tr>
 <tr>
 <td class="address-1"><span id="44056"></span>AC18</td>
-<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
+<td class="instruction">CALL Get_Next_Room_Ptr</td>
 <td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
 </tr>
 <tr>
@@ -169,7 +169,7 @@ Loop through the entries in the room, seeing what can be done.
 </tr>
 <tr>
 <td class="address-1"><span id="44069"></span>AC25</td>
-<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
+<td class="instruction">CALL Room_Get_Coords</td>
 <td class="comment-1" rowspan="1">Get the co-ordinate table for this index.</td>
 </tr>
 <tr>
@@ -241,7 +241,7 @@ The X co-ordinate is in range.
 </tr>
 <tr>
 <td class="address-1"><span id="44094"></span>AC3E</td>
-<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
+<td class="instruction">CALL Room_Get_Coords</td>
 <td class="comment-1" rowspan="1">Get the co-ordinate table for this index.</td>
 </tr>
 <tr>
@@ -305,7 +305,7 @@ The X co-ordinate is in range.
 </tr>
 <tr>
 <td class="address-2"><span id="44120"></span>AC58</td>
-<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="instruction">CALL Detect_In</td>
 <td class="comment-1" rowspan="3">Wait until the 'in' key is released before continuing.</td>
 </tr>
 <tr>
@@ -336,7 +336,7 @@ Next: <a href="44127.html">AC5F</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

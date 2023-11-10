@@ -39,11 +39,11 @@ Next: <a href="62247.html">F327</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62219"></span>F30B</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62222"></span>F30E</td>
-<td class="instruction">LD IX,$F2FD</td>
+<td class="instruction">LD IX,Pub_Movement</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the data for this room..</td>
 </tr>
 <tr>
@@ -63,22 +63,22 @@ Next: <a href="62247.html">F327</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62231"></span>F317</td>
-<td class="instruction">LD BC,$F2FB</td>
+<td class="instruction">LD BC,Pub_Bounds</td>
 <td class="comment-1" rowspan="1">Set the bounds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62234"></span>F31A</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update object positions.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62237"></span>F31D</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62240"></span>F320</td>
-<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="instruction">CALL Detect_Collision</td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@ Next: <a href="62247.html">F327</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62244"></span>F324</td>
-<td class="instruction">DJNZ $F314</td>
+<td class="instruction">DJNZ Logic_Pub_1</td>
 <td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
@@ -111,7 +111,7 @@ Next: <a href="62247.html">F327</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

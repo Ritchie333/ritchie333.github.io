@@ -37,7 +37,7 @@ Used by the routines at <a href="61710.html">F10E</a> and <a href="62071.html">F
 </tr>
 <tr>
 <td class="address-2"><span id="44801"></span>AF01</td>
-<td class="instruction">LD A,($AF00)</td>
+<td class="instruction">LD A,(Herbert_Next_Room)</td>
 <td class="comment-1" rowspan="1">Get the current room. (<a href="44800.html">AF00</a>)</td>
 </tr>
 <tr>
@@ -52,7 +52,7 @@ Used by the routines at <a href="61710.html">F10E</a> and <a href="62071.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="44807"></span>AF07</td>
-<td class="instruction">JR NZ,$AF0A</td>
+<td class="instruction">JR NZ,Herbert_Get_Next_Room_1</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -62,7 +62,7 @@ Used by the routines at <a href="61710.html">F10E</a> and <a href="62071.html">F
 </tr>
 <tr>
 <td class="address-2"><span id="44810"></span>AF0A</td>
-<td class="instruction">LD ($AF00),A</td>
+<td class="instruction">LD (Herbert_Next_Room),A</td>
 <td class="comment-1" rowspan="1">Set the new value.</td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@ Next: <a href="44816.html">AF10</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

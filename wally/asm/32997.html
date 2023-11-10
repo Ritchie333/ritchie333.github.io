@@ -47,17 +47,17 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-2"><span id="32997"></span>80E5</td>
-<td class="instruction">CALL <a href="47341.html">$B8ED</a></td>
+<td class="instruction">CALL Clear_Screen</td>
 <td class="comment-1" rowspan="1">Clear the screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33000"></span>80E8</td>
-<td class="instruction">CALL <a href="46193.html">$B471</a></td>
+<td class="instruction">CALL Init_Theme_Tune</td>
 <td class="comment-1" rowspan="1">Initialize the theme tune data.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="33003"></span>80EB</td>
-<td class="instruction">LD HL,$7DC6</td>
+<td class="instruction">LD HL,Title_Text</td>
 <td class="comment-1" rowspan="3">Print the title page text. (<a href="32198.html">7DC6</a>)</td>
 </tr>
 <tr>
@@ -66,16 +66,16 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-1"><span id="33009"></span>80F1</td>
-<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
+<td class="instruction">CALL Print_Char</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33012"></span>80F4</td>
-<td class="instruction">LD HL,$7E37</td>
+<td class="instruction">LD HL,Key_Text</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the "key" text. (<a href="32311.html">7E37</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33015"></span>80F7</td>
-<td class="instruction">LD A,($B2DB)</td>
+<td class="instruction">LD A,(Input_Method)</td>
 <td class="comment-1" rowspan="2">Put the current control mechanism (<a href="45787.html">B2DB</a>) in <span class="register">B</span>.</td>
 </tr>
 <tr>
@@ -121,7 +121,7 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-1"><span id="33030"></span>8106</td>
-<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
+<td class="instruction">CALL Print_Char</td>
 <td class="comment-1" rowspan="1">Print a marker against the selected option.</td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-1"><span id="33035"></span>810B</td>
-<td class="instruction">LD ($B4E9),A</td>
+<td class="instruction">LD (Last_Key),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33038"></span>810E</td>
@@ -140,7 +140,7 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-1"><span id="33041"></span>8111</td>
-<td class="instruction">LD A,($B55F)</td>
+<td class="instruction">LD A,(Is_Character_Computer)</td>
 <td class="comment-1" rowspan="2">Is the tune still playing?</td>
 </tr>
 <tr>
@@ -149,12 +149,12 @@ The routine returns when the user starts a game.
 </tr>
 <tr>
 <td class="address-1"><span id="33045"></span>8115</td>
-<td class="instruction">JR NZ,<a href="33109.html">$8155</a></td>
+<td class="instruction">JR NZ,Run_Demo</td>
 <td class="comment-1" rowspan="1">If not, start demo mode.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33047"></span>8117</td>
-<td class="instruction">LD A,($B4E9)</td>
+<td class="instruction">LD A,(Last_Key)</td>
 <td class="comment-1" rowspan="1">Get the last key pressed.</td>
 </tr>
 <tr>
@@ -244,7 +244,7 @@ Next: <a href="33082.html">813A</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

@@ -69,7 +69,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="47147.html">B82B
 </tr>
 <tr>
 <td class="address-1"><span id="47183"></span>B84F</td>
-<td class="instruction">JR C,$B8BD</td>
+<td class="instruction">JR C,Draw_Graphic_10</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="47147.html">B82B
 </tr>
 <tr>
 <td class="address-1"><span id="47190"></span>B856</td>
-<td class="instruction">JR NZ,$B85C</td>
+<td class="instruction">JR NZ,Draw_Graphic_1</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="47147.html">B82B
 </tr>
 <tr>
 <td class="address-1"><span id="47194"></span>B85A</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to look at the rest of the data.</td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="47147.html">B82B
 </tr>
 <tr>
 <td class="address-1"><span id="47198"></span>B85E</td>
-<td class="instruction">JR C,$B8BD</td>
+<td class="instruction">JR C,Draw_Graphic_10</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -124,7 +124,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="47147.html">B82B
 </tr>
 <tr>
 <td class="address-1"><span id="47202"></span>B862</td>
-<td class="instruction">JR NC,$B86E</td>
+<td class="instruction">JR NC,Draw_Graphic_2</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -170,7 +170,7 @@ Move to a new position.
 </tr>
 <tr>
 <td class="address-1"><span id="47212"></span>B86C</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
@@ -190,7 +190,7 @@ Check to see if this is an address marker.
 </tr>
 <tr>
 <td class="address-1"><span id="47216"></span>B870</td>
-<td class="instruction">JR NZ,$B87E</td>
+<td class="instruction">JR NZ,Draw_Graphic_3</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -235,7 +235,7 @@ Change the base address.
 </tr>
 <tr>
 <td class="address-1"><span id="47228"></span>B87C</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
@@ -255,7 +255,7 @@ Check some more control bytes.
 </tr>
 <tr>
 <td class="address-1"><span id="47232"></span>B880</td>
-<td class="instruction">JR Z,$B8C0</td>
+<td class="instruction">JR Z,Draw_Graphic_11</td>
 <td class="comment-1" rowspan="1">Jump if so.</td>
 </tr>
 <tr>
@@ -265,7 +265,7 @@ Check some more control bytes.
 </tr>
 <tr>
 <td class="address-1"><span id="47236"></span>B884</td>
-<td class="instruction">JR NZ,$B88C</td>
+<td class="instruction">JR NZ,Draw_Graphic_4</td>
 <td class="comment-1" rowspan="1">Jump if not.</td>
 </tr>
 <tr>
@@ -297,7 +297,7 @@ Chain to block data at another address.
 </tr>
 <tr>
 <td class="address-1"><span id="47242"></span>B88A</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
@@ -327,7 +327,7 @@ Check some more control bytes.
 </tr>
 <tr>
 <td class="address-1"><span id="47248"></span>B890</td>
-<td class="instruction">JR NZ,$B89C</td>
+<td class="instruction">JR NZ,Draw_Graphic_6</td>
 <td class="comment-1" rowspan="1">Move forward if not.</td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@ Repeat this graphic for a number of rows.
 </tr>
 <tr>
 <td class="address-2"><span id="47252"></span>B894</td>
-<td class="instruction">CALL <a href="47034.html">$B7BA</a></td>
+<td class="instruction">CALL Print_Graphic</td>
 <td class="comment-1" rowspan="1">Put the graphic on screen.</td>
 </tr>
 <tr>
@@ -362,12 +362,12 @@ Repeat this graphic for a number of rows.
 </tr>
 <tr>
 <td class="address-1"><span id="47256"></span>B898</td>
-<td class="instruction">DJNZ $B894</td>
+<td class="instruction">DJNZ Draw_Graphic_5</td>
 <td class="comment-1" rowspan="1">Repeat while there are more rows.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47258"></span>B89A</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
@@ -387,7 +387,7 @@ Check some more control bytes.
 </tr>
 <tr>
 <td class="address-1"><span id="47262"></span>B89E</td>
-<td class="instruction">JR NZ,$B8B2</td>
+<td class="instruction">JR NZ,Draw_Graphic_8</td>
 <td class="comment-1" rowspan="1">Jump foward if not.</td>
 </tr>
 <tr>
@@ -412,7 +412,7 @@ Repeat this graphic for a number of pairs of columns.
 </tr>
 <tr>
 <td class="address-1"><span id="47266"></span>B8A2</td>
-<td class="instruction">CALL <a href="47034.html">$B7BA</a></td>
+<td class="instruction">CALL Print_Graphic</td>
 <td class="comment-1" rowspan="1">Put the graphic on screen.</td>
 </tr>
 <tr>
@@ -427,7 +427,7 @@ Repeat this graphic for a number of pairs of columns.
 </tr>
 <tr>
 <td class="address-1"><span id="47271"></span>B8A7</td>
-<td class="instruction">CALL <a href="47034.html">$B7BA</a></td>
+<td class="instruction">CALL Print_Graphic</td>
 <td class="comment-1" rowspan="1">Put the graphic on screen.</td>
 </tr>
 <tr>
@@ -442,7 +442,7 @@ Repeat this graphic for a number of pairs of columns.
 </tr>
 <tr>
 <td class="address-1"><span id="47276"></span>B8AC</td>
-<td class="instruction">DJNZ $B8A0</td>
+<td class="instruction">DJNZ Draw_Graphic_7</td>
 <td class="comment-1" rowspan="1">Repeat until all columns are drawn.</td>
 </tr>
 <tr>
@@ -456,7 +456,7 @@ Repeat this graphic for a number of pairs of columns.
 </tr>
 <tr>
 <td class="address-1"><span id="47280"></span>B8B0</td>
-<td class="instruction">JR $B84B</td>
+<td class="instruction">JR Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
@@ -481,7 +481,7 @@ Otherwise, the instruction must be "column repeat" (FD), so repeat this graphic 
 </tr>
 <tr>
 <td class="address-2"><span id="47284"></span>B8B4</td>
-<td class="instruction">CALL <a href="47034.html">$B7BA</a></td>
+<td class="instruction">CALL Print_Graphic</td>
 <td class="comment-1" rowspan="1">Put the graphic on screen.</td>
 </tr>
 <tr>
@@ -491,12 +491,12 @@ Otherwise, the instruction must be "column repeat" (FD), so repeat this graphic 
 </tr>
 <tr>
 <td class="address-1"><span id="47288"></span>B8B8</td>
-<td class="instruction">DJNZ $B8B4</td>
+<td class="instruction">DJNZ Draw_Graphic_9</td>
 <td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47290"></span>B8BA</td>
-<td class="instruction">JP $B84B</td>
+<td class="instruction">JP Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Otherwise jump back to draw some more.</td>
 </tr>
 <tr>
@@ -511,7 +511,7 @@ Simple instruction - display a graphic
 </tr>
 <tr>
 <td class="address-2"><span id="47293"></span>B8BD</td>
-<td class="instruction">CALL <a href="47034.html">$B7BA</a></td>
+<td class="instruction">CALL Print_Graphic</td>
 <td class="comment-1" rowspan="1">Put the graphic on screen.</td>
 </tr>
 <tr>
@@ -521,7 +521,7 @@ Simple instruction - display a graphic
 </tr>
 <tr>
 <td class="address-1"><span id="47297"></span>B8C1</td>
-<td class="instruction">JP $B84B</td>
+<td class="instruction">JP Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 </table>
@@ -539,7 +539,7 @@ Next: <a href="47300.html">B8C4</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

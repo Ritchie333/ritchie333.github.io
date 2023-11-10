@@ -42,7 +42,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61712"></span>F110</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61715"></span>F113</td>
@@ -56,7 +56,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61722"></span>F11A</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update the object positions.</td>
 </tr>
 <tr>
@@ -186,12 +186,12 @@ The jumping jack is in the same room as the player, so draw it.
 </tr>
 <tr>
 <td class="address-2"><span id="61777"></span>F151</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61780"></span>F154</td>
-<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="instruction">CALL Detect_Collision</td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -214,7 +214,7 @@ Next: <a href="61784.html">F158</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

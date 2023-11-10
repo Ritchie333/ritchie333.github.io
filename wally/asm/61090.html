@@ -47,12 +47,12 @@ This routine takes a copy of the screen already in <a href="23296.html">5B00</a>
 </tr>
 <tr>
 <td class="address-2"><span id="61090"></span>EEA2</td>
-<td class="instruction">LD DE,$6B00</td>
+<td class="instruction">LD DE,Sprite_Buffer</td>
 <td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61093"></span>EEA5</td>
-<td class="instruction">LD HL,$5B00</td>
+<td class="instruction">LD HL,Screen_Buffer</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the screen buffer.</td>
 </tr>
 <tr>
@@ -62,12 +62,12 @@ This routine takes a copy of the screen already in <a href="23296.html">5B00</a>
 </tr>
 <tr>
 <td class="address-2"><span id="61099"></span>EEAB</td>
-<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="instruction">CALL Copy_Row</td>
 <td class="comment-1" rowspan="1">Copy a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61102"></span>EEAE</td>
-<td class="instruction">JP PE,$EEAB</td>
+<td class="instruction">JP PE,Init_Sprites_1</td>
 <td class="comment-1" rowspan="1">Loop back while there is more to draw.</td>
 </tr>
 <tr>
@@ -97,12 +97,12 @@ Now copy the attributes.
 </tr>
 <tr>
 <td class="address-2"><span id="61114"></span>EEBA</td>
-<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
+<td class="instruction">CALL Copy_Row</td>
 <td class="comment-1" rowspan="1">Copy a row.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61117"></span>EEBD</td>
-<td class="instruction">JP PE,$EEBA</td>
+<td class="instruction">JP PE,Init_Sprites_2</td>
 <td class="comment-1" rowspan="1">Loop back while there is more to draw.</td>
 </tr>
 <tr>
@@ -125,7 +125,7 @@ Next: <a href="61121.html">EEC1</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

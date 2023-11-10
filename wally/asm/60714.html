@@ -80,7 +80,7 @@ Used by the routine at <a href="33156.html">8184</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="60730"></span>ED3A</td>
-<td class="instruction">LD A,($ECFE)</td>
+<td class="instruction">LD A,(Total_Earnings)</td>
 <td class="comment-1" rowspan="1">Get the "hundreds" part of the total money earned.</td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ We've got enough money, so display a graphic.
 </tr>
 <tr>
 <td class="address-1"><span id="60745"></span>ED49</td>
-<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="instruction">CALL Clear_Graphics</td>
 <td class="comment-1" rowspan="1">Clear the playing area.</td>
 </tr>
 <tr>
@@ -171,17 +171,17 @@ We've got enough money, so display a graphic.
 </tr>
 <tr>
 <td class="address-1"><span id="60759"></span>ED57</td>
-<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
+<td class="instruction">CALL Print_Char</td>
 <td class="comment-1" rowspan="1">Print the string pointed to by <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60762"></span>ED5A</td>
-<td class="instruction">CALL <a href="47532.html">$B9AC</a></td>
+<td class="instruction">CALL Update_Screen</td>
 <td class="comment-1" rowspan="1">Draw the screen.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="60765"></span>ED5D</td>
-<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="instruction">CALL Init_Sprites</td>
 <td class="comment-1" rowspan="1">Update the sprite buffers.</td>
 </tr>
 <tr>
@@ -215,17 +215,17 @@ We've got enough money, so display a graphic.
 </tr>
 <tr>
 <td class="address-1"><span id="60781"></span>ED6D</td>
-<td class="instruction">LD BC,$F5CA</td>
+<td class="instruction">LD BC,Generic_Bounds</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds for the moving graphics.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60784"></span>ED70</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update the moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60787"></span>ED73</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
@@ -240,12 +240,12 @@ We've got enough money, so display a graphic.
 </tr>
 <tr>
 <td class="address-1"><span id="60793"></span>ED79</td>
-<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="instruction">CALL Update_Sprites</td>
 <td class="comment-1" rowspan="1">Put the sprites on screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60796"></span>ED7C</td>
-<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="instruction">CALL Detect_In</td>
 <td class="comment-1" rowspan="2">Was a key pressed?</td>
 </tr>
 <tr>
@@ -291,7 +291,7 @@ Next: <a href="60810.html">ED8A</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

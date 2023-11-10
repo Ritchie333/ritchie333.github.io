@@ -59,7 +59,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79
 </tr>
 <tr>
 <td class="address-1"><span id="47148"></span>B82C</td>
-<td class="instruction">LD HL,$B7F9</td>
+<td class="instruction">LD HL,Overlay_Screen</td>
 <td class="comment-1" rowspan="4">Replace the "CALL B7BA" instructions in the routine at <a href="47179.html">B84B</a> to call <a href="47097.html">B7F9</a> instead.</td>
 </tr>
 <tr>
@@ -77,11 +77,11 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79
 <tr>
 <td class="address-1"><span id="47160"></span>B838</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span>.å</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47161"></span>B839</td>
-<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="instruction">CALL Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Draw the graphic with the new routine.</td>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ Used by the routines at <a href="46019.html">B3C3</a>, <a href="60281.html">EB79
 </tr>
 <tr>
 <td class="address-1"><span id="47165"></span>B83D</td>
-<td class="instruction">LD HL,$B7BA</td>
+<td class="instruction">LD HL,Print_Graphic</td>
 <td class="comment-1" rowspan="4">Set it back to the original routine at <a href="47034.html">B7BA</a>.</td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@ Next: <a href="47179.html">B84B</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

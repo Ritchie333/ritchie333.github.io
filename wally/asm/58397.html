@@ -37,7 +37,7 @@ Used by the routines at <a href="43568.html">AA30</a>, <a href="60175.html">EB0F
 </tr>
 <tr>
 <td class="address-2"><span id="58397"></span>E41D</td>
-<td class="instruction">CALL <a href="59258.html">$E77A</a></td>
+<td class="instruction">CALL Clear_Inventory</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="58407"></span>E427</td>
-<td class="instruction">LD HL,$E728</td>
+<td class="instruction">LD HL,Object_Text_Table</td>
 <td class="comment-1" rowspan="2">Add the base address of the strings lookup table. (<a href="59176.html">E728</a>)</td>
 </tr>
 <tr>
@@ -112,7 +112,7 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="58421"></span>E435</td>
-<td class="instruction">LD HL,$E728</td>
+<td class="instruction">LD HL,Object_Text_Table</td>
 <td class="comment-1" rowspan="2">Add the base address of the strings lookup table. (<a href="59176.html">E728</a>)</td>
 </tr>
 <tr>
@@ -144,7 +144,7 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="58430"></span>E43E</td>
-<td class="instruction">LD DE,$DFDC</td>
+<td class="instruction">LD DE,Charset</td>
 <td class="comment-1" rowspan="2">Set the drawing routine at <a href="47034.html">B7BA</a> to use the character set (<a href="57308.html">DFDC</a>) as a base address.</td>
 </tr>
 <tr>
@@ -198,7 +198,7 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="58460"></span>E45C</td>
-<td class="instruction">CALL <a href="46971.html">$B77B</a></td>
+<td class="instruction">CALL Print_Inventory_Item</td>
 <td class="comment-1" rowspan="1">Draw the item's graphic.</td>
 </tr>
 <tr>
@@ -213,7 +213,7 @@ This entry point is used by the routine at <a href="58365.html">E3FD</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="58468"></span>E464</td>
-<td class="instruction">CALL <a href="46971.html">$B77B</a></td>
+<td class="instruction">CALL Print_Inventory_Item</td>
 <td class="comment-1" rowspan="1">Draw the item's graphic.</td>
 </tr>
 <tr>
@@ -236,7 +236,7 @@ Next: <a href="58472.html">E468</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

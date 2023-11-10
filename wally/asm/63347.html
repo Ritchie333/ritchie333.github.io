@@ -39,7 +39,7 @@ Next: <a href="63454.html">F7DE</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63349"></span>F775</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63352"></span>F778</td>
@@ -53,7 +53,7 @@ Next: <a href="63454.html">F7DE</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63357"></span>F77D</td>
-<td class="instruction">JR NZ,$F78D</td>
+<td class="instruction">JR NZ,Logic_School_1</td>
 <td class="comment-1" rowspan="1">Jump forward if they're not.</td>
 </tr>
 <tr>
@@ -78,7 +78,7 @@ The player is on the floor.
 </tr>
 <tr>
 <td class="address-1"><span id="63364"></span>F784</td>
-<td class="instruction">JR C,$F78D</td>
+<td class="instruction">JR C,Logic_School_1</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -88,12 +88,12 @@ The player is on the floor.
 </tr>
 <tr>
 <td class="address-1"><span id="63368"></span>F788</td>
-<td class="instruction">JR NC,$F78D</td>
+<td class="instruction">JR NC,Logic_School_1</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63370"></span>F78A</td>
-<td class="instruction">CALL <a href="58153.html#58175">$E33F</a></td>
+<td class="instruction">CALL Drop_Endurance</td>
 <td class="comment-1" rowspan="1">Otherwise, the player is standing on the spikes, so decrease endurance.</td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@ Now draw the desks.
 </tr>
 <tr>
 <td class="address-1"><span id="63375"></span>F78F</td>
-<td class="instruction">LD A,($F7DE)</td>
+<td class="instruction">LD A,(School_Desk_Frame)</td>
 <td class="comment-1" rowspan="1">Get the next frame ID of the desk.</td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@ Now draw the desks.
 </tr>
 <tr>
 <td class="address-1"><span id="63381"></span>F795</td>
-<td class="instruction">JR NZ,$F799</td>
+<td class="instruction">JR NZ,Logic_School_2</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63383"></span>F797</td>
@@ -136,12 +136,12 @@ Now draw the desks.
 </tr>
 <tr>
 <td class="address-2"><span id="63385"></span>F799</td>
-<td class="instruction">LD ($F7DE),A</td>
+<td class="instruction">LD (School_Desk_Frame),A</td>
 <td class="comment-1" rowspan="1">Store the next frame ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63388"></span>F79C</td>
-<td class="instruction">LD HL,$F7DF</td>
+<td class="instruction">LD HL,School_Desk_1_X</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next x co-ordinate to use.</td>
 </tr>
 <tr>
@@ -156,7 +156,7 @@ Now draw the desks.
 </tr>
 <tr>
 <td class="address-1"><span id="63394"></span>F7A2</td>
-<td class="instruction">LD ($A838),DE</td>
+<td class="instruction">LD (Draw_XPos),DE</td>
 <td class="comment-1" rowspan="1">Set the position to draw. (<a href="43064.html">A838</a>)</td>
 </tr>
 <tr>
@@ -171,7 +171,7 @@ Now draw the desks.
 </tr>
 <tr>
 <td class="address-1"><span id="63400"></span>F7A8</td>
-<td class="instruction">JR NZ,$F7AC</td>
+<td class="instruction">JR NZ,Logic_School_4</td>
 <td class="comment-1" rowspan="1">Jump forward if it's not zero.</td>
 </tr>
 <tr>
@@ -206,7 +206,7 @@ The tick counter has run to 0, does a desk need to be flipped?
 </tr>
 <tr>
 <td class="address-1"><span id="63408"></span>F7B0</td>
-<td class="instruction">JR NC,$F7D6</td>
+<td class="instruction">JR NC,Logic_School_6</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -231,12 +231,12 @@ The desk needs flipping, check if dislodges the player.
 </tr>
 <tr>
 <td class="address-1"><span id="63415"></span>F7B7</td>
-<td class="instruction">JR NZ,$F7D1</td>
+<td class="instruction">JR NZ,Logic_School_5</td>
 <td class="comment-1" rowspan="1">Jump foward if it isn't.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63417"></span>F7B9</td>
-<td class="instruction">LD A,($A838)</td>
+<td class="instruction">LD A,(Draw_XPos)</td>
 <td class="comment-1" rowspan="4">Is the player's x co-ordinate near this one?</td>
 </tr>
 <tr>
@@ -253,7 +253,7 @@ The desk needs flipping, check if dislodges the player.
 </tr>
 <tr>
 <td class="address-1"><span id="63427"></span>F7C3</td>
-<td class="instruction">JR C,$F7D1</td>
+<td class="instruction">JR C,$Logic_School_5</td>
 <td class="comment-1" rowspan="1">Jump if not.</td>
 </tr>
 <tr>
@@ -286,12 +286,12 @@ The desk opened while the player was on it. Dislodge them.
 </tr>
 <tr>
 <td class="address-2"><span id="63441"></span>F7D1</td>
-<td class="instruction">LD A,($F7DE)</td>
+<td class="instruction">LD A,(School_Desk_Frame)</td>
 <td class="comment-1" rowspan="1">Get the object ID to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63444"></span>F7D4</td>
-<td class="instruction">JR $F7D8</td>
+<td class="instruction">JR Logic_School_7</td>
 <td class="comment-1" rowspan="1">Jump forward to draw it.</td>
 </tr>
 <tr>
@@ -301,12 +301,12 @@ The desk opened while the player was on it. Dislodge them.
 </tr>
 <tr>
 <td class="address-2"><span id="63448"></span>F7D8</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the object</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63451"></span>F7DB</td>
-<td class="instruction">DJNZ $F7A1</td>
+<td class="instruction">DJNZ Logic_School_3</td>
 <td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
@@ -329,7 +329,7 @@ Next: <a href="63454.html">F7DE</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

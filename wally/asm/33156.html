@@ -47,7 +47,7 @@ Used by the routines at <a href="46019.html">B3C3</a> and <a href="46161.html">B
 </tr>
 <tr>
 <td class="address-1"><span id="33160"></span>8188</td>
-<td class="instruction">CALL <a href="32997.html">$80E5</a></td>
+<td class="instruction">CALL Display_Title</td>
 <td class="comment-1" rowspan="1">Show the title screen.</td>
 </tr>
 <tr>
@@ -72,7 +72,7 @@ The game is now ready to start.
 </tr>
 <tr>
 <td class="address-1"><span id="33169"></span>8191</td>
-<td class="instruction">CALL <a href="33083.html">$813B</a></td>
+<td class="instruction">CALL Init_Game</td>
 <td class="comment-1" rowspan="1">Set up initial game data.</td>
 </tr>
 <tr>
@@ -107,17 +107,17 @@ This entry point is used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="33184"></span>81A0</td>
-<td class="instruction">CALL <a href="45215.html">$B09F</a></td>
+<td class="instruction">CALL Detect_Input</td>
 <td class="comment-1" rowspan="1">Check for user input.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33187"></span>81A3</td>
-<td class="instruction">CALL <a href="33198.html">$81AE</a></td>
+<td class="instruction">CALL Main_Update</td>
 <td class="comment-1" rowspan="1">Update the screen.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33190"></span>81A6</td>
-<td class="instruction">CALL <a href="33220.html">$81C4</a></td>
+<td class="instruction">CALL Pause_Loop</td>
 <td class="comment-1" rowspan="1">Check for pause.</td>
 </tr>
 <tr>
@@ -145,7 +145,7 @@ Next: <a href="33198.html">81AE</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

@@ -51,7 +51,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="44760"></span>AED8</td>
-<td class="instruction">LD HL,($AED5)</td>
+<td class="instruction">LD HL,(Next_Room_Swaps_Ptr)</td>
 <td class="comment-1" rowspan="1">Get the current pointer to the swap list. (<a href="44757.html">AED5</a>)</td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="44768"></span>AEE0</td>
-<td class="instruction">LD HL,$AEEA</td>
+<td class="instruction">LD HL,Next_Room_Swaps</td>
 <td class="comment-1" rowspan="2">Otherwise move back to the start of the list. and get that item.</td>
 </tr>
 <tr>
@@ -85,7 +85,7 @@ Used by the routine at <a href="43308.html">A92C</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="44773"></span>AEE5</td>
-<td class="instruction">LD ($AED5),HL</td>
+<td class="instruction">LD (Next_Room_Swaps_Ptr),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="44776"></span>AEE8</td>
@@ -111,7 +111,7 @@ Next: <a href="44778.html">AEEA</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

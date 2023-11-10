@@ -34,7 +34,7 @@ Next: <a href="63290.html">F73A</a>
 </tr>
 <tr>
 <td class="address-2"><span id="63212"></span>F6EC</td>
-<td class="instruction">LD A,($EDC5)</td>
+<td class="instruction">LD A,(Safe_nLetters)</td>
 <td class="comment-1" rowspan="1">Get the number of letters put in the safe + 1</td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@ Next: <a href="63290.html">F73A</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63217"></span>F6F1</td>
-<td class="instruction">JR NZ,$F6FF</td>
+<td class="instruction">JR NZ,Logic_Bank_1</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63219"></span>F6F3</td>
-<td class="instruction">LD A,($F6DB)</td>
+<td class="instruction">LD A,(Bank_Letters_Pending)</td>
 <td class="comment-1" rowspan="3">Toggle the display state between 0 and 1.</td>
 </tr>
 <tr>
@@ -68,11 +68,11 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63224"></span>F6F8</td>
-<td class="instruction">LD ($F6DB),A</td>
+<td class="instruction">LD (Bank_Letters_Pending),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63227"></span>F6FB</td>
-<td class="instruction">JR Z,$F716</td>
+<td class="instruction">JR Z,Logic_Bank_3</td>
 <td class="comment-1" rowspan="1">If the display state is 0, there's nothing to do here.</td>
 </tr>
 <tr>
@@ -87,7 +87,7 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63232"></span>F700</td>
-<td class="instruction">JR Z,$F716</td>
+<td class="instruction">JR Z,Logic_Bank_3</td>
 <td class="comment-1" rowspan="1">If there are no letters to draw, then there's nothing to do here.</td>
 </tr>
 <tr>
@@ -97,7 +97,7 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63235"></span>F703</td>
-<td class="instruction">LD HL,$F6D1</td>
+<td class="instruction">LD HL,Bank_Letters</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first letter.</td>
 </tr>
 <tr>
@@ -117,7 +117,7 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63243"></span>F70B</td>
-<td class="instruction">LD ($A838),DE</td>
+<td class="instruction">LD (Draw_XPos),DE</td>
 <td class="comment-1" rowspan="1">Set the position for the drawing routine.</td>
 </tr>
 <tr>
@@ -132,17 +132,17 @@ If we've got all 5 letters, flash them.
 </tr>
 <tr>
 <td class="address-1"><span id="63249"></span>F711</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63252"></span>F714</td>
-<td class="instruction">DJNZ $F709</td>
+<td class="instruction">DJNZ Logic_Bank_2</td>
 <td class="comment-1" rowspan="1">Loop while there are more letters.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63254"></span>F716</td>
-<td class="instruction">LD A,($EDC5)</td>
+<td class="instruction">LD A,(Safe_nLetters)</td>
 <td class="comment-1" rowspan="1">Get the number of letters + 1.</td>
 </tr>
 <tr>
@@ -172,11 +172,11 @@ As long as the safe isn't cracked yet, put the moving objects on screen.
 </tr>
 <tr>
 <td class="address-1"><span id="63262"></span>F71E</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63265"></span>F721</td>
-<td class="instruction">LD IX,$F6DC</td>
+<td class="instruction">LD IX,Bank_Movement</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table. (<a href="63196.html">F6DC</a>)</td>
 </tr>
 <tr>
@@ -191,12 +191,12 @@ As long as the safe isn't cracked yet, put the moving objects on screen.
 </tr>
 <tr>
 <td class="address-1"><span id="63272"></span>F728</td>
-<td class="instruction">LD BC,$F2F7</td>
+<td class="instruction">LD BC,Full_Bounds</td>
 <td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the bounds table. (<a href="62199.html">F2F7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63275"></span>F72B</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update the next moving object.</td>
 </tr>
 <tr>
@@ -206,12 +206,12 @@ As long as the safe isn't cracked yet, put the moving objects on screen.
 </tr>
 <tr>
 <td class="address-1"><span id="63280"></span>F730</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63283"></span>F733</td>
-<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="instruction">CALL Detect_Collision</td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ As long as the safe isn't cracked yet, put the moving objects on screen.
 </tr>
 <tr>
 <td class="address-1"><span id="63287"></span>F737</td>
-<td class="instruction">DJNZ $F727</td>
+<td class="instruction">DJNZ Logic_Bank_4</td>
 <td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>
@@ -244,7 +244,7 @@ Next: <a href="63290.html">F73A</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

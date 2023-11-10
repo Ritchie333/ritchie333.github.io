@@ -39,14 +39,14 @@ Used by the routines at <a href="43308.html">A92C</a>, <a href="43698.html">AAB2
 </tr>
 <tr>
 <td class="register">IY</td>
-<td class="register-desc">Current character buffer (<a href="45116.html#45159">B067</a> - B0CB)</td>
+<td class="register-desc">Current character buffer (<a href="48231.html">BC67</a> - BC6B)</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
 <td class="address-2"><span id="45704"></span>B288</td>
-<td class="instruction">CALL <a href="43297.html">$A921</a></td>
+<td class="instruction">CALL Is_Character_Current</td>
 <td class="comment-1" rowspan="1">Is this character the active one?</td>
 </tr>
 <tr>
@@ -56,7 +56,7 @@ Used by the routines at <a href="43308.html">A92C</a>, <a href="43698.html">AAB2
 </tr>
 <tr>
 <td class="address-1"><span id="45709"></span>B28D</td>
-<td class="instruction">LD A,($B951)</td>
+<td class="instruction">LD A,(Current_Room)</td>
 <td class="comment-1" rowspan="1">Get the current room number.</td>
 </tr>
 <tr>
@@ -171,7 +171,7 @@ Move right.
 </tr>
 <tr>
 <td class="address-1"><span id="45749"></span>B2B5</td>
-<td class="instruction">CALL Z,<a href="33236.html">$81D4</a></td>
+<td class="instruction">CALL Z,Change_Direction</td>
 <td class="comment-1" rowspan="1">If so, need to change direction.</td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@ Move left.
 </tr>
 <tr>
 <td class="address-1"><span id="45770"></span>B2CA</td>
-<td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
+<td class="instruction">CALL NZ,Change_Direction</td>
 <td class="comment-1" rowspan="1">If it isn't, it must be facing left, so change direction.</td>
 </tr>
 <tr>
@@ -270,7 +270,7 @@ Next: <a href="45787.html">B2DB</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

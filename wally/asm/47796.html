@@ -37,7 +37,7 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="60919.html">E
 </tr>
 <tr>
 <td class="address-2"><span id="47796"></span>BAB4</td>
-<td class="instruction">LD HL,$BAB3</td>
+<td class="instruction">LD HL,Character_In_Room_T</td>
 <td class="comment-1" rowspan="3">Are we in the middle of printing a message?</td>
 </tr>
 <tr>
@@ -80,7 +80,7 @@ The tick count has reached 0, so get rid of the message.
 </tr>
 <tr>
 <td class="address-1"><span id="47806"></span>BABE</td>
-<td class="instruction">LD HL,$DFDC</td>
+<td class="instruction">LD HL,Charset</td>
 <td class="comment-1" rowspan="2">Set the drawing routine at <a href="47034.html">B7BA</a> to use the character set (<a href="57308.html">DFDC</a>) as a base address.</td>
 </tr>
 <tr>
@@ -99,7 +99,7 @@ The tick count has reached 0, so get rid of the message.
 </tr>
 <tr>
 <td class="address-1"><span id="47818"></span>BACA</td>
-<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="instruction">CALL Draw_Graphic</td>
 <td class="comment-1" rowspan="2">Draw the graphic and return.</td>
 </tr>
 <tr>
@@ -121,7 +121,7 @@ Next: <a href="47822.html">BACE</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

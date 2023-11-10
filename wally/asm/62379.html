@@ -39,11 +39,11 @@ Next: <a href="62461.html">F3FD</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62381"></span>F3AD</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62384"></span>F3B0</td>
-<td class="instruction">LD IX,$F3A3</td>
+<td class="instruction">LD IX,Shark_Movement</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> to the movement table. (<a href="62371.html">F3A3</a>)</td>
 </tr>
 <tr>
@@ -68,12 +68,12 @@ Make sure the shark is facing the right way.
 </tr>
 <tr>
 <td class="address-1"><span id="62393"></span>F3B9</td>
-<td class="instruction">LD A,($F046)</td>
+<td class="instruction">LD A,(Shark_Direction)</td>
 <td class="comment-1" rowspan="1">Get the shark's direction.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62396"></span>F3BC</td>
-<td class="instruction">JR Z,$F3C4</td>
+<td class="instruction">JR Z,Logic_Sewer_1</td>
 <td class="comment-1" rowspan="1">If the distance is positive, nothing to do.</td>
 </tr>
 <tr>
@@ -93,12 +93,12 @@ Shark should be facing left.
 </tr>
 <tr>
 <td class="address-1"><span id="62399"></span>F3BF</td>
-<td class="instruction">CALL NZ,<a href="61511.html">$F047</a></td>
+<td class="instruction">CALL NZ,Shark_Reverse</td>
 <td class="comment-1" rowspan="2">If not, need to flip the shark the other way round.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62402"></span>F3C2</td>
-<td class="instruction">JR $F3C8</td>
+<td class="instruction">JR Logic_Sewer_2</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -117,7 +117,7 @@ Shark should be facing right.
 </tr>
 <tr>
 <td class="address-1"><span id="62405"></span>F3C5</td>
-<td class="instruction">CALL Z,<a href="61511.html">$F047</a></td>
+<td class="instruction">CALL Z,Shark_Reverse</td>
 <td class="comment-1" rowspan="1">If so, need to flip the shark the other way round.</td>
 </tr>
 <tr>
@@ -137,22 +137,22 @@ Now draw the shark.
 </tr>
 <tr>
 <td class="address-1"><span id="62410"></span>F3CA</td>
-<td class="instruction">LD BC,$F3A1</td>
+<td class="instruction">LD BC,Shark_Bounds</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> to the bounds table. (<a href="62369.html">F3A1</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62413"></span>F3CD</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62416"></span>F3D0</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62419"></span>F3D3</td>
-<td class="instruction">LD A,($F3A0)</td>
+<td class="instruction">LD A,(Shark_Frame_ID)</td>
 <td class="comment-1" rowspan="1">Get the next ID for the shark's body.</td>
 </tr>
 <tr>
@@ -162,16 +162,16 @@ Now draw the shark.
 </tr>
 <tr>
 <td class="address-1"><span id="62424"></span>F3D8</td>
-<td class="instruction">LD ($F3A0),A</td>
+<td class="instruction">LD (Shark_Frame_ID),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62427"></span>F3DB</td>
-<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
+<td class="instruction">CALL Update_Next_Sprite</td>
 <td class="comment-1" rowspan="1">Update the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62430"></span>F3DE</td>
-<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
+<td class="instruction">CALL Draw_Mask</td>
 <td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
@@ -186,7 +186,7 @@ Check to see if the player has the meat.
 </tr>
 <tr>
 <td class="address-1"><span id="62433"></span>F3E1</td>
-<td class="instruction">LD A,($BD78)</td>
+<td class="instruction">LD A,(Sewer_items)</td>
 <td class="comment-1" rowspan="1">Get the item in the sewer.</td>
 </tr>
 <tr>
@@ -235,7 +235,7 @@ The player doesn't have the meat, if they touch the shark it's bad news.
 </tr>
 <tr>
 <td class="address-1"><span id="62449"></span>F3F1</td>
-<td class="instruction">LD A,($A839)</td>
+<td class="instruction">LD A,(Draw_YPos)</td>
 <td class="comment-1" rowspan="4">Move up two rows and check collision detection.</td>
 </tr>
 <tr>
@@ -244,11 +244,11 @@ The player doesn't have the meat, if they touch the shark it's bad news.
 </tr>
 <tr>
 <td class="address-1"><span id="62454"></span>F3F6</td>
-<td class="instruction">LD ($A839),A</td>
+<td class="instruction">LD (Draw_YPos),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62457"></span>F3F9</td>
-<td class="instruction">CALL <a href="58153.html">$E329</a></td>
+<td class="instruction">CALL Detect_Collision</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62460"></span>F3FC</td>
@@ -270,7 +270,7 @@ Next: <a href="62461.html">F3FD</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

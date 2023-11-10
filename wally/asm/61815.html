@@ -69,12 +69,12 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-2"><span id="61832"></span>F188</td>
-<td class="instruction">LD ($F158),HL</td>
+<td class="instruction">LD (OutOfTown_More),HL</td>
 <td class="comment-1" rowspan="1">Store the extremeties.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61835"></span>F18B</td>
-<td class="instruction">LD ($F15A),A</td>
+<td class="instruction">LD (OutOfTown_Direction),A</td>
 <td class="comment-1" rowspan="1">Store the current position.</td>
 </tr>
 <tr>
@@ -84,7 +84,7 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61841"></span>F191</td>
-<td class="instruction">LD ($F15B),HL</td>
+<td class="instruction">LD (OutOfTown_Miles),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61844"></span>F194</td>
@@ -93,32 +93,32 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61848"></span>F198</td>
-<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="instruction">CALL Clear_Graphics</td>
 <td class="comment-1" rowspan="1">Clear the playing area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61851"></span>F19B</td>
-<td class="instruction">LD HL,$F15D</td>
+<td class="instruction">LD HL,OutOfTown_Graphics</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> to the graphics data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61854"></span>F19E</td>
-<td class="instruction">CALL <a href="47442.html#47465">$B969</a></td>
+<td class="instruction">CALL Draw_Background_1</td>
 <td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61857"></span>F1A1</td>
-<td class="instruction">JR $F1D2</td>
+<td class="instruction">JR OutOfTown_3</td>
 <td class="comment-1" rowspan="1">Enter the room.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61859"></span>F1A3</td>
-<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="instruction">CALL Init_Sprites</td>
 <td class="comment-1" rowspan="1">Initialize the sprite buffers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61862"></span>F1A6</td>
-<td class="instruction">CALL <a href="61954.html">$F202</a></td>
+<td class="instruction">CALL OutOfTown_Print_Miles</td>
 <td class="comment-1" rowspan="1">Print the number of miles out of town</td>
 </tr>
 <tr>
@@ -128,11 +128,11 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61867"></span>F1AB</td>
-<td class="instruction">LD ($F26E),A</td>
+<td class="instruction">LD (Endurance_Penalty),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61870"></span>F1AE</td>
-<td class="instruction">LD A,($F15A)</td>
+<td class="instruction">LD A,(OutOfTown_Direction)</td>
 <td class="comment-1" rowspan="1">Get the direction of arrows.</td>
 </tr>
 <tr>
@@ -147,7 +147,7 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61877"></span>F1B5</td>
-<td class="instruction">JR Z,$F1B9</td>
+<td class="instruction">JR Z,OutOfTown_2</td>
 <td class="comment-1" rowspan="1">Jump if the direction is left.</td>
 </tr>
 <tr>
@@ -157,32 +157,32 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-2"><span id="61881"></span>F1B9</td>
-<td class="instruction">CALL <a href="60810.html">$ED8A</a></td>
+<td class="instruction">CALL Generic_Init_Sprites</td>
 <td class="comment-1" rowspan="1">Set up moving objects (the movement is the same as the Laboratory).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61884"></span>F1BC</td>
-<td class="instruction">CALL <a href="45215.html">$B09F</a></td>
+<td class="instruction">CALL Detect_Input</td>
 <td class="comment-1" rowspan="1">Get user input.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61887"></span>F1BF</td>
-<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
+<td class="instruction">CALL Update_Sprite</td>
 <td class="comment-1" rowspan="1">Put characters in the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61890"></span>F1C2</td>
-<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="instruction">CALL Update_Sprites</td>
 <td class="comment-1" rowspan="1">Put the sprites on scren.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61893"></span>F1C5</td>
-<td class="instruction">LD BC,($F158)</td>
+<td class="instruction">LD BC,(OutOfTown_More)</td>
 <td class="comment-1" rowspan="1">Get the co-ordinate limits in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61897"></span>F1C9</td>
-<td class="instruction">LD HL,($F15B)</td>
+<td class="instruction">LD HL,(OutOfTown_Miles)</td>
 <td class="comment-1" rowspan="1">Put the number of miles walked in <span class="register">HL</span>.</td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@ Next: <a href="61954.html">F202</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61904"></span>F1D0</td>
-<td class="instruction">JR NZ,$F1E6</td>
+<td class="instruction">JR NZ,OutOfTown_4</td>
 <td class="comment-1" rowspan="1">Jump forward if it hasn't.</td>
 </tr>
 <tr>
@@ -212,17 +212,17 @@ Move to a room with more miles.
 </tr>
 <tr>
 <td class="address-2"><span id="61906"></span>F1D2</td>
-<td class="instruction">LD BC,($F158)</td>
+<td class="instruction">LD BC,(OutOfTown_More)</td>
 <td class="comment-1" rowspan="1">Put the extremities in <span class="register">BC</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61910"></span>F1D6</td>
-<td class="instruction">LD HL,($F15B)</td>
+<td class="instruction">LD HL,(OutOfTown_Miles)</td>
 <td class="comment-1" rowspan="1">Put the number of miles in <span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61913"></span>F1D9</td>
-<td class="instruction">LD A,($F15A)</td>
+<td class="instruction">LD A,(OutOfTown_Direction)</td>
 <td class="comment-1" rowspan="1">Put the direction in <span class="register">C</span>.</td>
 </tr>
 <tr>
@@ -241,11 +241,11 @@ Move to a room with more miles.
 </tr>
 <tr>
 <td class="address-1"><span id="61921"></span>F1E1</td>
-<td class="instruction">LD ($F15B),HL</td>
+<td class="instruction">LD (OutOfTown_Miles),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61924"></span>F1E4</td>
-<td class="instruction">JR $F1A3</td>
+<td class="instruction">JR OutOfTown_1</td>
 <td class="comment-1" rowspan="1">Jump back to run the room.</td>
 </tr>
 <tr>
@@ -265,7 +265,7 @@ Move to a room with less miles.
 </tr>
 <tr>
 <td class="address-1"><span id="61927"></span>F1E7</td>
-<td class="instruction">JR NZ,$F1A3</td>
+<td class="instruction">JR NZ,OutOfTown_1</td>
 <td class="comment-1" rowspan="1">Jump back if it isn't.</td>
 </tr>
 <tr>
@@ -275,7 +275,7 @@ Move to a room with less miles.
 </tr>
 <tr>
 <td class="address-1"><span id="61930"></span>F1EA</td>
-<td class="instruction">LD ($F15B),HL</td>
+<td class="instruction">LD (OutOfTown_Miles),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61933"></span>F1ED</td>
@@ -288,12 +288,12 @@ Move to a room with less miles.
 </tr>
 <tr>
 <td class="address-1"><span id="61935"></span>F1EF</td>
-<td class="instruction">JR Z,$F1FC</td>
+<td class="instruction">JR Z,OutOfTown_5</td>
 <td class="comment-1" rowspan="1">If so, jump forward as we're back in town.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61937"></span>F1F1</td>
-<td class="instruction">LD A,($F15A)</td>
+<td class="instruction">LD A,(OutOfTown_Direction)</td>
 <td class="comment-1" rowspan="1">Put the direction in <span class="register">A</span>.</td>
 </tr>
 <tr>
@@ -316,7 +316,7 @@ Move to a room with less miles.
 </tr>
 <tr>
 <td class="address-1"><span id="61946"></span>F1FA</td>
-<td class="instruction">JR $F1A3</td>
+<td class="instruction">JR OutOfTown_1</td>
 <td class="comment-1" rowspan="1">Jump back to run the room.</td>
 </tr>
 <tr>
@@ -354,7 +354,7 @@ Next: <a href="61954.html">F202</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

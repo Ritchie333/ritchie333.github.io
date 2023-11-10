@@ -83,7 +83,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="63822"></span>F94E</td>
-<td class="instruction">CALL <a href="45067.html">$B00B</a></td>
+<td class="instruction">CALL Detect_Right</td>
 <td class="comment-1" rowspan="2">Was 'right' pressed?</td>
 </tr>
 <tr>
@@ -129,7 +129,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="63842"></span>F962</td>
-<td class="instruction">CALL <a href="43991.html">$ABD7</a></td>
+<td class="instruction">CALL Detect_In</td>
 <td class="comment-1" rowspan="2">Was 'in' pressed?</td>
 </tr>
 <tr>
@@ -153,7 +153,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63848"></span>F968</td>
-<td class="instruction">CALL <a href="63908.html">$F9A4</a></td>
+<td class="instruction">CALL Space_Get_Deltas</td>
 <td class="comment-1" rowspan="1">Put the change in co-ordinates in <span class="register">HL</span>.</td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63898"></span>F99A</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63901"></span>F99D</td>
@@ -267,7 +267,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63904"></span>F9A0</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="2">Draw it and return.</td>
 </tr>
 <tr>
@@ -289,7 +289,7 @@ Next: <a href="63908.html">F9A4</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

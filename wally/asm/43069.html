@@ -74,7 +74,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43072"></span>A840</td>
-<td class="instruction">LD ($A83B),SP</td>
+<td class="instruction">LD (Draw_SP),SP</td>
 <td class="comment-1" rowspan="1">Remember the current stack pointer in <a href="43067.html">A83B</a>.</td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43084"></span>A84C</td>
-<td class="instruction">LD SP,$8378</td>
+<td class="instruction">LD SP,Object_00</td>
 <td class="comment-1" rowspan="1">Point the stack at the start of the graphics buffer. (<a href="33656.html">8378</a>)</td>
 </tr>
 <tr>
@@ -123,7 +123,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43089"></span>A851</td>
-<td class="instruction">LD A,($A838)</td>
+<td class="instruction">LD A,(Draw_XPos)</td>
 <td class="comment-1" rowspan="1">Get the x co-ordinate.</td>
 </tr>
 <tr>
@@ -182,7 +182,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43111"></span>A867</td>
-<td class="instruction">LD A,($A839)</td>
+<td class="instruction">LD A,(Draw_YPos)</td>
 <td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
@@ -252,7 +252,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43133"></span>A87D</td>
-<td class="instruction">JR Z,$A889</td>
+<td class="instruction">JR Z,Draw_Non_Mask_3</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43135"></span>A87F</td>
@@ -276,7 +276,7 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43141"></span>A885</td>
-<td class="instruction">DJNZ $A880</td>
+<td class="instruction">DJNZ Draw_Non_Mask_2</td>
 <td class="comment-1" rowspan="1">Loop until we get the right frame.</td>
 </tr>
 <tr>
@@ -340,12 +340,12 @@ This routine is a copy of code used in Pyjamarama, the previous game in the seri
 </tr>
 <tr>
 <td class="address-1"><span id="43158"></span>A896</td>
-<td class="instruction">JP NZ,$A879</td>
+<td class="instruction">JP NZ,Draw_Non_Mask_1</td>
 <td class="comment-1" rowspan="1">Loop while there is more to draw.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43161"></span>A899</td>
-<td class="instruction">LD SP,($A83B)</td>
+<td class="instruction">LD SP,(Draw_SP)</td>
 <td class="comment-1" rowspan="1">Restore the stack pointer.</td>
 </tr>
 <tr>
@@ -377,7 +377,7 @@ Next: <a href="43168.html">A8A0</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

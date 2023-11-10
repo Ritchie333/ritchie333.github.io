@@ -42,7 +42,7 @@ Check the fountain's repaired
 </tr>
 <tr>
 <td class="address-1"><span id="62836"></span>F574</td>
-<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
+<td class="instruction">CALL Get_Flag</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62839"></span>F577</td>
@@ -66,7 +66,7 @@ The fountain is repaired, so draw it. This entry point is used by the routine at
 </tr>
 <tr>
 <td class="address-1"><span id="62842"></span>F57A</td>
-<td class="instruction">LD ($F26F),A</td>
+<td class="instruction">LD (Next_Attribute),A</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -85,21 +85,21 @@ Draw bottom right.
 </tr>
 <tr>
 <td class="address-1"><span id="62848"></span>F580</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62851"></span>F583</td>
-<td class="instruction">LD A,($F571)</td>
+<td class="instruction">LD A,(TownSquare_Frame_ID)</td>
 <td class="comment-1" rowspan="1">Get the next object ID of the water.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62854"></span>F586</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62857"></span>F589</td>
-<td class="instruction">CALL <a href="61329.html">$EF91</a></td>
+<td class="instruction">CALL TownSquare_Attributes</td>
 <td class="comment-1" rowspan="1">Set the attributes.</td>
 </tr>
 <tr>
@@ -119,16 +119,16 @@ Draw top right.
 </tr>
 <tr>
 <td class="address-1"><span id="62863"></span>F58F</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62866"></span>F592</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the water.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62869"></span>F595</td>
-<td class="instruction">CALL <a href="61329.html">$EF91</a></td>
+<td class="instruction">CALL TownSquare_Attributes</td>
 <td class="comment-1" rowspan="1">Set the attributes.</td>
 </tr>
 <tr>
@@ -148,7 +148,7 @@ Draw bottom left.
 </tr>
 <tr>
 <td class="address-1"><span id="62875"></span>F59B</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62878"></span>F59E</td>
@@ -157,12 +157,12 @@ Draw bottom left.
 </tr>
 <tr>
 <td class="address-1"><span id="62880"></span>F5A0</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the water.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62883"></span>F5A3</td>
-<td class="instruction">CALL <a href="61329.html">$EF91</a></td>
+<td class="instruction">CALL TownSquare_Attributes</td>
 <td class="comment-1" rowspan="1">Set the attributes.</td>
 </tr>
 <tr>
@@ -182,16 +182,16 @@ Draw top left.
 </tr>
 <tr>
 <td class="address-1"><span id="62889"></span>F5A9</td>
-<td class="instruction">LD ($A838),HL</td>
+<td class="instruction">LD (Draw_XPos),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62892"></span>F5AC</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the water.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62895"></span>F5AF</td>
-<td class="instruction">CALL <a href="61329.html">$EF91</a></td>
+<td class="instruction">CALL TownSquare_Attributes</td>
 <td class="comment-1" rowspan="1">Set the attributes.</td>
 </tr>
 <tr>
@@ -216,7 +216,7 @@ Change the graphic used.
 </tr>
 <tr>
 <td class="address-1"><span id="62902"></span>F5B6</td>
-<td class="instruction">JR NZ,$F5BA</td>
+<td class="instruction">JR NZ,Logic_Town_Square_2</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -226,7 +226,7 @@ Change the graphic used.
 </tr>
 <tr>
 <td class="address-2"><span id="62906"></span>F5BA</td>
-<td class="instruction">LD ($F571),A</td>
+<td class="instruction">LD (TownSquare_Frame_ID),A</td>
 <td class="comment-1" rowspan="2">Set the next ID to use and return.</td>
 </tr>
 <tr>
@@ -248,7 +248,7 @@ Next: <a href="62910.html">F5BE</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

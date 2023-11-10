@@ -37,7 +37,7 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-2"><span id="45215"></span>B09F</td>
-<td class="instruction">LD IY,($B09D)</td>
+<td class="instruction">LD IY,(Current_Player)</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the current player buffer.</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45222"></span>B0A6</td>
-<td class="instruction">LD ($B951),A</td>
+<td class="instruction">LD (Current_Room),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45225"></span>B0A9</td>
@@ -80,12 +80,12 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45239"></span>B0B7</td>
-<td class="instruction">JP NZ,<a href="45463.html">$B197</a></td>
+<td class="instruction">JP NZ,Drop_Character_Row</td>
 <td class="comment-1" rowspan="1">If not, make them fall one level.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="45242"></span>B0BA</td>
-<td class="instruction">CALL <a href="45165.html">$B06D</a></td>
+<td class="instruction">CALL Detect_Jump</td>
 <td class="comment-1" rowspan="2">Was 'jump' pressed?</td>
 </tr>
 <tr>
@@ -94,7 +94,7 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45246"></span>B0BE</td>
-<td class="instruction">JP NZ,<a href="45478.html">$B1A6</a></td>
+<td class="instruction">JP NZ,Jump</td>
 <td class="comment-1" rowspan="1">If it was, make the character jump.</td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45253"></span>B0C5</td>
-<td class="instruction">CALL <a href="45067.html">$B00B</a></td>
+<td class="instruction">CALL Detect_Right</td>
 <td class="comment-1" rowspan="2">Was 'right' pressed?</td>
 </tr>
 <tr>
@@ -127,12 +127,12 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45267"></span>B0D3</td>
-<td class="instruction">JP <a href="45704.html">$B288</a></td>
+<td class="instruction">JP Move_Character</td>
 <td class="comment-1" rowspan="1">Move the character.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="45270"></span>B0D6</td>
-<td class="instruction">CALL <a href="45116.html">$B03C</a></td>
+<td class="instruction">CALL Detect_Left</td>
 <td class="comment-1" rowspan="2">Was 'left' pressed?</td>
 </tr>
 <tr>
@@ -155,7 +155,7 @@ Used by the routines at <a href="33156.html">8184</a> and <a href="61815.html">F
 </tr>
 <tr>
 <td class="address-1"><span id="45283"></span>B0E3</td>
-<td class="instruction">JP <a href="45704.html">$B288</a></td>
+<td class="instruction">JP Move_Character</td>
 <td class="comment-1" rowspan="1">Move the character.</td>
 </tr>
 </table>
@@ -173,7 +173,7 @@ Next: <a href="45286.html">B0E6</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

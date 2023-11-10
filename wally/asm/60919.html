@@ -39,7 +39,7 @@ Next: <a href="61090.html">EEA2</a>
 </tr>
 <tr>
 <td class="address-1"><span id="60920"></span>EDF8</td>
-<td class="instruction">LD ($FAEF),A</td>
+<td class="instruction">LD (Space_Lightning_Regenerate),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60923"></span>EDFB</td>
@@ -48,7 +48,7 @@ Next: <a href="61090.html">EEA2</a>
 </tr>
 <tr>
 <td class="address-1"><span id="60924"></span>EDFC</td>
-<td class="instruction">LD ($F9F0),A</td>
+<td class="instruction">LD (Space_Missile_X),A</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -94,12 +94,12 @@ Set the starting position as left or right, depending on which phone booth was e
 </tr>
 <tr>
 <td class="address-1"><span id="60950"></span>EE16</td>
-<td class="instruction">LD HL,$F879</td>
+<td class="instruction">LD HL,Space_Lightning_Init_States</td>
 <td class="comment-1" rowspan="4">Copy the initial state (<a href="63609.html">F879</a>) to the working state (<a href="32937.html">80A9</a>).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60953"></span>EE19</td>
-<td class="instruction">LD DE,$80A9</td>
+<td class="instruction">LD DE,Space_Lightning_States</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60956"></span>EE1C</td>
@@ -111,7 +111,7 @@ Set the starting position as left or right, depending on which phone booth was e
 </tr>
 <tr>
 <td class="address-1"><span id="60961"></span>EE21</td>
-<td class="instruction">CALL <a href="47362.html">$B902</a></td>
+<td class="instruction">CALL Clear_Graphics</td>
 <td class="comment-1" rowspan="1">Clear the playing area.</td>
 </tr>
 <tr>
@@ -187,12 +187,12 @@ Put stars randomly on-screen.
 </tr>
 <tr>
 <td class="address-1"><span id="60990"></span>EE3E</td>
-<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
+<td class="instruction">CALL Draw_Graphic</td>
 <td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60993"></span>EE41</td>
-<td class="instruction">CALL <a href="47532.html">$B9AC</a></td>
+<td class="instruction">CALL Update_Screen</td>
 <td class="comment-1" rowspan="1">Copy the screen to the graphic buffer.</td>
 </tr>
 <tr>
@@ -207,39 +207,39 @@ Run the main loop of the game.
 </tr>
 <tr>
 <td class="address-2"><span id="60996"></span>EE44</td>
-<td class="instruction">CALL <a href="47796.html">$BAB4</a></td>
+<td class="instruction">CALL Update_Character_In_Room_T</td>
 <td class="comment-1" rowspan="1">Update the "{character} is in {room}" tick count, if any.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60999"></span>EE47</td>
-<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
+<td class="instruction">CALL Init_Sprites</td>
 <td class="comment-1" rowspan="1">Update the sprite buffers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61002"></span>EE4A</td>
-<td class="instruction">CALL <a href="63802.html">$F93A</a></td>
+<td class="instruction">CALL Space_Check_Movement</td>
 <td class="comment-1" rowspan="1">Check for player's movement.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61005"></span>EE4D</td>
-<td class="instruction">CALL <a href="63989.html">$F9F5</a></td>
+<td class="instruction">CALL Space_Check_Fire</td>
 <td class="comment-1" rowspan="4">Move the objects around and check for firing.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61008"></span>EE50</td>
-<td class="instruction">CALL <a href="63989.html">$F9F5</a></td>
+<td class="instruction">CALL Space_Check_Fire</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61011"></span>EE53</td>
-<td class="instruction">CALL <a href="63989.html">$F9F5</a></td>
+<td class="instruction">CALL Space_Check_Fire</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61014"></span>EE56</td>
-<td class="instruction">CALL <a href="63673.html">$F8B9</a></td>
+<td class="instruction">CALL Space_Collision_Detect</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61017"></span>EE59</td>
-<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
+<td class="instruction">CALL Update_Sprites</td>
 <td class="comment-1" rowspan="1">Put sprites on screen.</td>
 </tr>
 <tr>
@@ -345,7 +345,7 @@ The player is by a portal. Work out which one it was, and drop them back into to
 <tr>
 <td class="address-1"><span id="61049"></span>EE79</td>
 <td class="instruction">JR NC,$EE85</td>
-<td class="comment-1" rowspan="6">If it is, set the x co-ordinates as DC and the room as 01 (Stamp Street), otherwise, set the x co-ordinate as 04 and the room as 13 (Reference Road).</td>
+<td class="comment-1" rowspan="7">If it is, set the x co-ordinates as DC and the room as 01 (Stamp Street), otherwise, set the x co-ordinate as 04 and the room as 13 (Reference Road).</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61051"></span>EE7B</td>
@@ -358,6 +358,10 @@ The player is by a portal. Work out which one it was, and drop them back into to
 <tr>
 <td class="address-1"><span id="61059"></span>EE83</td>
 <td class="instruction">JR $EE8D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="None"></span>@labe</td>
+<td class="instruction">l=Space_Game_4</td>
 </tr>
 <tr>
 <td class="address-2"><span id="61061"></span>EE85</td>
@@ -422,7 +426,7 @@ Next: <a href="61090.html">EEA2</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>

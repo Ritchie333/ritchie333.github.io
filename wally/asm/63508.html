@@ -37,7 +37,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="63508"></span>F814</td>
-<td class="instruction">LD HL,($F812)</td>
+<td class="instruction">LD HL,(Next_Food)</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next food.</td>
 </tr>
 <tr>
@@ -52,7 +52,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63515"></span>F81B</td>
-<td class="instruction">JR Z,$F823</td>
+<td class="instruction">JR Z,Handle_Food_1</td>
 <td class="comment-1" rowspan="1">Jump foward if there is.</td>
 </tr>
 <tr>
@@ -117,12 +117,12 @@ There's food in the room, so draw it.
 </tr>
 <tr>
 <td class="address-1"><span id="63530"></span>F82A</td>
-<td class="instruction">LD ($A838),DE</td>
+<td class="instruction">LD (Draw_XPos),DE</td>
 <td class="comment-1" rowspan="1">Copy the position to the scratch buffer at <a href="43064.html">A838</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63534"></span>F82E</td>
-<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
+<td class="instruction">CALL Draw_Non_Mask</td>
 <td class="comment-1" rowspan="1">Draw the food.</td>
 </tr>
 <tr>
@@ -183,7 +183,7 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63555"></span>F843</td>
-<td class="instruction">LD HL,($F812)</td>
+<td class="instruction">LD HL,(Next_Food)</td>
 <td class="comment-1" rowspan="5">Move <span class="register">HL</span> to the next food entry.</td>
 </tr>
 <tr>
@@ -214,15 +214,15 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63565"></span>F84D</td>
-<td class="instruction">JR NZ,$F852</td>
+<td class="instruction">JR NZ,Handle_Food_2</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63567"></span>F84F</td>
-<td class="instruction">LD HL,$F7E9</td>
+<td class="instruction">LD HL,Food</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63570"></span>F852</td>
-<td class="instruction">LD ($F812),HL</td>
+<td class="instruction">LD (Next_Food),HL</td>
 <td class="comment-1" rowspan="1">Store the next location of food back in memory.</td>
 </tr>
 <tr>
@@ -237,7 +237,7 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63577"></span>F859</td>
-<td class="instruction">JR Z,$F864</td>
+<td class="instruction">JR Z,Handle_Food_3</td>
 <td class="comment-1" rowspan="1">If so, jump forward to restore endurance to full strength.</td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63586"></span>F862</td>
-<td class="instruction">JR C,$F866</td>
+<td class="instruction">JR C,Handle_Food_4</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63588"></span>F864</td>
@@ -269,7 +269,7 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63593"></span>F869</td>
-<td class="instruction">CALL <a href="58221.html">$E36D</a></td>
+<td class="instruction">CALL Update_Endurance</td>
 <td class="comment-1" rowspan="1">Update the endurance and lives display.</td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@ There's food here, and the player has picked it up.
 </tr>
 <tr>
 <td class="address-1"><span id="63605"></span>F875</td>
-<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
+<td class="instruction">CALL Play_Sound</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63608"></span>F878</td>
@@ -309,7 +309,7 @@ Next: <a href="63609.html">F879</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">(c) 1985 Mikro-Gen (code and graphics), 2013-2023 Ritchie Swann / Paul Maddern (this disassembly)</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.0.</div>
 </footer>
 </body>
 </html>
