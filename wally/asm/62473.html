@@ -39,11 +39,11 @@ Next: <a href="62524.html">F43C</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62475"></span>F40B</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62478"></span>F40E</td>
-<td class="instruction">LD IX,Bakers_Movement</td>
+<td class="instruction">LD IX,$F401</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table. (<a href="62465.html">F401</a>)</td>
 </tr>
 <tr>
@@ -58,12 +58,12 @@ Next: <a href="62524.html">F43C</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62485"></span>F415</td>
-<td class="instruction">LD BC,Bakers_Bounds</td>
+<td class="instruction">LD BC,$F3FD</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the boundary table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62488"></span>F418</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update the moving object.</td>
 </tr>
 <tr>
@@ -78,7 +78,7 @@ Next: <a href="62524.html">F43C</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62494"></span>F41E</td>
-<td class="instruction">JR NZ,Logic_Bakers_2</td>
+<td class="instruction">JR NZ,$F430</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -128,12 +128,12 @@ Now draw the toast.
 </tr>
 <tr>
 <td class="address-1"><span id="62514"></span>F432</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62517"></span>F435</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -143,7 +143,7 @@ Now draw the toast.
 </tr>
 <tr>
 <td class="address-1"><span id="62521"></span>F439</td>
-<td class="instruction">DJNZ Logic_Bakers_1</td>
+<td class="instruction">DJNZ $F414</td>
 <td class="comment-1" rowspan="1">Loop while there are still objects to update.</td>
 </tr>
 <tr>

@@ -47,7 +47,7 @@ First, draw the electricity wire.
 </tr>
 <tr>
 <td class="address-1"><span id="62967"></span>F5F7</td>
-<td class="instruction">LD BC,School_Wire</td>
+<td class="instruction">LD BC,$F5D3</td>
 <td class="comment-1" rowspan="1">Set <span class="register">BC</span> to the data table. (<a href="62931.html">F5D3</a>)</td>
 </tr>
 <tr>
@@ -172,11 +172,11 @@ Now set the main data for the room.
 </tr>
 <tr>
 <td class="address-1"><span id="63007"></span>F61F</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63010"></span>F622</td>
-<td class="instruction">LD IX,SchoolLane_Movement</td>
+<td class="instruction">LD IX,$F5BE</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
@@ -196,11 +196,11 @@ Now set the main data for the room.
 </tr>
 <tr>
 <td class="address-1"><span id="63019"></span>F62B</td>
-<td class="instruction">CALL Get_Flag</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="63022"></span>F62E</td>
-<td class="instruction">LD BC,Generic_Bounds</td>
+<td class="instruction">LD BC,$F5CA</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the first bounds table. (<a href="62922.html">F5CA</a>)</td>
 </tr>
 <tr>
@@ -210,17 +210,17 @@ Now set the main data for the room.
 </tr>
 <tr>
 <td class="address-1"><span id="63027"></span>F633</td>
-<td class="instruction">LD BC,SchoolLane_Bounds</td>
+<td class="instruction">LD BC,$F5CE</td>
 <td class="comment-1" rowspan="1">Otherwise point <span class="register">BC</span> at the second bounds table. (<a href="62926.html">F5CE</a>)</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63030"></span>F636</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63033"></span>F639</td>
-<td class="instruction">LD A,(Lightning_Frame_ID)</td>
+<td class="instruction">LD A,($F5D2)</td>
 <td class="comment-1" rowspan="1">Get the next object ID to print.</td>
 </tr>
 <tr>
@@ -230,17 +230,17 @@ Now set the main data for the room.
 </tr>
 <tr>
 <td class="address-1"><span id="63038"></span>F63E</td>
-<td class="instruction">LD (Lightning_Frame_ID),A</td>
+<td class="instruction">LD ($F5D2),A</td>
 <td class="comment-1" rowspan="1">Set this for the next object ID.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63041"></span>F641</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63044"></span>F644</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>

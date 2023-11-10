@@ -84,7 +84,7 @@ Next: <a href="61510.html">F046</a>
 </tr>
 <tr>
 <td class="address-1"><span id="61406"></span>EFDE</td>
-<td class="instruction">CALL Overwrite_Screen</td>
+<td class="instruction">CALL <a href="47147.html">$B82B</a></td>
 <td class="comment-1" rowspan="1">Patch the display to overwrite graphics.</td>
 </tr>
 <tr>
@@ -127,7 +127,7 @@ A hole has opened, so drop the player down to it.
 </tr>
 <tr>
 <td class="address-1"><span id="61423"></span>EFEF</td>
-<td class="instruction">CALL Main_Update</td>
+<td class="instruction">CALL <a href="33198.html">$81AE</a></td>
 <td class="comment-1" rowspan="1">Move everything on screen.</td>
 </tr>
 <tr>
@@ -172,7 +172,7 @@ The player has fallen into the hole, so update for the chase sequence.
 </tr>
 <tr>
 <td class="address-1"><span id="61441"></span>F001</td>
-<td class="instruction">CALL NZ,Change_Direction</td>
+<td class="instruction">CALL NZ,<a href="33236.html">$81D4</a></td>
 <td class="comment-1" rowspan="1">If not, need to flip the sprite around to be left-facing.</td>
 </tr>
 <tr>
@@ -191,12 +191,12 @@ The player has fallen into the hole, so update for the chase sequence.
 </tr>
 <tr>
 <td class="address-1"><span id="61452"></span>F00C</td>
-<td class="instruction">CALL Clear_Graphics</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
 <td class="comment-1" rowspan="1">Clear the playing area.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61455"></span>F00F</td>
-<td class="instruction">CALL Draw_Background_1</td>
+<td class="instruction">CALL <a href="47442.html#47465">$B969</a></td>
 <td class="comment-1" rowspan="1">Draw the background graphics.</td>
 </tr>
 <tr>
@@ -235,12 +235,12 @@ The player has fallen into the hole, so update for the chase sequence.
 </tr>
 <tr>
 <td class="address-2"><span id="61478"></span>F026</td>
-<td class="instruction">CALL Init_Sprites</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
 <td class="comment-1" rowspan="1">Initialize the sprite buffers.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61481"></span>F029</td>
-<td class="instruction">CALL Chase_Detect_Movement</td>
+<td class="instruction">CALL <a href="61527.html">$F057</a></td>
 <td class="comment-1" rowspan="1">Update the shark.</td>
 </tr>
 <tr>
@@ -250,12 +250,12 @@ The player has fallen into the hole, so update for the chase sequence.
 </tr>
 <tr>
 <td class="address-1"><span id="61487"></span>F02F</td>
-<td class="instruction">CALL Update_Sprite</td>
+<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
 <td class="comment-1" rowspan="1">Update the sprite buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61490"></span>F032</td>
-<td class="instruction">CALL Update_Sprites</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
 <td class="comment-1" rowspan="1">Put the sprites on screen.</td>
 </tr>
 <tr>

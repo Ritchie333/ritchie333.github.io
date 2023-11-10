@@ -42,12 +42,12 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46194"></span>B472</td>
-<td class="instruction">LD HL,Theme_Tune</td>
+<td class="instruction">LD HL,$B560</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the start of the theme tune. (<a href="46432.html">B560</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46197"></span>B475</td>
-<td class="instruction">LD (Theme_Tune_Note_Ptr),HL</td>
+<td class="instruction">LD ($B4E7),HL</td>
 <td class="comment-1" rowspan="1">Set this as the next address to look at. (<a href="46311.html">B4E7</a>)</td>
 </tr>
 <tr>
@@ -57,7 +57,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46202"></span>B47A</td>
-<td class="instruction">LD (Last_Key),A</td>
+<td class="instruction">LD ($B4E9),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46205"></span>B47D</td>
@@ -66,7 +66,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46206"></span>B47E</td>
-<td class="instruction">LD (Is_Character_Computer),A</td>
+<td class="instruction">LD ($B55F),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46209"></span>B481</td>

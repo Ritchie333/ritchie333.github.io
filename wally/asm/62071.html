@@ -42,21 +42,21 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62073"></span>F279</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62076"></span>F27C</td>
-<td class="instruction">LD IX,Herbert_Movement</td>
+<td class="instruction">LD IX,$F270</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62080"></span>F280</td>
-<td class="instruction">LD BC,Full_Bounds</td>
+<td class="instruction">LD BC,$F2F7</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62083"></span>F283</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update object positions.</td>
 </tr>
 <tr>
@@ -66,7 +66,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62089"></span>F289</td>
-<td class="instruction">CALL Get_Next_Room_Ptr</td>
+<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
 <td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62094"></span>F28E</td>
-<td class="instruction">CALL Room_Get_Coords</td>
+<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
 <td class="comment-1" rowspan="1">Get the address of the co-ordinate table.</td>
 </tr>
 <tr>
@@ -96,7 +96,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62101"></span>F295</td>
-<td class="instruction">JR NZ,Move_Herbert_3</td>
+<td class="instruction">JR NZ,$F2C3</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -106,7 +106,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62106"></span>F29A</td>
-<td class="instruction">JR NZ,Move_Herbert_3</td>
+<td class="instruction">JR NZ,$F2C3</td>
 <td class="comment-1" rowspan="1">Jump forward while it is 0.</td>
 </tr>
 <tr>
@@ -139,7 +139,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62122"></span>F2AA</td>
-<td class="instruction">JR Z,Move_Herbert_1</td>
+<td class="instruction">JR Z,$F2A5</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62124"></span>F2AC</td>
@@ -148,7 +148,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62127"></span>F2AF</td>
-<td class="instruction">CALL Get_Next_Room_Ptr</td>
+<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
 <td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
 </tr>
 <tr>
@@ -163,7 +163,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62132"></span>F2B4</td>
-<td class="instruction">CALL Room_Get_Coords</td>
+<td class="instruction">CALL <a href="44127.html">$AC5F</a></td>
 <td class="comment-1" rowspan="1">Get the address of the co-ordinate table.</td>
 </tr>
 <tr>
@@ -183,7 +183,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="62140"></span>F2BC</td>
-<td class="instruction">JR C,Move_Herbert_2</td>
+<td class="instruction">JR C,$F2C0</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62142"></span>F2BE</td>
@@ -245,7 +245,7 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62162"></span>F2D2</td>
-<td class="instruction">JR Z,Move_Herbert_4</td>
+<td class="instruction">JR Z,$F2D7</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62164"></span>F2D4</td>
@@ -267,7 +267,7 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62173"></span>F2DD</td>
-<td class="instruction">JR C,Move_Herbert_6</td>
+<td class="instruction">JR C,$F2E2</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62175"></span>F2DF</td>
@@ -275,7 +275,7 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62176"></span>F2E0</td>
-<td class="instruction">JR Move_Herbert_7</td>
+<td class="instruction">JR $F2E5</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62178"></span>F2E2</td>
@@ -283,7 +283,7 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62179"></span>F2E3</td>
-<td class="instruction">JR C,Move_Herbert_5</td>
+<td class="instruction">JR C,$F2DF</td>
 </tr>
 <tr>
 <td class="address-2"><span id="62181"></span>F2E5</td>
@@ -292,7 +292,7 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62184"></span>F2E8</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw Herbert.</td>
 </tr>
 <tr>
@@ -302,16 +302,16 @@ Herbert is in the same room as the player, so draw him.
 </tr>
 <tr>
 <td class="address-1"><span id="62189"></span>F2ED</td>
-<td class="instruction">LD (Next_Attribute),A</td>
+<td class="instruction">LD ($F26F),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62192"></span>F2F0</td>
-<td class="instruction">CALL TownSquare_Attributes</td>
+<td class="instruction">CALL <a href="61329.html">$EF91</a></td>
 <td class="comment-1" rowspan="1">Set the attributes for the fountain in the Town Square.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62195"></span>F2F3</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>

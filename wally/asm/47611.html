@@ -37,12 +37,12 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="47574.html">B9D6
 </tr>
 <tr>
 <td class="address-2"><span id="47611"></span>B9FB</td>
-<td class="instruction">LD HL,Sprite_Buffer</td>
+<td class="instruction">LD HL,$6B00</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the sprite buffer. (<a href="27392.html">6B00</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47614"></span>B9FE</td>
-<td class="instruction">LD IX,Screen_Offsets_2</td>
+<td class="instruction">LD IX,$8278</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the screen offset table. (<a href="33272.html#33400">8278</a>)</td>
 </tr>
 <tr>
@@ -70,7 +70,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="47574.html">B9D6
 </tr>
 <tr>
 <td class="address-1"><span id="47631"></span>BA0F</td>
-<td class="instruction">CALL Copy_Row</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
 <td class="comment-1" rowspan="1">Copy the next row of the sprite buffer to screen.</td>
 </tr>
 <tr>
@@ -105,7 +105,7 @@ Now put the attributes on screen.
 </tr>
 <tr>
 <td class="address-2"><span id="47646"></span>BA1E</td>
-<td class="instruction">CALL Copy_Row</td>
+<td class="instruction">CALL <a href="47653.html">$BA25</a></td>
 <td class="comment-1" rowspan="1">Copy the next row of the attribute buffer to screen.</td>
 </tr>
 <tr>

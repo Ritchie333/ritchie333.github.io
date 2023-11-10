@@ -51,7 +51,7 @@ Used by the routines at <a href="43308.html">A92C</a> and <a href="60161.html">E
 </tr>
 <tr>
 <td class="address-1"><span id="43569"></span>AA31</td>
-<td class="instruction">CALL Get_Next_Object_Ptr</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
 <td class="comment-1" rowspan="1">Get the static object buffer for this room.</td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@ The object the player is standing next to can be picked up, so do it.
 </tr>
 <tr>
 <td class="address-1"><span id="43587"></span>AA43</td>
-<td class="instruction">CALL Is_Character_Current</td>
+<td class="instruction">CALL <a href="43297.html">$A921</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="43590"></span>AA46</td>
@@ -227,17 +227,17 @@ The object can only be collected by this player, and can be done.
 </tr>
 <tr>
 <td class="address-1"><span id="43630"></span>AA6E</td>
-<td class="instruction">CALL Is_Character_Current</td>
+<td class="instruction">CALL <a href="43297.html">$A921</a></td>
 <td class="comment-1" rowspan="1">Is the buffer at <span class="register">IY</span> pointing to the current character?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43633"></span>AA71</td>
-<td class="instruction">CALL Z,Print_Inventory</td>
+<td class="instruction">CALL Z,<a href="58397.html">$E41D</a></td>
 <td class="comment-1" rowspan="1">If so, need to update the inventory.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="43636"></span>AA74</td>
-<td class="instruction">LD A,(Current_Room)</td>
+<td class="instruction">LD A,($B951)</td>
 <td class="comment-1" rowspan="2">Is the player in the current room?</td>
 </tr>
 <tr>
@@ -246,7 +246,7 @@ The object can only be collected by this player, and can be done.
 </tr>
 <tr>
 <td class="address-1"><span id="43642"></span>AA7A</td>
-<td class="instruction">CALL Z,Play_Item_Swapped</td>
+<td class="instruction">CALL Z,<a href="43647.html">$AA7F</a></td>
 <td class="comment-1" rowspan="1">If so, play the "item swapped" sound.</td>
 </tr>
 <tr>

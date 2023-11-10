@@ -39,7 +39,7 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63094"></span>F676</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63097"></span>F679</td>
@@ -48,7 +48,7 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63099"></span>F67B</td>
-<td class="instruction">LD IX,Park_Movement</td>
+<td class="instruction">LD IX,$F653</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
@@ -58,12 +58,12 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63104"></span>F680</td>
-<td class="instruction">LD BC,Generic_Bounds</td>
+<td class="instruction">LD BC,$F5CA</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63107"></span>F683</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -73,12 +73,12 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63113"></span>F689</td>
-<td class="instruction">JR NZ,Logic_Park_3</td>
+<td class="instruction">JR NZ,$F6BB</td>
 <td class="comment-1" rowspan="1">Jump forward if it's not zero.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63115"></span>F68B</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_Y)</td>
+<td class="instruction">LD A,($F673)</td>
 <td class="comment-1" rowspan="4">Has a bird hit a boundary in X or Y?</td>
 </tr>
 <tr>
@@ -87,7 +87,7 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63119"></span>F68F</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_X)</td>
+<td class="instruction">LD A,($F672)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63122"></span>F692</td>
@@ -95,7 +95,7 @@ Next: <a href="63185.html">F6D1</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63123"></span>F693</td>
-<td class="instruction">JR NZ,Logic_Park_3</td>
+<td class="instruction">JR NZ,$F6BB</td>
 <td class="comment-1" rowspan="1">Jump forward if they haven't.</td>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ A bird has hit the edge of the screen, move them off in some random direction.
 </tr>
 <tr>
 <td class="address-1"><span id="63141"></span>F6A5</td>
-<td class="instruction">JR NZ,Logic_Park_2</td>
+<td class="instruction">JR NZ,$F6A8</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63143"></span>F6A7</td>
@@ -163,7 +163,7 @@ A bird has hit the edge of the screen, move them off in some random direction.
 </tr>
 <tr>
 <td class="address-1"><span id="63150"></span>F6AE</td>
-<td class="instruction">LD HL,Park_Directions</td>
+<td class="instruction">LD HL,$F64B</td>
 <td class="comment-1" rowspan="2">Add the base address of the direction table. (<a href="63051.html">F64B</a>)</td>
 </tr>
 <tr>
@@ -203,7 +203,7 @@ Now draw the bird.
 </tr>
 <tr>
 <td class="address-2"><span id="63163"></span>F6BB</td>
-<td class="instruction">LD A,(Park_Frame_ID)</td>
+<td class="instruction">LD A,($F671)</td>
 <td class="comment-1" rowspan="1">Get the object ID to use.</td>
 </tr>
 <tr>
@@ -213,16 +213,16 @@ Now draw the bird.
 </tr>
 <tr>
 <td class="address-1"><span id="63168"></span>F6C0</td>
-<td class="instruction">LD (Park_Frame_ID),A</td>
+<td class="instruction">LD ($F671),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63171"></span>F6C3</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63174"></span>F6C6</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection</td>
 </tr>
 <tr>
@@ -242,7 +242,7 @@ Now draw the bird.
 </tr>
 <tr>
 <td class="address-1"><span id="63182"></span>F6CE</td>
-<td class="instruction">DJNZ Logic_Park_1</td>
+<td class="instruction">DJNZ $F67F</td>
 <td class="comment-1" rowspan="1">Loop while there are more objects to draw.</td>
 </tr>
 <tr>

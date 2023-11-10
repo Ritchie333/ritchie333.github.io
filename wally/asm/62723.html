@@ -48,11 +48,11 @@ Next: <a href="62799.html">F54F</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62730"></span>F50A</td>
-<td class="instruction">CALL Get_Flag</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62733"></span>F50D</td>
-<td class="instruction">JR Z,Logic_Supermarket_1</td>
+<td class="instruction">JR Z,$F543</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -62,7 +62,7 @@ Next: <a href="62799.html">F54F</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62737"></span>F511</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -76,17 +76,17 @@ If the trolley is oiled, it needs moving.
 </tr>
 <tr>
 <td class="address-1"><span id="62740"></span>F514</td>
-<td class="instruction">LD IX,Supermarket_Movement</td>
+<td class="instruction">LD IX,$F4FF</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62744"></span>F518</td>
-<td class="instruction">LD BC,Full_Bounds</td>
+<td class="instruction">LD BC,$F2F7</td>
 <td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the bounds table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62747"></span>F51B</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -96,12 +96,12 @@ If the trolley is oiled, it needs moving.
 </tr>
 <tr>
 <td class="address-1"><span id="62752"></span>F520</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the graphic.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62755"></span>F523</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -212,7 +212,7 @@ The trolley's not oiled, so just draw it.
 </tr>
 <tr>
 <td class="address-1"><span id="62790"></span>F546</td>
-<td class="instruction">LD (Draw_XPos),HL</td>
+<td class="instruction">LD ($A838),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62793"></span>F549</td>
@@ -221,7 +221,7 @@ The trolley's not oiled, so just draw it.
 </tr>
 <tr>
 <td class="address-1"><span id="62795"></span>F54B</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="2">Draw it and return.</td>
 </tr>
 <tr>

@@ -37,7 +37,7 @@ If the pipe is not patched and the gas mask is not carried, start dropping endur
 </tr>
 <tr>
 <td class="address-2"><span id="62799"></span>F54F</td>
-<td class="instruction">LD A,(Cave_Items)</td>
+<td class="instruction">LD A,($BD7D)</td>
 <td class="comment-1" rowspan="2">Is the pipe in the room?</td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ If the pipe is not patched and the gas mask is not carried, start dropping endur
 </tr>
 <tr>
 <td class="address-1"><span id="62804"></span>F554</td>
-<td class="instruction">JR NZ,Logic_Cave_1</td>
+<td class="instruction">JR NZ,$F55C</td>
 <td class="comment-1" rowspan="1">Jump forward if it isn't.</td>
 </tr>
 <tr>
@@ -56,7 +56,7 @@ If the pipe is not patched and the gas mask is not carried, start dropping endur
 </tr>
 <tr>
 <td class="address-1"><span id="62808"></span>F558</td>
-<td class="instruction">CALL Get_Flag</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="62811"></span>F55B</td>
@@ -113,16 +113,16 @@ The pipe is not patched and the player does not have the gas mask. Start droppin
 </tr>
 <tr>
 <td class="address-1"><span id="62824"></span>F568</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62827"></span>F56B</td>
-<td class="instruction">CALL Drop_Endurance</td>
+<td class="instruction">CALL <a href="58153.html#58175">$E33F</a></td>
 <td class="comment-1" rowspan="1">Mark an immediate collision to drop endurance.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62830"></span>F56E</td>
-<td class="instruction">JP Logic_Laboratory</td>
+<td class="instruction">JP <a href="60691.html">$ED13</a></td>
 <td class="comment-1" rowspan="1">Otherwise, the logic is the same as the laboratory.</td>
 </tr>
 </table>

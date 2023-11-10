@@ -37,7 +37,7 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 </tr>
 <tr>
 <td class="address-2"><span id="61121"></span>EEC1</td>
-<td class="instruction">CALL Init_Sprites</td>
+<td class="instruction">CALL <a href="61090.html">$EEA2</a></td>
 <td class="comment-1" rowspan="1">Initialize the sprite buffers.</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 </tr>
 <tr>
 <td class="address-1"><span id="61127"></span>EEC7</td>
-<td class="instruction">LD (Current_Room),A</td>
+<td class="instruction">LD ($B951),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -57,7 +57,7 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 </tr>
 <tr>
 <td class="address-1"><span id="61132"></span>EECC</td>
-<td class="instruction">CALL Get_Next_Object_Ptr</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
 </tr>
 <tr>
 <td class="address-2"><span id="61135"></span>EECF</td>
@@ -102,12 +102,12 @@ Used by the routines at <a href="33198.html">81AE</a> and <a href="46019.html">B
 </tr>
 <tr>
 <td class="address-1"><span id="61146"></span>EEDA</td>
-<td class="instruction">LD (Draw_XPos),DE</td>
+<td class="instruction">LD ($A838),DE</td>
 <td class="comment-1" rowspan="1">Put the position in the scratch buffer at <a href="43064.html">A838</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61150"></span>EEDE</td>
-<td class="instruction">CALL Draw_Non_Mask</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
 <td class="comment-1" rowspan="2">Draw the object, and loop back to see if there is anything further to draw.</td>
 </tr>
 <tr>
@@ -139,7 +139,7 @@ See if there is any custom routines for this room, and if so, execute them.
 </tr>
 <tr>
 <td class="address-1"><span id="61162"></span>EEEA</td>
-<td class="instruction">LD HL,Logic_Table</td>
+<td class="instruction">LD HL,$EEF3</td>
 <td class="comment-1" rowspan="2">Add the base address of the room logic table (<a href="61171.html">EEF3</a>).</td>
 </tr>
 <tr>

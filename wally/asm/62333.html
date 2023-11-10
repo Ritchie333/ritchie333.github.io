@@ -39,21 +39,21 @@ Next: <a href="62368.html">F3A0</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62335"></span>F37F</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62338"></span>F382</td>
-<td class="instruction">LD IX,Docks_Movement</td>
+<td class="instruction">LD IX,$F375</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table. (<a href="62325.html">F375</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62342"></span>F386</td>
-<td class="instruction">LD BC,Full_Bounds</td>
+<td class="instruction">LD BC,$F2F7</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the boundary table. (<a href="62199.html">F2F7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62345"></span>F389</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving object.</td>
 </tr>
 <tr>
@@ -63,17 +63,17 @@ Next: <a href="62368.html">F3A0</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62350"></span>F38E</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62353"></span>F391</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62356"></span>F394</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update the next moving object.</td>
 </tr>
 <tr>
@@ -83,12 +83,12 @@ Next: <a href="62368.html">F3A0</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62361"></span>F399</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62364"></span>F39C</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>

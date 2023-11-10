@@ -56,17 +56,17 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="43313"></span>A931</td>
-<td class="instruction">LD (Current_Room),A</td>
+<td class="instruction">LD ($B951),A</td>
 <td class="comment-1" rowspan="1">Store this. (<a href="47441.html">B951</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43316"></span>A934</td>
-<td class="instruction">LD IY,Character_Base</td>
+<td class="instruction">LD IY,$BC67</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the first character.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43320"></span>A938</td>
-<td class="instruction">LD A,(Is_Character_Computer)</td>
+<td class="instruction">LD A,($B55F)</td>
 <td class="comment-1" rowspan="1">Get the "computer controlled" player flag.</td>
 </tr>
 <tr>
@@ -86,7 +86,7 @@ Used by the routine at <a href="33198.html">81AE</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="43327"></span>A93F</td>
-<td class="instruction">LD A,(Is_Character_Computer)</td>
+<td class="instruction">LD A,($B55F)</td>
 <td class="comment-1" rowspan="2">Is this player computer controlled?</td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ This character is being controlled by the player, so nothing to do
 </tr>
 <tr>
 <td class="address-1"><span id="43333"></span>A945</td>
-<td class="instruction">CALL Is_Character_Current</td>
+<td class="instruction">CALL <a href="43297.html">$A921</a></td>
 <td class="comment-1" rowspan="1">Check this character is player-controlled.</td>
 </tr>
 <tr>
@@ -206,7 +206,7 @@ This is a computer controlled character, so move them.
 </tr>
 <tr>
 <td class="address-1"><span id="43376"></span>A970</td>
-<td class="instruction">CALL Drop_Character_Row</td>
+<td class="instruction">CALL <a href="45463.html">$B197</a></td>
 <td class="comment-1" rowspan="2">Otherwise, finish off the fall.</td>
 </tr>
 <tr>
@@ -271,7 +271,7 @@ The computer character can move, so do so.
 </tr>
 <tr>
 <td class="address-1"><span id="43396"></span>A984</td>
-<td class="instruction">LD DE,Update_Characters_6</td>
+<td class="instruction">LD DE,$A989</td>
 <td class="comment-1" rowspan="2">Set <a href="43308.html#43401">A989</a> as a return address.</td>
 </tr>
 <tr>
@@ -361,7 +361,7 @@ Control returns from the routine to this point.
 </tr>
 <tr>
 <td class="address-1"><span id="43430"></span>A9A6</td>
-<td class="instruction">CALL Drop_Character_Row</td>
+<td class="instruction">CALL <a href="45463.html">$B197</a></td>
 <td class="comment-1" rowspan="2">Otherwise, finish off the fall.</td>
 </tr>
 <tr>
@@ -415,7 +415,7 @@ The character can move, so do so.
 </tr>
 <tr>
 <td class="address-2"><span id="43454"></span>A9BE</td>
-<td class="instruction">CALL Move_Character</td>
+<td class="instruction">CALL <a href="45704.html">$B288</a></td>
 <td class="comment-1" rowspan="1">Move a character.</td>
 </tr>
 <tr>
@@ -460,7 +460,7 @@ The character is standing in a room with an item, move them towards sawpping it.
 </tr>
 <tr>
 <td class="address-1"><span id="43469"></span>A9CD</td>
-<td class="instruction">CALL Get_Next_Object_Ptr</td>
+<td class="instruction">CALL <a href="43660.html">$AA8C</a></td>
 <td class="comment-1" rowspan="1">Get the address of the room object.</td>
 </tr>
 <tr>
@@ -509,7 +509,7 @@ The character is standing in a room with an item, move them towards sawpping it.
 </tr>
 <tr>
 <td class="address-2"><span id="43491"></span>A9E3</td>
-<td class="instruction">CALL Move_Character</td>
+<td class="instruction">CALL <a href="45704.html">$B288</a></td>
 <td class="comment-1" rowspan="1">Move the character.</td>
 </tr>
 <tr>
@@ -534,7 +534,7 @@ The character is standing in a room with an item, move them towards sawpping it.
 </tr>
 <tr>
 <td class="address-1"><span id="43504"></span>A9F0</td>
-<td class="instruction">CALL Do_Swap</td>
+<td class="instruction">CALL <a href="43568.html">$AA30</a></td>
 <td class="comment-1" rowspan="1">Swap an item.</td>
 </tr>
 <tr>
@@ -602,7 +602,7 @@ The character is standing in a room with an item, move them towards sawpping it.
 </tr>
 <tr>
 <td class="address-1"><span id="43537"></span>AA11</td>
-<td class="instruction">CALL Get_Nth_Object_Ptr</td>
+<td class="instruction">CALL <a href="44682.html">$AE8A</a></td>
 <td class="comment-1" rowspan="1">Get the address of the object in <span class="register">HL</span>.</td>
 </tr>
 <tr>

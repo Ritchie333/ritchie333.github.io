@@ -56,7 +56,7 @@ Used by the routines at <a href="45809.html">B2F1</a>, <a href="46019.html">B3C3
 </tr>
 <tr>
 <td class="address-1"><span id="46002"></span>B3B2</td>
-<td class="instruction">JR NZ,Wait_For_Keypress</td>
+<td class="instruction">JR NZ,$B3AB</td>
 <td class="comment-1" rowspan="1">Loop back while there aren't.</td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@ A key is pressed. Make sure it's released before continuing.
 </tr>
 <tr>
 <td class="address-1"><span id="46011"></span>B3BB</td>
-<td class="instruction">JR Z,Wait_For_Release</td>
+<td class="instruction">JR Z,$B3B4</td>
 <td class="comment-1" rowspan="1">Loop back while there still are.</td>
 </tr>
 <tr>

@@ -42,7 +42,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="33112"></span>8158</td>
-<td class="instruction">CALL Clear_Screen</td>
+<td class="instruction">CALL <a href="47341.html">$B8ED</a></td>
 <td class="comment-1" rowspan="1">Clear the screen.</td>
 </tr>
 <tr>
@@ -52,12 +52,12 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="33118"></span>815E</td>
-<td class="instruction">CALL Init_Game</td>
+<td class="instruction">CALL <a href="33083.html">$813B</a></td>
 <td class="comment-1" rowspan="1">Set up initial data.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33121"></span>8161</td>
-<td class="instruction">LD (Demo_Room),A</td>
+<td class="instruction">LD ($813A),A</td>
 <td class="comment-1" rowspan="1">Set the current room (<a href="33082.html">813A</a>) to 0 (set up by the previous routine)</td>
 </tr>
 <tr>
@@ -72,7 +72,7 @@ The main loop of the demo mode begins here.
 </tr>
 <tr>
 <td class="address-2"><span id="33124"></span>8164</td>
-<td class="instruction">LD A,(Demo_Room)</td>
+<td class="instruction">LD A,($813A)</td>
 <td class="comment-1" rowspan="1">Get the current room in demo mode.</td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ The main loop of the demo mode begins here.
 </tr>
 <tr>
 <td class="address-1"><span id="33135"></span>816F</td>
-<td class="instruction">LD (Demo_Room),A</td>
+<td class="instruction">LD ($813A),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="33138"></span>8172</td>
@@ -101,7 +101,7 @@ The main loop of the demo mode begins here.
 </tr>
 <tr>
 <td class="address-2"><span id="33141"></span>8175</td>
-<td class="instruction">CALL Main_Update</td>
+<td class="instruction">CALL <a href="33198.html">$81AE</a></td>
 <td class="comment-1" rowspan="1">Move everything on screen.</td>
 </tr>
 <tr>
@@ -125,7 +125,7 @@ The main loop of the demo mode begins here.
 </tr>
 <tr>
 <td class="address-1"><span id="33151"></span>817F</td>
-<td class="instruction">JP NZ,Display_Title</td>
+<td class="instruction">JP NZ,<a href="32997.html">$80E5</a></td>
 <td class="comment-1" rowspan="1">No, so carry on in demo mode.</td>
 </tr>
 <tr>

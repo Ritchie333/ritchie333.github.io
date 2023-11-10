@@ -46,7 +46,7 @@ Used by the routines at <a href="60810.html">ED8A</a>, <a href="61527.html">F057
 </tr>
 <tr>
 <td class="address-2"><span id="58153"></span>E329</td>
-<td class="instruction">LD A,(Draw_XPos)</td>
+<td class="instruction">LD A,($A838)</td>
 <td class="comment-1" rowspan="1">Get the x co-ordinate in the scratch buffer. (<a href="43064.html">A838</a>)</td>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ Used by the routines at <a href="60810.html">ED8A</a>, <a href="61527.html">F057
 </tr>
 <tr>
 <td class="address-1"><span id="58164"></span>E334</td>
-<td class="instruction">LD A,(Draw_YPos)</td>
+<td class="instruction">LD A,($A839)</td>
 <td class="comment-1" rowspan="1">Get the y co-ordinate in the scratch buffer.</td>
 </tr>
 <tr>
@@ -102,7 +102,7 @@ The character has collided with something. Decrease endurance. The amount to dec
 </tr>
 <tr>
 <td class="address-2"><span id="58175"></span>E33F</td>
-<td class="instruction">LD A,(Is_Character_Computer)</td>
+<td class="instruction">LD A,($B55F)</td>
 <td class="comment-1" rowspan="2">Is the current player computer controlled?</td>
 </tr>
 <tr>
@@ -144,11 +144,11 @@ The current character is human controlled, so decrease endurance.
 </tr>
 <tr>
 <td class="address-1"><span id="58190"></span>E34E</td>
-<td class="instruction">CALL Play_Sound</td>
+<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="58193"></span>E351</td>
-<td class="instruction">LD A,(Endurance_Penalty)</td>
+<td class="instruction">LD A,($F26E)</td>
 <td class="comment-1" rowspan="1">Get the amount of endurance to decrease by.</td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@ The character has run out of endurance, so lose a life.
 </tr>
 <tr>
 <td class="address-1"><span id="58217"></span>E369</td>
-<td class="instruction">JP Z,Final_Score</td>
+<td class="instruction">JP Z,<a href="46161.html">$B451</a></td>
 <td class="comment-1" rowspan="1">If no lives are left, signal the game is over.</td>
 </tr>
 <tr>

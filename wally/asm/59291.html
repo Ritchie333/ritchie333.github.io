@@ -81,7 +81,7 @@ A key was pressed. Work out what to do.
 </tr>
 <tr>
 <td class="address-1"><span id="59305"></span>E7A9</td>
-<td class="instruction">LD IY,Character_Base</td>
+<td class="instruction">LD IY,$BC67</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the first character buffer (Wally). (<a href="48231.html">BC67</a>)</td>
 </tr>
 <tr>
@@ -125,12 +125,12 @@ Found the character to switch to, can it be done?
 </tr>
 <tr>
 <td class="address-1"><span id="59320"></span>E7B8</td>
-<td class="instruction">JR Z,Change Character_4</td>
+<td class="instruction">JR Z,$E7C0</td>
 <td class="comment-1" rowspan="1">Yes, so we can switch.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="59322"></span>E7BA</td>
-<td class="instruction">CALL Print_Character_Room</td>
+<td class="instruction">CALL <a href="47726.html">$BA6E</a></td>
 <td class="comment-1" rowspan="1">Otherwise, print "{character} is in {room}"</td>
 </tr>
 <tr>
@@ -159,7 +159,7 @@ The character is in the same room, so the switch can be made.
 </tr>
 <tr>
 <td class="address-2"><span id="59328"></span>E7C0</td>
-<td class="instruction">CALL Is_Character_Current</td>
+<td class="instruction">CALL <a href="43297.html">$A921</a></td>
 <td class="comment-1" rowspan="1">Is this character the current one.</td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ The character is in the room and it's not the current one, so switch.
 </tr>
 <tr>
 <td class="address-1"><span id="59333"></span>E7C5</td>
-<td class="instruction">LD (Current_Player),IY</td>
+<td class="instruction">LD ($B09D),IY</td>
 <td class="comment-1" rowspan="1">Set the current character pointer (<a href="45213.html">B09D</a>) to this one.</td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@ The character is in the room and it's not the current one, so switch.
 </tr>
 <tr>
 <td class="address-1"><span id="59340"></span>E7CC</td>
-<td class="instruction">CALL Get_Next_Room_Ptr</td>
+<td class="instruction">CALL <a href="44137.html">$AC69</a></td>
 <td class="comment-1" rowspan="1">Get the "next rooms" table for this room.</td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@ The character is in the room and it's not the current one, so switch.
 </tr>
 <tr>
 <td class="address-1"><span id="59361"></span>E7E1</td>
-<td class="instruction">LD IY,(Current_Player)</td>
+<td class="instruction">LD IY,($B09D)</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> to the selected character.</td>
 </tr>
 <tr>

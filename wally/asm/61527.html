@@ -37,7 +37,7 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="61527"></span>F057</td>
-<td class="instruction">LD A,(Shark_Direction)</td>
+<td class="instruction">LD A,($F046)</td>
 <td class="comment-1" rowspan="1">Get the shark's direction.</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61531"></span>F05B</td>
-<td class="instruction">CALL NZ,Shark_Reverse</td>
+<td class="instruction">CALL NZ,<a href="61511.html">$F047</a></td>
 <td class="comment-1" rowspan="1">If not, reverse the graphic so it is.</td>
 </tr>
 <tr>
@@ -66,12 +66,12 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61541"></span>F065</td>
-<td class="instruction">LD (Draw_XPos),HL</td>
+<td class="instruction">LD ($A838),HL</td>
 <td class="comment-1" rowspan="1">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61544"></span>F068</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
@@ -81,12 +81,12 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61549"></span>F06D</td>
-<td class="instruction">LD (Draw_XPos),HL</td>
+<td class="instruction">LD ($A838),HL</td>
 <td class="comment-1" rowspan="1">Set the position.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61552"></span>F070</td>
-<td class="instruction">LD A,(Shark_Frame_ID)</td>
+<td class="instruction">LD A,($F3A0)</td>
 <td class="comment-1" rowspan="1">Get the object ID of the shark's body.</td>
 </tr>
 <tr>
@@ -96,11 +96,11 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61557"></span>F075</td>
-<td class="instruction">LD (Shark_Frame_ID),A</td>
+<td class="instruction">LD ($F3A0),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61560"></span>F078</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Put the object in the sprite buffer.</td>
 </tr>
 <tr>
@@ -110,11 +110,11 @@ Used by the routine at <a href="61383.html">EFC7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="61565"></span>F07D</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61568"></span>F080</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>

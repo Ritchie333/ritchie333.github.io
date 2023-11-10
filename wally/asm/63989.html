@@ -37,7 +37,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="63989"></span>F9F5</td>
-<td class="instruction">LD IX,Space_Missile_X</td>
+<td class="instruction">LD IX,$F9F0</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the missile data.</td>
 </tr>
 <tr>
@@ -56,7 +56,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64000"></span>FA00</td>
-<td class="instruction">CALL Detect_Jump</td>
+<td class="instruction">CALL <a href="45165.html">$B06D</a></td>
 <td class="comment-1" rowspan="2">Was 'fire' pressed?</td>
 </tr>
 <tr>
@@ -85,7 +85,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64008"></span>FA08</td>
-<td class="instruction">LD (Space_Missile_X),A</td>
+<td class="instruction">LD ($F9F0),A</td>
 <td class="comment-1" rowspan="1">Set this as the x co-ordinate of the missile.</td>
 </tr>
 <tr>
@@ -95,12 +95,12 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64014"></span>FA0E</td>
-<td class="instruction">LD (Space_Missile_Y),A</td>
+<td class="instruction">LD ($F9F1),A</td>
 <td class="comment-1" rowspan="1">Set this as the y co-ordinate of the missile.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64017"></span>FA11</td>
-<td class="instruction">CALL Space_Get_Deltas</td>
+<td class="instruction">CALL <a href="63908.html">$F9A4</a></td>
 <td class="comment-1" rowspan="1">Get the change values for the current direction.</td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64021"></span>FA15</td>
-<td class="instruction">LD (Space_Missile_dX),A</td>
+<td class="instruction">LD ($F9F2),A</td>
 <td class="comment-1" rowspan="1">Set this for the missile.</td>
 </tr>
 <tr>
@@ -125,7 +125,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64026"></span>FA1A</td>
-<td class="instruction">LD (Space_Missile_dY),A</td>
+<td class="instruction">LD ($F9F3),A</td>
 <td class="comment-1" rowspan="1">Set this for the missile.</td>
 </tr>
 <tr>
@@ -143,7 +143,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="64038"></span>FA26</td>
-<td class="instruction">CALL Play_Sound</td>
+<td class="instruction">CALL <a href="58323.html">$E3D3</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64041"></span>FA29</td>
@@ -162,12 +162,12 @@ A missile is in mid-fire, work out what to do with it.
 </tr>
 <tr>
 <td class="address-2"><span id="64042"></span>FA2A</td>
-<td class="instruction">LD BC,Space_Bounds</td>
+<td class="instruction">LD BC,$F8B5</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds table. (<a href="63669.html">F8B5</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64045"></span>FA2D</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update the missile's position.</td>
 </tr>
 <tr>
@@ -177,12 +177,12 @@ A missile is in mid-fire, work out what to do with it.
 </tr>
 <tr>
 <td class="address-1"><span id="64050"></span>FA32</td>
-<td class="instruction">CALL Draw_Non_Mask</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
 <td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64053"></span>FA35</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_X)</td>
+<td class="instruction">LD A,($F672)</td>
 <td class="comment-1" rowspan="4">Is the change in X and Y both 0?</td>
 </tr>
 <tr>
@@ -191,7 +191,7 @@ A missile is in mid-fire, work out what to do with it.
 </tr>
 <tr>
 <td class="address-1"><span id="64057"></span>FA39</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_Y)</td>
+<td class="instruction">LD A,($F673)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64060"></span>FA3C</td>
@@ -229,7 +229,7 @@ The missile is moving.
 </tr>
 <tr>
 <td class="address-1"><span id="64070"></span>FA46</td>
-<td class="instruction">LD HL,Space_Lightning_States</td>
+<td class="instruction">LD HL,$80A9</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the lightning bolt position table. (<a href="32937.html">80A9</a>)</td>
 </tr>
 <tr>
@@ -368,7 +368,7 @@ The missile has hit some lightning.
 </tr>
 <tr>
 <td class="address-1"><span id="64112"></span>FA70</td>
-<td class="instruction">LD (Space_Missile_X),A</td>
+<td class="instruction">LD ($F9F0),A</td>
 <td class="comment-1" rowspan="1">Signal that the missile is no longer active.</td>
 </tr>
 <tr>
@@ -410,12 +410,12 @@ The missile has hit some lightning.
 </tr>
 <tr>
 <td class="address-1"><span id="64126"></span>FA7E</td>
-<td class="instruction">CALL Space_Move_Lightning</td>
+<td class="instruction">CALL <a href="64240.html">$FAF0</a></td>
 <td class="comment-1" rowspan="2">Move the lightning bolts around.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64129"></span>FA81</td>
-<td class="instruction">CALL Space_Move_Lightning</td>
+<td class="instruction">CALL <a href="64240.html">$FAF0</a></td>
 </tr>
 <tr>
 <td class="address-1"><span id="64132"></span>FA84</td>
@@ -434,7 +434,7 @@ The missile hit some small lightning.
 </tr>
 <tr>
 <td class="address-2"><span id="64134"></span>FA86</td>
-<td class="instruction">LD A,(Space_Lightning_Regenerate)</td>
+<td class="instruction">LD A,($FAEF)</td>
 <td class="comment-1" rowspan="3">Flip the "regenerate lightning" bit.</td>
 </tr>
 <tr>
@@ -443,7 +443,7 @@ The missile hit some small lightning.
 </tr>
 <tr>
 <td class="address-1"><span id="64139"></span>FA8B</td>
-<td class="instruction">LD (Space_Lightning_Regenerate),A</td>
+<td class="instruction">LD ($FAEF),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64142"></span>FA8E</td>
@@ -478,12 +478,12 @@ The missile hit some small lightning.
 </tr>
 <tr>
 <td class="address-1"><span id="64158"></span>FA9E</td>
-<td class="instruction">CALL Space_Move_Lightning</td>
+<td class="instruction">CALL <a href="64240.html">$FAF0</a></td>
 <td class="comment-1" rowspan="1">Move the lightning bolts around.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64161"></span>FAA1</td>
-<td class="instruction">LD HL,Asteroids_Hit</td>
+<td class="instruction">LD HL,$F9F4</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the number of asteroids left to hit. (<a href="63988.html">F9F4</a>)</td>
 </tr>
 <tr>
@@ -527,11 +527,11 @@ The player has destroyed enough asteroids to win the sub-game.
 </tr>
 <tr>
 <td class="address-1"><span id="64173"></span>FAAD</td>
-<td class="instruction">LD (Flag_D),A</td>
+<td class="instruction">LD ($EC1C),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="64176"></span>FAB0</td>
-<td class="instruction">LD (Task_1E),A</td>
+<td class="instruction">LD ($ECB3),A</td>
 <td class="comment-1" rowspan="1">Set the task completed. (<a href="60508.html">EC5C</a>)</td>
 </tr>
 <tr>
@@ -553,7 +553,7 @@ The player has destroyed enough asteroids to win the sub-game.
 </tr>
 <tr>
 <td class="address-1"><span id="64188"></span>FABC</td>
-<td class="instruction">LD A,(Total_Earnings)</td>
+<td class="instruction">LD A,($ECFE)</td>
 <td class="comment-1" rowspan="4">Add £100 to the grand total.</td>
 </tr>
 <tr>
@@ -566,7 +566,7 @@ The player has destroyed enough asteroids to win the sub-game.
 </tr>
 <tr>
 <td class="address-1"><span id="64194"></span>FAC2</td>
-<td class="instruction">LD (Total_Earnings),A</td>
+<td class="instruction">LD ($ECFE),A</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -593,7 +593,7 @@ Play the "completed" sound effect.
 </tr>
 <tr>
 <td class="address-1"><span id="64206"></span>FACE</td>
-<td class="instruction">CALL Space_Won_Tune</td>
+<td class="instruction">CALL <a href="64231.html">$FAE7</a></td>
 <td class="comment-1" rowspan="1">Play it.</td>
 </tr>
 <tr>
@@ -603,7 +603,7 @@ Play the "completed" sound effect.
 </tr>
 <tr>
 <td class="address-1"><span id="64212"></span>FAD4</td>
-<td class="instruction">CALL Space_Won_Tune</td>
+<td class="instruction">CALL <a href="64231.html">$FAE7</a></td>
 <td class="comment-1" rowspan="1">Play it.</td>
 </tr>
 <tr>
@@ -613,7 +613,7 @@ Play the "completed" sound effect.
 </tr>
 <tr>
 <td class="address-1"><span id="64218"></span>FADA</td>
-<td class="instruction">CALL Space_Won_Tune</td>
+<td class="instruction">CALL <a href="64231.html">$FAE7</a></td>
 <td class="comment-1" rowspan="1">Play it.</td>
 </tr>
 <tr>
@@ -623,7 +623,7 @@ Play the "completed" sound effect.
 </tr>
 <tr>
 <td class="address-1"><span id="64224"></span>FAE0</td>
-<td class="instruction">CALL Space_Won_Tune</td>
+<td class="instruction">CALL <a href="64231.html">$FAE7</a></td>
 <td class="comment-1" rowspan="1">Play it.</td>
 </tr>
 <tr>
@@ -638,7 +638,7 @@ This code is a common entry point if lightining was hit.
 </tr>
 <tr>
 <td class="address-2"><span id="64227"></span>FAE3</td>
-<td class="instruction">CALL Space_Play_Hit_Lightning</td>
+<td class="instruction">CALL <a href="63940.html">$F9C4</a></td>
 <td class="comment-1" rowspan="2">Play the "hit lighting" sound effect and return.</td>
 </tr>
 <tr>

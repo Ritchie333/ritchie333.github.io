@@ -120,11 +120,11 @@ The function updates <span class="register">IX</span> on each call to point at t
 </tr>
 <tr>
 <td class="address-1"><span id="61246"></span>EF3E</td>
-<td class="instruction">LD (Object_Hit_Boundary_Y),A</td>
+<td class="instruction">LD ($F673),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61249"></span>EF41</td>
-<td class="instruction">LD (Object_Hit_Boundary_X),A</td>
+<td class="instruction">LD ($F672),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61252"></span>EF44</td>
@@ -188,7 +188,7 @@ x co-ordinate has reached the minimum or maximum.
 </tr>
 <tr>
 <td class="address-1"><span id="61264"></span>EF50</td>
-<td class="instruction">LD (Object_Hit_Boundary_X),A</td>
+<td class="instruction">LD ($F672),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="61267"></span>EF53</td>
@@ -309,7 +309,7 @@ y co-ordinate has reached the minimum or maximum.
 </tr>
 <tr>
 <td class="address-1"><span id="61290"></span>EF6A</td>
-<td class="instruction">LD (Object_Hit_Boundary_Y),A</td>
+<td class="instruction">LD ($F673),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@ The positions have all been updated, so write them out.
 </tr>
 <tr>
 <td class="address-2"><span id="61303"></span>EF77</td>
-<td class="instruction">LD (Draw_XPos),HL</td>
+<td class="instruction">LD ($A838),HL</td>
 <td class="comment-1" rowspan="1">Write the position to update that will be used by the next call to the routine at <a href="43069.html">A83D</a>.</td>
 </tr>
 <tr>

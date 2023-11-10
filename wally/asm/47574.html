@@ -51,7 +51,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 </tr>
 <tr>
 <td class="address-1"><span id="47577"></span>B9D9</td>
-<td class="instruction">LD (Current_Room),A</td>
+<td class="instruction">LD ($B951),A</td>
 <td class="comment-1" rowspan="1">Store this temporarily so all characters can use it. (<a href="47441.html">B951</a>)</td>
 </tr>
 <tr>
@@ -76,7 +76,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 </tr>
 <tr>
 <td class="address-1"><span id="47589"></span>B9E5</td>
-<td class="instruction">LD A,(Current_Room)</td>
+<td class="instruction">LD A,($B951)</td>
 <td class="comment-1" rowspan="1">Put the current room in <span class="register">A</span>.</td>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 </tr>
 <tr>
 <td class="address-1"><span id="47597"></span>B9ED</td>
-<td class="instruction">CALL Update_Sprite</td>
+<td class="instruction">CALL <a href="45286.html">$B0E6</a></td>
 </tr>
 <tr>
 <td class="address-2"><span id="47600"></span>B9F0</td>
@@ -115,7 +115,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33198.html">81AE
 </tr>
 <tr>
 <td class="address-1"><span id="47607"></span>B9F7</td>
-<td class="instruction">CALL Update_Sprites</td>
+<td class="instruction">CALL <a href="47611.html">$B9FB</a></td>
 <td class="comment-1" rowspan="2">Put the sprite buffer on screen and return.</td>
 </tr>
 <tr>

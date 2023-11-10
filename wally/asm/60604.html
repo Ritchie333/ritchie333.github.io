@@ -193,7 +193,7 @@ Now update the grand total for all players.
 </tr>
 <tr>
 <td class="address-1"><span id="60649"></span>ECE9</td>
-<td class="instruction">LD A,(Total_Earnings)</td>
+<td class="instruction">LD A,($ECFE)</td>
 <td class="comment-1" rowspan="1">Get the hundreds portion for the current total.</td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@ Now update the grand total for all players.
 </tr>
 <tr>
 <td class="address-1"><span id="60654"></span>ECEE</td>
-<td class="instruction">LD (Total_Earnings),A</td>
+<td class="instruction">LD ($ECFE),A</td>
 <td class="comment-1" rowspan="1">Set the new hunderds portion.</td>
 </tr>
 <tr>

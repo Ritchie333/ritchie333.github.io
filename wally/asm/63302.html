@@ -39,11 +39,11 @@ Next: <a href="63347.html">F773</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63304"></span>F748</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63307"></span>F74B</td>
-<td class="instruction">LD IX,WallysHouse_Movement</td>
+<td class="instruction">LD IX,$F73A</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table. (<a href="63290.html">F73A</a>)</td>
 </tr>
 <tr>
@@ -58,12 +58,12 @@ Next: <a href="63347.html">F773</a>
 </tr>
 <tr>
 <td class="address-1"><span id="63314"></span>F752</td>
-<td class="instruction">LD BC,Full_Bounds</td>
+<td class="instruction">LD BC,$F2F7</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds table. (<a href="62199.html">F2F7</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63317"></span>F755</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -118,12 +118,12 @@ Now draw the lightbulb.
 </tr>
 <tr>
 <td class="address-1"><span id="63337"></span>F769</td>
-<td class="instruction">CALL Draw_Non_Mask</td>
+<td class="instruction">CALL <a href="43069.html">$A83D</a></td>
 <td class="comment-1" rowspan="1">Draw the object.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63340"></span>F76C</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@ Now draw the lightbulb.
 </tr>
 <tr>
 <td class="address-1"><span id="63344"></span>F770</td>
-<td class="instruction">DJNZ Logic_Wallys_House_1</td>
+<td class="instruction">DJNZ $F751</td>
 <td class="comment-1" rowspan="1">Loop until all the bulbs are updated.</td>
 </tr>
 <tr>

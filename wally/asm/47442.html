@@ -46,7 +46,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33109.html">8155
 </tr>
 <tr>
 <td class="address-1"><span id="47447"></span>B957</td>
-<td class="instruction">CALL Clear_Graphics</td>
+<td class="instruction">CALL <a href="47362.html">$B902</a></td>
 <td class="comment-1" rowspan="1">Clear the playing area.</td>
 </tr>
 <tr>
@@ -70,7 +70,7 @@ Used by the routines at <a href="33083.html">813B</a>, <a href="33109.html">8155
 </tr>
 <tr>
 <td class="address-1"><span id="47457"></span>B961</td>
-<td class="instruction">LD HL,Room_Data_Table</td>
+<td class="instruction">LD HL,$CDB5</td>
 <td class="comment-1" rowspan="2">Add the base address of the room data. (<a href="52661.html">CDB5</a>)</td>
 </tr>
 <tr>
@@ -138,7 +138,7 @@ This entry point is used by the routines at <a href="61383.html">EFC7</a> and <a
 </tr>
 <tr>
 <td class="address-1"><span id="47474"></span>B972</td>
-<td class="instruction">JR Z,Draw_Background_3</td>
+<td class="instruction">JR Z,$B9A8</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -148,7 +148,7 @@ This entry point is used by the routines at <a href="61383.html">EFC7</a> and <a
 </tr>
 <tr>
 <td class="address-1"><span id="47478"></span>B976</td>
-<td class="instruction">JR NZ,Draw_Background_2</td>
+<td class="instruction">JR NZ,$B982</td>
 <td class="comment-1" rowspan="1">Jump forward if not.</td>
 </tr>
 <tr>
@@ -168,12 +168,12 @@ These graphics are flag dependent.
 </tr>
 <tr>
 <td class="address-1"><span id="47481"></span>B979</td>
-<td class="instruction">CALL Get_Flag</td>
+<td class="instruction">CALL <a href="60445.html">$EC1D</a></td>
 <td class="comment-1" rowspan="1">Is the flag set?</td>
 </tr>
 <tr>
 <td class="address-1"><span id="47484"></span>B97C</td>
-<td class="instruction">JR NZ,Draw_Background_1</td>
+<td class="instruction">JR NZ,$B969</td>
 <td class="comment-1" rowspan="1">Jump forward if so.</td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@ These graphics are flag dependent.
 </tr>
 <tr>
 <td class="address-1"><span id="47488"></span>B980</td>
-<td class="instruction">JR Draw_Background_1</td>
+<td class="instruction">JR $B969</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -311,7 +311,7 @@ The graphics can be drawn.
 </tr>
 <tr>
 <td class="address-1"><span id="47522"></span>B9A2</td>
-<td class="instruction">CALL Draw_Graphic</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
 <td class="comment-1" rowspan="1">Draw the graphic string.</td>
 </tr>
 <tr>
@@ -321,12 +321,12 @@ The graphics can be drawn.
 </tr>
 <tr>
 <td class="address-1"><span id="47526"></span>B9A6</td>
-<td class="instruction">JR Draw_Background_1</td>
+<td class="instruction">JR $B969</td>
 <td class="comment-1" rowspan="1">Jump back to draw some more.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="47528"></span>B9A8</td>
-<td class="instruction">CALL Update_Screen</td>
+<td class="instruction">CALL <a href="47532.html">$B9AC</a></td>
 <td class="comment-1" rowspan="1">Copy the data to the working buffer.</td>
 </tr>
 <tr>

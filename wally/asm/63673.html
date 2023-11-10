@@ -37,7 +37,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="63673"></span>F8B9</td>
-<td class="instruction">LD IX,Space_Lightning_States</td>
+<td class="instruction">LD IX,$80A9</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
@@ -47,7 +47,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63679"></span>F8BF</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="63682"></span>F8C2</td>
@@ -61,7 +61,7 @@ Used by the routine at <a href="60919.html">EDF7</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="63685"></span>F8C5</td>
-<td class="instruction">LD BC,Space_Bounds</td>
+<td class="instruction">LD BC,$F8B5</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the bounds table. (<a href="63669.html">F8B5</a>)</td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ The lightning bolt is active.
 </tr>
 <tr>
 <td class="address-2"><span id="63702"></span>F8D6</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update the position.</td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@ The lightning bolt is active.
 </tr>
 <tr>
 <td class="address-1"><span id="63708"></span>F8DC</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Put it in the sprite buffer.</td>
 </tr>
 <tr>
@@ -165,12 +165,12 @@ The lightning bolt is active.
 </tr>
 <tr>
 <td class="address-1"><span id="63735"></span>F8F7</td>
-<td class="instruction">CALL NC,Drop_Endurance</td>
+<td class="instruction">CALL NC,<a href="58153.html#58175">$E33F</a></td>
 <td class="comment-1" rowspan="1">If it is, the player has hit the lightning, so decrease endurance.</td>
 </tr>
 <tr>
 <td class="address-2"><span id="63738"></span>F8FA</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_X)</td>
+<td class="instruction">LD A,($F672)</td>
 <td class="comment-1" rowspan="2">Has the missile hit a boundary in X?</td>
 </tr>
 <tr>
@@ -237,7 +237,7 @@ If the missile hits a boundary, the usual logic for moving objects needs changin
 </tr>
 <tr>
 <td class="address-2"><span id="63768"></span>F918</td>
-<td class="instruction">LD A,(Object_Hit_Boundary_Y)</td>
+<td class="instruction">LD A,($F673)</td>
 <td class="comment-1" rowspan="2">Has the missile hit a boundary in Y?</td>
 </tr>
 <tr>

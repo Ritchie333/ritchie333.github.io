@@ -39,21 +39,21 @@ Next: <a href="62062.html">F26E</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62029"></span>F24D</td>
-<td class="instruction">LD (Endurance_Penalty),A</td>
+<td class="instruction">LD ($F26E),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62032"></span>F250</td>
-<td class="instruction">LD IX,PostOffice_Movement</td>
+<td class="instruction">LD IX,$F243</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the movement table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62036"></span>F254</td>
-<td class="instruction">LD BC,Full_Bounds</td>
+<td class="instruction">LD BC,$F2F7</td>
 <td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the stamp table.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62039"></span>F257</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
@@ -63,12 +63,12 @@ Next: <a href="62062.html">F26E</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62044"></span>F25C</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62047"></span>F25F</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>
@@ -78,17 +78,17 @@ Next: <a href="62062.html">F26E</a>
 </tr>
 <tr>
 <td class="address-1"><span id="62052"></span>F264</td>
-<td class="instruction">CALL Update_Next_Sprite</td>
+<td class="instruction">CALL <a href="61237.html">$EF35</a></td>
 <td class="comment-1" rowspan="1">Update moving objects.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62055"></span>F267</td>
-<td class="instruction">CALL Draw_Mask</td>
+<td class="instruction">CALL <a href="43168.html">$A8A0</a></td>
 <td class="comment-1" rowspan="1">Draw the stamp.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="62058"></span>F26A</td>
-<td class="instruction">CALL Detect_Collision</td>
+<td class="instruction">CALL <a href="58153.html">$E329</a></td>
 <td class="comment-1" rowspan="1">Check for collision detection.</td>
 </tr>
 <tr>

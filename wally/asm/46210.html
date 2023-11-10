@@ -37,7 +37,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="46210"></span>B482</td>
-<td class="instruction">LD HL,(Theme_Tune_Note_Ptr)</td>
+<td class="instruction">LD HL,($B4E7)</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> towards the next note in the tune.</td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46219"></span>B48B</td>
-<td class="instruction">LD (Is_Character_Computer),A</td>
+<td class="instruction">LD ($B55F),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46222"></span>B48E</td>
@@ -70,7 +70,7 @@ Used by the routine at <a href="32997.html">80E5</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46224"></span>B490</td>
-<td class="instruction">LD (Last_Key),A</td>
+<td class="instruction">LD ($B4E9),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46227"></span>B493</td>
@@ -108,11 +108,11 @@ There is more of the tune to play, so do it. First, work out if the type of soun
 </tr>
 <tr>
 <td class="address-2"><span id="46234"></span>B49A</td>
-<td class="instruction">LD (Next_Note_Type),A</td>
+<td class="instruction">LD ($B4EA),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46237"></span>B49D</td>
-<td class="instruction">LD (Theme_Tune_Note_Ptr),HL</td>
+<td class="instruction">LD ($B4E7),HL</td>
 <td class="comment-1" rowspan="1">Set the next address of the tune to play. (<a href="46311.html">B4E7</a>)</td>
 </tr>
 <tr>
@@ -166,7 +166,7 @@ Now play the note.
 </tr>
 <tr>
 <td class="address-1"><span id="46253"></span>B4AD</td>
-<td class="instruction">LD (Theme_Tune_Note_Ptr),HL</td>
+<td class="instruction">LD ($B4E7),HL</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46256"></span>B4B0</td>
@@ -194,7 +194,7 @@ Now play the note.
 </tr>
 <tr>
 <td class="address-1"><span id="46263"></span>B4B7</td>
-<td class="instruction">LD DE,Frequency_Table</td>
+<td class="instruction">LD DE,$B537</td>
 <td class="comment-1" rowspan="2">Add the base address for the note frequencies. (<a href="46391.html">B537</a>)</td>
 </tr>
 <tr>
@@ -252,12 +252,12 @@ Now play the note.
 </tr>
 <tr>
 <td class="address-1"><span id="46282"></span>B4CA</td>
-<td class="instruction">CALL Play_Note</td>
+<td class="instruction">CALL <a href="46341.html">$B505</a></td>
 <td class="comment-1" rowspan="1">Play the note.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46285"></span>B4CD</td>
-<td class="instruction">LD A,(Last_Key)</td>
+<td class="instruction">LD A,($B4E9)</td>
 <td class="comment-1" rowspan="2">Was a key pressed?</td>
 </tr>
 <tr>

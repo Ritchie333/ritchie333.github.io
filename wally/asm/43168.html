@@ -66,12 +66,12 @@ The co-ordinates to update are stored in <a href="43064.html">A838</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="43170"></span>A8A2</td>
-<td class="instruction">LD (Draw_SP),SP</td>
+<td class="instruction">LD ($A83B),SP</td>
 <td class="comment-1" rowspan="1">Store the stack pointer in <a href="43067.html">A83B</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43174"></span>A8A6</td>
-<td class="instruction">LD SP,Object_00</td>
+<td class="instruction">LD SP,$8378</td>
 <td class="comment-1" rowspan="1">Set the stack pointer to the start of the object graphics. (<a href="33656.html">8378</a>)</td>
 </tr>
 <tr>
@@ -115,7 +115,7 @@ The co-ordinates to update are stored in <a href="43064.html">A838</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="43187"></span>A8B3</td>
-<td class="instruction">LD A,(Draw_XPos)</td>
+<td class="instruction">LD A,($A838)</td>
 <td class="comment-1" rowspan="2">Put the X co-ordinate in <span class="register">B</span>.</td>
 </tr>
 <tr>
@@ -181,7 +181,7 @@ The co-ordinates to update are stored in <a href="43064.html">A838</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="43214"></span>A8CE</td>
-<td class="instruction">LD A,(Draw_YPos)</td>
+<td class="instruction">LD A,($A839)</td>
 <td class="comment-1" rowspan="1">Get the Y co-ordinate.</td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43234"></span>A8E2</td>
-<td class="instruction">JR Z,Draw_Mask_3</td>
+<td class="instruction">JR Z,$A8F0</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43236"></span>A8E4</td>
@@ -284,7 +284,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43244"></span>A8EC</td>
-<td class="instruction">DJNZ Draw_Mask_4</td>
+<td class="instruction">DJNZ $A8E7</td>
 <td class="comment-1" rowspan="1">Loop until we get to the right frame number.</td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43262"></span>A8FE</td>
-<td class="instruction">JR Z,Draw_Mask_5</td>
+<td class="instruction">JR Z,$A90A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="43264"></span>A900</td>
@@ -382,7 +382,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43270"></span>A906</td>
-<td class="instruction">DJNZ Draw_Mask_4</td>
+<td class="instruction">DJNZ $A901</td>
 <td class="comment-1" rowspan="1">Loop until we get to the right frame number.</td>
 </tr>
 <tr>
@@ -446,7 +446,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43287"></span>A917</td>
-<td class="instruction">JP NZ,Draw_Mask_1</td>
+<td class="instruction">JP NZ,$A8DE</td>
 <td class="comment-1" rowspan="1">Loop while there are more rows to draw.</td>
 </tr>
 <tr>
@@ -456,7 +456,7 @@ If this is not frame 0, it doesn't sit on a byte boundary and bits need shifting
 </tr>
 <tr>
 <td class="address-1"><span id="43291"></span>A91B</td>
-<td class="instruction">LD SP,(Draw_SP)</td>
+<td class="instruction">LD SP,($A83B)</td>
 <td class="comment-1" rowspan="1">Restore the stack pointer.</td>
 </tr>
 <tr>

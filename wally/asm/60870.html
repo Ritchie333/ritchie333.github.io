@@ -39,12 +39,12 @@ Next: <a href="60919.html">EDF7</a>
 </tr>
 <tr>
 <td class="address-1"><span id="60871"></span>EDC7</td>
-<td class="instruction">LD HL,Safe_Characters</td>
+<td class="instruction">LD HL,$EDBE</td>
 <td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the list of which order to bring letters. (<a href="60862.html">EDBE</a>)</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60874"></span>EDCA</td>
-<td class="instruction">LD A,(Safe_nLetters)</td>
+<td class="instruction">LD A,($EDC5)</td>
 <td class="comment-1" rowspan="1">Put the number of safe letters already used in <span class="register">A</span>. (<a href="60869.html">EDC5</a>)</td>
 </tr>
 <tr>
@@ -108,7 +108,7 @@ The right character is at the safe.
 </tr>
 <tr>
 <td class="address-1"><span id="60893"></span>EDDD</td>
-<td class="instruction">LD (Safe_nLetters),A</td>
+<td class="instruction">LD ($EDC5),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60896"></span>EDE0</td>
@@ -117,7 +117,7 @@ The right character is at the safe.
 </tr>
 <tr>
 <td class="address-1"><span id="60898"></span>EDE2</td>
-<td class="instruction">JP Z,Cracked_Safe</td>
+<td class="instruction">JP Z,<a href="46019.html">$B3C3</a></td>
 <td class="comment-1" rowspan="1">If so, the safe is cracked and the game is won! Display the final sequence.</td>
 </tr>
 <tr>
@@ -166,7 +166,7 @@ The wrong character is at the safe.
 </tr>
 <tr>
 <td class="address-1"><span id="60914"></span>EDF2</td>
-<td class="instruction">LD (Safe_nLetters),A</td>
+<td class="instruction">LD ($EDC5),A</td>
 </tr>
 <tr>
 <td class="address-1"><span id="60917"></span>EDF5</td>

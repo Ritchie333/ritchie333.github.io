@@ -42,22 +42,22 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46022"></span>B3C6</td>
-<td class="instruction">LD HL,Room_Block_39</td>
+<td class="instruction">LD HL,$CCF2</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46025"></span>B3C9</td>
-<td class="instruction">CALL Overwrite_Screen</td>
+<td class="instruction">CALL <a href="47147.html">$B82B</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-2"><span id="46028"></span>B3CC</td>
-<td class="instruction">LD IY,Character_Base</td>
+<td class="instruction">LD IY,$BC67</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> towards the first character buffer.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46032"></span>B3D0</td>
-<td class="instruction">LD HL,Safe_Character_Offsets</td>
+<td class="instruction">LD HL,$B3BE</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -162,7 +162,7 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46079"></span>B3FF</td>
-<td class="instruction">CALL Move_Character</td>
+<td class="instruction">CALL <a href="45704.html">$B288</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -182,7 +182,7 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46092"></span>B40C</td>
-<td class="instruction">CALL Move_Character</td>
+<td class="instruction">CALL <a href="45704.html">$B288</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-2"><span id="46097"></span>B411</td>
-<td class="instruction">LD IY,Character_Base</td>
+<td class="instruction">LD IY,$BC67</td>
 <td class="comment-1" rowspan="1">Point <span class="register">IY</span> towards the first character buffer.</td>
 </tr>
 <tr>
@@ -252,7 +252,7 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46122"></span>B42A</td>
-<td class="instruction">LD A,(Bank_Letters_Pending)</td>
+<td class="instruction">LD A,($F6DB)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -277,17 +277,17 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46134"></span>B436</td>
-<td class="instruction">CALL Draw_Graphic</td>
+<td class="instruction">CALL <a href="47179.html">$B84B</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="46137"></span>B439</td>
-<td class="instruction">CALL Wait_For_Keypress</td>
+<td class="instruction">CALL <a href="45995.html">$B3AB</a></td>
 <td class="comment-1" rowspan="1">Wait for a keypress.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46140"></span>B43C</td>
-<td class="instruction">CALL Clear_Screen</td>
+<td class="instruction">CALL <a href="47341.html">$B8ED</a></td>
 <td class="comment-1" rowspan="1">Clear the screen.</td>
 </tr>
 <tr>
@@ -302,12 +302,12 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46149"></span>B445</td>
-<td class="instruction">CALL Print_Char</td>
+<td class="instruction">CALL <a href="47300.html">$B8C4</a></td>
 <td class="comment-1" rowspan="1">Print it.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="46152"></span>B448</td>
-<td class="instruction">CALL Wait_For_Keypress</td>
+<td class="instruction">CALL <a href="45995.html">$B3AB</a></td>
 <td class="comment-1" rowspan="1">Wait for a keypress.</td>
 </tr>
 <tr>
@@ -317,7 +317,7 @@ Used by the routine at <a href="60870.html">EDC6</a>.
 </tr>
 <tr>
 <td class="address-1"><span id="46158"></span>B44E</td>
-<td class="instruction">JP Main</td>
+<td class="instruction">JP <a href="33156.html">$8184</a></td>
 <td class="comment-1" rowspan="1">Restart the game.</td>
 </tr>
 </table>
